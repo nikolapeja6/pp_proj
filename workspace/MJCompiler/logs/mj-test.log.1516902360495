@@ -1,0 +1,26 @@
+INFO  18:43:39,215 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  18:43:39,215 - #2 program
+INFO  18:43:39,215 - #15 MJProgram
+INFO  18:43:39,215 - #15 int
+INFO  18:43:39,215 - #15 x
+INFO  18:43:39,215 - #15 int
+INFO  18:43:39,215 - #15 y
+INFO  18:43:39,220 - #15 int
+INFO  18:43:39,220 - #15 k
+INFO  18:43:39,220 - #15 int
+INFO  18:43:39,220 - #15 c
+INFO  18:43:39,220 - #15 c
+INFO  18:43:39,220 - #14 0
+INFO  18:43:39,220 - #15 return
+INFO  18:43:39,220 - #15 c
+INFO  18:43:39,220 - #14 3
+INFO  18:43:39,220 - #15 int
+INFO  18:43:39,220 - #15 main
+INFO  18:43:39,220 - #15 print
+INFO  18:43:39,220 - #14 1
+INFO  18:43:39,220 - #15 x
+INFO  18:43:39,220 - #15 y
+INFO  18:43:39,220 - #14 3
+INFO  18:43:39,220 - #15 k
+INFO  18:43:39,220 - #15 print
+INFO  18:43:39,220 - #14 2
