@@ -61,6 +61,4 @@ public class sym {
 	public static final int CLOSED_BRACED = 48;
 	public static final int OPEN_CHEVRONS = 49;
 	public static final int CLOSED_CHEVRONS = 50;
-	
-	public static final int BOOL = 51;
 }
