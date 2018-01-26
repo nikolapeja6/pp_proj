@@ -43,12 +43,14 @@ import org.apache.log4j.*;
  "if"		{return new_symbol(sym.IF, yytext());}
  "new"		{return new_symbol(sym.NEW, yytext());}
  "print"	{return new_symbol(sym.PRINT, yytext());}
+ "read"		{return new_symbol(sym.READ, yytext());}
  "return"	{return new_symbol(sym.RETURN, yytext());}
  "void"		{return new_symbol(sym.VOID, yytext());}
  "do"		{return new_symbol(sym.DO, yytext());}
  "while"	{return new_symbol(sym.WHILE, yytext());}
  "extends"	{return new_symbol(sym.EXTENDS, yytext());}
  "continue"	{return new_symbol(sym.CONTINUE, yytext());}
+ "const"	{return new_symbol(sym.CONST, yytext());}
 
  "+"		{return new_symbol(sym.PLUS, yytext());}
  "-"		{return new_symbol(sym.MINUS, yytext());}
@@ -70,11 +72,11 @@ import org.apache.log4j.*;
  ";"		{return new_symbol(sym.SEMI, yytext());}
  "."		{return new_symbol(sym.DOT, yytext());}
  "("		{return new_symbol(sym.OPEN_PARENTHESES, yytext());}
- ")"		{return new_symbol(sym.CLOSED_PARENTHESES, yytext());}
+ ")"		{return new_symbol(sym.CLOSE_PARENTHESES, yytext());}
  "{"		{return new_symbol(sym.OPEN_BRACES, yytext());}
- "}"		{return new_symbol(sym.CLOSED_BRACED, yytext());}
+ "}"		{return new_symbol(sym.CLOSE_BRACES, yytext());}
  "["		{return new_symbol(sym.OPEN_CHEVRONS, yytext());}
- "]"		{return new_symbol(sym.CLOSED_CHEVRONS, yytext());}
+ "]"		{return new_symbol(sym.CLOSE_CHEVRONS, yytext());}
 
 
  "true"|"false" 					{return new_symbol(sym.BOOL, Boolean.valueOf(yytext()));}

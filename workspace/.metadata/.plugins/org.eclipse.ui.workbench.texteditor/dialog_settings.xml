@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="SEMICOLON" key="selection"/>
+		<item value="Statement" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="true" key="wrap"/>
+		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="SEMICOLON"/>
-			<item value="&lt;YYINITIAL&gt;"/>
-			<item value="\);\};"/>
-			<item value="\);};"/>
-			<item value=");};"/>
-			<item value=".*sym.(.*).*"/>
-			<item value=".*sym.(.*),.*"/>
-			<item value=".*"/>
+			<item value="TerminalStatement"/>
+			<item value="statement"/>
+			<item value="MultipleStatement"/>
+			<item value="Statement"/>
+			<item value="MultipleVarDecl"/>
+			<item value="MultipleDesignatorElem"/>
+			<item value="multipledesign"/>
+			<item value="MultipleMulopFactor"/>
 		</list>
 		<list key="replacehistory">
+			<item value="$1"/>
 			<item value=""/>
 			<item value=";"/>
 			<item value="public static final int $1;"/>
@@ -27,7 +28,7 @@
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="703" key="DIALOG_X_ORIGIN"/>
-		<item value="351" key="DIALOG_Y_ORIGIN"/>
+		<item value="713" key="DIALOG_X_ORIGIN"/>
+		<item value="433" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
