@@ -69,7 +69,7 @@ import org.apache.log4j.*;
  "++"		{return new_symbol(sym.INC, yytext());}
  "--"		{return new_symbol(sym.DEC, yytext());}
  ","		{return new_symbol(sym.COMMA, yytext());}
- ";"		{return new_symbol(sym.SEMI, yytext());}
+ ";"		{return new_symbol(sym.SEMICOLON, yytext());}
  "."		{return new_symbol(sym.DOT, yytext());}
  "("		{return new_symbol(sym.OPEN_PARENTHESES, yytext());}
  ")"		{return new_symbol(sym.CLOSE_PARENTHESES, yytext());}

@@ -13,30 +13,30 @@ import java_cup.runtime.Symbol;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 
 public class MJParserTest {
-	
+
 	static {
 		DOMConfigurator.configure(Log4JUtils.instance().findLoggerConfigFile());
 		Log4JUtils.instance().prepareLogFile(Logger.getRootLogger());
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		Logger log = Logger.getLogger(MJParserTest.class);
 		Reader br = null;
 		try {
 
 			File sourceCode = new File("test/program.mj");
 			// File sourceCode = new File("test/test301.mj");
+			// File sourceCode = new File("test/test302.mj");
+			// File sourceCode = new File("test/test303.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 
 			br = new BufferedReader(new FileReader(sourceCode));
 
 			Yylex lexer = new Yylex(br);
 			MJParser parser = new MJParser(lexer);
-			Symbol currToken = null;
-			while ((currToken = lexer.next_token()).sym != sym.EOF) {
-				if (currToken != null && currToken.value != null)
-					log.info(currToken.toString() + " " + currToken.value.toString());
-			}
+			parser.parse();
+			
+			
 		} finally {
 			if (br != null)
 				try {

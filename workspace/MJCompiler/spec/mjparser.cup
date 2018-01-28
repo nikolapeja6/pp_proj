@@ -3,6 +3,8 @@ package rs.ac.bg.etf.pp1;
 import java_cup.runtime.*;
 import java.io.*;
 import org.apache.log4j.*;
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.*;
 
 parser code {:
 	
@@ -33,6 +35,16 @@ parser code {:
 		}
 		log.error(msg.toString());
 	}
+	
+	public void report_info(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" na liniji ").append(((Symbol)info).left);
+		}
+		log.info(msg.toString());
+	}
 :}
 
 scan with {:
@@ -40,6 +52,22 @@ scan with {:
 	if(s != null && s.value != null)
 		log.info(s.toString() + " " + s.value.toString());
 	return s;
+:}
+
+init with 
+{:
+	Tab.init();
+	
+:}
+
+action code 
+{:
+	Obj currentMethod = null;
+	
+	public void ProcessType()
+	{
+		
+	}
 :}
 
 /**
@@ -138,7 +166,6 @@ non terminal Expr;
 non terminal Term;
 non terminal Factor;
 non terminal Relop, Addop, Mulop;
-non terminal Type;
 
 non terminal Matched, Unmatched;
 
@@ -158,16 +185,30 @@ non terminal DesignatorElem, MultipleDesignatorElem;
 non terminal ReturnType;
 non terminal Literal;
 
-/** END OF NON TERMINALS */
+/* END OF NON TERMINALS */
 
 
 
+/** NON TERMINALS FOR SEMANTIC ANALYSIS */
+
+non terminal Obj ProgName;
+
+non terminal Struct Type;
 
 
-Program ::= PROG IDENT OPEN_BRACES MethodDecl CLOSE_BRACES
+/* END OF  NON TERMINALS FOR SEMANTIC ANALYSIS */
+
+
+
+Program ::= PROG ProgName:p OPEN_BRACES MethodDecl CLOSE_BRACES
 			|
-			PROG IDENT Decl OPEN_BRACES MethodDecl CLOSE_BRACES
+			PROG ProgName:p Decl OPEN_BRACES MethodDecl CLOSE_BRACES
 			;
+ProgName ::= IDENT:p
+{:
+	RESULT = Tab.insert(Obj.Prog, p, Tab.noType);
+	Tab.openScope();
+:};
 
 
 Decl ::= ConstDecl
@@ -210,8 +251,13 @@ VarDeclList ::= VarDeclElem
 				VarDeclList COMMA VarDeclElem
 				;
 
-VarDecl ::= Type VarDeclList SEMICOLON
-			;
+// TODO add all vardecl names to sim table
+// foreach Tab.insert(Obj.Var, varName, varType);
+// and check if(Tab.noObj == Tab.find(varName))
+VarDecl ::= Type:varType VarDeclList SEMICOLON
+{:
+	
+:};
 
 MultipleVarDecl ::= VarDecl
 				   |
@@ -258,8 +304,29 @@ FormalPars ::= FormalPar
 			   FormalPars COMMA FormalPar
 			   ;
 
-Type ::= IDENT
-		;
+Type ::= IDENT:typeName
+{:
+	Obj typeNode = Tab.find(typeName);
+	if(typeNode == Tab.noObj)
+	{
+		parser.report_error("Nije pronadjen tip "+typeName+"u tabeli simbola", null);
+		RESULT = Tab.noType;
+	}
+	else
+	{
+		if(Obj.Type != typeNode.getKind())
+		{
+			parser.report_error("Ime "+typeName+"ne predstavlja tip", null);
+			RESULT = Tab.noType;
+		}
+		else
+		{
+			parser.report_info("Pronadjen tip "+typeName, null);
+			RESULT = typeNode.getType();
+		}
+		
+	}
+:};
 
 
 Statement ::= 	Matched 
@@ -408,7 +475,7 @@ Factor ::= Designator
 			;
 
 			
-DesignatorElem ::= DOT IDENT
+DesignatorElem ::= DOT IDENT /*TODO name not declared*/
 					|
 					OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 					;
@@ -417,9 +484,9 @@ MultipleDesignatorElem ::= MultipleDesignatorElem DesignatorElem
 							|
 							DesignatorElem
 							;
-Designator ::= IDENT
+Designator ::= IDENT /*TODO name not declared*/
 				|
-				IDENT MultipleDesignatorElem
+				IDENT /*TODO name not declared*/ MultipleDesignatorElem
 				;
 				
 Relop ::= 	EQUAL

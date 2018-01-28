@@ -1,0 +1,36 @@
+INFO  17:00:01,707 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  17:00:01,716 - #41 program
+INFO  17:00:01,717 - #46 MJProgram
+INFO  17:00:01,717 - #46 int
+INFO  17:00:01,717 - #46 x
+INFO  17:00:01,717 - Pronadjen tip int
+INFO  17:00:01,717 - #14 ;
+INFO  17:00:01,717 - #46 int
+INFO  17:00:01,717 - #46 y
+INFO  17:00:01,717 - Pronadjen tip int
+INFO  17:00:01,717 - #14 ;
+INFO  17:00:01,717 - #35 {
+INFO  17:00:01,717 - #46 int
+INFO  17:00:01,717 - #46 k
+INFO  17:00:01,717 - Pronadjen tip int
+INFO  17:00:01,717 - #33 (
+INFO  17:00:01,717 - #34 )
+INFO  17:00:01,717 - #46 int
+INFO  17:00:01,717 - #46 c
+INFO  17:00:01,718 - Pronadjen tip int
+INFO  17:00:01,718 - #14 ;
+INFO  17:00:01,718 - #35 {
+INFO  17:00:01,718 - #46 c
+INFO  17:00:01,718 - #29 =
+INFO  17:00:01,718 - #9 0
+INFO  17:00:01,718 - #14 ;
+INFO  17:00:01,718 - #8 return
+INFO  17:00:01,718 - #46 c
+INFO  17:00:01,718 - #16 +
+INFO  17:00:01,718 - #9 3
+INFO  17:00:01,718 - #14 ;
+INFO  17:00:01,718 - #36 }
+INFO  17:00:01,718 - #46 int
+ERROR 17:00:01,718 - 
+Sintaksna greska na liniji 10
+ERROR 17:00:01,719 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 10
