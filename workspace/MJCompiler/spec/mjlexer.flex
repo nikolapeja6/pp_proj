@@ -82,9 +82,8 @@ import org.apache.log4j.*;
  "true"|"false" 					{return new_symbol(sym.BOOL, Boolean.valueOf(yytext()));}
  ([a-z]|[A-Z])([a-z|A-Z|0-9|_])* 	{return new_symbol(sym.IDENT, yytext());}
  [0-9]+ 							{return new_symbol(sym.NUMBER, new Integer(yytext()));}
- "'"[:print:]"'" 					{return new_symbol(sym.CHAR, Character.toString(yytext().charAt(1)));}
- \"[:print:]*\" 					{String text = yytext(); return new_symbol(sym.STRING, text.substring(1, text.length()-1));}
-
+ \'[^\']\' 						{return new_symbol(sym.CHAR, Character.toString(yytext().charAt(1)));}
+ 
 
 
 
@@ -94,5 +93,5 @@ import org.apache.log4j.*;
 
 
 
-. {Logger.getLogger(getClass()).error("Leksicka greska ("+yytext()+") u liniji " + (yyline + 1));}
+. {Logger.getLogger(getClass()).error("Leksicka greska ("+yytext()+") na "+(yycolumn+1)+" karakteru "+ (yyline + 1) +" linije.");}
 

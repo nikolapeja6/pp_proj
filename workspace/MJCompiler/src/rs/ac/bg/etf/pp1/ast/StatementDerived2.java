@@ -1,36 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:30
+// 30/0/2018 22:37:37
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived2 extends Statement {
 
-    private Condition Condition;
-    private Statement Statement;
+    private Unmatched Unmatched;
 
-    public StatementDerived2 (Condition Condition, Statement Statement) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+    public StatementDerived2 (Unmatched Unmatched) {
+        this.Unmatched=Unmatched;
+        if(Unmatched!=null) Unmatched.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public Unmatched getUnmatched() {
+        return Unmatched;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
-    }
-
-    public Statement getStatement() {
-        return Statement;
-    }
-
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setUnmatched(Unmatched Unmatched) {
+        this.Unmatched=Unmatched;
     }
 
     public void accept(Visitor visitor) {
@@ -38,19 +27,16 @@ public class StatementDerived2 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
+        if(Unmatched!=null) Unmatched.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(Unmatched!=null) Unmatched.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(Unmatched!=null) Unmatched.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +45,8 @@ public class StatementDerived2 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived2(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(Unmatched!=null)
+            buffer.append(Unmatched.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -32,7 +32,7 @@ program test301
 		nizch = new char[3];
 		nizch[0] = 'a';
 		nizch[jedan] = 'b';
-		nizch[pet - 3] = 'c';
+		nizch[pet - 3] = 'cx';
 		print( nizch[2 - 1]);
 		print( nizch[jedan * 2]);
 			

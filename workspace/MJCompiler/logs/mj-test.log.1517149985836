@@ -1,0 +1,37 @@
+INFO  14:30:44,193 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  14:30:44,201 - #41 program
+INFO  14:30:44,201 - #46 MJProgram
+INFO  14:30:44,201 - #46 int
+INFO  14:30:44,201 - #46 x
+INFO  14:30:44,201 - Type found int
+INFO  14:30:44,201 - #14 ;
+INFO  14:30:44,201 - #46 int
+INFO  14:30:44,201 - #46 y
+INFO  14:30:44,201 - Type found int
+INFO  14:30:44,201 - #14 ;
+INFO  14:30:44,201 - #35 {
+INFO  14:30:44,201 - #46 int
+INFO  14:30:44,202 - #46 k
+INFO  14:30:44,202 - Type found int
+INFO  14:30:44,202 - Return type found - null
+INFO  14:30:44,202 - #33 (
+INFO  14:30:44,202 - #34 )
+INFO  14:30:44,202 - #46 int
+INFO  14:30:44,202 - #46 c
+INFO  14:30:44,202 - Type found int
+INFO  14:30:44,202 - #14 ;
+INFO  14:30:44,202 - #35 {
+INFO  14:30:44,202 - #46 c
+INFO  14:30:44,202 - #29 =
+INFO  14:30:44,202 - #9 1
+INFO  14:30:44,202 - #14 ;
+INFO  14:30:44,202 - #8 return
+INFO  14:30:44,202 - #46 c
+INFO  14:30:44,202 - #16 +
+INFO  14:30:44,202 - #9 2
+INFO  14:30:44,202 - #14 ;
+INFO  14:30:44,202 - #36 }
+INFO  14:30:44,202 - #46 int
+ERROR 14:30:44,202 - 
+Sintaksna greska na liniji 10
+ERROR 14:30:44,203 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 10

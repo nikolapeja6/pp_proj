@@ -1,0 +1,11 @@
+INFO  03:13:33,105 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  03:13:33,149 - #41 program
+INFO  03:13:33,149 - #46 MJProgram
+INFO  03:13:33,149 - #46 int
+INFO  03:13:33,149 - #46 x
+INFO  03:13:33,149 - #46 a
+ERROR 03:13:33,149 - Sintaksna greska na liniji 2
+INFO  03:13:33,149 - #14 ;
+INFO  03:13:33,149 - #46 int
+INFO  03:13:33,149 - #46 y
+INFO  03:13:33,150 - #14 ;

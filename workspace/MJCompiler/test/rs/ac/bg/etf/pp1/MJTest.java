@@ -19,28 +19,34 @@ public class MJTest {
 		DOMConfigurator.configure(Log4JUtils.instance().findLoggerConfigFile());
 		Log4JUtils.instance().prepareLogFile(Logger.getRootLogger());
 	}
-	
+
 	public static void main(String[] args) throws IOException {
 		Logger log = Logger.getLogger(MJTest.class);
 		Reader br = null;
 		try {
-			
-			File sourceCode = new File("test/program.mj");
-			//File sourceCode = new File("test/test301.mj");	
+
+			// File sourceCode = new File("test/program.mj");
+			File sourceCode = new File("test/test301.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
-			
+
 			br = new BufferedReader(new FileReader(sourceCode));
-			
+
 			Yylex lexer = new Yylex(br);
 			Symbol currToken = null;
 			while ((currToken = lexer.next_token()).sym != sym.EOF) {
-				if (currToken != null && currToken.value != null)
+				if (currToken != null && currToken.value != null) {
 					log.info(currToken.toString() + " " + currToken.value.toString());
+					log.debug("type code of token is " + currToken.sym);
+				}
 			}
-		} 
-		finally {
-			if (br != null) try { br.close(); } catch (IOException e1) { log.error(e1.getMessage(), e1); }
+		} finally {
+			if (br != null)
+				try {
+					br.close();
+				} catch (IOException e1) {
+					log.error(e1.getMessage(), e1);
+				}
 		}
 	}
-	
+
 }

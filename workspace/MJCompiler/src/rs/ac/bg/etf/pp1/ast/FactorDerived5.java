@@ -1,24 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:30
+// 30/0/2018 22:37:38
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class FactorDerived5 extends Factor {
 
-    private String S1;
+    private Expr Expr;
 
-    public FactorDerived5 (String S1) {
-        this.S1=S1;
+    public FactorDerived5 (Expr Expr) {
+        this.Expr=Expr;
+        if(Expr!=null) Expr.setParent(this);
     }
 
-    public String getS1() {
-        return S1;
+    public Expr getExpr() {
+        return Expr;
     }
 
-    public void setS1(String S1) {
-        this.S1=S1;
+    public void setExpr(Expr Expr) {
+        this.Expr=Expr;
     }
 
     public void accept(Visitor visitor) {
@@ -26,13 +27,16 @@ public class FactorDerived5 extends Factor {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -41,7 +45,10 @@ public class FactorDerived5 extends Factor {
         buffer.append(tab);
         buffer.append("FactorDerived5(\n");
 
-        buffer.append(" "+tab+S1);
+        if(Expr!=null)
+            buffer.append(Expr.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);

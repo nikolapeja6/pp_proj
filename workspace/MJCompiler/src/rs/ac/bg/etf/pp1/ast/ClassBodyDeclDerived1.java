@@ -1,25 +1,36 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:29
+// 30/0/2018 22:37:37
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ClassBodyDeclDerived1 extends ClassBodyDecl {
 
-    private MultipleVarDecl MultipleVarDecl;
+    private OptionalMultipleVarDecl OptionalMultipleVarDecl;
+    private OptionalMultipleMethodDecl OptionalMultipleMethodDecl;
 
-    public ClassBodyDeclDerived1 (MultipleVarDecl MultipleVarDecl) {
-        this.MultipleVarDecl=MultipleVarDecl;
-        if(MultipleVarDecl!=null) MultipleVarDecl.setParent(this);
+    public ClassBodyDeclDerived1 (OptionalMultipleVarDecl OptionalMultipleVarDecl, OptionalMultipleMethodDecl OptionalMultipleMethodDecl) {
+        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.setParent(this);
+        this.OptionalMultipleMethodDecl=OptionalMultipleMethodDecl;
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.setParent(this);
     }
 
-    public MultipleVarDecl getMultipleVarDecl() {
-        return MultipleVarDecl;
+    public OptionalMultipleVarDecl getOptionalMultipleVarDecl() {
+        return OptionalMultipleVarDecl;
     }
 
-    public void setMultipleVarDecl(MultipleVarDecl MultipleVarDecl) {
-        this.MultipleVarDecl=MultipleVarDecl;
+    public void setOptionalMultipleVarDecl(OptionalMultipleVarDecl OptionalMultipleVarDecl) {
+        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
+    }
+
+    public OptionalMultipleMethodDecl getOptionalMultipleMethodDecl() {
+        return OptionalMultipleMethodDecl;
+    }
+
+    public void setOptionalMultipleMethodDecl(OptionalMultipleMethodDecl OptionalMultipleMethodDecl) {
+        this.OptionalMultipleMethodDecl=OptionalMultipleMethodDecl;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +38,19 @@ public class ClassBodyDeclDerived1 extends ClassBodyDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(MultipleVarDecl!=null) MultipleVarDecl.accept(visitor);
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.accept(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(MultipleVarDecl!=null) MultipleVarDecl.traverseTopDown(visitor);
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseTopDown(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(MultipleVarDecl!=null) MultipleVarDecl.traverseBottomUp(visitor);
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseBottomUp(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +59,14 @@ public class ClassBodyDeclDerived1 extends ClassBodyDecl {
         buffer.append(tab);
         buffer.append("ClassBodyDeclDerived1(\n");
 
-        if(MultipleVarDecl!=null)
-            buffer.append(MultipleVarDecl.toString("  "+tab));
+        if(OptionalMultipleVarDecl!=null)
+            buffer.append(OptionalMultipleVarDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(OptionalMultipleMethodDecl!=null)
+            buffer.append(OptionalMultipleMethodDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

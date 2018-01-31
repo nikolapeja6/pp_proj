@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="true" key="isRegEx"/>
-		<item value="Type" key="selection"/>
+		<item value="false" key="isRegEx"/>
+		<item value="Statement ::=" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="false" key="wrap"/>
+		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Type"/>
-			<item value=".getType();"/>
-			<item value="typeNode.getType();"/>
-			<item value="= typeNode.getType();"/>
-			<item value="RESULT = typeNode.getType();"/>
-			<item value="&#x09;&#x09;&#x09;RESULT = typeNode.getType();"/>
-			<item value="TODO"/>
-			<item value="user_init"/>
+			<item value="Statement ::="/>
+			<item value="FormalPars ::="/>
+			<item value="MethodDecl ::="/>
+			<item value="MethodDecl"/>
+			<item value="ForPar"/>
+			<item value="DesignatorStatement"/>
+			<item value="constdecl"/>
+			<item value="ASSIGN"/>
 		</list>
 		<list key="replacehistory">
-			<item value="$1"/>
-			<item value=""/>
-			<item value=";"/>
-			<item value="public static final int $1;"/>
+			<item value="parser.log.info"/>
+			<item value="parser.report_info"/>
+			<item value="parser.report_debug"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="624" key="DIALOG_X_ORIGIN"/>
-		<item value="354" key="DIALOG_Y_ORIGIN"/>
+		<item value="382" key="DIALOG_HEIGHT"/>
+		<item value="676" key="DIALOG_X_ORIGIN"/>
+		<item value="407" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

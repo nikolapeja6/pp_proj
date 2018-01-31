@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:30
+// 30/0/2018 22:37:37
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived1 extends Statement {
 
-    private TerminalStatement TerminalStatement;
+    private Matched Matched;
 
-    public StatementDerived1 (TerminalStatement TerminalStatement) {
-        this.TerminalStatement=TerminalStatement;
-        if(TerminalStatement!=null) TerminalStatement.setParent(this);
+    public StatementDerived1 (Matched Matched) {
+        this.Matched=Matched;
+        if(Matched!=null) Matched.setParent(this);
     }
 
-    public TerminalStatement getTerminalStatement() {
-        return TerminalStatement;
+    public Matched getMatched() {
+        return Matched;
     }
 
-    public void setTerminalStatement(TerminalStatement TerminalStatement) {
-        this.TerminalStatement=TerminalStatement;
+    public void setMatched(Matched Matched) {
+        this.Matched=Matched;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class StatementDerived1 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(TerminalStatement!=null) TerminalStatement.accept(visitor);
+        if(Matched!=null) Matched.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(TerminalStatement!=null) TerminalStatement.traverseTopDown(visitor);
+        if(Matched!=null) Matched.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(TerminalStatement!=null) TerminalStatement.traverseBottomUp(visitor);
+        if(Matched!=null) Matched.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class StatementDerived1 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived1(\n");
 
-        if(TerminalStatement!=null)
-            buffer.append(TerminalStatement.toString("  "+tab));
+        if(Matched!=null)
+            buffer.append(Matched.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

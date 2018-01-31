@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:29
+// 30/0/2018 22:37:37
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,15 +8,13 @@ package rs.ac.bg.etf.pp1.ast;
 public class DeclAssignmenListDerived2 extends DeclAssignmenList {
 
     private DeclAssignmenList DeclAssignmenList;
-    private String I2;
-    private Literal Literal;
+    private DeclAssignElement DeclAssignElement;
 
-    public DeclAssignmenListDerived2 (DeclAssignmenList DeclAssignmenList, String I2, Literal Literal) {
+    public DeclAssignmenListDerived2 (DeclAssignmenList DeclAssignmenList, DeclAssignElement DeclAssignElement) {
         this.DeclAssignmenList=DeclAssignmenList;
         if(DeclAssignmenList!=null) DeclAssignmenList.setParent(this);
-        this.I2=I2;
-        this.Literal=Literal;
-        if(Literal!=null) Literal.setParent(this);
+        this.DeclAssignElement=DeclAssignElement;
+        if(DeclAssignElement!=null) DeclAssignElement.setParent(this);
     }
 
     public DeclAssignmenList getDeclAssignmenList() {
@@ -27,20 +25,12 @@ public class DeclAssignmenListDerived2 extends DeclAssignmenList {
         this.DeclAssignmenList=DeclAssignmenList;
     }
 
-    public String getI2() {
-        return I2;
+    public DeclAssignElement getDeclAssignElement() {
+        return DeclAssignElement;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
-    }
-
-    public Literal getLiteral() {
-        return Literal;
-    }
-
-    public void setLiteral(Literal Literal) {
-        this.Literal=Literal;
+    public void setDeclAssignElement(DeclAssignElement DeclAssignElement) {
+        this.DeclAssignElement=DeclAssignElement;
     }
 
     public void accept(Visitor visitor) {
@@ -49,18 +39,18 @@ public class DeclAssignmenListDerived2 extends DeclAssignmenList {
 
     public void childrenAccept(Visitor visitor) {
         if(DeclAssignmenList!=null) DeclAssignmenList.accept(visitor);
-        if(Literal!=null) Literal.accept(visitor);
+        if(DeclAssignElement!=null) DeclAssignElement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(DeclAssignmenList!=null) DeclAssignmenList.traverseTopDown(visitor);
-        if(Literal!=null) Literal.traverseTopDown(visitor);
+        if(DeclAssignElement!=null) DeclAssignElement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(DeclAssignmenList!=null) DeclAssignmenList.traverseBottomUp(visitor);
-        if(Literal!=null) Literal.traverseBottomUp(visitor);
+        if(DeclAssignElement!=null) DeclAssignElement.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -75,11 +65,8 @@ public class DeclAssignmenListDerived2 extends DeclAssignmenList {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
-        buffer.append("\n");
-
-        if(Literal!=null)
-            buffer.append(Literal.toString("  "+tab));
+        if(DeclAssignElement!=null)
+            buffer.append(DeclAssignElement.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -1,0 +1,552 @@
+package rs.ac.bg.etf.pp1;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sun.java_cup.internal.runtime.Symbol;
+
+import javafx.geometry.Pos;
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
+import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
+
+public class SemanticAnalyzer extends VisitorAdaptor {
+
+	boolean errorDetected = false;
+	int printCallCount = 0;
+	Obj currentMethod = null;
+	boolean returnFound = false;
+	int nVars;
+	int nFields = 0;
+	int fldCnt = 0;
+	
+	LinkedList<VarDeclElem> currentlyProcessedVarElems = new LinkedList<>();
+	LinkedList<DeclAssignElem> currentlyProcessedConstElems = new LinkedList();
+	
+	String nameOfCurrentClass = "";
+		
+
+	Logger log = Logger.getLogger(getClass());
+
+	public void report_error(String message, SyntaxNode info) {
+		errorDetected = true;
+		StringBuilder msg = new StringBuilder(message);
+		int line = (info == null) ? 0: info.getLine();
+		if (line != 0)
+			msg.append (" na liniji ").append(line);
+		log.error(msg.toString());
+	}
+
+	public void report_info(String message, SyntaxNode info) {
+		StringBuilder msg = new StringBuilder(message); 
+		int line = (info == null) ? 0: info.getLine();
+		if (line != 0)
+			msg.append (" na liniji ").append(line);
+		log.info(msg.toString());
+	}
+	
+	
+	public void visit(NumberLiteral number)
+	{
+		number.struct = Tab.intType;
+		report_info("Pronadjena simbolicka konstanta na liniji "+number.getLine(), null);
+	}
+	
+	public void visit(CharLiteral character)
+	{
+		character.struct = Tab.charType;
+		report_info("Pronadjena simbolicka konstanta na liniji "+character.getLine(), null);
+
+	}
+	
+	// TODO add bool
+	public void visit(BoolLiteral bool)
+	{
+		bool.struct = Tab.intType;
+		report_info("Pronadjena simbolicka konstanta na liniji "+bool.getLine(), null);
+
+	}
+	
+		
+	public void visit(Program program)
+	{
+		nVars = Tab.currentScope.getnVars();
+		if(program.getClass().equals(ProgramNoDecl.class))
+		{
+			ProgramNoDecl prg = (ProgramNoDecl)program;
+			Tab.chainLocalSymbols(prg.getProgName().obj);
+		}
+		else
+		{
+			ProgramDecl prg = (ProgramDecl)program;
+			Tab.chainLocalSymbols(prg.getProgName().obj);
+		}
+
+		Tab.closeScope();
+	}
+	
+	
+	public void visit(ProgName progName) {
+		progName.obj = Tab.insert(Obj.Prog, ((ProgramName)progName).getPName(), Tab.noType);
+		Tab.openScope();     	
+	}
+	
+	public void visit(SingleVarDeclElem elem)
+	{
+		if(currentlyProcessedVarElems == null)
+		{
+			currentlyProcessedVarElems = new LinkedList<>();
+		}
+		
+		fldCnt++;
+		// no type for primitive types
+		elem.struct = Tab.noType;
+		currentlyProcessedVarElems.add(elem);
+	}
+	
+	public void visit(ArrayVarDeclElem elem)
+	{
+		if(currentlyProcessedVarElems == null)
+		{
+			currentlyProcessedVarElems = new LinkedList<>();
+		}
+		
+		// array type for arrays
+		elem.struct = new Struct(Struct.Array);
+		currentlyProcessedVarElems.add(elem);
+	}
+	
+	
+	public void visit(VariableDecl varDecl) {
+		// TODO
+		//report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
+		
+		Type type = varDecl.getType();
+		
+		for(int i =0; i< currentlyProcessedVarElems.size();i++)
+		{
+			VarDeclElem elem = currentlyProcessedVarElems.get(i);
+			String name = "";
+			
+			if(elem.struct.getKind() != Struct.Array)
+			{
+				// primitive
+				elem.struct = type.struct;
+				name = ((SingleVarDeclElem)elem).getName();
+			}
+			else
+			{
+				// array
+				elem.struct = new Struct(Struct.Array, type.struct);
+				name = ((ArrayVarDeclElem)elem).getName();
+			}
+			
+			// TODO check if name already exists in that scope
+			Obj varNode = Tab.insert(Obj.Var, name, varDecl.getType().struct);
+		}
+		
+		currentlyProcessedVarElems.clear();		
+	}
+	
+	public void visit(DeclAssignElem elem)
+	{
+		elem.struct = elem.getLiteral().struct;
+		currentlyProcessedConstElems.add (elem);
+	}
+	
+	public void visit(CnstDecl constDecl)
+	{
+		Type type = constDecl.getType();
+		
+		for(int i =0; i< currentlyProcessedConstElems.size(); i++)
+		{
+			DeclAssignElem elem = currentlyProcessedConstElems.get(i);
+			if(elem.struct != type.struct)
+			{
+				report_error("Tip konstante " + elem.getName() + " razlikuje se od tipa vrednosti koja joj se dodeljuje - "+elem.getLiteral(),null );
+			}
+			else
+			{
+				// TODO check if name already exists
+				Obj varNode = Tab.insert(Obj.Var, elem.getName(), type.struct);
+			}
+		}
+	}
+	
+	public void visit(Tp type) {
+		Obj typeNode = Tab.find(type.getTypeName());
+		if (typeNode == Tab.noObj) {
+			report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola", null);
+			type.struct = Tab.noType;
+		} 
+		else {
+			if (Obj.Type == typeNode.getKind()) {
+				type.struct = typeNode.getType();
+			} 
+			else {
+				report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip ", type);
+				type.struct = Tab.noType;
+			}
+		}  
+	}
+	
+	public void visit(CldDcl1 clsDcl)
+	{
+		doClassVisit(clsDcl, ((NClass)clsDcl.getNewClass()).getClassName().obj);
+	}
+	
+	public void visit(CldDcl2 clsDcl)
+	{
+		doClassVisit(clsDcl, ((DClass)clsDcl.getDerivedClass()).getClassName().obj);
+	}
+	
+	public void visit(CldDcl3 clsDcl)
+	{
+		doClassVisit(clsDcl, ((NClass)clsDcl.getNewClass()).getClassName().obj);
+	}
+	
+	public void visit(CldDcl4 clsDcl)
+	{
+		doClassVisit(clsDcl, ((DClass)clsDcl.getDerivedClass()).getClassName().obj);
+	}
+	
+	
+	public void doClassVisit(ClassDecl classDecl, Obj obj)
+	{
+		nVars = Tab.currentScope.getnVars();
+		Tab.chainLocalSymbols(obj);
+		Tab.closeScope();
+	}
+		
+	public void visit(NClass newClass){
+		newClass.obj = Tab.insert(Obj.Type,nameOfCurrentClass , new Struct(Struct.Class));
+		Tab.openScope(); 
+	}
+	
+	public void visit(DClass derivedClass)
+	{
+		derivedClass.obj = Tab.insert(Obj.Type, nameOfCurrentClass, new Struct(Struct.Class, derivedClass.getType().struct));
+		Tab.openScope(); 
+	}
+	
+	
+	public void visit(SingleDesignator var)
+	{
+		Obj obj = Tab.find(var.getI());
+		if(obj == Tab.noObj)
+		{
+			report_error("Identificator "+var.getI() + " not declared byt used.",null);
+		}
+		
+	}
+	
+	public void visit(ArrayElementDesignator array)
+	{
+		Obj obj = Tab.find(array.getArray());
+		if(obj == Tab.noObj)
+		{
+			report_error("Identificator "+array.getArray() + " not declared byt used.",null);
+		}
+		if(obj.getKind() != Struct.Array)
+		{
+			report_error("Tried indexing on non array var", null);
+		}
+	}
+	
+	public void visit(TF term) {
+		term.struct = term.getFactor().struct;    	
+	}
+	
+	public void visit(MFT term)
+	{
+		term.struct = term.getFactor().struct;		
+	}
+	
+	
+	public void visit(NewFactor factor)
+	{
+		if(Tab.find(((Tp)factor.getType()).getTypeName()) == Tab.noObj)
+		{
+			report_error("Type used but not declared", null);
+		}
+	}
+	
+	public void visit(NewArrayFactor factor)
+	{
+		Obj obj = Tab.find(((Tp)factor.getType()).getTypeName());
+		if(obj == Tab.noObj)
+		{
+			report_error("Type used but not declared", null);
+		}
+	}
+	
+	
+	public void visit(FactorEmptyFunctionCall fCall)
+	{
+		String name = ((SingleDesignator)fCall.getDesignator()).getI();
+		Obj obj = Tab.find(name);
+		if( !(fCall.getDesignator() instanceof SingleDesignator) || obj ==Tab.noObj || obj.getKind() != Obj.Meth)
+		{
+			report_error("Function call tried with ident that is not method", null);
+		}
+	}
+	
+	
+	// TODO check method pars 
+	public void visit(FactorFunctionCall fCall)
+	{
+		String name = ((SingleDesignator)fCall.getDesignator()).getI();
+		Obj obj = Tab.find(name);
+		if( !(fCall.getDesignator() instanceof SingleDesignator) || obj ==Tab.noObj || obj.getKind() != Obj.Meth)
+		{
+			report_error("Function call tried with ident that is not method", null);
+		}
+	}
+	
+	// TODO check for type match
+	public void visit(PositiveExpr expr)
+	{
+
+	}
+	
+	public void visit(NegativeExpr expr)
+	{
+		if(expr.getTerm().struct.getKind() != Struct.Int)
+		{
+			report_error("Expr must be of type int", null);
+		}
+	}
+	
+	public void visit(EmptyFunctionCall statement)
+	{
+		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		Obj obj = Tab.find(name);
+		
+		if(obj == Tab.noObj || obj.getKind() != Obj.Meth)
+		{
+			report_error("Fuction call with something other thatn funciton", null);
+		}
+		
+		if(obj.getFpPos() != 0)
+		{
+			report_error("Tried funciton call with 0 arguments but funciton takes "+obj.getFpPos(), null);
+		}
+	}
+	
+	public void visit(DecisgnatorInc statement)
+	{
+		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		Obj obj = Tab.find(name);
+		
+		if(obj == Tab.noObj || obj.getKind() != Obj.Var || (obj.getType().getKind() != Struct.Int))
+		{
+			report_error("Inc called for non-existent name, for sth that is not var, or for a var that is not int",
+					null);
+
+		}
+	}
+	
+	public void visit(DesignatorDec statement)
+	{
+		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		Obj obj = Tab.find(name);
+		
+		if(obj == Tab.noObj || obj.getKind() != Obj.Var || (obj.getType().getKind() != Struct.Int))
+		{
+			report_error("Dec called for non-existent name, for sth that is not var, or for a var that is not int",
+					null);
+
+		}
+	}	
+	
+	public void visit(DesignatorAssignment statement)
+	{
+		if (!statement.getExpr().struct.assignableTo(statement.getDesignator().obj.getType()))
+			report_error("Greska na liniji " + statement.getLine() + " : " + " nekompatibilni tipovi u dodeli vrednosti ", null);
+	}
+
+	
+	private Term getTermFromExpr(Expr expr)
+	{
+		if(expr instanceof PositiveExpr)
+		{
+			return ((PositiveExpr)expr).getTerm();
+		}
+		else
+		{
+			return ((NegativeExpr)expr).getTerm();
+		}
+	}
+	
+	private Struct getStructFromTerm(Term t) {
+		if (t instanceof TF) {
+			return ((TF) t).getFactor().struct;
+		} else {
+			return ((MFT) t).getFactor().struct;
+		}
+	}
+	
+	public void visit(MatchedSimplePrintStatement matched) {
+		Struct s = getStructFromTerm(getTermFromExpr(matched.getExpr()));
+
+		if (s.getKind() != Struct.Int && s.getKind() != Struct.Char) {
+			report_error("Print shoudl onyl be called with int, bool or char as parameters", null);
+
+		}
+	}
+	
+	public void visit(MatchedComplexPrintStatement matched) {
+		Struct s = getStructFromTerm(getTermFromExpr(matched.getExpr()));
+
+		if (s.getKind() != Struct.Int && s.getKind() != Struct.Char) {
+			report_error("Print shoudl onyl be called with int, bool or char as parameters", null);
+
+		}
+	}	
+	
+	
+	private List<Struct> getTypesFromActPars(ActPars pars)
+	{
+		LinkedList<Struct> types = new LinkedList<>();
+		
+		if(pars instanceof SingleExpression)
+		{
+			types.add(getTypeFromExpression(((SingleExpression)pars).getExpr()));
+		}
+		else
+		{
+			types.add(getTypeFromExpression(((MultiExpression)pars).getExpr()));
+			types.addAll(getTypesFromActPars(((MultiExpression)pars).getActPars()));
+		}
+		return types;
+	}
+	
+	private Struct getTypeFromExpression(Expr expr)
+	{
+		if(expr instanceof PositiveExpr)
+		{
+			return ((PositiveExpr)expr).getTerm().struct;
+		}
+		else
+		{
+			return ((NegativeExpr)expr).getTerm().struct;
+		}
+	}
+	
+	public void visit(FactorFunctionCall fCall)
+	{
+		Obj obj = Tab.find(fCall.getFun())
+	}
+	
+	
+	
+	// TODO get types of ActPars
+	
+	
+	
+	// TODO
+	
+	
+
+
+	
+	/*
+	public void visit(MethodDecl methodDecl) {
+		if (!returnFound && currentMethod.getType() != Tab.noType) {
+			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funcija " + currentMethod.getName() + " nema return iskaz!", null);
+		}
+		
+		Tab.chainLocalSymbols(currentMethod);
+		Tab.closeScope();
+		
+		returnFound = false;
+		currentMethod = null;
+	}
+
+	public void visit(MethodTypeName methodTypeName) {
+		currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getType().struct);
+		methodTypeName.obj = currentMethod;
+		Tab.openScope();
+		report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
+	}
+
+	public void visit(ReturnExpr returnExpr){
+		returnFound = true;
+		Struct currMethType = currentMethod.getType();
+		if (!currMethType.compatibleWith(returnExpr.getExpr().struct)) {
+			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
+		}			  	     	
+	}
+
+	public void visit(ProcCall procCall){
+		Obj func = procCall.getDesignator().obj;
+		if (Obj.Meth == func.getKind()) { 
+			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + procCall.getLine(), null);
+			//RESULT = func.getType();
+		} 
+		else {
+			report_error("Greska na liniji " + procCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
+			//RESULT = Tab.noType;
+		}     	
+	}    
+
+	public void visit(AddExpr addExpr) {
+		Struct te = addExpr.getExpr().struct;
+		Struct t = addExpr.getTerm().struct;
+		if (te.equals(t) && te == Tab.intType)
+			addExpr.struct = te;
+		else {
+			report_error("Greska na liniji "+ addExpr.getLine()+" : nekompatibilni tipovi u izrazu za sabiranje.", null);
+			addExpr.struct = Tab.noType;
+		} 
+	}
+
+	public void visit(TermExpr termExpr) {
+		termExpr.struct = termExpr.getTerm().struct;
+	}
+
+	public void visit(Term term) {
+		term.struct = term.getFactor().struct;    	
+	}
+
+	public void visit(Const cnst){
+		cnst.struct = Tab.intType;    	
+	}
+	
+	public void visit(Var var) {
+		var.struct = var.getDesignator().obj.getType();
+	}
+
+	public void visit(FuncCall funcCall){
+		Obj func = funcCall.getDesignator().obj;
+		if (Obj.Meth == func.getKind()) { 
+			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + funcCall.getLine(), null);
+			funcCall.struct = func.getType();
+		} 
+		else {
+			report_error("Greska na liniji " + funcCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
+			funcCall.struct = Tab.noType;
+		}
+
+	}
+
+	public void visit(Designator designator){
+		Obj obj = Tab.find(designator.getName());
+		if (obj == Tab.noObj) { 
+			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
+		}
+		designator.obj = obj;
+	}
+	*/
+	
+	public boolean passed() {
+		return !errorDetected;
+	}
+	
+
+	
+}
+

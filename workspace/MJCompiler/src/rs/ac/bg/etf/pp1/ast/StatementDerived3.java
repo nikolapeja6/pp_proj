@@ -1,47 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2018 18:9:30
+// 30/0/2018 22:37:37
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived3 extends Statement {
 
-    private Condition Condition;
-    private Statement Statement;
-    private Statement Statement1;
+    private MultipleStatementHelper MultipleStatementHelper;
 
-    public StatementDerived3 (Condition Condition, Statement Statement, Statement Statement1) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
-        this.Statement1=Statement1;
-        if(Statement1!=null) Statement1.setParent(this);
+    public StatementDerived3 (MultipleStatementHelper MultipleStatementHelper) {
+        this.MultipleStatementHelper=MultipleStatementHelper;
+        if(MultipleStatementHelper!=null) MultipleStatementHelper.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public MultipleStatementHelper getMultipleStatementHelper() {
+        return MultipleStatementHelper;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
-    }
-
-    public Statement getStatement() {
-        return Statement;
-    }
-
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
-    }
-
-    public Statement getStatement1() {
-        return Statement1;
-    }
-
-    public void setStatement1(Statement Statement1) {
-        this.Statement1=Statement1;
+    public void setMultipleStatementHelper(MultipleStatementHelper MultipleStatementHelper) {
+        this.MultipleStatementHelper=MultipleStatementHelper;
     }
 
     public void accept(Visitor visitor) {
@@ -49,22 +27,16 @@ public class StatementDerived3 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
-        if(Statement1!=null) Statement1.accept(visitor);
+        if(MultipleStatementHelper!=null) MultipleStatementHelper.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
-        if(Statement1!=null) Statement1.traverseTopDown(visitor);
+        if(MultipleStatementHelper!=null) MultipleStatementHelper.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
-        if(Statement1!=null) Statement1.traverseBottomUp(visitor);
+        if(MultipleStatementHelper!=null) MultipleStatementHelper.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -73,20 +45,8 @@ public class StatementDerived3 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived3(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Statement1!=null)
-            buffer.append(Statement1.toString("  "+tab));
+        if(MultipleStatementHelper!=null)
+            buffer.append(MultipleStatementHelper.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
