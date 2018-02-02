@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 30/0/2018 22:37:38
+// 2/1/2018 13:49:19
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -67,19 +67,19 @@ public interface Visitor {
     public void visit(RelopDerived1 RelopDerived1);
     public void visit(ArrayElementDesignator ArrayElementDesignator);
     public void visit(SingleDesignator SingleDesignator);
-    public void visit(MultipleDesignatorElemDerived2 MultipleDesignatorElemDerived2);
-    public void visit(MultipleDesignatorElemDerived1 MultipleDesignatorElemDerived1);
+    public void visit(SingleDesignatorElem SingleDesignatorElem);
+    public void visit(MultiDesignatorELem MultiDesignatorELem);
     public void visit(IndexingDesignatorElem IndexingDesignatorElem);
-    public void visit(DesignatorElemDerived1 DesignatorElemDerived1);
-    public void visit(FactorDerived5 FactorDerived5);
+    public void visit(AccessingFieldDesignatorElem AccessingFieldDesignatorElem);
+    public void visit(ParFactor ParFactor);
     public void visit(NewArrayFactor NewArrayFactor);
     public void visit(NewFactor NewFactor);
-    public void visit(FactorDerived4 FactorDerived4);
-    public void visit(FactorDerived3 FactorDerived3);
-    public void visit(FactorDerived2 FactorDerived2);
+    public void visit(BoolFactor BoolFactor);
+    public void visit(CharFactor CharFactor);
+    public void visit(NumFactor NumFactor);
     public void visit(FactorFunctionCall FactorFunctionCall);
     public void visit(FactorEmptyFunctionCall FactorEmptyFunctionCall);
-    public void visit(FactorDerived1 FactorDerived1);
+    public void visit(SingleDesignatorFactor SingleDesignatorFactor);
     public void visit(SMF SMF);
     public void visit(RMF RMF);
     public void visit(MFT MFT);
@@ -110,34 +110,34 @@ public interface Visitor {
     public void visit(UnmatchedDerived3 UnmatchedDerived3);
     public void visit(UnmatchedDerived2 UnmatchedDerived2);
     public void visit(UnmatchedDerived1 UnmatchedDerived1);
-    public void visit(MatchedDerived9 MatchedDerived9);
+    public void visit(MatchedDerived3 MatchedDerived3);
+    public void visit(EmptyStatement EmptyStatement);
     public void visit(MatchedComplexPrintStatement MatchedComplexPrintStatement);
     public void visit(MatchedSimplePrintStatement MatchedSimplePrintStatement);
-    public void visit(MatchedDerived8 MatchedDerived8);
-    public void visit(MatchedDerived7 MatchedDerived7);
-    public void visit(MatchedDerived6 MatchedDerived6);
-    public void visit(MatchedDerived5 MatchedDerived5);
-    public void visit(MatchedDerived4 MatchedDerived4);
-    public void visit(MatchedDerived3 MatchedDerived3);
+    public void visit(ReadStatement ReadStatement);
+    public void visit(ReturnExprStatement ReturnExprStatement);
+    public void visit(ReturnStatement ReturnStatement);
+    public void visit(ContinueStatement ContinueStatement);
+    public void visit(BreakStatement BreakStatement);
     public void visit(MatchedDerived2 MatchedDerived2);
     public void visit(MatchedDerived1 MatchedDerived1);
     public void visit(MatchedDesignatorStatement MatchedDesignatorStatement);
-    public void visit(StatementDerived3 StatementDerived3);
+    public void visit(NewBlockStatement NewBlockStatement);
     public void visit(StatementDerived2 StatementDerived2);
     public void visit(StatementDerived1 StatementDerived1);
     public void visit(Tp Tp);
-    public void visit(FormalParsDerived4 FormalParsDerived4);
-    public void visit(FormalParsDerived3 FormalParsDerived3);
     public void visit(FormalParsDerived2 FormalParsDerived2);
+    public void visit(MultipleFormalPars MultipleFormalPars);
     public void visit(FormalParsDerived1 FormalParsDerived1);
-    public void visit(FormalParDerived2 FormalParDerived2);
-    public void visit(FormalParDerived1 FormalParDerived1);
-    public void visit(MethodDeclDerived4 MethodDeclDerived4);
-    public void visit(MethodDeclDerived3 MethodDeclDerived3);
-    public void visit(MethodDeclDerived2 MethodDeclDerived2);
-    public void visit(MethodDeclDerived1 MethodDeclDerived1);
-    public void visit(ReturnTypeDerived2 ReturnTypeDerived2);
-    public void visit(ReturnTypeDerived1 ReturnTypeDerived1);
+    public void visit(SingleFormalPar SingleFormalPar);
+    public void visit(ArrayFormalPar ArrayFormalPar);
+    public void visit(NormalFormalPar NormalFormalPar);
+    public void visit(MethodDeclNoBody MethodDeclNoBody);
+    public void visit(MethodDeclNoParsNoBody MethodDeclNoParsNoBody);
+    public void visit(MethodDeclFull MethodDeclFull);
+    public void visit(MethodDeclNoPars MethodDeclNoPars);
+    public void visit(VoidRetType VoidRetType);
+    public void visit(RetType RetType);
     public void visit(ClassN ClassN);
     public void visit(DClass DClass);
     public void visit(NClass NClass);

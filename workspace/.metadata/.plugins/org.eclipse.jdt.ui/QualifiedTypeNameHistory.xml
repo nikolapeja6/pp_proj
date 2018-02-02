@@ -20,14 +20,24 @@
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.Tab"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDecl"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.sun.java_cup.internal.runtime.Symbol"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Character"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Bool"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Mulop"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ProgramNoDecl"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.structure.SymbolDataStructure"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="javafx.geometry.Pos"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.SingleExpression"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.PositiveExpr"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.SingleDesignator"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FormalPar"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.SingleFormalPar"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VoidRetType"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
 </qualifiedTypeNameHistroy>

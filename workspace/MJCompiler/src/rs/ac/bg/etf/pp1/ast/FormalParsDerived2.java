@@ -1,13 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 30/0/2018 22:37:37
+// 2/1/2018 13:49:18
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class FormalParsDerived2 extends FormalPars {
 
-    public FormalParsDerived2 () {
+    private FormalPars FormalPars;
+
+    public FormalParsDerived2 (FormalPars FormalPars) {
+        this.FormalPars=FormalPars;
+        if(FormalPars!=null) FormalPars.setParent(this);
+    }
+
+    public FormalPars getFormalPars() {
+        return FormalPars;
+    }
+
+    public void setFormalPars(FormalPars FormalPars) {
+        this.FormalPars=FormalPars;
     }
 
     public void accept(Visitor visitor) {
@@ -15,13 +27,16 @@ public class FormalParsDerived2 extends FormalPars {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(FormalPars!=null) FormalPars.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(FormalPars!=null) FormalPars.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(FormalPars!=null) FormalPars.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -29,6 +44,12 @@ public class FormalParsDerived2 extends FormalPars {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("FormalParsDerived2(\n");
+
+        if(FormalPars!=null)
+            buffer.append(FormalPars.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [FormalParsDerived2]");

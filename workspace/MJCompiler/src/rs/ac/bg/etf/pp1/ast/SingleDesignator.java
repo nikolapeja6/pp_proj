@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 30/0/2018 22:37:38
+// 2/1/2018 13:49:18
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class SingleDesignator extends Designator {
 
-    private String i;
+    private String ident;
 
-    public SingleDesignator (String i) {
-        this.i=i;
+    public SingleDesignator (String ident) {
+        this.ident=ident;
     }
 
-    public String getI() {
-        return i;
+    public String getIdent() {
+        return ident;
     }
 
-    public void setI(String i) {
-        this.i=i;
+    public void setIdent(String ident) {
+        this.ident=ident;
     }
 
     public void accept(Visitor visitor) {
@@ -41,7 +41,7 @@ public class SingleDesignator extends Designator {
         buffer.append(tab);
         buffer.append("SingleDesignator(\n");
 
-        buffer.append(" "+tab+i);
+        buffer.append(" "+tab+ident);
         buffer.append("\n");
 
         buffer.append(tab);

@@ -25,8 +25,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int nFields = 0;
 	int fldCnt = 0;
 	
+	boolean hasReturn = false;
+	
 	LinkedList<VarDeclElem> currentlyProcessedVarElems = new LinkedList<>();
 	LinkedList<DeclAssignElem> currentlyProcessedConstElems = new LinkedList();
+	
+	LinkedList<String> formalPars = new LinkedList<>();
 	
 	String nameOfCurrentClass = "";
 		
@@ -53,6 +57,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(NumberLiteral number)
 	{
+		log.debug("number literal");
 		number.struct = Tab.intType;
 		report_info("Pronadjena simbolicka konstanta na liniji "+number.getLine(), null);
 	}
@@ -86,6 +91,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			ProgramDecl prg = (ProgramDecl)program;
 			Tab.chainLocalSymbols(prg.getProgName().obj);
 		}
+		
+		log.debug("visiting prog");
 
 		Tab.closeScope();
 	}
@@ -237,10 +244,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(SingleDesignator var)
 	{
-		Obj obj = Tab.find(var.getI());
+		Obj obj = Tab.find(var.getIdent());
 		if(obj == Tab.noObj)
 		{
-			report_error("Identificator "+var.getI() + " not declared byt used.",null);
+			report_error("Identificator "+var.getIdent() + " not declared byt used.",null);
 		}
 		
 	}
@@ -252,9 +259,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		{
 			report_error("Identificator "+array.getArray() + " not declared byt used.",null);
 		}
-		if(obj.getKind() != Struct.Array)
+		if(obj.getKind() != Struct.Array || obj.getKind() != Struct.Class)
 		{
-			report_error("Tried indexing on non array var", null);
+			report_error("Tried indexing on non array var, or field acces on non class var", null);
 		}
 	}
 	
@@ -285,26 +292,32 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+	private List<Obj> getFormalParsObjNodes(Obj method)
+	{
+		LinkedList<Obj> ret = new LinkedList<>();
+		for (Obj obj : method.getLocalSymbols()) {
+			if(obj.getFpPos() != 0)
+			{
+				ret.add(obj);
+			}
+		}
+		
+		return ret;
+	}
+	
 	
 	public void visit(FactorEmptyFunctionCall fCall)
 	{
-		String name = ((SingleDesignator)fCall.getDesignator()).getI();
+		String name = ((SingleDesignator)fCall.getDesignator()).getIdent();
 		Obj obj = Tab.find(name);
 		if( !(fCall.getDesignator() instanceof SingleDesignator) || obj ==Tab.noObj || obj.getKind() != Obj.Meth)
 		{
 			report_error("Function call tried with ident that is not method", null);
 		}
-	}
-	
-	
-	// TODO check method pars 
-	public void visit(FactorFunctionCall fCall)
-	{
-		String name = ((SingleDesignator)fCall.getDesignator()).getI();
-		Obj obj = Tab.find(name);
-		if( !(fCall.getDesignator() instanceof SingleDesignator) || obj ==Tab.noObj || obj.getKind() != Obj.Meth)
+		
+		if(getFormalParsObjNodes(obj).size() != 0)
 		{
-			report_error("Function call tried with ident that is not method", null);
+			report_error("Function "+name+" has more than one arg", null);
 		}
 	}
 	
@@ -324,7 +337,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(EmptyFunctionCall statement)
 	{
-		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		String name = ((SingleDesignator)statement.getDesignator()).getIdent();
 		Obj obj = Tab.find(name);
 		
 		if(obj == Tab.noObj || obj.getKind() != Obj.Meth)
@@ -340,7 +353,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(DecisgnatorInc statement)
 	{
-		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		String name = ((SingleDesignator)statement.getDesignator()).getIdent();
 		Obj obj = Tab.find(name);
 		
 		if(obj == Tab.noObj || obj.getKind() != Obj.Var || (obj.getType().getKind() != Struct.Int))
@@ -353,7 +366,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(DesignatorDec statement)
 	{
-		String name = ((SingleDesignator)statement.getDesignator()).getI();
+		String name = ((SingleDesignator)statement.getDesignator()).getIdent();
 		Obj obj = Tab.find(name);
 		
 		if(obj == Tab.noObj || obj.getKind() != Obj.Var || (obj.getType().getKind() != Struct.Int))
@@ -366,7 +379,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(DesignatorAssignment statement)
 	{
-		if (!statement.getExpr().struct.assignableTo(statement.getDesignator().obj.getType()))
+		if (!getTermFromExpr(statement.getExpr()).struct.assignableTo(statement.getDesignator().obj.getType()))
 			report_error("Greska na liniji " + statement.getLine() + " : " + " nekompatibilni tipovi u dodeli vrednosti ", null);
 	}
 
@@ -392,7 +405,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	public void visit(MatchedSimplePrintStatement matched) {
-		Struct s = getStructFromTerm(getTermFromExpr(matched.getExpr()));
+		Struct s = Tab.charType;//getStructFromTerm(getTermFromExpr(matched.getExpr()));
 
 		if (s.getKind() != Struct.Int && s.getKind() != Struct.Char) {
 			report_error("Print shoudl onyl be called with int, bool or char as parameters", null);
@@ -440,7 +453,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(FactorFunctionCall fCall)
 	{
-		String name = ((SingleDesignator)fCall.getDesignator()).getI();
+		String name = ((SingleDesignator)fCall.getDesignator()).getIdent();
 		Obj obj = Tab.find(name);
 		
 		if(obj == Tab.noObj || obj.getKind() != Obj.Meth)
@@ -452,7 +465,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			List<Struct> types = getTypesFromActPars(fCall.getActPars());
 			
 			// TODO check if this is the way to get objects
-			Collection<Obj> objs= obj.getLocalSymbols();
+			Collection<Obj> objs= getFormalParsObjNodes(obj);
 			if(obj.getFpPos() != types.size())
 			{
 				report_error("Missmatch in argument number - found "+types.size() + " but should have "+obj.getFpPos(), null);
@@ -470,9 +483,148 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	
+	private List<Obj> getFormalPars(FormalPars pars)
+	{
+		LinkedList<Obj> ret = new LinkedList<>();
+		
+		for (Obj obj : pars.obj.getLocalSymbols()) {
+			if(obj.getFpPos() != 0)
+			{
+				ret.add(obj);
+				obj.getLevel();
+			}
+		}
+		
+		return ret;
+	}
 	
-	// TODO get types of ActPars
+	public void visit(MethodDeclNoPars method)
+	{
+		Struct retType = null;
+		if(method.getReturnType() instanceof RetType)
+			retType = ((RetType)method.getReturnType() ).getType().struct;
+		else
+			retType = Tab.noType;
+		
+		Tab.closeScope();
+			
+		Tab.insert(Obj.Meth, method.getIdent(), retType);
+		
+		if(!hasReturn && retType != Tab.noType)
+		{
+			report_error("Function has return type but no return statement found", null);
+		}
+		
+		setFormalParsForMethod();
+		
+		hasReturn = false;
+	}
 	
+	public void visit(MethodDeclFull method)
+	{
+		Tab.closeScope();
+		
+		Struct retType = null;
+		if(method.getReturnType() instanceof RetType)
+			retType = ((RetType)method.getReturnType() ).getType().struct;
+		else
+			retType = Tab.noType;
+		
+		Tab.insert(Obj.Meth, method.getIdent(), retType);
+		Obj obj = Tab.find(method.getIdent());
+		obj.setLevel(getFormalPars(method.getFormalPars()).size());
+		
+		if(!hasReturn && retType != Tab.noType)
+		{
+			report_error("Function has return type but no return statement found", null);
+		}
+		
+		setFormalParsForMethod();
+		
+		hasReturn = false;
+	}
+	
+	
+	public void visit(MethodDeclNoParsNoBody method)
+	{
+		Tab.closeScope();
+		
+		Struct retType = null;
+		if(method.getReturnType() instanceof RetType)
+			retType = ((RetType)method.getReturnType() ).getType().struct;
+		else
+			retType = Tab.noType;
+		
+		if(retType != Tab.noType)
+		{
+			report_error("Return type not void, but no return in body", null);
+		}
+		
+		Tab.insert(Obj.Meth, method.getIdent(), retType);	
+		
+		hasReturn = false;
+
+	}
+	
+	
+	public void visit(MethodDeclNoBody method)
+	{
+		Tab.closeScope();
+		
+		Struct retType = null;
+		if(method.getReturnType() instanceof RetType)
+			retType = ((RetType)method.getReturnType() ).getType().struct;
+		else
+			retType = Tab.noType;
+		
+		if(retType != Tab.noType)
+		{
+			report_error("Return type not void, but no return in body", null);
+		}
+		
+		Tab.insert(Obj.Meth, method.getIdent(), retType);
+		Obj obj = Tab.find(method.getIdent());
+		obj.setLevel(getFormalPars(method.getFormalPars()).size());
+		
+		setFormalParsForMethod();
+		
+		hasReturn = false;
+	}
+	
+	
+	public void visit(ReturnExprStatement ret)
+	{
+		hasReturn = true;
+	}
+	
+	public void visit(NormalFormalPar formalPar)
+	{
+		formalPar.obj = new Obj(Obj.Var, formalPar.getIdent(), formalPar.getType().struct);
+		formalPars.add(formalPar.getIdent());
+		Tab.insert(Obj.Var, formalPar.getIdent(), formalPar.getType().struct);
+	}
+	
+	public void visit(ArrayFormalPar formalPar)
+	{		
+		Struct s = new Struct(Struct.Array, formalPar.getType().struct );
+		formalPar.obj = new Obj(Obj.Var, formalPar.getIdent(), s);
+		formalPars.add(formalPar.getIdent());
+		Tab.insert(Obj.Var, formalPar.getIdent(), s);
+	}
+	
+	private void setFormalParsForMethod()
+	{
+		log.debug("setFormalParsForMethod");
+		
+		int i = 1;
+		for (String formalParName: formalPars) {
+			Obj obj = Tab.find(formalParName);
+			obj.setFpPos(i++);
+			report_info(". formal par has name "+formalParName, null);
+		}
+		
+		formalPars.clear();
+	}
 	
 	
 	// TODO

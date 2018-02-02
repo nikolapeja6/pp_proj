@@ -43,8 +43,10 @@ public class MJParserTest {
 	        Symbol s = p.parse();  //pocetak parsiranja
 	        SyntaxNode prog = (SyntaxNode)(s.value);
 	        
-	        log.info("***Abstract tree****");
-	        log.info(s.toString());
+	        //log.info("***Abstract tree****");
+	        //log.info(s.toString());
+	        
+	        log.debug("aaa");
 	        
 			Tab.init(); // Universe scope
 			Tab.insert(Struct.Int, "bool", new Struct(Struct.Int));
