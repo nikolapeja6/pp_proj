@@ -206,11 +206,13 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ParentType;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj Expr;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Term;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
+
 
 non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
-non terminal rs.etf.pp1.symboltable.concepts.Struct Expr;
-non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
-non terminal rs.etf.pp1.symboltable.concepts.Struct Factor;
+
 non terminal rs.etf.pp1.symboltable.concepts.Struct MulopFactor;
 non terminal rs.etf.pp1.symboltable.concepts.Struct VarDeclElem;
 non terminal rs.etf.pp1.symboltable.concepts.Struct DeclAssignElement;

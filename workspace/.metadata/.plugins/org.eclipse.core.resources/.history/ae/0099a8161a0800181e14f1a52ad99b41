@@ -97,7 +97,6 @@ terminal IF, ELSE, BREAK, DO, WHILE, CONTINUE, RETURN;
 /** LITERALS */
 terminal Integer NUMBER;
 terminal String CHAR;
-terminal String STRING;
 terminal String BOOL;
 
 
@@ -155,10 +154,9 @@ terminal String IDENT;
 non terminal Decl;
 non terminal ConstDecl, VarDecl, ClassDecl, MethodDecl;
 
-non terminal FormalPars;
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormalPars;
 non terminal Statement;
 non terminal DesignatorStatement;
-non terminal Designator;
 non terminal ActPars;
 non terminal Condition, CondTerm, CondFact;
 non terminal Relop, Addop, Mulop;
@@ -173,7 +171,7 @@ non terminal ClassBodyDecl;
 non terminal MultipleVarDecl, OptionalMultipleVarDecl;
 non terminal MultipleMethodDecl;
 non terminal MultipleStatement, MultipleStatementHelper;
-non terminal FormalPar;
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormalPar;
 non terminal MultipleAddopTerm;
 non terminal MultipleMulopFactor;
 non terminal DesignatorElem, MultipleDesignatorElem;
@@ -195,6 +193,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj NewClass;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DerivedClass;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ParentType;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 
 
 non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -261,9 +260,9 @@ DeclAssignmenList ::= DeclAssignElement
 ConstDecl ::= (CnstDecl) CONST Type:type DeclAssignmenList SEMICOLON
 				|
 				(ErrorConstDecl)CONST error SEMICOLON
-				{:
+				/*{:
 					parser.log.info("Uspesan oporavak od greske dodele vrednosti.");
-				:}
+				:}*/
 			  ;
 
 VarDeclElem ::= (SingleVarDeclElem) IDENT:name
@@ -280,9 +279,9 @@ VarDeclList ::= VarDeclElem
 VarDecl ::= (VariableDecl) Type:varType VarDeclList SEMICOLON
 			|
 			(VariableDeclError) error SEMICOLON 
-			{:
+			/*{:
 				parser.log.info("Uspesan oporavak od greske deklaracije promenljive.");
-			:}
+			:}*/
 			;
 
 MultipleVarDecl ::= VarDecl
@@ -320,67 +319,43 @@ DerivedClass ::= (DClass) CLASS ClassName:name EXTENDS Type:type;
 		
 ClassName ::= (ClassN) IDENT:name;
 
-ReturnType ::= Type:t
+ReturnType ::= (RetType)Type:t
 			   |
-			   VOID 
+			   (VoidRetType) VOID 
 			   ;
 
-MethodDecl ::= 	ReturnType IDENT   OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
+MethodDecl ::= 	(MethodDeclNoPars)ReturnType:retType IDENT:ident   OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
 				|
-				ReturnType  IDENT  OPEN_PARENTHESES FormalPars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
+				(MethodDeclFull)ReturnType:retType   IDENT:ident  OPEN_PARENTHESES FormalPars:pars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
 				|
-				ReturnType  IDENT  OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
+				(MethodDeclNoParsNoBody) ReturnType:retType   IDENT:ident  OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
 				|
-				ReturnType  IDENT  OPEN_PARENTHESES FormalPars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
+				(MethodDeclNoBody)ReturnType:retType   IDENT:ident  OPEN_PARENTHESES FormalPars:pars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
 				;
 
-FormalPar ::= Type IDENT 
+FormalPar ::= (NormalFormalPar) Type:type IDENT:ident 
 				|
-			   Type IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
+			   (ArrayFormalPar) Type:type IDENT:ident OPEN_CHEVRONS CLOSE_CHEVRONS
 			  ;
 
-FormalPars ::= FormalPar
+FormalPars ::= (SingleFormalPar) FormalPar:formalPar
 				|
 				error
-				{:
+				/*{:
 					parser.log.info("Uspesan oporavak od pogesne deklaracije parametra funkcije");
 					
-				:}
+				:}*/
 			  	|
-			   FormalPar COMMA FormalPars
+			   (MultipleFormalPars)FormalPar:formalPar COMMA FormalPars
 			   |
 			   error COMMA FormalPars
-				{:
+				/*{:
 					parser.log.info("Uspesan oporavak od pogesne deklaracije parametra funkcije");
 					
-				:}
+				:}*/
 			   ;
 
 Type ::= (Tp) IDENT:typeName 
-/*
-{:
-	Obj typeNode = Tab.find(typeName);
-	if(typeNode == Tab.noObj)
-	{
-		parser.report_error("Nije pronadjen tip "+typeName+"u tabeli simbola", null);
-		RESULT = Tab.noType;
-	}
-	else
-	{
-		if(Obj.Type != typeNode.getKind())
-		{
-			parser.report_error("Ime "+typeName+"ne predstavlja tip", null);
-			RESULT = Tab.noType;
-		}
-		else
-		{
-			parser.report_info("Pronadjen tip "+typeName, null);
-			RESULT = typeNode.getType();
-		}
-		
-	}
-:}
-*/
 ;
 
 
@@ -389,51 +364,52 @@ Statement ::= 	Matched
 				Unmatched
 				|
 				/*diff*/
-				OPEN_BRACES MultipleStatementHelper CLOSE_BRACES
+				(NewBlockStatement) OPEN_BRACES MultipleStatementHelper CLOSE_BRACES
 				;
 
-Matched ::=  (MatchedDesignatorStatement) DesignatorStatement SEMICOLON
+Matched ::= (MatchedDesignatorStatement) DesignatorStatement SEMICOLON
 			|
 			IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Matched
 			|
-			IF OPEN_PARENTHESES error CLOSE_PARENTHESES Matched ELSE Matched
-			{:
-				parser.log.info("Uspesan oporavak od greske u uslovu if-a");
-			:}
-			|
 			DO Statement WHILE OPEN_PARENTHESES Condition CLOSE_PARENTHESES SEMICOLON
 			|
-			BREAK SEMICOLON
+			(BreakStatement)BREAK SEMICOLON
+			| 
+			(ContinueStatement) CONTINUE SEMICOLON
 			|
-			CONTINUE SEMICOLON
+			(ReturnStatement) RETURN SEMICOLON
 			|
-			RETURN SEMICOLON
+			(ReturnExprStatement) RETURN Expr SEMICOLON
 			|
-			RETURN Expr SEMICOLON
+			(ReadStatement) READ OPEN_PARENTHESES Designator CLOSE_PARENTHESES SEMICOLON
 			|
-			READ OPEN_PARENTHESES Designator CLOSE_PARENTHESES SEMICOLON
+			(MatchedSimplePrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
+			{:parser.log.debug("found print");:}
 			|
-			(MatchedSimplePrintStatement) PRINT OPEN_PARENTHESES Expr CLOSE_PARENTHESES SEMICOLON
-			|
-			(MatchedComplexPrintStatement) PRINT OPEN_PARENTHESES Expr  COMMA NUMBER CLOSE_PARENTHESES SEMICOLON
+			(MatchedComplexPrintStatement) PRINT OPEN_PARENTHESES Expr:expr  COMMA NUMBER:num CLOSE_PARENTHESES SEMICOLON
 			|
 			/* empty */
-			OPEN_BRACES CLOSE_BRACES 
+			(EmptyStatement) OPEN_BRACES CLOSE_BRACES 
+			|
+			IF OPEN_PARENTHESES error CLOSE_PARENTHESES Matched ELSE Matched
+			/*{:
+				parser.log.info("Uspesan oporavak od greske u uslovu if-a");
+			:}*/
 			;
 
 Unmatched ::=	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
 				|
 				IF OPEN_PARENTHESES error CLOSE_PARENTHESES Statement
-				{:
+				/*{:
 					parser.log.info("Uspesan oporavak od greske u uslovu if-a");
-				:}
+				:}*/
 				|
 				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
 				|
 				IF OPEN_PARENTHESES error CLOSE_PARENTHESES Matched ELSE Unmatched
-				{:
+				/*{:
 					parser.log.info("Uspesan oporavak od greske u uslovu if-a");
-				:}
+				:}*/
 				;
 					
 /*
@@ -477,7 +453,7 @@ MultipleStatementHelper ::= MultipleStatementHelper Statement
 					  		Statement
 					  		;
 					  
-DesignatorStatement ::= (DesignatorAssignment) Designator ASSIGN Expr
+DesignatorStatement ::= (DesignatorAssignment) Designator ASSIGN Expr {:parser.log.debug("found assignment");:}
 						|
 						(EmptyFunctionCall) Designator OPEN_PARENTHESES CLOSE_PARENTHESES
 						|
@@ -488,32 +464,32 @@ DesignatorStatement ::= (DesignatorAssignment) Designator ASSIGN Expr
 						(DesignatorDec) Designator DEC
 						|
 						error SEMICOLON
-						{:
+						/*{:
 							parser.log.info("Uspesan oporavak od greske dodele vrednosti.");
-						:}
+						:}*/
 						;
 
-ActPars ::=  Expr
+ActPars ::=  (SingleExpression) Expr:expr
 			|
-			ActPars COMMA Expr
+			(MultiExpression) ActPars:morePars COMMA Expr:expr
 			;
 			
-Condition ::= CondTerm
+Condition ::= (SingleCondition) CondTerm
 			  |
-			  Condition OR CondTerm
+			  (MultiCondition) Condition OR CondTerm
 			  ;
-CondTerm ::= CondFact 
+CondTerm ::= (SingleCondTerm) CondFact 
 			 |
-			 CondTerm AND CondFact
+			 (MultiCondTerm) CondTerm AND CondFact
 			 ;
-CondFact ::= Expr
+CondFact ::= (SingleCondFact)Expr
 			 |
-			 Expr Relop Expr
+			 (MultiCondFact)Expr Relop Expr
 			 ;
 			 
-Expr ::= Term MultipleAddopTerm 
+Expr ::= (PositiveExpr) Term:t MultipleAddopTerm {:parser.log.debug("found expr");:}
 		 |
-		 MINUS Term MultipleAddopTerm 
+		 (NegativeExpr) MINUS Term:t MultipleAddopTerm 
 		 ;
 		 
 MultipleAddopTerm ::= MultipleAddopTerm Addop Term
@@ -521,6 +497,7 @@ MultipleAddopTerm ::= MultipleAddopTerm Addop Term
 					  /* empty */
 					  ;
 Term ::= (TF) Factor
+		{:parser.log.debug("found term");:}
 		|
 		 (MFT) Factor MultipleMulopFactor
 		;
@@ -530,38 +507,38 @@ MultipleMulopFactor ::= (RMF) MultipleMulopFactor:m Mulop Factor:f
 						(SMF) Mulop Factor:f
 						;
 
-Factor ::= Designator
+Factor ::=  (SingleDesignatorFactor) Designator
 			|
-			Designator OPEN_PARENTHESES CLOSE_PARENTHESES
+			(FactorEmptyFunctionCall)Designator:fun OPEN_PARENTHESES CLOSE_PARENTHESES
 			|
-			Designator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+			(FactorFunctionCall) Designator:fun OPEN_PARENTHESES ActPars:pars CLOSE_PARENTHESES
 			|
-			NUMBER
+			(NumFactor) NUMBER
 			|
-			CHAR
+			(CharFactor) CHAR
 			|
-			BOOL
+			(BoolFactor) BOOL
 			|
 			(NewFactor) NEW Type:type
 			|
 			(NewArrayFactor) NEW Type OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 			|
-			OPEN_PARENTHESES Expr CLOSE_PARENTHESES
+			(ParFactor) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
 			;
 
 			
-DesignatorElem ::= 	DOT IDENT
+DesignatorElem ::= 	(AccessingFieldDesignatorElem) DOT IDENT:ident
 					|
 					(IndexingDesignatorElem) OPEN_CHEVRONS Expr:expr CLOSE_CHEVRONS
 					;
 					
-MultipleDesignatorElem ::= MultipleDesignatorElem DesignatorElem
+MultipleDesignatorElem ::= (MultiDesignatorELem) MultipleDesignatorElem:more DesignatorElem:elem
 							|
-							DesignatorElem
+							(SingleDesignatorElem) DesignatorElem:elem
 							;
-Designator ::= (SingleDesignator) IDENT:i /*TODO name not declared*/
+Designator ::= (SingleDesignator) IDENT:ident
 				|
-				(ArrayElementDesignator) IDENT:array /*TODO name not declared*/ MultipleDesignatorElem
+				(ArrayElementDesignator) IDENT:array MultipleDesignatorElem
 				;
 				
 Relop ::= 	EQUAL

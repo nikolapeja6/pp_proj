@@ -265,6 +265,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+	// TODO
+	/*
 	public void visit(TF term) {
 		term.struct = term.getFactor().struct;    	
 	}
@@ -273,7 +275,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	{
 		term.struct = term.getFactor().struct;		
 	}
-	
+	*/
 	
 	public void visit(NewFactor factor)
 	{
@@ -327,6 +329,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	}
 	
+	// TODO
+	/*
 	public void visit(NegativeExpr expr)
 	{
 		if(expr.getTerm().struct.getKind() != Struct.Int)
@@ -335,6 +339,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+	*/
 	public void visit(EmptyFunctionCall statement)
 	{
 		String name = ((SingleDesignator)statement.getDesignator()).getIdent();
@@ -375,14 +380,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					null);
 
 		}
-	}	
+	}
 	
+	//TODO
+	/*
 	public void visit(DesignatorAssignment statement)
 	{
 		if (!getTermFromExpr(statement.getExpr()).struct.assignableTo(statement.getDesignator().obj.getType()))
 			report_error("Greska na liniji " + statement.getLine() + " : " + " nekompatibilni tipovi u dodeli vrednosti ", null);
 	}
-
+	*/
 	
 	private Term getTermFromExpr(Expr expr)
 	{
@@ -396,6 +403,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+	// TODO
+	/*
 	private Struct getStructFromTerm(Term t) {
 		if (t instanceof TF) {
 			return ((TF) t).getFactor().struct;
@@ -403,6 +412,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return ((MFT) t).getFactor().struct;
 		}
 	}
+	*/
 	
 	public void visit(MatchedSimplePrintStatement matched) {
 		Struct s = Tab.charType;//getStructFromTerm(getTermFromExpr(matched.getExpr()));
@@ -413,6 +423,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+	// TODO
+	/*
 	public void visit(MatchedComplexPrintStatement matched) {
 		Struct s = getStructFromTerm(getTermFromExpr(matched.getExpr()));
 
@@ -421,8 +433,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		}
 	}	
+	*/
 	
-	
+	// TODO
+	/*
 	private List<Struct> getTypesFromActPars(ActPars pars)
 	{
 		LinkedList<Struct> types = new LinkedList<>();
@@ -438,7 +452,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		return types;
 	}
+	*/
 	
+	// TODO
+	/*
 	private Struct getTypeFromExpression(Expr expr)
 	{
 		if(expr instanceof PositiveExpr)
@@ -450,6 +467,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return ((NegativeExpr)expr).getTerm().struct;
 		}
 	}
+	*/
 	
 	public void visit(FactorFunctionCall fCall)
 	{
@@ -462,7 +480,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		else
 		{
-			List<Struct> types = getTypesFromActPars(fCall.getActPars());
+			//TODO
+			
+			/*List<Struct> types = getTypesFromActPars(fCall.getActPars());
 			
 			// TODO check if this is the way to get objects
 			Collection<Obj> objs= getFormalParsObjNodes(obj);
@@ -479,6 +499,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					report_error("Missmatch of types for "+i+" arg", null);
 				}
 			}
+			*/
 		}
 	}
 	

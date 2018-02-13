@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Expr;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="true" key="wholeword"/>
 		<list key="findhistory">
-			<item value="debug"/>
-			<item value="visiting"/>
-			<item value="1"/>
-			<item value="MethodDeclNoPars"/>
-			<item value="Program"/>
-			<item value="NormalFormalPar"/>
-			<item value="MultipleFormalPars"/>
-			<item value="SingleFormalPar"/>
+			<item value="Expr;"/>
+			<item value="parser.debug"/>
+			<item value="Expr ::="/>
+			<item value="PRINT"/>
+			<item value="DesignatorAssignment"/>
+			<item value="Assign"/>
+			<item value="SingleDesignatorFactor"/>
+			<item value="Factor"/>
 		</list>
 		<list key="replacehistory">
 			<item value="parser.log.info"/>
@@ -27,7 +27,7 @@
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="382" key="DIALOG_HEIGHT"/>
-		<item value="676" key="DIALOG_X_ORIGIN"/>
-		<item value="407" key="DIALOG_Y_ORIGIN"/>
+		<item value="518" key="DIALOG_X_ORIGIN"/>
+		<item value="532" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
