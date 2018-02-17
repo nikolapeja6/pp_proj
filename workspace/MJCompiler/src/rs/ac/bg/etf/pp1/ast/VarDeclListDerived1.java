@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 2/1/2018 14:8:1
+// 17/1/2018 4:1:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class VarDeclListDerived1 extends VarDeclList {
 
-    private VarDeclElem VarDeclElem;
+    private VarDeclElement VarDeclElement;
 
-    public VarDeclListDerived1 (VarDeclElem VarDeclElem) {
-        this.VarDeclElem=VarDeclElem;
-        if(VarDeclElem!=null) VarDeclElem.setParent(this);
+    public VarDeclListDerived1 (VarDeclElement VarDeclElement) {
+        this.VarDeclElement=VarDeclElement;
+        if(VarDeclElement!=null) VarDeclElement.setParent(this);
     }
 
-    public VarDeclElem getVarDeclElem() {
-        return VarDeclElem;
+    public VarDeclElement getVarDeclElement() {
+        return VarDeclElement;
     }
 
-    public void setVarDeclElem(VarDeclElem VarDeclElem) {
-        this.VarDeclElem=VarDeclElem;
+    public void setVarDeclElement(VarDeclElement VarDeclElement) {
+        this.VarDeclElement=VarDeclElement;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class VarDeclListDerived1 extends VarDeclList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(VarDeclElem!=null) VarDeclElem.accept(visitor);
+        if(VarDeclElement!=null) VarDeclElement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(VarDeclElem!=null) VarDeclElem.traverseTopDown(visitor);
+        if(VarDeclElement!=null) VarDeclElement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(VarDeclElem!=null) VarDeclElem.traverseBottomUp(visitor);
+        if(VarDeclElement!=null) VarDeclElement.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class VarDeclListDerived1 extends VarDeclList {
         buffer.append(tab);
         buffer.append("VarDeclListDerived1(\n");
 
-        if(VarDeclElem!=null)
-            buffer.append(VarDeclElem.toString("  "+tab));
+        if(VarDeclElement!=null)
+            buffer.append(VarDeclElement.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

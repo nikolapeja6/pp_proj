@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2018 17:23:0
+// 17/1/2018 4:1:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived3 extends Statement {
 
-    private MultipleStatementHelper MultipleStatementHelper;
+    private Expr Expr;
 
-    public StatementDerived3 (MultipleStatementHelper MultipleStatementHelper) {
-        this.MultipleStatementHelper=MultipleStatementHelper;
-        if(MultipleStatementHelper!=null) MultipleStatementHelper.setParent(this);
+    public StatementDerived3 (Expr Expr) {
+        this.Expr=Expr;
+        if(Expr!=null) Expr.setParent(this);
     }
 
-    public MultipleStatementHelper getMultipleStatementHelper() {
-        return MultipleStatementHelper;
+    public Expr getExpr() {
+        return Expr;
     }
 
-    public void setMultipleStatementHelper(MultipleStatementHelper MultipleStatementHelper) {
-        this.MultipleStatementHelper=MultipleStatementHelper;
+    public void setExpr(Expr Expr) {
+        this.Expr=Expr;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class StatementDerived3 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(MultipleStatementHelper!=null) MultipleStatementHelper.accept(visitor);
+        if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(MultipleStatementHelper!=null) MultipleStatementHelper.traverseTopDown(visitor);
+        if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(MultipleStatementHelper!=null) MultipleStatementHelper.traverseBottomUp(visitor);
+        if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class StatementDerived3 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived3(\n");
 
-        if(MultipleStatementHelper!=null)
-            buffer.append(MultipleStatementHelper.toString("  "+tab));
+        if(Expr!=null)
+            buffer.append(Expr.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

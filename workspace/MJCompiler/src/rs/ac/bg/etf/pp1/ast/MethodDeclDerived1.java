@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2018 17:23:0
+// 17/1/2018 4:1:6
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,17 +9,14 @@ public class MethodDeclDerived1 extends MethodDecl {
 
     private ReturnType ReturnType;
     private String I2;
-    private OptionalMultipleVarDecl OptionalMultipleVarDecl;
-    private MultipleStatement MultipleStatement;
+    private MultipleStatements MultipleStatements;
 
-    public MethodDeclDerived1 (ReturnType ReturnType, String I2, OptionalMultipleVarDecl OptionalMultipleVarDecl, MultipleStatement MultipleStatement) {
+    public MethodDeclDerived1 (ReturnType ReturnType, String I2, MultipleStatements MultipleStatements) {
         this.ReturnType=ReturnType;
         if(ReturnType!=null) ReturnType.setParent(this);
         this.I2=I2;
-        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
-        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.setParent(this);
-        this.MultipleStatement=MultipleStatement;
-        if(MultipleStatement!=null) MultipleStatement.setParent(this);
+        this.MultipleStatements=MultipleStatements;
+        if(MultipleStatements!=null) MultipleStatements.setParent(this);
     }
 
     public ReturnType getReturnType() {
@@ -38,20 +35,12 @@ public class MethodDeclDerived1 extends MethodDecl {
         this.I2=I2;
     }
 
-    public OptionalMultipleVarDecl getOptionalMultipleVarDecl() {
-        return OptionalMultipleVarDecl;
+    public MultipleStatements getMultipleStatements() {
+        return MultipleStatements;
     }
 
-    public void setOptionalMultipleVarDecl(OptionalMultipleVarDecl OptionalMultipleVarDecl) {
-        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
-    }
-
-    public MultipleStatement getMultipleStatement() {
-        return MultipleStatement;
-    }
-
-    public void setMultipleStatement(MultipleStatement MultipleStatement) {
-        this.MultipleStatement=MultipleStatement;
+    public void setMultipleStatements(MultipleStatements MultipleStatements) {
+        this.MultipleStatements=MultipleStatements;
     }
 
     public void accept(Visitor visitor) {
@@ -60,21 +49,18 @@ public class MethodDeclDerived1 extends MethodDecl {
 
     public void childrenAccept(Visitor visitor) {
         if(ReturnType!=null) ReturnType.accept(visitor);
-        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.accept(visitor);
-        if(MultipleStatement!=null) MultipleStatement.accept(visitor);
+        if(MultipleStatements!=null) MultipleStatements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(ReturnType!=null) ReturnType.traverseTopDown(visitor);
-        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseTopDown(visitor);
-        if(MultipleStatement!=null) MultipleStatement.traverseTopDown(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ReturnType!=null) ReturnType.traverseBottomUp(visitor);
-        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseBottomUp(visitor);
-        if(MultipleStatement!=null) MultipleStatement.traverseBottomUp(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -92,14 +78,8 @@ public class MethodDeclDerived1 extends MethodDecl {
         buffer.append(" "+tab+I2);
         buffer.append("\n");
 
-        if(OptionalMultipleVarDecl!=null)
-            buffer.append(OptionalMultipleVarDecl.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(MultipleStatement!=null)
-            buffer.append(MultipleStatement.toString("  "+tab));
+        if(MultipleStatements!=null)
+            buffer.append(MultipleStatements.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

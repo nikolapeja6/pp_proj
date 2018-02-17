@@ -24,15 +24,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int nVars;
 	int nFields = 0;
 	int fldCnt = 0;
-	
-	boolean hasReturn = false;
-	
-	LinkedList<VarDeclElem> currentlyProcessedVarElems = new LinkedList<>();
-	LinkedList<DeclAssignElem> currentlyProcessedConstElems = new LinkedList();
-	
-	LinkedList<String> formalPars = new LinkedList<>();
-	
-	String nameOfCurrentClass = "";
 		
 
 	Logger log = Logger.getLogger(getClass());
@@ -54,7 +45,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		log.info(msg.toString());
 	}
 	
-	
+	/*
 	public void visit(NumberLiteral number)
 	{
 		log.debug("number literal");
@@ -275,7 +266,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	{
 		term.struct = term.getFactor().struct;		
 	}
-	*/
+	* /
 	
 	public void visit(NewFactor factor)
 	{
@@ -339,7 +330,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
-	*/
+	* /
 	public void visit(EmptyFunctionCall statement)
 	{
 		String name = ((SingleDesignator)statement.getDesignator()).getIdent();
@@ -389,7 +380,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!getTermFromExpr(statement.getExpr()).struct.assignableTo(statement.getDesignator().obj.getType()))
 			report_error("Greska na liniji " + statement.getLine() + " : " + " nekompatibilni tipovi u dodeli vrednosti ", null);
 	}
-	*/
+	* /
 	
 	private Term getTermFromExpr(Expr expr)
 	{
@@ -412,7 +403,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return ((MFT) t).getFactor().struct;
 		}
 	}
-	*/
+	* /
 	
 	public void visit(MatchedSimplePrintStatement matched) {
 		Struct s = Tab.charType;//getStructFromTerm(getTermFromExpr(matched.getExpr()));
@@ -433,7 +424,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		}
 	}	
-	*/
+	* /
 	
 	// TODO
 	/*
@@ -452,7 +443,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		return types;
 	}
-	*/
+	* /
 	
 	// TODO
 	/*
@@ -467,7 +458,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return ((NegativeExpr)expr).getTerm().struct;
 		}
 	}
-	*/
+	* /
 	
 	public void visit(FactorFunctionCall fCall)
 	{
@@ -499,7 +490,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					report_error("Missmatch of types for "+i+" arg", null);
 				}
 			}
-			*/
+			* /
 		}
 	}
 	

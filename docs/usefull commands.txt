@@ -19,9 +19,10 @@ CUP
 
 path
 C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\lib
+F:\GitHub\pp_proj\workspace\MJCompiler\lib
 
 to find out options of flex
 java -jar cup_v10k.jar -h
 
 command
-java -jar cup_v10k.jar -destdir ..\src\rs\ac\bg\etf\pp1 -parser MJParser ..\spec\mjparser.cup
+java -jar cup_v10k.jar -destdir ..\src\rs\ac\bg\etf\pp1 -parser MJParser -ast rs.ac.bg.etf.pp1.ast -buildtree ..\spec\mjparser.cup

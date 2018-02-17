@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2018 18:12:4
+// 17/1/2018 4:1:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ReturnTypeDerived1 extends ReturnType {
 
-    private Type Type;
+    private VoidType VoidType;
 
-    public ReturnTypeDerived1 (Type Type) {
-        this.Type=Type;
-        if(Type!=null) Type.setParent(this);
+    public ReturnTypeDerived1 (VoidType VoidType) {
+        this.VoidType=VoidType;
+        if(VoidType!=null) VoidType.setParent(this);
     }
 
-    public Type getType() {
-        return Type;
+    public VoidType getVoidType() {
+        return VoidType;
     }
 
-    public void setType(Type Type) {
-        this.Type=Type;
+    public void setVoidType(VoidType VoidType) {
+        this.VoidType=VoidType;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class ReturnTypeDerived1 extends ReturnType {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Type!=null) Type.accept(visitor);
+        if(VoidType!=null) VoidType.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Type!=null) Type.traverseTopDown(visitor);
+        if(VoidType!=null) VoidType.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Type!=null) Type.traverseBottomUp(visitor);
+        if(VoidType!=null) VoidType.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class ReturnTypeDerived1 extends ReturnType {
         buffer.append(tab);
         buffer.append("ReturnTypeDerived1(\n");
 
-        if(Type!=null)
-            buffer.append(Type.toString("  "+tab));
+        if(VoidType!=null)
+            buffer.append(VoidType.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

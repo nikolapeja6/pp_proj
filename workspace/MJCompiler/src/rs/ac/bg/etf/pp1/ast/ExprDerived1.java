@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 30/0/2018 19:46:23
+// 17/1/2018 4:1:6
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,13 +8,13 @@ package rs.ac.bg.etf.pp1.ast;
 public class ExprDerived1 extends Expr {
 
     private Term Term;
-    private MultipleAddopTerm MultipleAddopTerm;
+    private OptionalExprList OptionalExprList;
 
-    public ExprDerived1 (Term Term, MultipleAddopTerm MultipleAddopTerm) {
+    public ExprDerived1 (Term Term, OptionalExprList OptionalExprList) {
         this.Term=Term;
         if(Term!=null) Term.setParent(this);
-        this.MultipleAddopTerm=MultipleAddopTerm;
-        if(MultipleAddopTerm!=null) MultipleAddopTerm.setParent(this);
+        this.OptionalExprList=OptionalExprList;
+        if(OptionalExprList!=null) OptionalExprList.setParent(this);
     }
 
     public Term getTerm() {
@@ -25,12 +25,12 @@ public class ExprDerived1 extends Expr {
         this.Term=Term;
     }
 
-    public MultipleAddopTerm getMultipleAddopTerm() {
-        return MultipleAddopTerm;
+    public OptionalExprList getOptionalExprList() {
+        return OptionalExprList;
     }
 
-    public void setMultipleAddopTerm(MultipleAddopTerm MultipleAddopTerm) {
-        this.MultipleAddopTerm=MultipleAddopTerm;
+    public void setOptionalExprList(OptionalExprList OptionalExprList) {
+        this.OptionalExprList=OptionalExprList;
     }
 
     public void accept(Visitor visitor) {
@@ -39,18 +39,18 @@ public class ExprDerived1 extends Expr {
 
     public void childrenAccept(Visitor visitor) {
         if(Term!=null) Term.accept(visitor);
-        if(MultipleAddopTerm!=null) MultipleAddopTerm.accept(visitor);
+        if(OptionalExprList!=null) OptionalExprList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Term!=null) Term.traverseTopDown(visitor);
-        if(MultipleAddopTerm!=null) MultipleAddopTerm.traverseTopDown(visitor);
+        if(OptionalExprList!=null) OptionalExprList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Term!=null) Term.traverseBottomUp(visitor);
-        if(MultipleAddopTerm!=null) MultipleAddopTerm.traverseBottomUp(visitor);
+        if(OptionalExprList!=null) OptionalExprList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -65,8 +65,8 @@ public class ExprDerived1 extends Expr {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MultipleAddopTerm!=null)
-            buffer.append(MultipleAddopTerm.toString("  "+tab));
+        if(OptionalExprList!=null)
+            buffer.append(OptionalExprList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
