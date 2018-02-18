@@ -1,27 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2018 4:1:6
+// 18/1/2018 4:58:16
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ProgramDerived1 extends Program {
 
-    private String I1;
+    private ProgramName ProgramName;
     private MultipleMethodDecl MultipleMethodDecl;
+    private ProgramEnd ProgramEnd;
 
-    public ProgramDerived1 (String I1, MultipleMethodDecl MultipleMethodDecl) {
-        this.I1=I1;
+    public ProgramDerived1 (ProgramName ProgramName, MultipleMethodDecl MultipleMethodDecl, ProgramEnd ProgramEnd) {
+        this.ProgramName=ProgramName;
+        if(ProgramName!=null) ProgramName.setParent(this);
         this.MultipleMethodDecl=MultipleMethodDecl;
         if(MultipleMethodDecl!=null) MultipleMethodDecl.setParent(this);
+        this.ProgramEnd=ProgramEnd;
+        if(ProgramEnd!=null) ProgramEnd.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ProgramName getProgramName() {
+        return ProgramName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setProgramName(ProgramName ProgramName) {
+        this.ProgramName=ProgramName;
     }
 
     public MultipleMethodDecl getMultipleMethodDecl() {
@@ -32,21 +36,35 @@ public class ProgramDerived1 extends Program {
         this.MultipleMethodDecl=MultipleMethodDecl;
     }
 
+    public ProgramEnd getProgramEnd() {
+        return ProgramEnd;
+    }
+
+    public void setProgramEnd(ProgramEnd ProgramEnd) {
+        this.ProgramEnd=ProgramEnd;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ProgramName!=null) ProgramName.accept(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.accept(visitor);
+        if(ProgramEnd!=null) ProgramEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ProgramName!=null) ProgramName.traverseTopDown(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseTopDown(visitor);
+        if(ProgramEnd!=null) ProgramEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ProgramName!=null) ProgramName.traverseBottomUp(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseBottomUp(visitor);
+        if(ProgramEnd!=null) ProgramEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -55,11 +73,20 @@ public class ProgramDerived1 extends Program {
         buffer.append(tab);
         buffer.append("ProgramDerived1(\n");
 
-        buffer.append(" "+tab+I1);
+        if(ProgramName!=null)
+            buffer.append(ProgramName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(MultipleMethodDecl!=null)
             buffer.append(MultipleMethodDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ProgramEnd!=null)
+            buffer.append(ProgramEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

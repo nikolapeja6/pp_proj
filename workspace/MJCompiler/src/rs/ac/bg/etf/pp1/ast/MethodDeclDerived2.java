@@ -1,41 +1,34 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2018 4:1:6
+// 18/1/2018 4:58:16
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclDerived2 extends MethodDecl {
 
-    private ReturnType ReturnType;
-    private String I2;
+    private MethodNameAndRetType MethodNameAndRetType;
     private MultipleVarDecl MultipleVarDecl;
     private MultipleStatements MultipleStatements;
+    private MethodEnd MethodEnd;
 
-    public MethodDeclDerived2 (ReturnType ReturnType, String I2, MultipleVarDecl MultipleVarDecl, MultipleStatements MultipleStatements) {
-        this.ReturnType=ReturnType;
-        if(ReturnType!=null) ReturnType.setParent(this);
-        this.I2=I2;
+    public MethodDeclDerived2 (MethodNameAndRetType MethodNameAndRetType, MultipleVarDecl MultipleVarDecl, MultipleStatements MultipleStatements, MethodEnd MethodEnd) {
+        this.MethodNameAndRetType=MethodNameAndRetType;
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.setParent(this);
         this.MultipleVarDecl=MultipleVarDecl;
         if(MultipleVarDecl!=null) MultipleVarDecl.setParent(this);
         this.MultipleStatements=MultipleStatements;
         if(MultipleStatements!=null) MultipleStatements.setParent(this);
+        this.MethodEnd=MethodEnd;
+        if(MethodEnd!=null) MethodEnd.setParent(this);
     }
 
-    public ReturnType getReturnType() {
-        return ReturnType;
+    public MethodNameAndRetType getMethodNameAndRetType() {
+        return MethodNameAndRetType;
     }
 
-    public void setReturnType(ReturnType ReturnType) {
-        this.ReturnType=ReturnType;
-    }
-
-    public String getI2() {
-        return I2;
-    }
-
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setMethodNameAndRetType(MethodNameAndRetType MethodNameAndRetType) {
+        this.MethodNameAndRetType=MethodNameAndRetType;
     }
 
     public MultipleVarDecl getMultipleVarDecl() {
@@ -54,27 +47,38 @@ public class MethodDeclDerived2 extends MethodDecl {
         this.MultipleStatements=MultipleStatements;
     }
 
+    public MethodEnd getMethodEnd() {
+        return MethodEnd;
+    }
+
+    public void setMethodEnd(MethodEnd MethodEnd) {
+        this.MethodEnd=MethodEnd;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.accept(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.accept(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.accept(visitor);
         if(MultipleStatements!=null) MultipleStatements.accept(visitor);
+        if(MethodEnd!=null) MethodEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ReturnType!=null) ReturnType.traverseTopDown(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseTopDown(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseTopDown(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
+        if(MethodEnd!=null) MethodEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.traverseBottomUp(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseBottomUp(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseBottomUp(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
+        if(MethodEnd!=null) MethodEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -83,13 +87,10 @@ public class MethodDeclDerived2 extends MethodDecl {
         buffer.append(tab);
         buffer.append("MethodDeclDerived2(\n");
 
-        if(ReturnType!=null)
-            buffer.append(ReturnType.toString("  "+tab));
+        if(MethodNameAndRetType!=null)
+            buffer.append(MethodNameAndRetType.toString("  "+tab));
         else
             buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        buffer.append(" "+tab+I2);
         buffer.append("\n");
 
         if(MultipleVarDecl!=null)
@@ -100,6 +101,12 @@ public class MethodDeclDerived2 extends MethodDecl {
 
         if(MultipleStatements!=null)
             buffer.append(MultipleStatements.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(MethodEnd!=null)
+            buffer.append(MethodEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

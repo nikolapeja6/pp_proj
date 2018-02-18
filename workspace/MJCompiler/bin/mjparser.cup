@@ -156,8 +156,6 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
-non terminal rs.etf.pp1.symboltable.concepts.Obj Term;
-non terminal rs.etf.pp1.symboltable.concepts.Obj Expr;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 
 non terminal Mulop;
@@ -167,6 +165,8 @@ non terminal Relop;
 non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
 non terminal rs.etf.pp1.symboltable.concepts.Struct VoidType;
 non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
 
 
 
@@ -174,6 +174,12 @@ non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
 
 
 /** HELPER NON TERMINALS */
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+non terminal ProgramEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
+non terminal MethodEnd;
+
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
@@ -193,10 +199,14 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 
 
 /* TODO optional method decl*/
-Program ::= PROG IDENT OPEN_BRACES MultipleMethodDecl CLOSE_BRACES
+Program ::= PROG ProgramName OPEN_BRACES MultipleMethodDecl ProgramEnd
 			|
-			PROG IDENT MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES
+			PROG ProgramName MultipleVarDecl OPEN_BRACES MultipleMethodDecl ProgramEnd
 			;
+			
+ProgramName ::= (ProgName) IDENT:name;
+
+ProgramEnd ::= CLOSE_BRACES;
 
 MultipleVarDecl ::= VarDecl
 					|
@@ -222,19 +232,23 @@ MultipleMethodDecl ::= 	MethodDecl
 						
 
 /* TODO optional multiple statements */					
-MethodDecl ::= 	ReturnType IDENT OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements CLOSE_BRACES
+MethodDecl ::= 	MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements MethodEnd
 				|
-				ReturnType IDENT OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl OPEN_BRACES MultipleStatements CLOSE_BRACES
+				MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl OPEN_BRACES MultipleStatements MethodEnd
 				;
 				
-ReturnType ::= 	VoidType
+MethodNameAndRetType ::= (MethodNameAndRetType1) ReturnType:type IDENT:name;
+
+MethodEnd ::= (MethodEnd1) CLOSE_BRACES;
+
+ReturnType ::= 	(VoidReturnType) VoidType
 				|
-				Type
+				(TypeReturnType) Type
 				;
 
 VoidType ::= VOID;				
 
-Type ::= IDENT;
+Type ::= (Type1) IDENT;
 
 MultipleStatements ::= 	Statement
 						|
@@ -247,7 +261,7 @@ Statement ::= 	DesignatorStatement SEMICOLON
 				|
 				RETURN Expr SEMICOLON
 				|
-				PRINT OPEN_PARENTHESES Expr CLOSE_PARENTHESES SEMICOLON
+				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
 				|
 				OPEN_BRACES CLOSE_BRACES
 				|
@@ -267,12 +281,12 @@ DesignatorStatement ::= 	Designator ASSIGN Expr
 							Designator DEC
 							;
 
-Expr ::=	Term OptionalExprList
+Expr ::=	(ExprWithNoMinus)Term:term OptionalExprList
 			|
-			MINUS Term  OptionalExprList
+			(ExprWithMinus) MINUS Term:term OptionalExprList
 			;
 			
-OptionalExprList ::= 	ExprList
+OptionalExprList ::= 	ExprList:list
 						|
 						/* empty */
 						;
@@ -284,9 +298,9 @@ ExprList ::= 	ExprElement
 
 ExprElement ::= Addop Term;
 
-Term ::= 	Factor
+Term ::= 	(SingleFactorTerm) Factor:factor
 			| 
-			Factor TermList
+			(MultiFactorTerm) Factor:factor TermList
 			;
 			
 TermList ::=	TermElement
@@ -296,16 +310,17 @@ TermList ::=	TermElement
 				
 TermElement ::= Mulop Factor;
 
-
-Factor ::= 	Designator
+			/* TODO */
+Factor ::= 	(VariableFactor)Designator:desigantor
 			|
-			Designator OPEN_PARENTHESES CLOSE_PARENTHESES
+			/* TODO */
+			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES
 			|
-			NUMBER
+			(NumberFactor) NUMBER:number
 			|
-			CHAR
+			(CharFactor) CHAR:ch
 			|
-			BOOL
+			(BoolFactor) BOOL:bl
 			;
 
 Designator ::= IDENT;

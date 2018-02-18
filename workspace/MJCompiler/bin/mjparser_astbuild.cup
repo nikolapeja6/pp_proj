@@ -156,8 +156,6 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
-non terminal rs.etf.pp1.symboltable.concepts.Obj Term;
-non terminal rs.etf.pp1.symboltable.concepts.Obj Expr;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 
 non terminal Mulop Mulop;
@@ -167,6 +165,8 @@ non terminal Relop Relop;
 non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
 non terminal rs.etf.pp1.symboltable.concepts.Struct VoidType;
 non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
 
 
 
@@ -174,6 +174,12 @@ non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
 
 
 /** HELPER NON TERMINALS */
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+non terminal ProgramEnd ProgramEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
+non terminal MethodEnd MethodEnd;
+
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
@@ -193,10 +199,14 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 
 
 /* TODO optional method decl*/
-Program ::= PROG IDENT:I1 OPEN_BRACES MultipleMethodDecl:M2 CLOSE_BRACES {: RESULT=new ProgramDerived1(I1, M2); RESULT.setLine(I1left); :}
+Program ::= PROG ProgramName:P1 OPEN_BRACES MultipleMethodDecl:M2 ProgramEnd:P3 {: RESULT=new ProgramDerived1(P1, M2, P3); RESULT.setLine(P1left); :}
 			|
-			PROG IDENT:I1 MultipleVarDecl:M2 OPEN_BRACES MultipleMethodDecl:M3 CLOSE_BRACES {: RESULT=new ProgramDerived2(I1, M2, M3); RESULT.setLine(I1left); :}
+			PROG ProgramName:P1 MultipleVarDecl:M2 OPEN_BRACES MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new ProgramDerived2(P1, M2, M3, P4); RESULT.setLine(P1left); :}
 			;
+			
+ProgramName ::= (ProgName) IDENT:name {: RESULT=new ProgName(name); RESULT.setLine(nameleft); :};
+
+ProgramEnd ::= CLOSE_BRACES {: RESULT=new ProgramEndDerived1(); :};
 
 MultipleVarDecl ::= VarDecl:V1 {: RESULT=new MultipleVarDeclDerived1(V1); RESULT.setLine(V1left); :}
 					|
@@ -222,19 +232,23 @@ MultipleMethodDecl ::= 	MethodDecl:M1 {: RESULT=new MultipleMethodDeclDerived1(M
 						
 
 /* TODO optional multiple statements */					
-MethodDecl ::= 	ReturnType:R1 IDENT:I2 OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements:M3 CLOSE_BRACES {: RESULT=new MethodDeclDerived1(R1, I2, M3); RESULT.setLine(R1left); :}
+MethodDecl ::= 	MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements:M2 MethodEnd:M3 {: RESULT=new MethodDeclDerived1(M1, M2, M3); RESULT.setLine(M1left); :}
 				|
-				ReturnType:R1 IDENT:I2 OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl:M3 OPEN_BRACES MultipleStatements:M4 CLOSE_BRACES {: RESULT=new MethodDeclDerived2(R1, I2, M3, M4); RESULT.setLine(R1left); :}
+				MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl:M2 OPEN_BRACES MultipleStatements:M3 MethodEnd:M4 {: RESULT=new MethodDeclDerived2(M1, M2, M3, M4); RESULT.setLine(M1left); :}
 				;
 				
-ReturnType ::= 	VoidType:V1 {: RESULT=new ReturnTypeDerived1(V1); RESULT.setLine(V1left); :}
+MethodNameAndRetType ::= (MethodNameAndRetType1) ReturnType:type IDENT:name {: RESULT=new MethodNameAndRetType1(type, name); RESULT.setLine(typeleft); :};
+
+MethodEnd ::= (MethodEnd1) CLOSE_BRACES {: RESULT=new MethodEnd1(); :};
+
+ReturnType ::= 	(VoidReturnType) VoidType:V1 {: RESULT=new VoidReturnType(V1); RESULT.setLine(V1left); :}
 				|
-				Type:T1 {: RESULT=new ReturnTypeDerived2(T1); RESULT.setLine(T1left); :}
+				(TypeReturnType) Type:T1 {: RESULT=new TypeReturnType(T1); RESULT.setLine(T1left); :}
 				;
 
 VoidType ::= VOID {: RESULT=new VoidTypeDerived1(); :};				
 
-Type ::= IDENT:I1 {: RESULT=new TypeDerived1(I1); RESULT.setLine(I1left); :};
+Type ::= (Type1) IDENT:I1 {: RESULT=new Type1(I1); RESULT.setLine(I1left); :};
 
 MultipleStatements ::= 	Statement:S1 {: RESULT=new MultipleStatementsDerived1(S1); RESULT.setLine(S1left); :}
 						|
@@ -247,11 +261,11 @@ Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(
 				|
 				RETURN Expr:E1 SEMICOLON {: RESULT=new StatementDerived3(E1); RESULT.setLine(E1left); :}
 				|
-				PRINT OPEN_PARENTHESES Expr:E1 CLOSE_PARENTHESES SEMICOLON {: RESULT=new StatementDerived4(E1); RESULT.setLine(E1left); :}
+				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON {: RESULT=new PrintStatement(expr); RESULT.setLine(exprleft); :}
 				|
-				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived5(); :}
+				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived4(); :}
 				|
-				OPEN_BRACES Statement:S1 CLOSE_BRACES {: RESULT=new StatementDerived6(S1); RESULT.setLine(S1left); :}
+				OPEN_BRACES Statement:S1 CLOSE_BRACES {: RESULT=new StatementDerived5(S1); RESULT.setLine(S1left); :}
 				;
 
 
@@ -267,12 +281,12 @@ DesignatorStatement ::= 	Designator:D1 ASSIGN Expr:E2 {: RESULT=new DesignatorSt
 							Designator:D1 DEC {: RESULT=new DesignatorStatementDerived4(D1); RESULT.setLine(D1left); :}
 							;
 
-Expr ::=	Term:T1 OptionalExprList:O2 {: RESULT=new ExprDerived1(T1, O2); RESULT.setLine(T1left); :}
+Expr ::=	(ExprWithNoMinus)Term:term OptionalExprList:O1 {: RESULT=new ExprWithNoMinus(term, O1); RESULT.setLine(termleft); :}
 			|
-			MINUS Term:T1  OptionalExprList:O2 {: RESULT=new ExprDerived2(T1, O2); RESULT.setLine(T1left); :}
+			(ExprWithMinus) MINUS Term:term OptionalExprList:O1 {: RESULT=new ExprWithMinus(term, O1); RESULT.setLine(termleft); :}
 			;
 			
-OptionalExprList ::= 	ExprList:E1 {: RESULT=new OptionalExprListDerived1(E1); RESULT.setLine(E1left); :}
+OptionalExprList ::= 	ExprList:list {: RESULT=new OptionalExprListDerived1(list); RESULT.setLine(listleft); :}
 						| {: RESULT=new OptionalExprListDerived2(); :}
 						/* empty */
 						;
@@ -284,9 +298,9 @@ ExprList ::= 	ExprElement:E1 {: RESULT=new ExprListDerived1(E1); RESULT.setLine(
 
 ExprElement ::= Addop:A1 Term:T2 {: RESULT=new ExprElementDerived1(A1, T2); RESULT.setLine(A1left); :};
 
-Term ::= 	Factor:F1 {: RESULT=new TermDerived1(F1); RESULT.setLine(F1left); :}
+Term ::= 	(SingleFactorTerm) Factor:factor {: RESULT=new SingleFactorTerm(factor); RESULT.setLine(factorleft); :}
 			| 
-			Factor:F1 TermList:T2 {: RESULT=new TermDerived2(F1, T2); RESULT.setLine(F1left); :}
+			(MultiFactorTerm) Factor:factor TermList:T1 {: RESULT=new MultiFactorTerm(factor, T1); RESULT.setLine(factorleft); :}
 			;
 			
 TermList ::=	TermElement:T1 {: RESULT=new TermListDerived1(T1); RESULT.setLine(T1left); :}
@@ -296,16 +310,17 @@ TermList ::=	TermElement:T1 {: RESULT=new TermListDerived1(T1); RESULT.setLine(T
 				
 TermElement ::= Mulop:M1 Factor:F2 {: RESULT=new TermElementDerived1(M1, F2); RESULT.setLine(M1left); :};
 
-
-Factor ::= 	Designator:D1 {: RESULT=new FactorDerived1(D1); RESULT.setLine(D1left); :}
+			/* TODO */
+Factor ::= 	(VariableFactor)Designator:desigantor {: RESULT=new VariableFactor(desigantor); RESULT.setLine(desigantorleft); :}
 			|
-			Designator:D1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new FactorDerived2(D1); RESULT.setLine(D1left); :}
+			/* TODO */
+			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new FuncttionCallFactor(designator); RESULT.setLine(designatorleft); :}
 			|
-			NUMBER:N1 {: RESULT=new FactorDerived3(N1); RESULT.setLine(N1left); :}
+			(NumberFactor) NUMBER:number {: RESULT=new NumberFactor(number); RESULT.setLine(numberleft); :}
 			|
-			CHAR:C1 {: RESULT=new FactorDerived4(C1); RESULT.setLine(C1left); :}
+			(CharFactor) CHAR:ch {: RESULT=new CharFactor(ch); RESULT.setLine(chleft); :}
 			|
-			BOOL:B1 {: RESULT=new FactorDerived5(B1); RESULT.setLine(B1left); :}
+			(BoolFactor) BOOL:bl {: RESULT=new BoolFactor(bl); RESULT.setLine(blleft); :}
 			;
 
 Designator ::= IDENT:I1 {: RESULT=new DesignatorDerived1(I1); RESULT.setLine(I1left); :};

@@ -1,25 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2018 4:1:6
+// 18/1/2018 4:58:16
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived4 extends Statement {
 
-    private Expr Expr;
-
-    public StatementDerived4 (Expr Expr) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
-    }
-
-    public Expr getExpr() {
-        return Expr;
-    }
-
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public StatementDerived4 () {
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +15,13 @@ public class StatementDerived4 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -44,12 +29,6 @@ public class StatementDerived4 extends Statement {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("StatementDerived4(\n");
-
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [StatementDerived4]");

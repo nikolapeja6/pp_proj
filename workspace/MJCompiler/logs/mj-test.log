@@ -1,64 +1,29 @@
-INFO  04:01:14,247 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
-INFO  04:01:14,270 - #40 program
-INFO  04:01:14,270 - #45 MJProgram
-INFO  04:01:14,270 - #45 int
-INFO  04:01:14,270 - #45 x
-INFO  04:01:14,270 - #13 ;
-INFO  04:01:14,271 - #45 int
-INFO  04:01:14,271 - #45 y
-INFO  04:01:14,271 - #13 ;
-INFO  04:01:14,271 - #34 {
-INFO  04:01:14,271 - #45 int
-INFO  04:01:14,271 - #45 k
-INFO  04:01:14,271 - #32 (
-INFO  04:01:14,271 - #33 )
-INFO  04:01:14,271 - #45 int
-INFO  04:01:14,272 - #45 c
-INFO  04:01:14,272 - #13 ;
-INFO  04:01:14,272 - #34 {
-INFO  04:01:14,272 - #45 c
-INFO  04:01:14,272 - #28 =
-INFO  04:01:14,272 - #9 1
-INFO  04:01:14,272 - #13 ;
-INFO  04:01:14,273 - #8 return
-INFO  04:01:14,274 - #45 c
-INFO  04:01:14,274 - #15 +
-INFO  04:01:14,274 - #9 2
-INFO  04:01:14,278 - #13 ;
-INFO  04:01:14,279 - #35 }
-INFO  04:01:14,279 - #45 int
-INFO  04:01:14,279 - #45 main
-INFO  04:01:14,279 - #32 (
-INFO  04:01:14,279 - #33 )
-INFO  04:01:14,279 - #34 {
-INFO  04:01:14,279 - #45 y
-INFO  04:01:14,279 - #28 =
-INFO  04:01:14,279 - #9 2
-INFO  04:01:14,280 - #13 ;
-INFO  04:01:14,280 - #45 x
-INFO  04:01:14,280 - #28 =
-INFO  04:01:14,280 - #45 y
-INFO  04:01:14,280 - #15 +
-INFO  04:01:14,280 - #9 2
-INFO  04:01:14,280 - #13 ;
-INFO  04:01:14,280 - #45 y
-INFO  04:01:14,280 - #28 =
-INFO  04:01:14,280 - #45 k
-INFO  04:01:14,280 - #32 (
-INFO  04:01:14,280 - #33 )
-INFO  04:01:14,280 - #15 +
-INFO  04:01:14,280 - #9 3
-INFO  04:01:14,280 - #13 ;
-INFO  04:01:14,280 - #41 print
-INFO  04:01:14,280 - #32 (
-INFO  04:01:14,281 - #45 y
-INFO  04:01:14,281 - #33 )
-INFO  04:01:14,281 - #13 ;
-INFO  04:01:14,281 - #8 return
-INFO  04:01:14,281 - #9 0
-INFO  04:01:14,281 - #13 ;
-INFO  04:01:14,281 - #35 }
-INFO  04:01:14,281 - #35 }
-DEBUG 04:01:14,282 - aaa
-INFO  04:01:14,287 - Print calls = 0
-INFO  04:01:14,288 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  04:58:25,971 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  04:58:25,995 - #40 program
+INFO  04:58:25,995 - #45 MJProgram
+INFO  04:58:25,995 - #34 {
+INFO  04:58:25,996 - #45 int
+INFO  04:58:25,996 - #45 main
+INFO  04:58:25,996 - #32 (
+INFO  04:58:25,996 - #33 )
+INFO  04:58:25,996 - #34 {
+INFO  04:58:25,996 - #41 print
+INFO  04:58:25,996 - #32 (
+INFO  04:58:25,996 - #9 1
+INFO  04:58:25,996 - #33 )
+INFO  04:58:26,000 - #13 ;
+INFO  04:58:26,000 - #41 print
+INFO  04:58:26,001 - #32 (
+INFO  04:58:26,001 - #9 2
+INFO  04:58:26,001 - #33 )
+INFO  04:58:26,001 - #13 ;
+INFO  04:58:26,001 - #8 return
+INFO  04:58:26,001 - #9 0
+INFO  04:58:26,001 - #13 ;
+INFO  04:58:26,001 - #35 }
+INFO  04:58:26,001 - #35 }
+INFO  04:58:26,003 - ***Abstract tree****
+INFO  04:58:26,003 - #0
+INFO  04:58:26,009 - Print calls = 0
+INFO  04:58:26,009 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj
+INFO  04:58:26,015 - Parsiranje uspesno zavrseno!

@@ -3,10 +3,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 import org.apache.log4j.Logger;
 
 import com.sun.java_cup.internal.runtime.Symbol;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javafx.geometry.Pos;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -25,6 +27,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int nFields = 0;
 	int fldCnt = 0;
 		
+	Stack<Obj> scopeStack = new Stack<>();
 
 	Logger log = Logger.getLogger(getClass());
 
@@ -43,6 +46,101 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (line != 0)
 			msg.append (" na liniji ").append(line);
 		log.info(msg.toString());
+	}
+	
+	
+	
+	public void visit(ProgramName programName)
+	{
+		String name = ((ProgName)programName).getName();
+		
+		programName.obj = Tab.insert(Obj.Prog, name, Tab.noType);
+		Tab.openScope();
+		
+		scopeStack.push(programName.obj);
+	}
+	
+	public void visit(ProgramEnd pEnd)
+	{
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.closeScope();
+	}
+	
+	public void visit(MethodNameAndRetType1 methodNameAndRetType)
+	{
+		String name = (methodNameAndRetType).getName();
+		Struct type = (methodNameAndRetType).getReturnType().struct;
+		
+		methodNameAndRetType.obj = Tab.insert(Obj.Meth, name, type);
+		Tab.openScope();
+		
+		scopeStack.push(methodNameAndRetType.obj);
+	}
+	
+	public void visit(MethodEnd methodEnd)
+	{
+		scopeStack.peek().setLevel(Tab.currentScope.getnVars());
+		
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.closeScope();
+	}
+	
+	public void visit(VoidReturnType returnType)
+	{
+		returnType.struct = Tab.nullType;
+	}
+	
+	public void visit(TypeReturnType returnType)
+	{
+		returnType.struct = Tab.find(((Type1)returnType.getType()).getI1()).getType();
+	}
+	
+	public void visit(PrintStatement printStatement)
+	{
+		Struct argType = printStatement.getExpr().struct;
+		if(argType != Tab.charType && argType != Tab.intType)
+		{
+			report_error("Print function can only be called with 'int' or 'char' expression, is called with "+argType, null);
+			return;
+		}
+	}
+	
+	public void visit(ExprWithMinus expr)
+	{
+		expr.struct = expr.getTerm().struct;
+	}
+	
+	public void visit(ExprWithNoMinus expr)
+	{
+		expr.struct = expr.getTerm().struct;
+	}
+	
+	public void visit(SingleFactorTerm term)
+	{
+		term.struct = (term.getFactor()).obj.getType();
+	}
+	
+	public void visit(MultiFactorTerm term)
+	{
+		term.struct = term.getFactor().obj.getType();
+	}
+	
+	public void visit(NumberFactor numberFactor)
+	{
+		numberFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
+		numberFactor.obj.setAdr(numberFactor.getNumber());
+	}
+	
+	public void visit(CharFactor charFactor)
+	{
+		charFactor.obj = Tab.insert(Obj.Con, "", Tab.charType);
+		charFactor.obj.setAdr(charFactor.getCh().charAt(0));
+	}
+	
+	public void visit(BoolFactor boolFactor)
+	{
+		boolFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
+		boolFactor.obj.setAdr(boolFactor.getBl().equals("true")?1:0);
 	}
 	
 	/*

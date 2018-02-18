@@ -1,38 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2018 4:1:6
+// 18/1/2018 4:58:16
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclDerived1 extends MethodDecl {
 
-    private ReturnType ReturnType;
-    private String I2;
+    private MethodNameAndRetType MethodNameAndRetType;
     private MultipleStatements MultipleStatements;
+    private MethodEnd MethodEnd;
 
-    public MethodDeclDerived1 (ReturnType ReturnType, String I2, MultipleStatements MultipleStatements) {
-        this.ReturnType=ReturnType;
-        if(ReturnType!=null) ReturnType.setParent(this);
-        this.I2=I2;
+    public MethodDeclDerived1 (MethodNameAndRetType MethodNameAndRetType, MultipleStatements MultipleStatements, MethodEnd MethodEnd) {
+        this.MethodNameAndRetType=MethodNameAndRetType;
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.setParent(this);
         this.MultipleStatements=MultipleStatements;
         if(MultipleStatements!=null) MultipleStatements.setParent(this);
+        this.MethodEnd=MethodEnd;
+        if(MethodEnd!=null) MethodEnd.setParent(this);
     }
 
-    public ReturnType getReturnType() {
-        return ReturnType;
+    public MethodNameAndRetType getMethodNameAndRetType() {
+        return MethodNameAndRetType;
     }
 
-    public void setReturnType(ReturnType ReturnType) {
-        this.ReturnType=ReturnType;
-    }
-
-    public String getI2() {
-        return I2;
-    }
-
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setMethodNameAndRetType(MethodNameAndRetType MethodNameAndRetType) {
+        this.MethodNameAndRetType=MethodNameAndRetType;
     }
 
     public MultipleStatements getMultipleStatements() {
@@ -43,24 +36,35 @@ public class MethodDeclDerived1 extends MethodDecl {
         this.MultipleStatements=MultipleStatements;
     }
 
+    public MethodEnd getMethodEnd() {
+        return MethodEnd;
+    }
+
+    public void setMethodEnd(MethodEnd MethodEnd) {
+        this.MethodEnd=MethodEnd;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.accept(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.accept(visitor);
         if(MultipleStatements!=null) MultipleStatements.accept(visitor);
+        if(MethodEnd!=null) MethodEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ReturnType!=null) ReturnType.traverseTopDown(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseTopDown(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
+        if(MethodEnd!=null) MethodEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.traverseBottomUp(visitor);
+        if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseBottomUp(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
+        if(MethodEnd!=null) MethodEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -69,17 +73,20 @@ public class MethodDeclDerived1 extends MethodDecl {
         buffer.append(tab);
         buffer.append("MethodDeclDerived1(\n");
 
-        if(ReturnType!=null)
-            buffer.append(ReturnType.toString("  "+tab));
+        if(MethodNameAndRetType!=null)
+            buffer.append(MethodNameAndRetType.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
-        buffer.append("\n");
-
         if(MultipleStatements!=null)
             buffer.append(MultipleStatements.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(MethodEnd!=null)
+            buffer.append(MethodEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2018 4:1:7
+// 18/1/2018 4:58:17
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,7 +11,7 @@ public abstract class Term implements SyntaxNode {
 
     private int line;
 
-    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+    public rs.etf.pp1.symboltable.concepts.Struct struct = null;
 
     public SyntaxNode getParent() {
         return parent;

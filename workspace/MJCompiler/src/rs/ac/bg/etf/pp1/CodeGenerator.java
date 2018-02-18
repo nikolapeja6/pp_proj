@@ -4,6 +4,7 @@ import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
+import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 
 public class CodeGenerator extends VisitorAdaptor {
@@ -19,11 +20,23 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	
-	// TODO
-	/*
+	public void visit(PrintStatement printStatement) {
+		Code.put(Code.const_5);
+		Code.put(Code.print);
+	}
+	
+	public void visit(NumberFactor numberFactor)
+	{		
+		numberFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
+		numberFactor.obj.setAdr(numberFactor.getNumber());
+		
+		Code.load(numberFactor.obj);
+	}
+	
+	
 	@Override
-	public void visit(MethodTypeName MethodTypeName) {
-		if ("main".equalsIgnoreCase(MethodTypeName.getMethName())) {
+	public void visit(MethodNameAndRetType1 MethodTypeName) {
+		if ("main".equalsIgnoreCase(((MethodNameAndRetType1)MethodTypeName).getName())) {
 			mainPc = Code.pc;
 		}
 		MethodTypeName.obj.setAdr(Code.pc);
@@ -41,6 +54,13 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(varCnt.getCount() + fpCnt.getCount());
 	}
 	
+	public void visit(MethodEnd1 methodEnd)
+	{
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+	
+	/*
 	@Override
 	public void visit(VarDecl VarDecl) {
 		varCount++;
