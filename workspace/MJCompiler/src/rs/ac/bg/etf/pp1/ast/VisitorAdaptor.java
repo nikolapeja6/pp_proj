@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/1/2018 4:58:17
+// 19/1/2018 18:43:27
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -16,6 +16,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Mulop Mulop) { }
     public void visit(TermElement TermElement) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(Constant Constant) { }
     public void visit(ExprElement ExprElement) { }
     public void visit(MultipleVarDecl MultipleVarDecl) { }
     public void visit(ReturnType ReturnType) { }
@@ -48,23 +49,24 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelopDerived2 RelopDerived2) { visit(); }
     public void visit(RelopDerived1 RelopDerived1) { visit(); }
     public void visit(DesignatorDerived1 DesignatorDerived1) { visit(); }
-    public void visit(BoolFactor BoolFactor) { visit(); }
-    public void visit(CharFactor CharFactor) { visit(); }
-    public void visit(NumberFactor NumberFactor) { visit(); }
+    public void visit(BoolConstant BoolConstant) { visit(); }
+    public void visit(CharConstant CharConstant) { visit(); }
+    public void visit(NumberConstant NumberConstant) { visit(); }
+    public void visit(ConstantFactor ConstantFactor) { visit(); }
     public void visit(FuncttionCallFactor FuncttionCallFactor) { visit(); }
     public void visit(VariableFactor VariableFactor) { visit(); }
-    public void visit(TermElementDerived1 TermElementDerived1) { visit(); }
-    public void visit(TermListDerived2 TermListDerived2) { visit(); }
-    public void visit(TermListDerived1 TermListDerived1) { visit(); }
-    public void visit(MultiFactorTerm MultiFactorTerm) { visit(); }
+    public void visit(TermElement1 TermElement1) { visit(); }
+    public void visit(TermListSinge TermListSinge) { visit(); }
+    public void visit(TermListMultiple TermListMultiple) { visit(); }
     public void visit(SingleFactorTerm SingleFactorTerm) { visit(); }
+    public void visit(MultiFactorTerm MultiFactorTerm) { visit(); }
     public void visit(ExprElementDerived1 ExprElementDerived1) { visit(); }
     public void visit(ExprListDerived2 ExprListDerived2) { visit(); }
     public void visit(ExprListDerived1 ExprListDerived1) { visit(); }
     public void visit(OptionalExprListDerived2 OptionalExprListDerived2) { visit(); }
     public void visit(OptionalExprListDerived1 OptionalExprListDerived1) { visit(); }
-    public void visit(ExprWithMinus ExprWithMinus) { visit(); }
     public void visit(ExprWithNoMinus ExprWithNoMinus) { visit(); }
+    public void visit(ExprWithMinus ExprWithMinus) { visit(); }
     public void visit(DesignatorStatementDerived4 DesignatorStatementDerived4) { visit(); }
     public void visit(DesignatorStatementDerived3 DesignatorStatementDerived3) { visit(); }
     public void visit(DesignatorStatementDerived2 DesignatorStatementDerived2) { visit(); }
@@ -96,8 +98,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MultipleVarDeclDerived1 MultipleVarDeclDerived1) { visit(); }
     public void visit(ProgramEndDerived1 ProgramEndDerived1) { visit(); }
     public void visit(ProgName ProgName) { visit(); }
-    public void visit(ProgramDerived2 ProgramDerived2) { visit(); }
-    public void visit(ProgramDerived1 ProgramDerived1) { visit(); }
+    public void visit(Program2 Program2) { visit(); }
+    public void visit(Program1 Program1) { visit(); }
 
 
     public void visit() { }

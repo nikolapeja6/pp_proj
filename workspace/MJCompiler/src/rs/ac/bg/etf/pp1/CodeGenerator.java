@@ -25,12 +25,27 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.print);
 	}
 	
-	public void visit(NumberFactor numberFactor)
+	public void visit(NumberConstant numberConstant)
 	{		
-		numberFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
-		numberFactor.obj.setAdr(numberFactor.getNumber());
-		
-		Code.load(numberFactor.obj);
+		numberConstant.obj = new Obj(Obj.Con, "", Tab.intType);
+		numberConstant.obj.setAdr(numberConstant.getNumber());
+	}
+	
+	public void visit(CharConstant charConstant)
+	{
+		charConstant.obj = new Obj(Obj.Con, "", Tab.charType);
+		charConstant.obj.setAdr(charConstant.getCh().charAt(0));
+	}
+	
+	public void visit(BoolConstant boolConstant)
+	{
+		boolConstant.obj = new Obj(Obj.Con, "", Tab.intType);
+		boolConstant.obj.setAdr(boolConstant.getBl().equals("true")?1:0);
+	}
+	
+	public void visit(ConstantFactor constantFactor)
+	{
+		Code.load(constantFactor.getConstant().obj);
 	}
 	
 	

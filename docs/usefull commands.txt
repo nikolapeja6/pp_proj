@@ -26,3 +26,9 @@ java -jar cup_v10k.jar -h
 
 command
 java -jar cup_v10k.jar -destdir ..\src\rs\ac\bg\etf\pp1 -parser MJParser -ast rs.ac.bg.etf.pp1.ast -buildtree ..\spec\mjparser.cup
+
+
+
+
+decompile
+java -cp mj-runtime.jar rs.etf.pp1.mj.runtime.disasm ..\out\simple.obj

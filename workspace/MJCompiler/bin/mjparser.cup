@@ -109,6 +109,8 @@ terminal COMMA, SEMICOLON, DOT;
 /** ARITHMETIC OPERATORS */
 terminal PLUS, MINUS, MULTUPLY, DIV, MOD;
 
+
+
 /** COMPARISON OPERATORS */
 terminal EQUAL, NOT_EQUAL, GREATER, LESS, GREATER_OR_EQUEL, LESS_OR_EQUEL;
 
@@ -162,6 +164,7 @@ non terminal Mulop;
 non terminal Addop;
 non terminal Relop;
 
+
 non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
 non terminal rs.etf.pp1.symboltable.concepts.Struct VoidType;
 non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
@@ -180,6 +183,8 @@ non terminal ProgramEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
 non terminal MethodEnd;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
+
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
@@ -197,37 +202,40 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 
 /** END HELPER NON TERMINALS */
 
+precedence left PLUS, MINUS;
+precedence left MULTUPLY, DIV, MOD;
+
 
 /* TODO optional method decl*/
-Program ::= PROG ProgramName OPEN_BRACES MultipleMethodDecl ProgramEnd
+Program ::= (Program1) PROG ProgramName OPEN_BRACES MultipleMethodDecl ProgramEnd
 			|
-			PROG ProgramName MultipleVarDecl OPEN_BRACES MultipleMethodDecl ProgramEnd
+			(Program2) PROG ProgramName MultipleVarDecl OPEN_BRACES MultipleMethodDecl ProgramEnd
 			;
 			
 ProgramName ::= (ProgName) IDENT:name;
 
 ProgramEnd ::= CLOSE_BRACES;
 
-MultipleVarDecl ::= VarDecl
+MultipleVarDecl ::= MultipleVarDecl VarDecl
 					|
-					MultipleVarDecl VarDecl
+					VarDecl
 					;
 			
 VarDecl ::= Type VarDeclList SEMICOLON;
 
-VarDeclList ::= VarDeclElement
+VarDeclList ::= VarDeclList COMMA VarDeclElement
 				|
-				VarDeclList COMMA VarDeclElement
+				VarDeclElement
 				;
 			
-VarDeclElement ::= 	IDENT 
+VarDeclElement ::= 	IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
 					|
-					IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
+					IDENT
 					;
 
-MultipleMethodDecl ::= 	MethodDecl
+MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
 						|
-						MultipleMethodDecl MethodDecl
+						MethodDecl
 						;
 						
 
@@ -250,9 +258,9 @@ VoidType ::= VOID;
 
 Type ::= (Type1) IDENT;
 
-MultipleStatements ::= 	Statement
+MultipleStatements ::= 	MultipleStatements Statement
 						|
-						MultipleStatements Statement
+						Statement
 						;
 
 Statement ::= 	DesignatorStatement SEMICOLON
@@ -281,9 +289,9 @@ DesignatorStatement ::= 	Designator ASSIGN Expr
 							Designator DEC
 							;
 
-Expr ::=	(ExprWithNoMinus)Term:term OptionalExprList
+Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList
 			|
-			(ExprWithMinus) MINUS Term:term OptionalExprList
+			(ExprWithNoMinus)Term:term OptionalExprList
 			;
 			
 OptionalExprList ::= 	ExprList:list
@@ -291,24 +299,24 @@ OptionalExprList ::= 	ExprList:list
 						/* empty */
 						;
 			
-ExprList ::= 	ExprElement
+ExprList ::= 	ExprList ExprElement
 				|
-				ExprList ExprElement
+				ExprElement
 				;
 
 ExprElement ::= Addop Term;
 
-Term ::= 	(SingleFactorTerm) Factor:factor
+Term ::= 	(MultiFactorTerm) Factor:factor TermList
 			| 
-			(MultiFactorTerm) Factor:factor TermList
+			(SingleFactorTerm) Factor:factor
 			;
 			
-TermList ::=	TermElement
+TermList ::=	(TermListMultiple) TermList TermElement
 				|
-				TermList TermElement
+				(TermListSinge) TermElement
 				;
 				
-TermElement ::= Mulop Factor;
+TermElement ::= (TermElement1) Mulop Factor;
 
 			/* TODO */
 Factor ::= 	(VariableFactor)Designator:desigantor
@@ -316,11 +324,14 @@ Factor ::= 	(VariableFactor)Designator:desigantor
 			/* TODO */
 			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES
 			|
-			(NumberFactor) NUMBER:number
+			(ConstantFactor) Constant:constant
+			;
+			
+Constant ::= (NumberConstant) NUMBER:number
 			|
-			(CharFactor) CHAR:ch
+			(CharConstant) CHAR:ch
 			|
-			(BoolFactor) BOOL:bl
+			(BoolConstant) BOOL:bl
 			;
 
 Designator ::= IDENT;

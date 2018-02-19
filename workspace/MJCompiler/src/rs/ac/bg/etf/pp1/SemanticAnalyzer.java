@@ -66,6 +66,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 	
+	/*
+	public void visit(Program1 program)
+	{
+		program.obj = program.getProgramName().obj;	
+	}
+	
+	public void visit(Program2 program)
+	{
+		program.obj = program.getProgramName().obj;
+	}
+	*/
+	
 	public void visit(MethodNameAndRetType1 methodNameAndRetType)
 	{
 		String name = (methodNameAndRetType).getName();
@@ -95,6 +107,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		returnType.struct = Tab.find(((Type1)returnType.getType()).getI1()).getType();
 	}
 	
+	public void visit(Type1 type)
+	{
+		Obj novi=Tab.find(type.getI1());
+        if (novi.getKind() == Obj.Type )
+           type.struct = novi.getType();
+        else {
+           report_error(type.getI1()+" is not a type.",null);
+           type.struct=Tab.noType;
+       }
+	}
+	
 	public void visit(PrintStatement printStatement)
 	{
 		Struct argType = printStatement.getExpr().struct;
@@ -103,6 +126,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with "+argType, null);
 			return;
 		}
+		
 	}
 	
 	public void visit(ExprWithMinus expr)
@@ -125,22 +149,53 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		term.struct = term.getFactor().obj.getType();
 	}
 	
-	public void visit(NumberFactor numberFactor)
+	public void visit(TermListMultiple termListMultiple)
 	{
-		numberFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
-		numberFactor.obj.setAdr(numberFactor.getNumber());
+		Obj obj1 = termListMultiple.getTermList().obj;
+		Obj obj2 = termListMultiple.getTermElement().obj;
+		
+		Struct s1 = obj1.getType();
+		Struct s2 = obj2.getType();
+		
+		if(s1 != s2)
+		{
+			report_error("Term consists of multiple factors which are not all of the same type", null);
+			return;
+		}
+		
+		if(s1 != Tab.intType)
+		{
+			report_error("Term consists of multiple factors where all factors are not int type", null);
+			return;
+		}
 	}
 	
-	public void visit(CharFactor charFactor)
+	public void visit(TermElement1 termElement)
 	{
-		charFactor.obj = Tab.insert(Obj.Con, "", Tab.charType);
-		charFactor.obj.setAdr(charFactor.getCh().charAt(0));
+		termElement.obj = new Obj(termElement.getFactor().obj.getKind(), "", termElement.getFactor().obj.getType());
 	}
 	
-	public void visit(BoolFactor boolFactor)
+	public void visit(ConstantFactor constantFactor)
 	{
-		boolFactor.obj = Tab.insert(Obj.Con, "", Tab.intType);
-		boolFactor.obj.setAdr(boolFactor.getBl().equals("true")?1:0);
+		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
+	}
+	
+	public void visit(NumberConstant numberConstant)
+	{
+		numberConstant.obj = Tab.insert(Obj.Con, "", Tab.intType);
+		numberConstant.obj.setAdr(numberConstant.getNumber());
+	}
+	
+	public void visit(CharConstant charConstant)
+	{
+		charConstant.obj = Tab.insert(Obj.Con, "", Tab.charType);
+		charConstant.obj.setAdr(charConstant.getCh().charAt(0));
+	}
+	
+	public void visit(BoolConstant boolConstant)
+	{
+		boolConstant.obj = Tab.insert(Obj.Con, "", Tab.intType);
+		boolConstant.obj.setAdr(boolConstant.getBl().equals("true")?1:0);
 	}
 	
 	/*
