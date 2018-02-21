@@ -221,7 +221,7 @@ MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclD
 					VarDecl:V1 {: RESULT=new MultipleVarDeclDerived2(V1); RESULT.setLine(V1left); :}
 					;
 			
-VarDecl ::= Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDeclDerived1(T1, V2); RESULT.setLine(T1left); :};
+VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :};
 
 VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclListDerived1(V1, V2); RESULT.setLine(V1left); :}
 				|
@@ -313,7 +313,7 @@ Term ::= 	(MultiFactorTerm) Factor:factor TermList:T1 {: RESULT=new MultiFactorT
 			
 TermList ::=	(TermListMultiple) TermList:T1 TermElement:T2 {: RESULT=new TermListMultiple(T1, T2); RESULT.setLine(T1left); :}
 				|
-				(TermListSinge) TermElement:T1 {: RESULT=new TermListSinge(T1); RESULT.setLine(T1left); :}
+				(TermListSingle) TermElement:T1 {: RESULT=new TermListSingle(T1); RESULT.setLine(T1left); :}
 				;
 				
 TermElement ::= (TermElement1) Mulop:M1 Factor:F2 {: RESULT=new TermElement1(M1, F2); RESULT.setLine(M1left); :};

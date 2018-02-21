@@ -221,7 +221,7 @@ MultipleVarDecl ::= MultipleVarDecl VarDecl
 					VarDecl
 					;
 			
-VarDecl ::= Type VarDeclList SEMICOLON;
+VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON;
 
 VarDeclList ::= VarDeclList COMMA VarDeclElement
 				|
@@ -313,7 +313,7 @@ Term ::= 	(MultiFactorTerm) Factor:factor TermList
 			
 TermList ::=	(TermListMultiple) TermList TermElement
 				|
-				(TermListSinge) TermElement
+				(TermListSingle) TermElement
 				;
 				
 TermElement ::= (TermElement1) Mulop Factor;

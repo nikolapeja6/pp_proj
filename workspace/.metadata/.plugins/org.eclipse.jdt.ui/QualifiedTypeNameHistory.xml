@@ -21,7 +21,6 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDecl"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="com.sun.java_cup.internal.runtime.Symbol"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Character"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Bool"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Mulop"/>
@@ -40,4 +39,13 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VoidRetType"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Program1"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ConstantFactor"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermFactor1"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermElement1"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermListMultiple"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.CharConstant"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermListSinge"/>
 </qualifiedTypeNameHistroy>
