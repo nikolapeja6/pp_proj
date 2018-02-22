@@ -1,0 +1,46 @@
+program MJProgram int x;
+{
+	int main() int y;{
+		print(1, 1);
+		
+		print('a', 1);
+		
+		y = 5;
+		
+		// x = 8;
+		x = y + 3;
+		print(x);
+		
+		// y = 8
+		y = (x);
+		
+		// x = 9
+		x++;
+		print(x);
+		
+		// x = 8
+		x--;
+		print(((x)));
+		
+		// x = 6
+		x = x+(-2);
+		print(x);
+		
+		// x = 16
+		x = y*2;
+		print(x);
+		
+		// y = 4
+		y = x / 4;
+		print(y);
+		
+		// x = 1
+		x = y % 3;
+		print(x);
+
+
+		print(false, 200);
+		
+		return 0;
+	}
+}

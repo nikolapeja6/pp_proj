@@ -274,7 +274,11 @@ Statement ::= 	DesignatorStatement SEMICOLON
 				|
 				RETURN Expr SEMICOLON
 				|
+				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON
+				|
 				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
+				|
+				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
 				|
 				OPEN_BRACES CLOSE_BRACES
 				|
@@ -329,6 +333,8 @@ Factor ::= 	(VariableFactor)RValueDesignator:desigantor
 			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES
 			|
 			(ConstantFactor) Constant:constant
+			|
+			(FactorParenExpr) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
 			;
 			
 Constant ::= (NumberConstant) NUMBER:number

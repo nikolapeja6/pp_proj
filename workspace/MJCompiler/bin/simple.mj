@@ -1,9 +1,9 @@
 program MJProgram int x;
 {
 	int main() int y;{
-		print(1);
+		print(1, 1);
 		
-		print('a');
+		print('a', 1);
 		
 		y = 5;
 		
@@ -12,7 +12,7 @@ program MJProgram int x;
 		print(x);
 		
 		// y = 8
-		y = x;
+		y = (x);
 		
 		// x = 9
 		x++;
@@ -20,10 +20,10 @@ program MJProgram int x;
 		
 		// x = 8
 		x--;
-		print(x);
+		print(((x)));
 		
 		// x = 6
-		x = x-2;
+		x = x+(-2);
 		print(x);
 		
 		// x = 16
@@ -37,9 +37,14 @@ program MJProgram int x;
 		// x = 1
 		x = y % 3;
 		print(x);
+		
+		// out = 4*in
+		read(x);
+		x = x*y;
+		print(x);
 
 
-		print(false);
+		print(false, 20);
 		
 		return 0;
 	}

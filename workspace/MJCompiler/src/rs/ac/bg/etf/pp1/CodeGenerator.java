@@ -21,6 +21,17 @@ public class CodeGenerator extends VisitorAdaptor {
 		return mainPc;
 	}
 
+	public void visit(PrintStatementComplex printStatementComplex)
+	{
+		if (printStatementComplex.getExpr().struct == Tab.intType) {
+			Code.load(printStatementComplex.getConstant().obj);
+			Code.put(Code.print);
+		} else {
+			Code.load(printStatementComplex.getConstant().obj);
+			Code.put(Code.bprint);
+		}
+	}
+	
 	public void visit(PrintStatement printStatement) {
 				
 		if (printStatement.getExpr().struct == Tab.intType) {
@@ -29,6 +40,19 @@ public class CodeGenerator extends VisitorAdaptor {
 		} else {
 			Code.put(Code.const_1);
 			Code.put(Code.bprint);
+		}
+	}
+	
+	public void visit(ReadStatement readStatement){
+		if(readStatement.obj.getType() == Tab.intType)
+		{
+			Code.put(Code.read);
+			Code.store(readStatement.obj);
+		}
+		else
+		{
+			Code.put(Code.bread);
+			Code.store(readStatement.obj);
 		}
 	}
 
@@ -77,6 +101,12 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.const_1);
 		Code.put(Code.sub);
 		Code.store(designatorStatementDec.getLValueDesignator().obj);
+	}
+	
+	public void visit(ExprWithMinus exprWithMinus)
+	{
+		Code.loadConst(-1);
+		Code.put(Code.mul);
 	}
 	
 	public void visit(ExprElement1 exprElement1)

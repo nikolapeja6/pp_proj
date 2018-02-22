@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Stack;
 
 import org.apache.log4j.Logger;
+import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
 import com.sun.java_cup.internal.runtime.Symbol;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -161,6 +162,24 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		currentDeclType = type.struct;
 	}
+	
+	public void visit(PrintStatementComplex printStatementComplex)
+	{
+		Struct argType = printStatementComplex.getExpr().struct;
+		
+		log.debug("print statement has arg of type "+argType.getKind());
+		
+		if (argType != Tab.charType && argType != Tab.intType) {
+			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
+					null);
+			return;
+		}
+		
+		if(!(printStatementComplex.getConstant() instanceof NumberConstant))
+		{
+			report_error("The second argument in the print statement must be a number literal", null);
+		}
+	}
 
 	public void visit(PrintStatement printStatement) {
 		Struct argType = printStatement.getExpr().struct;
@@ -173,6 +192,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
+	}
+	
+	public void visit(ReadStatement readStatement){
+		
+		int kind = readStatement.getLValueDesignator().obj.getKind();
+		if(kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem)
+		{
+			report_error("The argument of the read statement must be a variable, an element of an array or a field.", null);
+			return;
+		}
+		
+		Struct type = readStatement.getLValueDesignator().obj.getType();
+		if(type != Tab.intType && type != Tab.charType)
+		{
+			report_error("The argument of the read statement must be of int or char type.", null);
+			return;
+		}
+		
+		readStatement.obj = readStatement.getLValueDesignator().obj;
 	}
 	
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
@@ -212,6 +250,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ExprWithMinus expr) {
 		expr.struct = expr.getTerm().struct;
+		
+		if(expr.struct != Tab.intType)
+		{
+			report_error("Expression with minus must be of int type", null);
+			return;
+		}
+		
 		log.debug("ExprWithMinus is type "+expr.struct.getKind());
 	}
 
@@ -273,6 +318,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
 		constantFactor.obj.setAdr(constantFactor.getConstant().obj.getAdr());
 		log.debug("constant factor is type "+constantFactor.obj.getType().getKind());
+	}
+	
+	public void visit(FactorParenExpr parenFactor){
+		parenFactor.obj = new Obj(Obj.NO_VALUE, "",parenFactor.getExpr().struct);
 	}
 
 	public void visit(NumberConstant numberConstant) {
