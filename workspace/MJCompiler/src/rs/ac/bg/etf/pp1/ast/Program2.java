@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/1/2018 22:24:7
+// 22/1/2018 2:59:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,14 +9,17 @@ public class Program2 extends Program {
 
     private ProgramName ProgramName;
     private MultipleVarDecl MultipleVarDecl;
+    private ProgramBegin ProgramBegin;
     private MultipleMethodDecl MultipleMethodDecl;
     private ProgramEnd ProgramEnd;
 
-    public Program2 (ProgramName ProgramName, MultipleVarDecl MultipleVarDecl, MultipleMethodDecl MultipleMethodDecl, ProgramEnd ProgramEnd) {
+    public Program2 (ProgramName ProgramName, MultipleVarDecl MultipleVarDecl, ProgramBegin ProgramBegin, MultipleMethodDecl MultipleMethodDecl, ProgramEnd ProgramEnd) {
         this.ProgramName=ProgramName;
         if(ProgramName!=null) ProgramName.setParent(this);
         this.MultipleVarDecl=MultipleVarDecl;
         if(MultipleVarDecl!=null) MultipleVarDecl.setParent(this);
+        this.ProgramBegin=ProgramBegin;
+        if(ProgramBegin!=null) ProgramBegin.setParent(this);
         this.MultipleMethodDecl=MultipleMethodDecl;
         if(MultipleMethodDecl!=null) MultipleMethodDecl.setParent(this);
         this.ProgramEnd=ProgramEnd;
@@ -37,6 +40,14 @@ public class Program2 extends Program {
 
     public void setMultipleVarDecl(MultipleVarDecl MultipleVarDecl) {
         this.MultipleVarDecl=MultipleVarDecl;
+    }
+
+    public ProgramBegin getProgramBegin() {
+        return ProgramBegin;
+    }
+
+    public void setProgramBegin(ProgramBegin ProgramBegin) {
+        this.ProgramBegin=ProgramBegin;
     }
 
     public MultipleMethodDecl getMultipleMethodDecl() {
@@ -62,6 +73,7 @@ public class Program2 extends Program {
     public void childrenAccept(Visitor visitor) {
         if(ProgramName!=null) ProgramName.accept(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.accept(visitor);
+        if(ProgramBegin!=null) ProgramBegin.accept(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.accept(visitor);
         if(ProgramEnd!=null) ProgramEnd.accept(visitor);
     }
@@ -70,6 +82,7 @@ public class Program2 extends Program {
         accept(visitor);
         if(ProgramName!=null) ProgramName.traverseTopDown(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseTopDown(visitor);
+        if(ProgramBegin!=null) ProgramBegin.traverseTopDown(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseTopDown(visitor);
         if(ProgramEnd!=null) ProgramEnd.traverseTopDown(visitor);
     }
@@ -77,6 +90,7 @@ public class Program2 extends Program {
     public void traverseBottomUp(Visitor visitor) {
         if(ProgramName!=null) ProgramName.traverseBottomUp(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseBottomUp(visitor);
+        if(ProgramBegin!=null) ProgramBegin.traverseBottomUp(visitor);
         if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseBottomUp(visitor);
         if(ProgramEnd!=null) ProgramEnd.traverseBottomUp(visitor);
         accept(visitor);
@@ -95,6 +109,12 @@ public class Program2 extends Program {
 
         if(MultipleVarDecl!=null)
             buffer.append(MultipleVarDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ProgramBegin!=null)
+            buffer.append(ProgramBegin.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

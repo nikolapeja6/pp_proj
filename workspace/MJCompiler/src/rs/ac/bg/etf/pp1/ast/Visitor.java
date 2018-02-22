@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/1/2018 22:24:8
+// 22/1/2018 2:59:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -20,6 +20,7 @@ public interface Visitor {
     public void visit(ExprElement ExprElement);
     public void visit(MultipleVarDecl MultipleVarDecl);
     public void visit(ReturnType ReturnType);
+    public void visit(ProgramBegin ProgramBegin);
     public void visit(ExprList ExprList);
     public void visit(Expr Expr);
     public void visit(VarDeclElement VarDeclElement);
@@ -33,22 +34,26 @@ public interface Visitor {
     public void visit(MultipleStatements MultipleStatements);
     public void visit(Statement Statement);
     public void visit(Relop Relop);
+    public void visit(RValueDesignator RValueDesignator);
     public void visit(Term Term);
     public void visit(MethodNameAndRetType MethodNameAndRetType);
     public void visit(ProgramEnd ProgramEnd);
     public void visit(Program Program);
-    public void visit(MulopDerived3 MulopDerived3);
-    public void visit(MulopDerived2 MulopDerived2);
-    public void visit(MulopDerived1 MulopDerived1);
-    public void visit(AddopDerived2 AddopDerived2);
-    public void visit(AddopDerived1 AddopDerived1);
+    public void visit(LValueDesignator LValueDesignator);
+    public void visit(MulopMod MulopMod);
+    public void visit(MulopDiv MulopDiv);
+    public void visit(MulopMultiply MulopMultiply);
+    public void visit(AddopMinus AddopMinus);
+    public void visit(AddopPlus AddopPlus);
     public void visit(RelopDerived6 RelopDerived6);
     public void visit(RelopDerived5 RelopDerived5);
     public void visit(RelopDerived4 RelopDerived4);
     public void visit(RelopDerived3 RelopDerived3);
     public void visit(RelopDerived2 RelopDerived2);
     public void visit(RelopDerived1 RelopDerived1);
-    public void visit(DesignatorDerived1 DesignatorDerived1);
+    public void visit(DesignatorSimple DesignatorSimple);
+    public void visit(RValueDesignator1 RValueDesignator1);
+    public void visit(LValueDesignator1 LValueDesignator1);
     public void visit(BoolConstant BoolConstant);
     public void visit(CharConstant CharConstant);
     public void visit(NumberConstant NumberConstant);
@@ -60,17 +65,17 @@ public interface Visitor {
     public void visit(TermListMultiple TermListMultiple);
     public void visit(SingleFactorTerm SingleFactorTerm);
     public void visit(MultiFactorTerm MultiFactorTerm);
-    public void visit(ExprElementDerived1 ExprElementDerived1);
+    public void visit(ExprElement1 ExprElement1);
     public void visit(ExprListDerived2 ExprListDerived2);
     public void visit(ExprListDerived1 ExprListDerived1);
     public void visit(OptionalExprListDerived2 OptionalExprListDerived2);
     public void visit(OptionalExprListDerived1 OptionalExprListDerived1);
     public void visit(ExprWithNoMinus ExprWithNoMinus);
     public void visit(ExprWithMinus ExprWithMinus);
-    public void visit(DesignatorStatementDerived4 DesignatorStatementDerived4);
-    public void visit(DesignatorStatementDerived3 DesignatorStatementDerived3);
-    public void visit(DesignatorStatementDerived2 DesignatorStatementDerived2);
-    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1);
+    public void visit(DesignatorStatementDec DesignatorStatementDec);
+    public void visit(DesignatorStatementInc DesignatorStatementInc);
+    public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall);
+    public void visit(DesignatorStatementAssignment DesignatorStatementAssignment);
     public void visit(StatementDerived5 StatementDerived5);
     public void visit(StatementDerived4 StatementDerived4);
     public void visit(PrintStatement PrintStatement);
@@ -89,14 +94,15 @@ public interface Visitor {
     public void visit(MethodDeclDerived1 MethodDeclDerived1);
     public void visit(MultipleMethodDeclDerived2 MultipleMethodDeclDerived2);
     public void visit(MultipleMethodDeclDerived1 MultipleMethodDeclDerived1);
-    public void visit(VarDeclElementDerived2 VarDeclElementDerived2);
-    public void visit(VarDeclElementDerived1 VarDeclElementDerived1);
+    public void visit(VarDeclElementSingle VarDeclElementSingle);
+    public void visit(VarDeclElementArray VarDeclElementArray);
     public void visit(VarDeclListDerived2 VarDeclListDerived2);
     public void visit(VarDeclListDerived1 VarDeclListDerived1);
     public void visit(VarDecl1 VarDecl1);
     public void visit(MultipleVarDeclDerived2 MultipleVarDeclDerived2);
     public void visit(MultipleVarDeclDerived1 MultipleVarDeclDerived1);
-    public void visit(ProgramEndDerived1 ProgramEndDerived1);
+    public void visit(ProgramEnd1 ProgramEnd1);
+    public void visit(ProgramBegin1 ProgramBegin1);
     public void visit(ProgName ProgName);
     public void visit(Program2 Program2);
     public void visit(Program1 Program1);

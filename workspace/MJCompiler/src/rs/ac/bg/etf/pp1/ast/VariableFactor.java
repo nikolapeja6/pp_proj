@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/1/2018 22:24:8
+// 22/1/2018 2:59:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class VariableFactor extends Factor {
 
-    private Designator Designator;
+    private RValueDesignator RValueDesignator;
 
-    public VariableFactor (Designator Designator) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public VariableFactor (RValueDesignator RValueDesignator) {
+        this.RValueDesignator=RValueDesignator;
+        if(RValueDesignator!=null) RValueDesignator.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public RValueDesignator getRValueDesignator() {
+        return RValueDesignator;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
+    public void setRValueDesignator(RValueDesignator RValueDesignator) {
+        this.RValueDesignator=RValueDesignator;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class VariableFactor extends Factor {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
+        if(RValueDesignator!=null) RValueDesignator.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(RValueDesignator!=null) RValueDesignator.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(RValueDesignator!=null) RValueDesignator.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class VariableFactor extends Factor {
         buffer.append(tab);
         buffer.append("VariableFactor(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(RValueDesignator!=null)
+            buffer.append(RValueDesignator.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -24,12 +24,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int printCallCount = 0;
 	Obj currentMethod = null;
 	boolean returnFound = false;
-	int nVars;
 	int nFields = 0;
 	int fldCnt = 0;
+	
+	boolean globalVars = false;
 
 	Stack<Obj> scopeStack = new Stack<>();
 	
+	Struct currentDeclType = null;
 	List<String> currentVarDeclIdents = new LinkedList<>();
 
 	Logger log = Logger.getLogger(getClass());
@@ -51,21 +53,69 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		log.info(msg.toString());
 	}
 
-	public void visit(ProgramName programName) {
-		String name = ((ProgName) programName).getName();
+	public void visit(ProgName programName) {
+		String name = programName.getName();
 
 		programName.obj = Tab.insert(Obj.Prog, name, Tab.noType);
 		Tab.openScope();
-
+		globalVars = true;
 		scopeStack.push(programName.obj);
 	}
+	
+	public void visit(ProgramBegin1 programBegin)
+	{
+		globalVars = false;
+	}
 
-	public void visit(ProgramEnd pEnd) {
+	public void visit(ProgramEnd1 pEnd) {
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.closeScope();
 	}
 
-
+	public void visit(VarDecl1 varDecl)
+	{
+		currentDeclType = null;
+	}
+	
+	public void visit(VarDeclElementArray varDeclElementArray)
+	{
+		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
+		
+		String name = varDeclElementArray.getI1();
+		
+		Obj obj = Tab.find(name);
+		if(obj != Tab.noObj)
+		{
+			report_error("Identifier "+name+" already used.", null);
+			return;
+		}
+		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
+		if(globalVars)
+			obj.setLevel(0);
+		
+		varDeclElementArray.obj = obj;
+	}
+	
+	public void visit(VarDeclElementSingle varDeclElementSingle)
+	{
+		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
+		
+		String name = varDeclElementSingle.getI1();
+		
+		Obj obj = Tab.find(name);
+		if(obj != Tab.noObj)
+		{
+			report_error("Identifier "+name+" already used.", null);
+			return;
+		}
+		
+		obj = Tab.insert(Obj.Var, name, currentDeclType);
+		if(globalVars)
+			obj.setLevel(0);
+		
+		varDeclElementSingle.obj = obj;
+		log.debug("Variable with name "+name+" has the address of "+varDeclElementSingle.obj.getAdr());
+	}
 	
 	/*
 	 * public void visit(Program1 program) { program.obj =
@@ -101,13 +151,15 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(Type1 type) {
-		Obj novi = Tab.find(type.getI1());
-		if (novi.getKind() == Obj.Type)
-			type.struct = novi.getType();
+		Obj tip = Tab.find(type.getI1());
+		if (tip.getKind() == Obj.Type)
+			type.struct = tip.getType();
 		else {
 			report_error(type.getI1() + " is not a type.", null);
 			type.struct = Tab.noType;
 		}
+		
+		currentDeclType = type.struct;
 	}
 
 	public void visit(PrintStatement printStatement) {
@@ -121,6 +173,41 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
+	}
+	
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
+	{
+		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
+		if(designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld)
+		{
+			report_error("Assignment can only be done for variables of class fields", null);
+			return;
+		}
+		
+		if(!designatorStatementAssignment.getExpr().struct.assignableTo(designator.getType()))
+		{
+			report_error("Exprression is not assignable to desigantor", null);
+			return;
+		}
+	}
+	
+	public void visit(DesignatorStatementInc designatorStatementInc)
+	{
+		Obj designator = designatorStatementInc.getLValueDesignator().obj;
+		if(designator.getType() != Tab.intType)
+		{
+			report_error("Increments are allowed only for int types, but found other type.", null);
+			return;
+		}
+	}
+	
+	public void visit(DesignatorStatementDec designatorStatementDec)
+	{
+		Obj designator = designatorStatementDec.getLValueDesignator().obj;
+		if(designator.getType() != Tab.intType)
+		{
+			report_error("Decrements are allowed only for int types, but found other type.", null);
+		}
 	}
 
 	public void visit(ExprWithMinus expr) {
@@ -177,8 +264,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		log.debug("term element is type "+termElement.obj.getType().getKind());
 	}
 
+	public void visit(VariableFactor variableFactor)
+	{
+		variableFactor.obj = variableFactor.getRValueDesignator().obj;
+	}
+	
 	public void visit(ConstantFactor constantFactor) {
 		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
+		constantFactor.obj.setAdr(constantFactor.getConstant().obj.getAdr());
 		log.debug("constant factor is type "+constantFactor.obj.getType().getKind());
 	}
 
@@ -200,6 +293,36 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		boolConstant.obj.setAdr(boolConstant.getBl().equals("true") ? 1 : 0);
 		log.debug("found constant with value "+boolConstant.obj.getAdr() + "of type "+boolConstant.obj.getType().getKind());
 
+	}
+	
+	public void visit(LValueDesignator1 ldesignator)
+	{
+		ldesignator.obj = ldesignator.getDesignator().obj;
+	}
+	
+	public void visit(RValueDesignator1 rdesignator)
+	{
+		rdesignator.obj = rdesignator.getDesignator().obj;
+	}
+	
+	public void visit(DesignatorSimple designatorSimple)
+	{	
+		String name = designatorSimple.getI1();
+		Obj obj = Tab.find(name);
+		
+		if(obj == Tab.noObj)
+		{
+			report_error("Identifier "+name+" was not defined.", null);
+			return;
+		}
+		
+		if(obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE)
+		{
+			report_error("Identifier "+name+" is not a data identifier.", null);
+			return;
+		}
+		
+		designatorSimple.obj = obj;
 	}
 
 	/*

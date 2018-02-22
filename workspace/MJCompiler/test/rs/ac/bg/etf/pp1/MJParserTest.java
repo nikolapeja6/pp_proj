@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
 import java_cup.runtime.Symbol;
+import rs.ac.bg.etf.pp1.CounterVisitor.GlobbalVarCounter;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 import rs.etf.pp1.mj.runtime.Code;
@@ -57,6 +58,11 @@ public class MJParserTest {
 	        
 	        // TODO
 	        if (/*!p.errorDetected &&*/ semanticCheck.passed()) {
+	        	
+	        	// Counters
+	        	GlobbalVarCounter globalVarCounter = new GlobbalVarCounter();
+	        	prog.traverseBottomUp(globalVarCounter);
+	        	
 	        	File objFile = new File(args[1]);
 	        	log.info("Generating bytecode file: " + objFile.getAbsolutePath());
 	        	if (objFile.exists())
@@ -65,7 +71,7 @@ public class MJParserTest {
 	        	// Code generation...
 	        	CodeGenerator codeGenerator = new CodeGenerator();
 	        	prog.traverseBottomUp(codeGenerator);
-	        	Code.dataSize = semanticCheck.nVars;
+	        	Code.dataSize = globalVarCounter.count;//semanticCheck.nVars;
 	        	Code.mainPc = codeGenerator.getMainPc();
 	        	Code.write(new FileOutputStream(objFile));
 	        	log.info("Parsiranje uspesno zavrseno!");

@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Program"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MethodTypeName"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDeclList"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FormalParamList"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FormPars"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CodeGenerator"/>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FormalParamDecl"/>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.VarCounter"/>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter"/>
 <fullyQualifiedTypeName name="jdk.nashorn.internal.ir.VarNode"/>
 <fullyQualifiedTypeName name="java.nio.file.StandardOpenOption"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.SyntaxNode"/>
@@ -37,15 +32,32 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FormalPar"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.SingleFormalPar"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VoidRetType"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Program1"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ConstantFactor"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermFactor1"/>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermElement1"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermListMultiple"/>
 <fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.CharConstant"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermListSinge"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDeclElementSingle"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDeclElement"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.VarCounter"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.GlobbalVarCounter"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.DesignatorSimple"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.DesignatorStatementAssignment"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
+<fullyQualifiedTypeName name="sun.reflect.generics.reflectiveObjects.NotImplementedException"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.LValueDesignator"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.RValueDesignator"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermElement1"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MulopMultiply"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MulopDiv"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Addop"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.AddopPlus"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.AddopMinus"/>
 </qualifiedTypeNameHistroy>

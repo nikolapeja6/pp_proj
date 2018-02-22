@@ -179,6 +179,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
 /** HELPER NON TERMINALS */
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+non terminal ProgramBegin;
 non terminal ProgramEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
 non terminal MethodEnd;
@@ -200,6 +201,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ExprElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj LValueDesignator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -207,14 +211,15 @@ precedence left MULTUPLY, DIV, MOD;
 
 
 /* TODO optional method decl*/
-Program ::= (Program1) PROG ProgramName OPEN_BRACES MultipleMethodDecl ProgramEnd
+Program ::= (Program1) PROG ProgramName ProgramBegin MultipleMethodDecl ProgramEnd
 			|
-			(Program2) PROG ProgramName MultipleVarDecl OPEN_BRACES MultipleMethodDecl ProgramEnd
+			(Program2) PROG ProgramName MultipleVarDecl ProgramBegin MultipleMethodDecl ProgramEnd
 			;
 			
 ProgramName ::= (ProgName) IDENT:name;
 
-ProgramEnd ::= CLOSE_BRACES;
+ProgramBegin ::= (ProgramBegin1) OPEN_BRACES;
+ProgramEnd ::= (ProgramEnd1) CLOSE_BRACES;
 
 MultipleVarDecl ::= MultipleVarDecl VarDecl
 					|
@@ -228,9 +233,9 @@ VarDeclList ::= VarDeclList COMMA VarDeclElement
 				VarDeclElement
 				;
 			
-VarDeclElement ::= 	IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
+VarDeclElement ::= 	(VarDeclElementArray) IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
 					|
-					IDENT
+					(VarDeclElementSingle)IDENT
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
@@ -278,15 +283,14 @@ Statement ::= 	DesignatorStatement SEMICOLON
 
 
 
-DesignatorStatement ::= 	Designator ASSIGN Expr
+DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN Expr
 							|
 							/* TODO */
-							/* function call*/
-							Designator OPEN_PARENTHESES CLOSE_PARENTHESES
+							(DesignatorStatementFunctionCall) Designator OPEN_PARENTHESES CLOSE_PARENTHESES
 							|
-							Designator INC
+							(DesignatorStatementInc)LValueDesignator INC
 							|
-							Designator DEC
+							(DesignatorStatementDec) LValueDesignator DEC
 							;
 
 Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList
@@ -304,7 +308,7 @@ ExprList ::= 	ExprList ExprElement
 				ExprElement
 				;
 
-ExprElement ::= Addop Term;
+ExprElement ::= (ExprElement1) Addop Term;
 
 Term ::= 	(MultiFactorTerm) Factor:factor TermList
 			| 
@@ -319,7 +323,7 @@ TermList ::=	(TermListMultiple) TermList TermElement
 TermElement ::= (TermElement1) Mulop Factor;
 
 			/* TODO */
-Factor ::= 	(VariableFactor)Designator:desigantor
+Factor ::= 	(VariableFactor)RValueDesignator:desigantor
 			|
 			/* TODO */
 			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES
@@ -334,7 +338,10 @@ Constant ::= (NumberConstant) NUMBER:number
 			(BoolConstant) BOOL:bl
 			;
 
-Designator ::= IDENT;
+LValueDesignator ::= (LValueDesignator1) Designator;
+RValueDesignator ::= (RValueDesignator1) Designator;
+			
+Designator ::= (DesignatorSimple)IDENT;
 
 Relop ::= 	EQUAL
 			|
@@ -349,15 +356,15 @@ Relop ::= 	EQUAL
 			LESS_OR_EQUEL
 			;
 			
-Addop ::= 	PLUS
+Addop ::= 	(AddopPlus)PLUS
 			|
-			MINUS
+			(AddopMinus)MINUS
 			;
 			
-Mulop ::= 	MULTUPLY
+Mulop ::= 	(MulopMultiply)MULTUPLY
 			|
-			DIV
+			(MulopDiv)DIV
 			|
-			MOD
+			(MulopMod)MOD
 			;
 

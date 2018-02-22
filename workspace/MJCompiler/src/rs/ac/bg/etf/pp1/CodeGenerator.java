@@ -6,6 +6,8 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CodeGenerator extends VisitorAdaptor {
 
@@ -20,9 +22,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(PrintStatement printStatement) {
-		
-		System.out.println("**********************"+printStatement.getExpr().struct.getKind());
-		
+				
 		if (printStatement.getExpr().struct == Tab.intType) {
 			Code.put(Code.const_5);
 			Code.put(Code.print);
@@ -32,25 +32,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 	}
 
-	public void visit(NumberConstant numberConstant) {
-		numberConstant.obj = new Obj(Obj.Con, "", Tab.intType);
-		numberConstant.obj.setAdr(numberConstant.getNumber());
-	}
-
-	public void visit(CharConstant charConstant) {
-		System.out.println("found cahr type "+Tab.charType.getKind());
-		charConstant.obj = new Obj(Obj.Con, "", Tab.charType);
-		charConstant.obj.setAdr(charConstant.getCh().charAt(0));
-	}
-
-	public void visit(BoolConstant boolConstant) {
-		boolConstant.obj = new Obj(Obj.Con, "", Tab.intType);
-		boolConstant.obj.setAdr(boolConstant.getBl().equals("true") ? 1 : 0);
-	}
-
-	public void visit(ConstantFactor constantFactor) {
-		Code.load(constantFactor.getConstant().obj);
-	}
 
 	@Override
 	public void visit(MethodNameAndRetType1 MethodTypeName) {
@@ -76,7 +57,90 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
+	
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
+	{
+		Code.store(designatorStatementAssignment.getLValueDesignator().obj);
+	}
+	
+	public void visit(DesignatorStatementInc designatorStatementInc)
+	{
+		Code.put(Code.const_1);
+		Code.load(designatorStatementInc.getLValueDesignator().obj);
+		Code.put(Code.add);
+		Code.store(designatorStatementInc.getLValueDesignator().obj);
+	}
+	
+	public void visit(DesignatorStatementDec designatorStatementDec)
+	{
+		Code.load(designatorStatementDec.getLValueDesignator().obj);
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.store(designatorStatementDec.getLValueDesignator().obj);
+	}
+	
+	public void visit(ExprElement1 exprElement1)
+	{
+		Addop addop = exprElement1.getAddop();
+		
+		if(addop instanceof AddopPlus)
+		{
+			Code.put(Code.add);
+			return;
+		}
+		
+		if(addop instanceof AddopMinus)
+		{
+			Code.put(Code.sub);
+			return;
+		}
 
+	}
+	
+	public void visit(TermElement1 termElement1)
+	{
+		Mulop mulop = termElement1.getMulop();
+		
+		if(mulop instanceof MulopMultiply)
+		{
+			Code.put(Code.mul);
+			return;
+		}
+		
+		if(mulop instanceof MulopDiv)
+		{
+			Code.put(Code.div);
+			return;
+		}
+		
+		if(mulop instanceof MulopMod)
+		{
+			Code.put(Code.rem);
+			return;
+		}
+	}
+	
+	public void visit(ConstantFactor constantFactor) {
+		Code.load(constantFactor.getConstant().obj);
+	}
+
+	public void visit(LValueDesignator1 lvDesignator1)
+	{
+		System.out.println("Not implemented");
+	}
+	
+	public void visit(RValueDesignator1 rvDesignator1)
+	{
+		Code.load(rvDesignator1.obj);
+	}
+		
+	public void visit(DesignatorSimple designatorSimple)
+	{	
+		System.out.println("Not Implemented");
+	}
+	
+
+	
 	/*
 	 * @Override public void visit(VarDecl VarDecl) { varCount++; }
 	 * 

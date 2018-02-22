@@ -179,6 +179,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
 /** HELPER NON TERMINALS */
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+non terminal ProgramBegin ProgramBegin;
 non terminal ProgramEnd ProgramEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
 non terminal MethodEnd MethodEnd;
@@ -200,6 +201,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ExprElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj LValueDesignator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -207,14 +211,15 @@ precedence left MULTUPLY, DIV, MOD;
 
 
 /* TODO optional method decl*/
-Program ::= (Program1) PROG ProgramName:P1 OPEN_BRACES MultipleMethodDecl:M2 ProgramEnd:P3 {: RESULT=new Program1(P1, M2, P3); RESULT.setLine(P1left); :}
+Program ::= (Program1) PROG ProgramName:P1 ProgramBegin:P2 MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new Program1(P1, P2, M3, P4); RESULT.setLine(P1left); :}
 			|
-			(Program2) PROG ProgramName:P1 MultipleVarDecl:M2 OPEN_BRACES MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new Program2(P1, M2, M3, P4); RESULT.setLine(P1left); :}
+			(Program2) PROG ProgramName:P1 MultipleVarDecl:M2 ProgramBegin:P3 MultipleMethodDecl:M4 ProgramEnd:P5 {: RESULT=new Program2(P1, M2, P3, M4, P5); RESULT.setLine(P1left); :}
 			;
 			
 ProgramName ::= (ProgName) IDENT:name {: RESULT=new ProgName(name); RESULT.setLine(nameleft); :};
 
-ProgramEnd ::= CLOSE_BRACES {: RESULT=new ProgramEndDerived1(); :};
+ProgramBegin ::= (ProgramBegin1) OPEN_BRACES {: RESULT=new ProgramBegin1(); :};
+ProgramEnd ::= (ProgramEnd1) CLOSE_BRACES {: RESULT=new ProgramEnd1(); :};
 
 MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclDerived1(M1, V2); RESULT.setLine(M1left); :}
 					|
@@ -228,9 +233,9 @@ VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclList
 				VarDeclElement:V1 {: RESULT=new VarDeclListDerived2(V1); RESULT.setLine(V1left); :}
 				;
 			
-VarDeclElement ::= 	IDENT:I1 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new VarDeclElementDerived1(I1); RESULT.setLine(I1left); :} 
+VarDeclElement ::= 	(VarDeclElementArray) IDENT:I1 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new VarDeclElementArray(I1); RESULT.setLine(I1left); :} 
 					|
-					IDENT:I1 {: RESULT=new VarDeclElementDerived2(I1); RESULT.setLine(I1left); :}
+					(VarDeclElementSingle)IDENT:I1 {: RESULT=new VarDeclElementSingle(I1); RESULT.setLine(I1left); :}
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl:M1 MethodDecl:M2 {: RESULT=new MultipleMethodDeclDerived1(M1, M2); RESULT.setLine(M1left); :}
@@ -278,15 +283,14 @@ Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(
 
 
 
-DesignatorStatement ::= 	Designator:D1 ASSIGN Expr:E2 {: RESULT=new DesignatorStatementDerived1(D1, E2); RESULT.setLine(D1left); :}
+DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASSIGN Expr:E2 {: RESULT=new DesignatorStatementAssignment(L1, E2); RESULT.setLine(L1left); :}
 							|
 							/* TODO */
-							/* function call*/
-							Designator:D1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementDerived2(D1); RESULT.setLine(D1left); :}
+							(DesignatorStatementFunctionCall) Designator:D1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCall(D1); RESULT.setLine(D1left); :}
 							|
-							Designator:D1 INC {: RESULT=new DesignatorStatementDerived3(D1); RESULT.setLine(D1left); :}
+							(DesignatorStatementInc)LValueDesignator:L1 INC {: RESULT=new DesignatorStatementInc(L1); RESULT.setLine(L1left); :}
 							|
-							Designator:D1 DEC {: RESULT=new DesignatorStatementDerived4(D1); RESULT.setLine(D1left); :}
+							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
 							;
 
 Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList:O1 {: RESULT=new ExprWithMinus(term, O1); RESULT.setLine(termleft); :}
@@ -304,7 +308,7 @@ ExprList ::= 	ExprList:E1 ExprElement:E2 {: RESULT=new ExprListDerived1(E1, E2);
 				ExprElement:E1 {: RESULT=new ExprListDerived2(E1); RESULT.setLine(E1left); :}
 				;
 
-ExprElement ::= Addop:A1 Term:T2 {: RESULT=new ExprElementDerived1(A1, T2); RESULT.setLine(A1left); :};
+ExprElement ::= (ExprElement1) Addop:A1 Term:T2 {: RESULT=new ExprElement1(A1, T2); RESULT.setLine(A1left); :};
 
 Term ::= 	(MultiFactorTerm) Factor:factor TermList:T1 {: RESULT=new MultiFactorTerm(factor, T1); RESULT.setLine(factorleft); :}
 			| 
@@ -319,7 +323,7 @@ TermList ::=	(TermListMultiple) TermList:T1 TermElement:T2 {: RESULT=new TermLis
 TermElement ::= (TermElement1) Mulop:M1 Factor:F2 {: RESULT=new TermElement1(M1, F2); RESULT.setLine(M1left); :};
 
 			/* TODO */
-Factor ::= 	(VariableFactor)Designator:desigantor {: RESULT=new VariableFactor(desigantor); RESULT.setLine(desigantorleft); :}
+Factor ::= 	(VariableFactor)RValueDesignator:desigantor {: RESULT=new VariableFactor(desigantor); RESULT.setLine(desigantorleft); :}
 			|
 			/* TODO */
 			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new FuncttionCallFactor(designator); RESULT.setLine(designatorleft); :}
@@ -334,7 +338,10 @@ Constant ::= (NumberConstant) NUMBER:number {: RESULT=new NumberConstant(number)
 			(BoolConstant) BOOL:bl {: RESULT=new BoolConstant(bl); RESULT.setLine(blleft); :}
 			;
 
-Designator ::= IDENT:I1 {: RESULT=new DesignatorDerived1(I1); RESULT.setLine(I1left); :};
+LValueDesignator ::= (LValueDesignator1) Designator:D1 {: RESULT=new LValueDesignator1(D1); RESULT.setLine(D1left); :};
+RValueDesignator ::= (RValueDesignator1) Designator:D1 {: RESULT=new RValueDesignator1(D1); RESULT.setLine(D1left); :};
+			
+Designator ::= (DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RESULT.setLine(I1left); :};
 
 Relop ::= 	EQUAL {: RESULT=new RelopDerived1(); :}
 			|
@@ -349,15 +356,15 @@ Relop ::= 	EQUAL {: RESULT=new RelopDerived1(); :}
 			LESS_OR_EQUEL {: RESULT=new RelopDerived6(); :}
 			;
 			
-Addop ::= 	PLUS {: RESULT=new AddopDerived1(); :}
+Addop ::= 	(AddopPlus)PLUS {: RESULT=new AddopPlus(); :}
 			|
-			MINUS {: RESULT=new AddopDerived2(); :}
+			(AddopMinus)MINUS {: RESULT=new AddopMinus(); :}
 			;
 			
-Mulop ::= 	MULTUPLY {: RESULT=new MulopDerived1(); :}
+Mulop ::= 	(MulopMultiply)MULTUPLY {: RESULT=new MulopMultiply(); :}
 			|
-			DIV {: RESULT=new MulopDerived2(); :}
+			(MulopDiv)DIV {: RESULT=new MulopDiv(); :}
 			|
-			MOD {: RESULT=new MulopDerived3(); :}
+			(MulopMod)MOD {: RESULT=new MulopMod(); :}
 			;
 
