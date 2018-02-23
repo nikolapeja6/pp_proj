@@ -204,6 +204,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj LValueDesignator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -352,9 +354,13 @@ RValueDesignator ::= (RValueDesignator1) Designator;
 Designator ::= (DesignatorSimple)IDENT
 				|
 				/* TODO ident designator*/
-				(DesignatorArray) IDENT OPEN_CHEVRONS Expr CLOSE_CHEVRONS
+				(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 				;
 				
+				
+ArrayName ::= (ArrayName1) IDENT;
+
+
 Relop ::= 	EQUAL
 			|
 			NOT_EQUAL

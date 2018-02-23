@@ -21,8 +21,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		return mainPc;
 	}
 
-	public void visit(PrintStatementComplex printStatementComplex)
-	{
+	public void visit(PrintStatementComplex printStatementComplex) {
 		if (printStatementComplex.getExpr().struct == Tab.intType) {
 			Code.load(printStatementComplex.getConstant().obj);
 			Code.put(Code.print);
@@ -31,9 +30,9 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.bprint);
 		}
 	}
-	
+
 	public void visit(PrintStatement printStatement) {
-				
+
 		if (printStatement.getExpr().struct == Tab.intType) {
 			Code.put(Code.const_5);
 			Code.put(Code.print);
@@ -42,20 +41,16 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.bprint);
 		}
 	}
-	
-	public void visit(ReadStatement readStatement){
-		if(readStatement.obj.getType() == Tab.intType)
-		{
+
+	public void visit(ReadStatement readStatement) {
+		if (readStatement.obj.getType() == Tab.intType) {
 			Code.put(Code.read);
 			Code.store(readStatement.obj);
-		}
-		else
-		{
+		} else {
 			Code.put(Code.bread);
 			Code.store(readStatement.obj);
 		}
 	}
-
 
 	@Override
 	public void visit(MethodNameAndRetType1 MethodTypeName) {
@@ -81,127 +76,112 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
-	
-	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
-	{
+
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
 		Code.store(designatorStatementAssignment.getLValueDesignator().obj);
 	}
-	
-	public void visit(DesignatorStatementInc designatorStatementInc)
-	{
+
+	public void visit(DesignatorStatementInc designatorStatementInc) {
 		Code.put(Code.const_1);
 		Code.load(designatorStatementInc.getLValueDesignator().obj);
 		Code.put(Code.add);
 		Code.store(designatorStatementInc.getLValueDesignator().obj);
 	}
-	
-	public void visit(DesignatorStatementDec designatorStatementDec)
-	{
+
+	public void visit(DesignatorStatementDec designatorStatementDec) {
 		Code.load(designatorStatementDec.getLValueDesignator().obj);
 		Code.put(Code.const_1);
 		Code.put(Code.sub);
 		Code.store(designatorStatementDec.getLValueDesignator().obj);
 	}
-	
-	public void visit(ExprWithMinus exprWithMinus)
-	{
+
+	public void visit(ExprWithMinus exprWithMinus) {
 		Code.loadConst(-1);
 		Code.put(Code.mul);
 	}
-	
-	public void visit(ExprElement1 exprElement1)
-	{
+
+	public void visit(ExprElement1 exprElement1) {
 		Addop addop = exprElement1.getAddop();
-		
-		if(addop instanceof AddopPlus)
-		{
+
+		if (addop instanceof AddopPlus) {
 			Code.put(Code.add);
 			return;
 		}
-		
-		if(addop instanceof AddopMinus)
-		{
+
+		if (addop instanceof AddopMinus) {
 			Code.put(Code.sub);
 			return;
 		}
 
 	}
-	
-	public void visit(TermElement1 termElement1)
-	{
+
+	public void visit(TermElement1 termElement1) {
 		Mulop mulop = termElement1.getMulop();
-		
-		if(mulop instanceof MulopMultiply)
-		{
+
+		if (mulop instanceof MulopMultiply) {
 			Code.put(Code.mul);
 			return;
 		}
-		
-		if(mulop instanceof MulopDiv)
-		{
+
+		if (mulop instanceof MulopDiv) {
 			Code.put(Code.div);
 			return;
 		}
-		
-		if(mulop instanceof MulopMod)
-		{
+
+		if (mulop instanceof MulopMod) {
 			Code.put(Code.rem);
 			return;
 		}
 	}
-	
+
 	public void visit(ConstantFactor constantFactor) {
 		Code.load(constantFactor.getConstant().obj);
 	}
 
-	public void visit(FactorNewArray factorNewArray){
+	public void visit(FactorNewArray factorNewArray) {
 		Struct elementType = factorNewArray.obj.getType().getElemType();
-		
+
 		Code.put(Code.newarray);
 
-		if(elementType == Tab.intType)
-		{
+		if (elementType == Tab.intType) {
 			Code.put(1);
 			return;
 		}
-		
-		if(elementType == Tab.charType)
-		{
+
+		if (elementType == Tab.charType) {
 			Code.put(0);
 			return;
 		}
-		
+
 		System.out.println("unmatched new");
-				
+
 	}
-	
-	public void visit(LValueDesignator1 lvDesignator1)
-	{
-		if(lvDesignator1.getDesignator() instanceof DesignatorArray)
-		{
+
+	public void visit(LValueDesignator1 lvDesignator1) {
+		/*
+		if (lvDesignator1.getDesignator() instanceof DesignatorArray) {
 			Code.put(lvDesignator1.obj.getAdr());
 		}
-		
+		*/
 		System.out.println("LValueDesignotr without code gen");
 	}
-	
-	public void visit(RValueDesignator1 rvDesignator1)
-	{
-		if(rvDesignator1.getDesignator() instanceof DesignatorArray)
-		{
-			Code.put(rvDesignator1.obj.getAdr());
-		}
-		
+
+	public void visit(RValueDesignator1 rvDesignator1) {
+		/*
+		 * if(rvDesignator1.getDesignator() instanceof DesignatorArray) {
+		 * Code.put(rvDesignator1.obj.getAdr()); }
+		 */
 		Code.load(rvDesignator1.obj);
 	}
-		
-	public void visit(DesignatorSimple designatorSimple)
-	{	
+
+	public void visit(DesignatorSimple designatorSimple) {
 		System.out.println("DesignatorSimlpe without code gen");
 	}
-	
 
-	
+	public void visit(ArrayName1 arrayName1) {
+		Code.load(arrayName1.obj);
+	}
+
 	/*
 	 * @Override public void visit(VarDecl VarDecl) { varCount++; }
 	 * 

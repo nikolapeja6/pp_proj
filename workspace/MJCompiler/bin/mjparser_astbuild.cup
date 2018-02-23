@@ -204,6 +204,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj LValueDesignator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -352,9 +354,13 @@ RValueDesignator ::= (RValueDesignator1) Designator:D1 {: RESULT=new RValueDesig
 Designator ::= (DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RESULT.setLine(I1left); :}
 				|
 				/* TODO ident designator*/
-				(DesignatorArray) IDENT:I1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(I1, E2); RESULT.setLine(I1left); :}
+				(DesignatorArray) ArrayName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(A1, E2); RESULT.setLine(A1left); :}
 				;
 				
+				
+ArrayName ::= (ArrayName1) IDENT:I1 {: RESULT=new ArrayName1(I1); RESULT.setLine(I1left); :};
+
+
 Relop ::= 	EQUAL {: RESULT=new RelopDerived1(); :}
 			|
 			NOT_EQUAL {: RESULT=new RelopDerived2(); :}

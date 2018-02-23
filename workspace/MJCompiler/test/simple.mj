@@ -2,8 +2,13 @@ program MJProgram int x; int z[];
 {
 	int main() int y;{
 		z = new int[5];
-		z[0] = 0;
-		print(z[0]);
+		
+		z[1] = 3;
+		print(z[1]);
+		
+		z[z[1]]=2;
+		print(z[3], 2);
+		print(z[z[1]], 2);
 		
 		print(1, 1);
 		

@@ -368,7 +368,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	{
 		if(rdesignator.getDesignator().obj.getType().getKind() == Struct.Array)
 		{
-			String varName = ((DesignatorArray)rdesignator.getDesignator()).getI1();
+			String varName = ((DesignatorArray)rdesignator.getDesignator()).getArrayName().obj.getName();
 			rdesignator.obj = new Obj(Obj.Elem, varName,rdesignator.getDesignator().obj.getType().getElemType());
 			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
 		}
@@ -400,8 +400,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(DesignatorArray designatorArray)
 	{	
-		String name = designatorArray.getI1();
-		Obj obj = Tab.find(name);
+		
+		Obj obj = designatorArray.getArrayName().obj;
+		String name = obj.getName();
 		
 		if(obj == Tab.noObj)
 		{
@@ -424,6 +425,23 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType());
 	}
 		
+	
+	public void visit(ArrayName1 arrayName1)
+	{
+		Obj obj = Tab.find(arrayName1.getI1());
+		if(obj == Tab.noObj)
+		{
+			report_error("Undefined identifier "+arrayName1.getI1(), null);
+			return;
+		}
+		
+		if(obj.getType().getKind() != Struct.Array)
+		{
+			report_error("Variable "+arrayName1.getI1()+" is not an array.", null);
+		}
+		
+		arrayName1.obj = obj;
+	}
 	/*
 	 * public void visit(NumberLiteral number) { log.debug("number literal");
 	 * number.struct = Tab.intType; report_info(

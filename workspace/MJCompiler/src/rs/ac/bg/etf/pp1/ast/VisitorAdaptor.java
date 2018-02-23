@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/1/2018 1:15:37
+// 23/1/2018 2:3:46
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -27,6 +27,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Type Type) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(MultipleMethodDecl MultipleMethodDecl) { }
+    public void visit(ArrayName ArrayName) { }
     public void visit(VarDecl VarDecl) { }
     public void visit(Addop Addop) { }
     public void visit(VoidType VoidType) { }
@@ -51,6 +52,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelopDerived3 RelopDerived3) { visit(); }
     public void visit(RelopDerived2 RelopDerived2) { visit(); }
     public void visit(RelopDerived1 RelopDerived1) { visit(); }
+    public void visit(ArrayName1 ArrayName1) { visit(); }
     public void visit(DesignatorArray DesignatorArray) { visit(); }
     public void visit(DesignatorSimple DesignatorSimple) { visit(); }
     public void visit(RValueDesignator1 RValueDesignator1) { visit(); }
