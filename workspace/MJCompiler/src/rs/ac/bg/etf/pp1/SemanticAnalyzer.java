@@ -135,18 +135,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		methodNameAndRetType.obj = Tab.insert(Obj.Meth, name, type);
 		Tab.openScope();
 
+		currentMethod = methodNameAndRetType.obj;
 		scopeStack.push(methodNameAndRetType.obj);
 	}
 
 	public void visit(MethodEnd methodEnd) {
 		scopeStack.peek().setLevel(Tab.currentScope.getnVars());
-
+		
+		currentMethod = null;
+		
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.closeScope();
 	}
 
 	public void visit(VoidReturnType returnType) {
-		returnType.struct = Tab.nullType;
+		returnType.struct = Tab.noType;
 	}
 
 	public void visit(TypeReturnType returnType) {
@@ -163,6 +166,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		
 		currentDeclType = type.struct;
+	}
+	
+	public void visit(StatementReturnVoid returnVoid)
+	{
+		if(currentMethod.getType() != Tab.noType)
+		{
+			report_error("Method must return type", null);
+		}
+	}
+	
+	public void visit(StatementReturnValue returnValue)
+	{
+		if(!returnValue.getExpr().struct.assignableTo(currentMethod.getType()))
+		{
+			report_error("The value of the return expression is not assignable to return type.", null);
+		}
 	}
 	
 	public void visit(PrintStatementComplex printStatementComplex)
@@ -236,6 +255,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Exprression is not assignable to desigantor", null);
 			return;
 		}
+	}
+	
+	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall)
+	{
+		Obj obj = designatorStatementFunctionCall.getDesignator().obj;
+		
+		if(obj.getKind() != Obj.Meth)
+		{
+			report_error("Identifier "+obj.getName() + " is not a method.", null);
+			return;
+		}
+		
+		designatorStatementFunctionCall.obj = obj;
 	}
 	
 	public void visit(DesignatorStatementInc designatorStatementInc)
@@ -321,6 +353,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(VariableFactor variableFactor)
 	{
 		variableFactor.obj = variableFactor.getRValueDesignator().obj;
+	}
+	
+	public void visit(FuncttionCallFactor functtionCallFactor)
+	{
+		Obj obj = functtionCallFactor.getDesignator().obj;
+		
+		if(obj.getKind() != Obj.Meth)
+		{
+			report_error("Identifier "+obj.getName() + " is not a method.", null);
+			return;
+		}
+		
+		functtionCallFactor.obj = obj;
 	}
 	
 	public void visit(ConstantFactor constantFactor) {

@@ -21,6 +21,19 @@ public class CodeGenerator extends VisitorAdaptor {
 		return mainPc;
 	}
 
+	
+	public void visit(StatementReturnVoid returnVoid)
+	{
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+	
+	public void visit(StatementReturnValue returnValue)
+	{
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+	
 	public void visit(PrintStatementComplex printStatementComplex) {
 		if (printStatementComplex.getExpr().struct == Tab.intType) {
 			Code.load(printStatementComplex.getConstant().obj);
@@ -65,7 +78,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		methodNode.traverseTopDown(varCnt);
 		FormParamCounter fpCnt = new FormParamCounter();
 		methodNode.traverseTopDown(fpCnt);
-
+		
 		// Generate the entry.
 		Code.put(Code.enter);
 		Code.put(fpCnt.getCount());
@@ -79,6 +92,19 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
 		Code.store(designatorStatementAssignment.getLValueDesignator().obj);
+	}
+	
+	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall)
+	{
+		Obj obj = designatorStatementFunctionCall.obj; 
+		
+		int dstAdr = obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(dstAdr);
+		
+		if(obj.getType() != Tab.noType){
+			Code.put(Code.pop);
+		}
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
@@ -132,6 +158,15 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.rem);
 			return;
 		}
+	}
+	
+	public void visit(FuncttionCallFactor functionCallFactor)
+	{
+		Obj obj = functionCallFactor.obj; 
+		
+		int dstAdr = obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(dstAdr);
 	}
 
 	public void visit(ConstantFactor constantFactor) {

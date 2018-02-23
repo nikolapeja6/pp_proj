@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/1/2018 2:3:45
+// 23/1/2018 2:46:20
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived3 extends Statement {
 
-    private Expr Expr;
+    private Statement Statement;
 
-    public StatementDerived3 (Expr Expr) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
+    public StatementDerived3 (Statement Statement) {
+        this.Statement=Statement;
+        if(Statement!=null) Statement.setParent(this);
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public Statement getStatement() {
+        return Statement;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public void setStatement(Statement Statement) {
+        this.Statement=Statement;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class StatementDerived3 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
+        if(Statement!=null) Statement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(Statement!=null) Statement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(Statement!=null) Statement.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class StatementDerived3 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived3(\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
+        if(Statement!=null)
+            buffer.append(Statement.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

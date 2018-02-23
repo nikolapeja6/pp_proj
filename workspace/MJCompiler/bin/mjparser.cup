@@ -272,9 +272,9 @@ MultipleStatements ::= 	MultipleStatements Statement
 
 Statement ::= 	DesignatorStatement SEMICOLON
 				|
-				RETURN SEMICOLON 
+				(StatementReturnVoid) RETURN SEMICOLON 
 				|
-				RETURN Expr SEMICOLON
+				(StatementReturnValue) RETURN Expr SEMICOLON
 				|
 				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON
 				|

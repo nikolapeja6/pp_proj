@@ -1,5 +1,18 @@
-program MJProgram int x; int z[];
+program MJProgram int x; int z[]; int printcnt;
 {
+
+	void printcall(){
+		print(printcnt);
+		printcnt++;
+		return;
+
+		printcnt++;
+	}
+	
+	int k(){
+		return 3;
+	}
+	
 	int main() int y;{
 		z = new int[5];
 		
@@ -49,6 +62,13 @@ program MJProgram int x; int z[];
 		x = y % 3;
 		print(x);
 		
+		
+		printcnt = 55;
+		printcall();
+		printcall();
+		
+		print(k());
+		
 		// out = 4*in
 		read(x);
 		x = x*y;
@@ -59,4 +79,6 @@ program MJProgram int x; int z[];
 		
 		return 0;
 	}
+	
+
 }

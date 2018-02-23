@@ -272,9 +272,9 @@ MultipleStatements ::= 	MultipleStatements:M1 Statement:S2 {: RESULT=new Multipl
 
 Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(D1); RESULT.setLine(D1left); :}
 				|
-				RETURN SEMICOLON {: RESULT=new StatementDerived2(); :} 
+				(StatementReturnVoid) RETURN SEMICOLON {: RESULT=new StatementReturnVoid(); :} 
 				|
-				RETURN Expr:E1 SEMICOLON {: RESULT=new StatementDerived3(E1); RESULT.setLine(E1left); :}
+				(StatementReturnValue) RETURN Expr:E1 SEMICOLON {: RESULT=new StatementReturnValue(E1); RESULT.setLine(E1left); :}
 				|
 				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON {: RESULT=new PrintStatementComplex(expr, constant); RESULT.setLine(exprleft); :}
 				|
@@ -282,9 +282,9 @@ Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator:L1 CLOSE_PARENTHESES SEMICOLON {: RESULT=new ReadStatement(L1); RESULT.setLine(L1left); :}
 				|
-				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived4(); :}
+				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived2(); :}
 				|
-				OPEN_BRACES Statement:S1 CLOSE_BRACES {: RESULT=new StatementDerived5(S1); RESULT.setLine(S1left); :}
+				OPEN_BRACES Statement:S1 CLOSE_BRACES {: RESULT=new StatementDerived3(S1); RESULT.setLine(S1left); :}
 				;
 
 
