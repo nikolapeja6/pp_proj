@@ -154,19 +154,50 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.load(constantFactor.getConstant().obj);
 	}
 
+	public void visit(FactorNewArray factorNewArray){
+		Struct elementType = factorNewArray.obj.getType().getElemType();
+		
+		Code.put(Code.newarray);
+
+		if(elementType == Tab.intType)
+		{
+			Code.put(1);
+			return;
+		}
+		
+		if(elementType == Tab.charType)
+		{
+			Code.put(0);
+			return;
+		}
+		
+		System.out.println("unmatched new");
+				
+	}
+	
 	public void visit(LValueDesignator1 lvDesignator1)
 	{
-		System.out.println("Not implemented");
+		if(lvDesignator1.getDesignator() instanceof DesignatorArray)
+		{
+			Code.put(lvDesignator1.obj.getAdr());
+		}
+		
+		System.out.println("LValueDesignotr without code gen");
 	}
 	
 	public void visit(RValueDesignator1 rvDesignator1)
 	{
+		if(rvDesignator1.getDesignator() instanceof DesignatorArray)
+		{
+			Code.put(rvDesignator1.obj.getAdr());
+		}
+		
 		Code.load(rvDesignator1.obj);
 	}
 		
 	public void visit(DesignatorSimple designatorSimple)
 	{	
-		System.out.println("Not Implemented");
+		System.out.println("DesignatorSimlpe without code gen");
 	}
 	
 

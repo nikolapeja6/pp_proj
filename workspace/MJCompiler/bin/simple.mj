@@ -1,9 +1,15 @@
-program MJProgram int x;
+program MJProgram int x; int z[];
 {
 	int main() int y;{
+		z = new int[5];
+		z[0] = 0;
+		print(z[0]);
+		
 		print(1, 1);
 		
 		print('a', 1);
+		
+		
 		
 		y = 5;
 		

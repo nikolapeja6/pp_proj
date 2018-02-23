@@ -335,6 +335,8 @@ Factor ::= 	(VariableFactor)RValueDesignator:desigantor
 			(ConstantFactor) Constant:constant
 			|
 			(FactorParenExpr) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
+			|
+			(FactorNewArray) NEW Type OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
 			;
 			
 Constant ::= (NumberConstant) NUMBER:number
@@ -347,8 +349,12 @@ Constant ::= (NumberConstant) NUMBER:number
 LValueDesignator ::= (LValueDesignator1) Designator;
 RValueDesignator ::= (RValueDesignator1) Designator;
 			
-Designator ::= (DesignatorSimple)IDENT;
-
+Designator ::= (DesignatorSimple)IDENT
+				|
+				/* TODO ident designator*/
+				(DesignatorArray) IDENT OPEN_CHEVRONS Expr CLOSE_CHEVRONS
+				;
+				
 Relop ::= 	EQUAL
 			|
 			NOT_EQUAL

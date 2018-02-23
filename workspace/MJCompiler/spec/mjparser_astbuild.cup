@@ -335,6 +335,8 @@ Factor ::= 	(VariableFactor)RValueDesignator:desigantor {: RESULT=new VariableFa
 			(ConstantFactor) Constant:constant {: RESULT=new ConstantFactor(constant); RESULT.setLine(constantleft); :}
 			|
 			(FactorParenExpr) OPEN_PARENTHESES Expr:E1 CLOSE_PARENTHESES {: RESULT=new FactorParenExpr(E1); RESULT.setLine(E1left); :}
+			|
+			(FactorNewArray) NEW Type:T1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new FactorNewArray(T1, E2); RESULT.setLine(T1left); :} 
 			;
 			
 Constant ::= (NumberConstant) NUMBER:number {: RESULT=new NumberConstant(number); RESULT.setLine(numberleft); :}
@@ -347,8 +349,12 @@ Constant ::= (NumberConstant) NUMBER:number {: RESULT=new NumberConstant(number)
 LValueDesignator ::= (LValueDesignator1) Designator:D1 {: RESULT=new LValueDesignator1(D1); RESULT.setLine(D1left); :};
 RValueDesignator ::= (RValueDesignator1) Designator:D1 {: RESULT=new RValueDesignator1(D1); RESULT.setLine(D1left); :};
 			
-Designator ::= (DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RESULT.setLine(I1left); :};
-
+Designator ::= (DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RESULT.setLine(I1left); :}
+				|
+				/* TODO ident designator*/
+				(DesignatorArray) IDENT:I1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(I1, E2); RESULT.setLine(I1left); :}
+				;
+				
 Relop ::= 	EQUAL {: RESULT=new RelopDerived1(); :}
 			|
 			NOT_EQUAL {: RESULT=new RelopDerived2(); :}

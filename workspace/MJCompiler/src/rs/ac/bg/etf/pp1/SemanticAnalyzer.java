@@ -27,6 +27,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	boolean returnFound = false;
 	int nFields = 0;
 	int fldCnt = 0;
+	int globalVarCnt = 0;
 	
 	boolean globalVars = false;
 
@@ -93,7 +94,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
 		if(globalVars)
 			obj.setLevel(0);
-		
+		obj.setAdr(globalVarCnt++);
 		varDeclElementArray.obj = obj;
 	}
 	
@@ -113,7 +114,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		obj = Tab.insert(Obj.Var, name, currentDeclType);
 		if(globalVars)
 			obj.setLevel(0);
-		
+		obj.setAdr(globalVarCnt++);
+
 		varDeclElementSingle.obj = obj;
 		log.debug("Variable with name "+name+" has the address of "+varDeclElementSingle.obj.getAdr());
 	}
@@ -216,13 +218,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
 	{
 		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
-		if(designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld)
+		if(designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem)
 		{
 			report_error("Assignment can only be done for variables of class fields", null);
 			return;
 		}
 		
-		if(!designatorStatementAssignment.getExpr().struct.assignableTo(designator.getType()))
+		Struct src = designatorStatementAssignment.getExpr().struct;
+		Struct dst = designatorStatementAssignment.getLValueDesignator().obj.getType();
+		
+		
+		if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator() instanceof DesignatorArray )
+			dst = dst.getElemType();
+		
+		if(!src.assignableTo(dst))
 		{
 			report_error("Exprression is not assignable to desigantor", null);
 			return;
@@ -323,6 +332,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(FactorParenExpr parenFactor){
 		parenFactor.obj = new Obj(Obj.NO_VALUE, "",parenFactor.getExpr().struct);
 	}
+	
+	public void visit(FactorNewArray factorNewArray){
+		Struct struct = new Struct(Struct.Array, factorNewArray.getType().struct);
+		factorNewArray.obj = new Obj(Obj.Var, "", struct);
+	}
 
 	public void visit(NumberConstant numberConstant) {
 		numberConstant.obj = new Obj(Obj.Con, "", Tab.intType);
@@ -346,12 +360,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(LValueDesignator1 ldesignator)
 	{
-		ldesignator.obj = ldesignator.getDesignator().obj;
+		Obj obj = ldesignator.getDesignator().obj;
+		ldesignator.obj = obj;//new Obj(obj.getKind(), "", new Struct(Struct.Array, Tab.noType));
 	}
 	
 	public void visit(RValueDesignator1 rdesignator)
 	{
+		if(rdesignator.getDesignator().obj.getType().getKind() == Struct.Array)
+		{
+			String varName = ((DesignatorArray)rdesignator.getDesignator()).getI1();
+			rdesignator.obj = new Obj(Obj.Elem, varName,rdesignator.getDesignator().obj.getType().getElemType());
+			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+		}
+		else
+		{
 		rdesignator.obj = rdesignator.getDesignator().obj;
+		}
 	}
 	
 	public void visit(DesignatorSimple designatorSimple)
@@ -374,6 +398,32 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		designatorSimple.obj = obj;
 	}
 
+	public void visit(DesignatorArray designatorArray)
+	{	
+		String name = designatorArray.getI1();
+		Obj obj = Tab.find(name);
+		
+		if(obj == Tab.noObj)
+		{
+			report_error("Identifier "+name+" was not defined.", null);
+			return;
+		}
+		
+		if(obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE)
+		{
+			report_error("Identifier "+name+" is not a data identifier.", null);
+			return;
+		}
+		
+		if(obj.getType().getKind() != Struct.Array)
+		{
+			report_error("Invalid operation. Tried indexing variable that is not an array.", null);
+			return;
+		}
+		
+		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType());
+	}
+		
 	/*
 	 * public void visit(NumberLiteral number) { log.debug("number literal");
 	 * number.struct = Tab.intType; report_info(
