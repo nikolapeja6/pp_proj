@@ -159,6 +159,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
 
 non terminal Mulop;
 non terminal Addop;
@@ -208,6 +211,15 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Matched;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Unmatched;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
 /** END HELPER NON TERMINALS */
 
@@ -294,10 +306,8 @@ Statement ::= 	DesignatorStatement SEMICOLON
 
 Statement ::= 	Matched 
 				|
-				/*
 				Unmatched
 				|
-				*/
 				OPEN_BRACES CLOSE_BRACES
 				|
 				OPEN_BRACES MultipleStatements CLOSE_BRACES
@@ -314,14 +324,17 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
+				|
+				(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Matched
+				|
+				(MatchdWhile) DO Statement WHILE OPEN_PARENTHESES Condition CLOSE_PARENTHESES SEMICOLON
 				;
 
-				/*
-Unmatched ::=	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				
+Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
 				|
-				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
-				;
-					*/				
+				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
+				;			
 
 
 
@@ -335,6 +348,47 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
 							;
+
+Condition ::= 	(ConditionMultiple) CondTerm ConditionList
+				|
+				(ConditionSingle) CondTerm
+				;
+
+ConditionList ::= 	(ConditionListMultiple) ConditionList ConditionElement
+					|
+					(ConditionListSingle) ConditionElement
+					;
+					
+/*TODO generate code*/					
+ConditionElement ::= (ConditionElement1) OR CondTerm
+					;
+
+CondTerm ::= 	(CondTermMultiple) CondFact CondTermList
+				|
+				(CondTermSingle) CondFact
+				;
+
+CondTermList ::= 	(CondTermListMultiple) CondTermList CondTermElement
+					|
+					(CondTermListSingle) CondTermElement
+					;
+					
+/*TODO generate code*/					
+CondTermElement ::= (CondTermElement1) AND CondFact
+					;
+
+CondFact ::= 	(CondFactMultiple) Expr CondFactList
+				|
+				(CondFactSingle) Expr
+				;
+
+CondFactList ::= 	(CondFactListMultiple) CondFactList CondFactElement
+					|
+					(CondFactListSingle) CondFactElement
+					;
+					
+/*TODO generate code*/					
+CondFactElement ::= (CondFactElement1) Relop Expr;
 
 Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList
 			|

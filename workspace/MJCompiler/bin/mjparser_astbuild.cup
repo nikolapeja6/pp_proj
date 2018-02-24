@@ -159,6 +159,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
 
 non terminal Mulop Mulop;
 non terminal Addop Addop;
@@ -208,6 +211,15 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Matched;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Unmatched;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
 /** END HELPER NON TERMINALS */
 
@@ -294,13 +306,11 @@ Statement ::= 	DesignatorStatement SEMICOLON
 
 Statement ::= 	Matched:M1 {: RESULT=new StatementDerived1(M1); RESULT.setLine(M1left); :} 
 				|
-				/*
-				Unmatched
+				Unmatched:U1 {: RESULT=new StatementDerived2(U1); RESULT.setLine(U1left); :}
 				|
-				*/
-				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived2(); :}
+				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived3(); :}
 				|
-				OPEN_BRACES MultipleStatements:M1 CLOSE_BRACES {: RESULT=new StatementDerived3(M1); RESULT.setLine(M1left); :}
+				OPEN_BRACES MultipleStatements:M1 CLOSE_BRACES {: RESULT=new StatementDerived4(M1); RESULT.setLine(M1left); :}
 				;
 
 Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1); RESULT.setLine(D1left); :}
@@ -314,14 +324,17 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON {: RESULT=new PrintStatement(expr); RESULT.setLine(exprleft); :}
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator:L1 CLOSE_PARENTHESES SEMICOLON {: RESULT=new ReadStatement(L1); RESULT.setLine(L1left); :}
+				|
+				(MatchedIf)	IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(C1, M2, M3); RESULT.setLine(C1left); :}
+				|
+				(MatchdWhile) DO Statement:S1 WHILE OPEN_PARENTHESES Condition:C2 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(S1, C2); RESULT.setLine(S1left); :}
 				;
 
-				/*
-Unmatched ::=	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				
+Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
 				|
-				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
-				;
-					*/				
+				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
+				;			
 
 
 
@@ -335,6 +348,47 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
 							;
+
+Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
+				|
+				(ConditionSingle) CondTerm:C1 {: RESULT=new ConditionSingle(C1); RESULT.setLine(C1left); :}
+				;
+
+ConditionList ::= 	(ConditionListMultiple) ConditionList:C1 ConditionElement:C2 {: RESULT=new ConditionListMultiple(C1, C2); RESULT.setLine(C1left); :}
+					|
+					(ConditionListSingle) ConditionElement:C1 {: RESULT=new ConditionListSingle(C1); RESULT.setLine(C1left); :}
+					;
+					
+/*TODO generate code*/					
+ConditionElement ::= (ConditionElement1) OR CondTerm:C1 {: RESULT=new ConditionElement1(C1); RESULT.setLine(C1left); :}
+					;
+
+CondTerm ::= 	(CondTermMultiple) CondFact:C1 CondTermList:C2 {: RESULT=new CondTermMultiple(C1, C2); RESULT.setLine(C1left); :}
+				|
+				(CondTermSingle) CondFact:C1 {: RESULT=new CondTermSingle(C1); RESULT.setLine(C1left); :}
+				;
+
+CondTermList ::= 	(CondTermListMultiple) CondTermList:C1 CondTermElement:C2 {: RESULT=new CondTermListMultiple(C1, C2); RESULT.setLine(C1left); :}
+					|
+					(CondTermListSingle) CondTermElement:C1 {: RESULT=new CondTermListSingle(C1); RESULT.setLine(C1left); :}
+					;
+					
+/*TODO generate code*/					
+CondTermElement ::= (CondTermElement1) AND CondFact:C1 {: RESULT=new CondTermElement1(C1); RESULT.setLine(C1left); :}
+					;
+
+CondFact ::= 	(CondFactMultiple) Expr:E1 CondFactList:C2 {: RESULT=new CondFactMultiple(E1, C2); RESULT.setLine(E1left); :}
+				|
+				(CondFactSingle) Expr:E1 {: RESULT=new CondFactSingle(E1); RESULT.setLine(E1left); :}
+				;
+
+CondFactList ::= 	(CondFactListMultiple) CondFactList:C1 CondFactElement:C2 {: RESULT=new CondFactListMultiple(C1, C2); RESULT.setLine(C1left); :}
+					|
+					(CondFactListSingle) CondFactElement:C1 {: RESULT=new CondFactListSingle(C1); RESULT.setLine(C1left); :}
+					;
+					
+/*TODO generate code*/					
+CondFactElement ::= (CondFactElement1) Relop:R1 Expr:E2 {: RESULT=new CondFactElement1(R1, E2); RESULT.setLine(R1left); :};
 
 Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList:O1 {: RESULT=new ExprWithMinus(term, O1); RESULT.setLine(termleft); :}
 			|
