@@ -1,46 +1,48 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/1/2018 2:46:20
+// 24/1/2018 2:25:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
+    public void visit(Unmatched Unmatched);
+    public void visit(ArrayName ArrayName);
+    public void visit(ReturnType ReturnType);
+    public void visit(Mulop Mulop);
     public void visit(MethodDecl MethodDecl);
-    public void visit(Designator Designator);
-    public void visit(ProgramName ProgramName);
+    public void visit(Constant Constant);
+    public void visit(Matched Matched);
+    public void visit(Relop Relop);
+    public void visit(TermList TermList);
+    public void visit(MultipleMethodDecl MultipleMethodDecl);
+    public void visit(ProgramEnd ProgramEnd);
     public void visit(OptionalExprList OptionalExprList);
+    public void visit(Addop Addop);
+    public void visit(ProgramBegin ProgramBegin);
     public void visit(Factor Factor);
     public void visit(MethodEnd MethodEnd);
-    public void visit(Mulop Mulop);
-    public void visit(TermElement TermElement);
-    public void visit(DesignatorStatement DesignatorStatement);
-    public void visit(Constant Constant);
-    public void visit(ExprElement ExprElement);
-    public void visit(MultipleVarDecl MultipleVarDecl);
-    public void visit(ReturnType ReturnType);
-    public void visit(ProgramBegin ProgramBegin);
-    public void visit(ExprList ExprList);
-    public void visit(Expr Expr);
-    public void visit(VarDeclElement VarDeclElement);
-    public void visit(Type Type);
-    public void visit(VarDeclList VarDeclList);
-    public void visit(MultipleMethodDecl MultipleMethodDecl);
-    public void visit(ArrayName ArrayName);
-    public void visit(VarDecl VarDecl);
-    public void visit(Addop Addop);
-    public void visit(VoidType VoidType);
-    public void visit(TermList TermList);
-    public void visit(MultipleStatements MultipleStatements);
-    public void visit(Statement Statement);
-    public void visit(Relop Relop);
     public void visit(RValueDesignator RValueDesignator);
+    public void visit(Designator Designator);
     public void visit(Term Term);
-    public void visit(MethodNameAndRetType MethodNameAndRetType);
-    public void visit(ProgramEnd ProgramEnd);
-    public void visit(Program Program);
+    public void visit(MultipleVarDecl MultipleVarDecl);
+    public void visit(MultipleStatements MultipleStatements);
+    public void visit(ExprList ExprList);
+    public void visit(VarDeclElement VarDeclElement);
+    public void visit(ProgramName ProgramName);
     public void visit(LValueDesignator LValueDesignator);
+    public void visit(VarDeclList VarDeclList);
+    public void visit(MethodNameAndRetType MethodNameAndRetType);
+    public void visit(Expr Expr);
+    public void visit(VoidType VoidType);
+    public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(Statement Statement);
+    public void visit(VarDecl VarDecl);
+    public void visit(Type Type);
+    public void visit(ExprElement ExprElement);
+    public void visit(Program Program);
+    public void visit(TermElement TermElement);
     public void visit(MulopMod MulopMod);
     public void visit(MulopDiv MulopDiv);
     public void visit(MulopMultiply MulopMultiply);
@@ -81,13 +83,14 @@ public interface Visitor {
     public void visit(DesignatorStatementInc DesignatorStatementInc);
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall);
     public void visit(DesignatorStatementAssignment DesignatorStatementAssignment);
-    public void visit(StatementDerived3 StatementDerived3);
-    public void visit(StatementDerived2 StatementDerived2);
     public void visit(ReadStatement ReadStatement);
     public void visit(PrintStatement PrintStatement);
     public void visit(PrintStatementComplex PrintStatementComplex);
     public void visit(StatementReturnValue StatementReturnValue);
     public void visit(StatementReturnVoid StatementReturnVoid);
+    public void visit(MatchedDerived1 MatchedDerived1);
+    public void visit(StatementDerived3 StatementDerived3);
+    public void visit(StatementDerived2 StatementDerived2);
     public void visit(StatementDerived1 StatementDerived1);
     public void visit(MultipleStatementsDerived2 MultipleStatementsDerived2);
     public void visit(MultipleStatementsDerived1 MultipleStatementsDerived1);

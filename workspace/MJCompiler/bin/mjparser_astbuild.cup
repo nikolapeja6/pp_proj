@@ -206,6 +206,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj Matched;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Unmatched;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -270,7 +273,37 @@ MultipleStatements ::= 	MultipleStatements:M1 Statement:S2 {: RESULT=new Multipl
 						Statement:S1 {: RESULT=new MultipleStatementsDerived2(S1); RESULT.setLine(S1left); :}
 						;
 
-Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(D1); RESULT.setLine(D1left); :}
+/*
+Statement ::= 	DesignatorStatement SEMICOLON
+				|
+				(StatementReturnVoid) RETURN SEMICOLON 
+				|
+				(StatementReturnValue) RETURN Expr SEMICOLON
+				|
+				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON
+				|
+				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
+				|
+				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
+				|
+				OPEN_BRACES CLOSE_BRACES
+				|
+				OPEN_BRACES MultipleStatements CLOSE_BRACES
+				;
+*/
+
+Statement ::= 	Matched:M1 {: RESULT=new StatementDerived1(M1); RESULT.setLine(M1left); :} 
+				|
+				/*
+				Unmatched
+				|
+				*/
+				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived2(); :}
+				|
+				OPEN_BRACES MultipleStatements:M1 CLOSE_BRACES {: RESULT=new StatementDerived3(M1); RESULT.setLine(M1left); :}
+				;
+
+Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1); RESULT.setLine(D1left); :}
 				|
 				(StatementReturnVoid) RETURN SEMICOLON {: RESULT=new StatementReturnVoid(); :} 
 				|
@@ -281,11 +314,15 @@ Statement ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new StatementDerived1(
 				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON {: RESULT=new PrintStatement(expr); RESULT.setLine(exprleft); :}
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator:L1 CLOSE_PARENTHESES SEMICOLON {: RESULT=new ReadStatement(L1); RESULT.setLine(L1left); :}
-				|
-				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived2(); :}
-				|
-				OPEN_BRACES Statement:S1 CLOSE_BRACES {: RESULT=new StatementDerived3(S1); RESULT.setLine(S1left); :}
 				;
+
+				/*
+Unmatched ::=	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				|
+				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
+				;
+					*/				
+
 
 
 

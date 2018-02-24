@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/1/2018 2:46:20
+// 24/1/2018 2:25:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived3 extends Statement {
 
-    private Statement Statement;
+    private MultipleStatements MultipleStatements;
 
-    public StatementDerived3 (Statement Statement) {
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+    public StatementDerived3 (MultipleStatements MultipleStatements) {
+        this.MultipleStatements=MultipleStatements;
+        if(MultipleStatements!=null) MultipleStatements.setParent(this);
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public MultipleStatements getMultipleStatements() {
+        return MultipleStatements;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setMultipleStatements(MultipleStatements MultipleStatements) {
+        this.MultipleStatements=MultipleStatements;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class StatementDerived3 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Statement!=null) Statement.accept(visitor);
+        if(MultipleStatements!=null) MultipleStatements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class StatementDerived3 extends Statement {
         buffer.append(tab);
         buffer.append("StatementDerived3(\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(MultipleStatements!=null)
+            buffer.append(MultipleStatements.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
