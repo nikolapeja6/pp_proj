@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 24/1/2018 2:49:38
+// 24/1/2018 20:46:34
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,16 +8,16 @@ package rs.ac.bg.etf.pp1.ast;
 public class MatchedIf extends Matched {
 
     private Condition Condition;
+    private MatchedThen MatchedThen;
     private Matched Matched;
-    private Matched Matched1;
 
-    public MatchedIf (Condition Condition, Matched Matched, Matched Matched1) {
+    public MatchedIf (Condition Condition, MatchedThen MatchedThen, Matched Matched) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
+        this.MatchedThen=MatchedThen;
+        if(MatchedThen!=null) MatchedThen.setParent(this);
         this.Matched=Matched;
         if(Matched!=null) Matched.setParent(this);
-        this.Matched1=Matched1;
-        if(Matched1!=null) Matched1.setParent(this);
     }
 
     public Condition getCondition() {
@@ -28,6 +28,14 @@ public class MatchedIf extends Matched {
         this.Condition=Condition;
     }
 
+    public MatchedThen getMatchedThen() {
+        return MatchedThen;
+    }
+
+    public void setMatchedThen(MatchedThen MatchedThen) {
+        this.MatchedThen=MatchedThen;
+    }
+
     public Matched getMatched() {
         return Matched;
     }
@@ -36,35 +44,27 @@ public class MatchedIf extends Matched {
         this.Matched=Matched;
     }
 
-    public Matched getMatched1() {
-        return Matched1;
-    }
-
-    public void setMatched1(Matched Matched1) {
-        this.Matched1=Matched1;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
+        if(MatchedThen!=null) MatchedThen.accept(visitor);
         if(Matched!=null) Matched.accept(visitor);
-        if(Matched1!=null) Matched1.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(MatchedThen!=null) MatchedThen.traverseTopDown(visitor);
         if(Matched!=null) Matched.traverseTopDown(visitor);
-        if(Matched1!=null) Matched1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(MatchedThen!=null) MatchedThen.traverseBottomUp(visitor);
         if(Matched!=null) Matched.traverseBottomUp(visitor);
-        if(Matched1!=null) Matched1.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -79,14 +79,14 @@ public class MatchedIf extends Matched {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Matched!=null)
-            buffer.append(Matched.toString("  "+tab));
+        if(MatchedThen!=null)
+            buffer.append(MatchedThen.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Matched1!=null)
-            buffer.append(Matched1.toString("  "+tab));
+        if(Matched!=null)
+            buffer.append(Matched.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -120,6 +120,94 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.sub);
 		Code.store(designatorStatementDec.getLValueDesignator().obj);
 	}
+	
+	//ConditionElement ::= (ConditionElement1) OR CondTerm
+	public void visit(ConditionElement1 conditionElement1) {
+		
+		// if a != 0, put 1, else put 0
+		Code.loadConst(0);
+		processRelopCnd(Code.ne);
+		
+		// if( a != 0 )*b != 0, put 1, else put 0
+		Code.put(Code.mul);
+		Code.loadConst(0);
+		
+		processRelopCnd(Code.ne);
+	}
+
+	//CondTermElement ::= (CondTermElement1) AND CondFact
+	public void visit(CondTermElement1 condTermElement1) {
+		
+		// res = a*b
+		Code.put(Code.mul);
+		
+		// cmp res, 0
+		Code.loadConst(0);
+		
+		// put 1 if neq
+		processRelopCnd(Code.ne);
+	}
+	
+	private void processRelopCnd(int cnd)
+	{
+		// test and jmp if yes
+		Code.put(Code.jcc + cnd);
+		Code.put2(5);
+					
+		// no: put 0, jmp next
+		Code.loadConst(0);
+		Code.put(Code.jmp);
+		Code.put2(4);
+					
+		// yes: put 1
+		Code.loadConst(1);
+					
+		// next
+	}
+
+	// CondFactElement ::= (CondFactElement1) Relop Expr;
+	public void visit(CondFactElement1 condFactElement1) {
+
+		Relop relop = condFactElement1.getRelop();
+		
+		int cndCode = -1;
+		
+		if(relop instanceof RelopEq)
+		{
+			cndCode = Code.eq;
+		}
+		
+		if(relop instanceof RelopNEq)
+		{
+			cndCode = Code.ne;
+		}
+		
+		if(relop instanceof RelopGr)
+		{
+			cndCode = Code.gt;
+		}
+		
+		if(relop instanceof RelopLs)
+		{			
+			cndCode = Code.lt;
+		}
+		
+		if(relop instanceof RelopGEq)
+		{
+			cndCode = Code.ge;
+		}
+		
+		if(relop instanceof RelopLEq)
+		{
+			cndCode = Code.le;
+		}
+		
+		assert(cndCode != -1);
+		
+		processRelopCnd(cndCode);
+	}
+	
+	
 
 	public void visit(ExprWithMinus exprWithMinus) {
 		Code.loadConst(-1);

@@ -221,6 +221,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
+non terminal MatchedThen;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -325,7 +327,7 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
 				|
-				(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Matched
+				(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Matched
 				|
 				(MatchdWhile) DO Statement WHILE OPEN_PARENTHESES Condition CLOSE_PARENTHESES SEMICOLON
 				;
@@ -333,10 +335,11 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				
 Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
 				|
-				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
+				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Unmatched
 				;			
 
 
+MatchedThen ::= (MatchedThen1) Matched;
 
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN Expr
@@ -452,17 +455,17 @@ Designator ::= (DesignatorSimple)IDENT
 ArrayName ::= (ArrayName1) IDENT;
 
 
-Relop ::= 	EQUAL
+Relop ::= 	(RelopEq) EQUAL
 			|
-			NOT_EQUAL
+			(RelopNEq) NOT_EQUAL
 			|
-			GREATER
+			(RelopGr)GREATER
 			|
-			LESS
+			(RelopLs)LESS
 			|
-			GREATER_OR_EQUEL
+			(RelopGEq)GREATER_OR_EQUEL
 			|
-			LESS_OR_EQUEL
+			(RelopLEq)LESS_OR_EQUEL
 			;
 			
 Addop ::= 	(AddopPlus)PLUS

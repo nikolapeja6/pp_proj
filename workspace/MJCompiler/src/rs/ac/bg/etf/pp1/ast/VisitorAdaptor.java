@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 24/1/2018 2:49:39
+// 24/1/2018 20:46:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -22,6 +22,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondTermList CondTermList) { }
     public void visit(ProgramEnd ProgramEnd) { }
     public void visit(OptionalExprList OptionalExprList) { }
+    public void visit(MatchedThen MatchedThen) { }
     public void visit(Addop Addop) { }
     public void visit(ProgramBegin ProgramBegin) { }
     public void visit(Factor Factor) { }
@@ -57,12 +58,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MulopMultiply MulopMultiply) { visit(); }
     public void visit(AddopMinus AddopMinus) { visit(); }
     public void visit(AddopPlus AddopPlus) { visit(); }
-    public void visit(RelopDerived6 RelopDerived6) { visit(); }
-    public void visit(RelopDerived5 RelopDerived5) { visit(); }
-    public void visit(RelopDerived4 RelopDerived4) { visit(); }
-    public void visit(RelopDerived3 RelopDerived3) { visit(); }
-    public void visit(RelopDerived2 RelopDerived2) { visit(); }
-    public void visit(RelopDerived1 RelopDerived1) { visit(); }
+    public void visit(RelopLEq RelopLEq) { visit(); }
+    public void visit(RelopGEq RelopGEq) { visit(); }
+    public void visit(RelopLs RelopLs) { visit(); }
+    public void visit(RelopGr RelopGr) { visit(); }
+    public void visit(RelopNEq RelopNEq) { visit(); }
+    public void visit(RelopEq RelopEq) { visit(); }
     public void visit(ArrayName1 ArrayName1) { visit(); }
     public void visit(DesignatorArray DesignatorArray) { visit(); }
     public void visit(DesignatorSimple DesignatorSimple) { visit(); }
@@ -107,6 +108,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DesignatorStatementInc DesignatorStatementInc) { visit(); }
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall) { visit(); }
     public void visit(DesignatorStatementAssignment DesignatorStatementAssignment) { visit(); }
+    public void visit(MatchedThen1 MatchedThen1) { visit(); }
     public void visit(UnmatchedIfElse UnmatchedIfElse) { visit(); }
     public void visit(UnmatchedIf UnmatchedIf) { visit(); }
     public void visit(MatchdWhile MatchdWhile) { visit(); }

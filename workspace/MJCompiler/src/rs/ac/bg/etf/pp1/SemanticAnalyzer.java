@@ -289,6 +289,118 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
+	public void visit(ConditionMultiple conditionMultiple) {
+		Struct type1 = conditionMultiple.getConditionList().obj.getType();
+		Struct type2 = conditionMultiple.getCondTerm().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in conditionListMultiple.", null);
+		}
+		conditionMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(ConditionSingle conditionSingle) {
+		conditionSingle.obj = new Obj(Obj.NO_VALUE, "", conditionSingle.getCondTerm().obj.getType());
+	}
+
+	public void visit(ConditionListMultiple conditionListMultiple) {
+		Struct type1 = conditionListMultiple.getConditionElement().obj.getType();
+		Struct type2 = conditionListMultiple.getConditionList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in conditionListMultiple.", null);
+		}
+		conditionListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(ConditionListSingle conditionListSingle) {
+		conditionListSingle.obj = new Obj(Obj.NO_VALUE, "", conditionListSingle.getConditionElement().obj.getType());
+	}
+
+	public void visit(ConditionElement1 conditionElement1) {
+		conditionElement1.obj = new Obj(Obj.NO_VALUE, "", conditionElement1.getCondTerm().obj.getType());
+	}
+
+	public void visit(CondTermMultiple condTermMultiple) {
+		Struct type1 = condTermMultiple.getCondFact().obj.getType();
+		Struct type2 = condTermMultiple.getCondTermList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in condTermMultiple.", null);
+		}
+		condTermMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondTermSingle condTermSingle) {
+		condTermSingle.obj = new Obj(Obj.NO_VALUE, "", condTermSingle.getCondFact().obj.getType());
+	}
+
+	public void visit(CondTermListMultiple condTermListMultiple) {
+		Struct type1 = condTermListMultiple.getCondTermElement().obj.getType();
+		Struct type2 = condTermListMultiple.getCondTermList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("Type missmatch in CondTermListMultiple.", null);
+		}
+
+		condTermListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+
+	}
+
+	public void visit(CondTermListSingle condTermListSingle) {
+		condTermListSingle.obj = new Obj(Obj.NO_VALUE, "", condTermListSingle.getCondTermElement().obj.getType());
+	}
+
+	public void visit(CondTermElement1 condTermElement1) {
+		condTermElement1.obj = new Obj(Obj.NO_VALUE, "", condTermElement1.getCondFact().obj.getType());
+	}
+
+	public void visit(CondFactMultiple condFactMultiple) {
+		Struct type1 = condFactMultiple.getExpr().struct;
+
+		if (type1 != Tab.intType) {
+			report_error("Expression in cond fact must be of int or bool type.", null);
+		}
+
+		condFactMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactSingle condFactSingle) {
+		Struct type1 = condFactSingle.getExpr().struct;
+
+		if (type1 != Tab.intType) {
+			report_error("Expression in cond fact must be of int or bool type.", null);
+		}
+
+		condFactSingle.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactListMultiple condFactListMultiple) {
+		Struct type1 = condFactListMultiple.getCondFactElement().obj.getType();
+		Struct type2 = condFactListMultiple.getCondFactList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("Type missmatch in CondFactListMultiple", null);
+		}
+
+		condFactListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactListSingle condFactListSingle) {
+		condFactListSingle.obj = new Obj(Obj.NO_VALUE, "", condFactListSingle.getCondFactElement().obj.getType());
+	}
+
+	public void visit(CondFactElement1 condFactElement1) {
+		Struct type = condFactElement1.getExpr().struct;
+
+		if (type != Tab.intType) {
+			report_error("Type of expression in condition must be int or bool.", null);
+		}
+
+		condFactElement1.obj = new Obj(Obj.NO_VALUE, "", type);
+	}
+
+
 	public void visit(ExprWithMinus expr) {
 		expr.struct = expr.getTerm().struct;
 		

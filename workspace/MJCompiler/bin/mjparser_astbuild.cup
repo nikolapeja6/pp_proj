@@ -221,6 +221,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
+non terminal MatchedThen MatchedThen;
+
 /** END HELPER NON TERMINALS */
 
 precedence left PLUS, MINUS;
@@ -325,7 +327,7 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				|
 				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator:L1 CLOSE_PARENTHESES SEMICOLON {: RESULT=new ReadStatement(L1); RESULT.setLine(L1left); :}
 				|
-				(MatchedIf)	IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(C1, M2, M3); RESULT.setLine(C1left); :}
+				(MatchedIf)	IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES MatchedThen:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(C1, M2, M3); RESULT.setLine(C1left); :}
 				|
 				(MatchdWhile) DO Statement:S1 WHILE OPEN_PARENTHESES Condition:C2 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(S1, C2); RESULT.setLine(S1left); :}
 				;
@@ -333,10 +335,11 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				
 Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
 				|
-				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
+				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES MatchedThen:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
 				;			
 
 
+MatchedThen ::= (MatchedThen1) Matched:M1 {: RESULT=new MatchedThen1(M1); RESULT.setLine(M1left); :};
 
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASSIGN Expr:E2 {: RESULT=new DesignatorStatementAssignment(L1, E2); RESULT.setLine(L1left); :}
@@ -452,17 +455,17 @@ Designator ::= (DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RE
 ArrayName ::= (ArrayName1) IDENT:I1 {: RESULT=new ArrayName1(I1); RESULT.setLine(I1left); :};
 
 
-Relop ::= 	EQUAL {: RESULT=new RelopDerived1(); :}
+Relop ::= 	(RelopEq) EQUAL {: RESULT=new RelopEq(); :}
 			|
-			NOT_EQUAL {: RESULT=new RelopDerived2(); :}
+			(RelopNEq) NOT_EQUAL {: RESULT=new RelopNEq(); :}
 			|
-			GREATER {: RESULT=new RelopDerived3(); :}
+			(RelopGr)GREATER {: RESULT=new RelopGr(); :}
 			|
-			LESS {: RESULT=new RelopDerived4(); :}
+			(RelopLs)LESS {: RESULT=new RelopLs(); :}
 			|
-			GREATER_OR_EQUEL {: RESULT=new RelopDerived5(); :}
+			(RelopGEq)GREATER_OR_EQUEL {: RESULT=new RelopGEq(); :}
 			|
-			LESS_OR_EQUEL {: RESULT=new RelopDerived6(); :}
+			(RelopLEq)LESS_OR_EQUEL {: RESULT=new RelopLEq(); :}
 			;
 			
 Addop ::= 	(AddopPlus)PLUS {: RESULT=new AddopPlus(); :}
