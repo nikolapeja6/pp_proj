@@ -4,13 +4,10 @@ program MJProgram int x; int z[]; int printcnt;
 	void printcall(){
 		print(printcnt,1);
 		
-		if(printcnt % 2)
-			if(printcnt %3)
-				print('a',2);
-			else
-				print('c',2);
+		if(0)
+			print('a',3);
 		else
-			print('b',2);
+			print('b',3);
 		
 		printcnt++;
 		return;
@@ -77,10 +74,6 @@ program MJProgram int x; int z[]; int printcnt;
 		
 		
 		printcnt = 55;
-		printcall();
-		printcall();
-		printcall();
-		printcall();
 		printcall();
 		printcall();
 		

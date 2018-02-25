@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDecl"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="com.sun.java_cup.internal.runtime.Symbol"/>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Character"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Bool"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Mulop"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ProgramNoDecl"/>
@@ -28,7 +24,6 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermListSinge"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDeclElementSingle"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.VarDeclElement"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CounterVisitor"/>
@@ -39,14 +34,12 @@
 <fullyQualifiedTypeName name="sun.reflect.generics.reflectiveObjects.NotImplementedException"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.LValueDesignator"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.RValueDesignator"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.TermElement1"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MulopMultiply"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MulopDiv"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Addop"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.AddopPlus"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.AddopMinus"/>
-<fullyQualifiedTypeName name="org.omg.PortableServer.RequestProcessingPolicyOperations"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.PrintStatementComplex"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.NumberConstant"/>
 <fullyQualifiedTypeName name="java.lang.Readable"/>
@@ -60,4 +53,11 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FuncttionCallFactor"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.StatementReturnVoid"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.StatementReturnValue"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.CondFactSingle"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
+<fullyQualifiedTypeName name="org.omg.PortableServer.RequestProcessingPolicyOperations"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ConditionElement1"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.CondFact"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
+<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MatchedThen1"/>
 </qualifiedTypeNameHistroy>

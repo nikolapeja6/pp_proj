@@ -180,7 +180,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		
 		// if cond == 0, jmp else 
 		Code.loadConst(0);
-		Code.put(Code.jcc + Code.eq);
+		Code.put(Code.jcc + Code.ne);
 		
 		// save current pc and store it as jmp address
 		jmpNotThen.push(Code.pc);

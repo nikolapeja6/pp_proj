@@ -1,7 +1,5 @@
 package rs.ac.bg.etf.pp1;
 
-import java.util.Stack;
-
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -18,9 +16,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	private int paramCnt;
 
 	private int mainPc;
-	
-	private Stack<Integer> jmpNotThen = new Stack<>();
-	private Stack<Integer> jmpEndThen = new Stack<>();
 
 	public int getMainPc() {
 		return mainPc;
@@ -126,51 +121,16 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(designatorStatementDec.getLValueDesignator().obj);
 	}
 	
-	// 	(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Matched
-	public void visit(MatchedIf matchedIf)
-	{
-		// since there was an else, the jmpNotThen has been updated
-		// so only the jmpEndThen should be updated
-		fixJumpAtEndOfThen();
-	}
-
-	
-	// (UnmatchedIf)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
-	public void visit(UnmatchedIf unmatchedIf)
-	{
-		// since there was not an else, the jmpNotThen needs to be updated
-		// and there is no jmpEndThen
-		fixJumpAtEndOfCondition();
-	}
-
-	// (UnmatchedIfElse)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Unmatched
-	public void visit(UnmatchedIfElse unmatchedIfElse)
-	{
-		// since there was an else, the jmpNotThen has been updated
-		// so only the jmpEndThen should be updated
-		fixJumpAtEndOfThen();
-	}
-
-	
-	// jmp to next and correct else jmp
 	public void visit(MatchedThen1 matchedThen1)
 	{
-		// jmp next
-		Code.put(Code.jmp);
-		jmpEndThen.push(Code.pc);
-		Code.put2(0);
 		
-		// correct else jump at end of condition
-		fixJumpAtEndOfCondition();
 	}
 	
-	// jmp to else or continue to then
 	public void visit(ConditionMultiple conditionMultiple)
 	{
 		insertJumpAtEndOfCondition();
 	}
 	
-	// jmp to else or continue to then
 	public void visit(ConditionSingle conditionSingle)
 	{
 		insertJumpAtEndOfCondition();
@@ -178,25 +138,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	private void insertJumpAtEndOfCondition(){
 		
-		// if cond == 0, jmp else 
-		Code.loadConst(0);
-		Code.put(Code.jcc + Code.eq);
-		
-		// save current pc and store it as jmp address
-		jmpNotThen.push(Code.pc);
-		Code.put2(0);
-		
-	}
-	
-	private void fixJumpAtEndOfCondition()
-	{
-		int address = jmpNotThen.pop();
-		Code.put2(address, Code.pc - address + 1);
-	}
-	
-	private void fixJumpAtEndOfThen(){
-		int address = jmpEndThen.pop();
-		Code.put2(address, Code.pc - address + 1);
 	}
 	
 	//ConditionElement ::= (ConditionElement1) OR CondTerm

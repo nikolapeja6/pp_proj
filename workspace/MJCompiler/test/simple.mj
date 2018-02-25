@@ -2,7 +2,16 @@ program MJProgram int x; int z[]; int printcnt;
 {
 
 	void printcall(){
-		print(printcnt);
+		print(printcnt,1);
+		
+		if(printcnt % 2)
+			if(printcnt %3)
+				print('a',2);
+			else
+				print('c',2);
+		else
+			print('b',2);
+		
 		printcnt++;
 		return;
 
@@ -13,7 +22,7 @@ program MJProgram int x; int z[]; int printcnt;
 		return 3;
 	}
 	
-	int main() int y;{
+	int main() int y;{	
 		z = new int[5];
 		
 		{
@@ -68,6 +77,10 @@ program MJProgram int x; int z[]; int printcnt;
 		
 		
 		printcnt = 55;
+		printcall();
+		printcall();
+		printcall();
+		printcall();
 		printcall();
 		printcall();
 		
