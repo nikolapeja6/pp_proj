@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/1/2018 2:9:25
+// 26/1/2018 22:20:41
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -15,6 +15,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Constant Constant) { }
     public void visit(CondFactElement CondFactElement) { }
     public void visit(Matched Matched) { }
+    public void visit(ConstDeclElement ConstDeclElement) { }
     public void visit(Relop Relop) { }
     public void visit(TermList TermList) { }
     public void visit(DoWhileBegin DoWhileBegin) { }
@@ -34,25 +35,31 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Designator Designator) { }
     public void visit(Term Term) { }
     public void visit(Condition Condition) { }
+    public void visit(ConstDeclList ConstDeclList) { }
     public void visit(MultipleVarDecl MultipleVarDecl) { }
     public void visit(ConditionWhile ConditionWhile) { }
     public void visit(MultipleStatements MultipleStatements) { }
     public void visit(ExprList ExprList) { }
+    public void visit(ActParElement ActParElement) { }
     public void visit(VarDeclElement VarDeclElement) { }
     public void visit(ProgramName ProgramName) { }
+    public void visit(StatementWhile StatementWhile) { }
     public void visit(LValueDesignator LValueDesignator) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(MethodNameAndRetType MethodNameAndRetType) { }
     public void visit(Expr Expr) { }
     public void visit(VoidType VoidType) { }
+    public void visit(ActPars ActPars) { }
     public void visit(ConditionElement ConditionElement) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(MultipleDecl MultipleDecl) { }
     public void visit(Statement Statement) { }
     public void visit(VarDecl VarDecl) { }
     public void visit(Type Type) { }
     public void visit(CondTermElement CondTermElement) { }
-    public void visit(CondFact CondFact) { }
+    public void visit(ConstDecl ConstDecl) { }
     public void visit(ExprElement ExprElement) { }
+    public void visit(CondFact CondFact) { }
     public void visit(Program Program) { }
     public void visit(TermElement TermElement) { }
     public void visit(MulopMod MulopMod) { visit(); }
@@ -115,7 +122,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MatchedThen1 MatchedThen1) { visit(); }
     public void visit(UnmatchedIfElse UnmatchedIfElse) { visit(); }
     public void visit(UnmatchedIf UnmatchedIf) { visit(); }
+    public void visit(StatementWhile1 StatementWhile1) { visit(); }
     public void visit(DoWhileBegin1 DoWhileBegin1) { visit(); }
+    public void visit(MatchedContinue MatchedContinue) { visit(); }
+    public void visit(MatchedBreak MatchedBreak) { visit(); }
     public void visit(MatchdWhile MatchdWhile) { visit(); }
     public void visit(MatchedIf MatchedIf) { visit(); }
     public void visit(ReadStatement ReadStatement) { visit(); }
@@ -131,6 +141,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MultipleStatementsDerived2 MultipleStatementsDerived2) { visit(); }
     public void visit(MultipleStatementsDerived1 MultipleStatementsDerived1) { visit(); }
     public void visit(Type1 Type1) { visit(); }
+    public void visit(ActParElement1 ActParElement1) { visit(); }
+    public void visit(ActParsDerived2 ActParsDerived2) { visit(); }
+    public void visit(ActParsDerived1 ActParsDerived1) { visit(); }
     public void visit(VoidTypeDerived1 VoidTypeDerived1) { visit(); }
     public void visit(TypeReturnType TypeReturnType) { visit(); }
     public void visit(VoidReturnType VoidReturnType) { visit(); }
@@ -147,6 +160,14 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDecl1 VarDecl1) { visit(); }
     public void visit(MultipleVarDeclDerived2 MultipleVarDeclDerived2) { visit(); }
     public void visit(MultipleVarDeclDerived1 MultipleVarDeclDerived1) { visit(); }
+    public void visit(ConstDeclElement1 ConstDeclElement1) { visit(); }
+    public void visit(ConstDeclListDerived2 ConstDeclListDerived2) { visit(); }
+    public void visit(ConstDeclListDerived1 ConstDeclListDerived1) { visit(); }
+    public void visit(ConstDecl1 ConstDecl1) { visit(); }
+    public void visit(MultipleDeclDerived4 MultipleDeclDerived4) { visit(); }
+    public void visit(MultipleDeclDerived3 MultipleDeclDerived3) { visit(); }
+    public void visit(MultipleDeclDerived2 MultipleDeclDerived2) { visit(); }
+    public void visit(MultipleDeclDerived1 MultipleDeclDerived1) { visit(); }
     public void visit(ProgramEnd1 ProgramEnd1) { visit(); }
     public void visit(ProgramBegin1 ProgramBegin1) { visit(); }
     public void visit(ProgName ProgName) { visit(); }

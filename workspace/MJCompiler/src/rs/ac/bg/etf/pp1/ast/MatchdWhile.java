@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/1/2018 2:9:24
+// 26/1/2018 22:20:40
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,14 +8,14 @@ package rs.ac.bg.etf.pp1.ast;
 public class MatchdWhile extends Matched {
 
     private DoWhileBegin DoWhileBegin;
-    private Statement Statement;
+    private StatementWhile StatementWhile;
     private ConditionWhile ConditionWhile;
 
-    public MatchdWhile (DoWhileBegin DoWhileBegin, Statement Statement, ConditionWhile ConditionWhile) {
+    public MatchdWhile (DoWhileBegin DoWhileBegin, StatementWhile StatementWhile, ConditionWhile ConditionWhile) {
         this.DoWhileBegin=DoWhileBegin;
         if(DoWhileBegin!=null) DoWhileBegin.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+        this.StatementWhile=StatementWhile;
+        if(StatementWhile!=null) StatementWhile.setParent(this);
         this.ConditionWhile=ConditionWhile;
         if(ConditionWhile!=null) ConditionWhile.setParent(this);
     }
@@ -28,12 +28,12 @@ public class MatchdWhile extends Matched {
         this.DoWhileBegin=DoWhileBegin;
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public StatementWhile getStatementWhile() {
+        return StatementWhile;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setStatementWhile(StatementWhile StatementWhile) {
+        this.StatementWhile=StatementWhile;
     }
 
     public ConditionWhile getConditionWhile() {
@@ -50,20 +50,20 @@ public class MatchdWhile extends Matched {
 
     public void childrenAccept(Visitor visitor) {
         if(DoWhileBegin!=null) DoWhileBegin.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
+        if(StatementWhile!=null) StatementWhile.accept(visitor);
         if(ConditionWhile!=null) ConditionWhile.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(DoWhileBegin!=null) DoWhileBegin.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(StatementWhile!=null) StatementWhile.traverseTopDown(visitor);
         if(ConditionWhile!=null) ConditionWhile.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(DoWhileBegin!=null) DoWhileBegin.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(StatementWhile!=null) StatementWhile.traverseBottomUp(visitor);
         if(ConditionWhile!=null) ConditionWhile.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -79,8 +79,8 @@ public class MatchdWhile extends Matched {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(StatementWhile!=null)
+            buffer.append(StatementWhile.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -154,6 +154,7 @@ terminal String IDENT;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Program;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
@@ -162,6 +163,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActPars; 
 
 non terminal Mulop Mulop;
 non terminal Addop Addop;
@@ -191,8 +193,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
 
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
-non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleMethodDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleDecl;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj TermList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj TermElement;
@@ -221,17 +224,27 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclElement;
+
 non terminal MatchedThen MatchedThen;
 
 non terminal DoWhileBegin DoWhileBegin;
 non terminal ConditionWhile ConditionWhile;
+non terminal StatementWhile StatementWhile;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
+
+
+
+
 /** END HELPER NON TERMINALS */
 
 
 /* TODO optional method decl*/
 Program ::= (Program1) PROG ProgramName:P1 ProgramBegin:P2 MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new Program1(P1, P2, M3, P4); RESULT.setLine(P1left); :}
 			|
-			(Program2) PROG ProgramName:P1 MultipleVarDecl:M2 ProgramBegin:P3 MultipleMethodDecl:M4 ProgramEnd:P5 {: RESULT=new Program2(P1, M2, P3, M4, P5); RESULT.setLine(P1left); :}
+			(Program2) PROG ProgramName:P1 MultipleDecl:M2 ProgramBegin:P3 MultipleMethodDecl:M4 ProgramEnd:P5 {: RESULT=new Program2(P1, M2, P3, M4, P5); RESULT.setLine(P1left); :}
 			;
 			
 ProgramName ::= (ProgName) IDENT:name {: RESULT=new ProgName(name); RESULT.setLine(nameleft); :};
@@ -239,11 +252,31 @@ ProgramName ::= (ProgName) IDENT:name {: RESULT=new ProgName(name); RESULT.setLi
 ProgramBegin ::= (ProgramBegin1) OPEN_BRACES {: RESULT=new ProgramBegin1(); :};
 ProgramEnd ::= (ProgramEnd1) CLOSE_BRACES {: RESULT=new ProgramEnd1(); :};
 
-MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclDerived1(M1, V2); RESULT.setLine(M1left); :}
+
+MultipleDecl ::= 	MultipleDecl:M1 ConstDecl:C2 {: RESULT=new MultipleDeclDerived1(M1, C2); RESULT.setLine(M1left); :}
+					|
+					MultipleDecl:M1 VarDecl:V2 {: RESULT=new MultipleDeclDerived2(M1, V2); RESULT.setLine(M1left); :}
+					|
+					ConstDecl:C1 {: RESULT=new MultipleDeclDerived3(C1); RESULT.setLine(C1left); :}
+					|
+					VarDecl:V1 {: RESULT=new MultipleDeclDerived4(V1); RESULT.setLine(V1left); :}
+					;
+					
+
+ConstDecl ::= (ConstDecl1) CONST Type:T1 ConstDeclList:C2 SEMICOLON {: RESULT=new ConstDecl1(T1, C2); RESULT.setLine(T1left); :};
+
+ConstDeclList ::= 	ConstDeclList:C1 COMMA ConstDeclElement:C2 {: RESULT=new ConstDeclListDerived1(C1, C2); RESULT.setLine(C1left); :}
+					|
+					ConstDeclElement:C1 {: RESULT=new ConstDeclListDerived2(C1); RESULT.setLine(C1left); :}
+					;
+					
+ConstDeclElement ::= (ConstDeclElement1)IDENT:I1 ASSIGN Constant:C2 {: RESULT=new ConstDeclElement1(I1, C2); RESULT.setLine(I1left); :};
+
+MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclDerived1(M1, V2); RESULT.setLine(M1left); :}	
 					|
 					VarDecl:V1 {: RESULT=new MultipleVarDeclDerived2(V1); RESULT.setLine(V1left); :}
 					;
-			
+					
 VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :};
 
 VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclListDerived1(V1, V2); RESULT.setLine(V1left); :}
@@ -277,7 +310,14 @@ ReturnType ::= 	(VoidReturnType) VoidType:V1 {: RESULT=new VoidReturnType(V1); R
 				(TypeReturnType) Type:T1 {: RESULT=new TypeReturnType(T1); RESULT.setLine(T1left); :}
 				;
 
-VoidType ::= VOID {: RESULT=new VoidTypeDerived1(); :};				
+VoidType ::= VOID {: RESULT=new VoidTypeDerived1(); :};	
+
+ActPars ::= ActPars:A1 COMMA ActParElement:A2 {: RESULT=new ActParsDerived1(A1, A2); RESULT.setLine(A1left); :}
+			|
+			ActParElement:A1 {: RESULT=new ActParsDerived2(A1); RESULT.setLine(A1left); :}
+			;
+ActParElement ::= (ActParElement1)Expr:E1 {: RESULT=new ActParElement1(E1); RESULT.setLine(E1left); :};
+		
 
 Type ::= (Type1) IDENT:I1 {: RESULT=new Type1(I1); RESULT.setLine(I1left); :};
 
@@ -310,10 +350,16 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				|
 				(MatchedIf)	IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES MatchedThen:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(C1, M2, M3); RESULT.setLine(C1left); :}
 				|
-				(MatchdWhile) DoWhileBegin:D1 Statement:S2 WHILE OPEN_PARENTHESES ConditionWhile:C3 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(D1, S2, C3); RESULT.setLine(D1left); :}
+				(MatchdWhile) DoWhileBegin:D1 StatementWhile:S2 WHILE OPEN_PARENTHESES ConditionWhile:C3 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(D1, S2, C3); RESULT.setLine(D1left); :}
+				|
+				(MatchedBreak) BREAK SEMICOLON {: RESULT=new MatchedBreak(); :}
+				|
+				(MatchedContinue) CONTINUE SEMICOLON {: RESULT=new MatchedContinue(); :}
 				;
 				
 DoWhileBegin ::= (DoWhileBegin1) DO {: RESULT=new DoWhileBegin1(); :};
+
+StatementWhile ::= (StatementWhile1) Statement:S1 {: RESULT=new StatementWhile1(S1); RESULT.setLine(S1left); :};
 				
 Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
 				|

@@ -2,7 +2,8 @@ package rs.ac.bg.etf.pp1;
 
 import java.util.Stack;
 
-import jdk.nashorn.internal.ir.WhileNode;
+import javax.management.StandardEmitterMBean;
+
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -23,6 +24,9 @@ public class CodeGenerator extends VisitorAdaptor {
 	private Stack<Integer> jmpNotThen = new Stack<>();
 	private Stack<Integer> jmpEndThen = new Stack<>();
 	private Stack<Integer> jmpWhileBegin = new Stack<>();
+	
+	private Stack<Stack<Integer>> jmpBreak = new Stack<>();
+	private Stack<Stack<Integer>> jmpContinue = new Stack<>();
 
 	public int getMainPc() {
 		return mainPc;
@@ -208,11 +212,32 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.loadConst(0);
 		Code.put(Code.jcc + Code.ne);
 		Code.put2(beginning - Code.pc + 1);
+		
+		// fix breaks to point to here
+		Stack<Integer> breaks = jmpBreak.pop();
+		while(!breaks.isEmpty())
+		{
+			int address = breaks.pop();
+			Code.put2(address, Code.pc - address + 1); // TODO check
+		}
+	}
+	
+	public void visit(StatementWhile1 statementWhile1){
+		
+		Stack<Integer> continues = jmpContinue.pop();
+		
+		while(!continues.isEmpty()){
+			int address = continues.pop();
+			Code.put2(address, Code.pc - address + 1);
+		}
+		
 	}
 	
 	public void visit(DoWhileBegin1 doWhileBegin1)
 	{
 		jmpWhileBegin.push(Code.pc);
+		jmpBreak.push(new Stack<>());
+		jmpContinue.push(new Stack<>());
 	}
 	
 	//ConditionElement ::= (ConditionElement1) OR CondTerm
@@ -410,6 +435,19 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	public void visit(ArrayName1 arrayName1) {
 		Code.load(arrayName1.obj);
+	}
+	
+	public void visit(MatchedBreak matchedBreak){
+		Code.put(Code.jmp);
+		jmpBreak.peek().push(Code.pc);
+		Code.put2(0);
+	}
+	
+	public void visit(MatchedContinue matchedContinue)
+	{
+		Code.put(Code.jmp);
+		jmpContinue.peek().push(Code.pc);
+		Code.put2(0);
 	}
 
 	/*

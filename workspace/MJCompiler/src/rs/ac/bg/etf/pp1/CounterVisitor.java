@@ -1,5 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
+import rs.ac.bg.etf.pp1.ast.ConstDeclElement1;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarDeclElement;
 import rs.ac.bg.etf.pp1.ast.VarDeclElementArray;
@@ -47,5 +48,6 @@ public class CounterVisitor extends VisitorAdaptor {
 		public boolean check(VarDeclElement varDeclElement) {
 			return varDeclElement.obj.getLevel() == 0;
 		}
+
 	}
 }

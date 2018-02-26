@@ -154,6 +154,7 @@ terminal String IDENT;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Program;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
@@ -162,6 +163,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActPars; 
 
 non terminal Mulop;
 non terminal Addop;
@@ -191,8 +193,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
 
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
-non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleMethodDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleDecl;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj TermList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj TermElement;
@@ -221,17 +224,27 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclElement;
+
 non terminal MatchedThen;
 
 non terminal DoWhileBegin;
 non terminal ConditionWhile;
+non terminal StatementWhile;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
+
+
+
+
 /** END HELPER NON TERMINALS */
 
 
 /* TODO optional method decl*/
 Program ::= (Program1) PROG ProgramName ProgramBegin MultipleMethodDecl ProgramEnd
 			|
-			(Program2) PROG ProgramName MultipleVarDecl ProgramBegin MultipleMethodDecl ProgramEnd
+			(Program2) PROG ProgramName MultipleDecl ProgramBegin MultipleMethodDecl ProgramEnd
 			;
 			
 ProgramName ::= (ProgName) IDENT:name;
@@ -239,11 +252,31 @@ ProgramName ::= (ProgName) IDENT:name;
 ProgramBegin ::= (ProgramBegin1) OPEN_BRACES;
 ProgramEnd ::= (ProgramEnd1) CLOSE_BRACES;
 
-MultipleVarDecl ::= MultipleVarDecl VarDecl
+
+MultipleDecl ::= 	MultipleDecl ConstDecl
+					|
+					MultipleDecl VarDecl
+					|
+					ConstDecl
 					|
 					VarDecl
 					;
-			
+					
+
+ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;
+
+ConstDeclList ::= 	ConstDeclList COMMA ConstDeclElement
+					|
+					ConstDeclElement
+					;
+					
+ConstDeclElement ::= (ConstDeclElement1)IDENT ASSIGN Constant;
+
+MultipleVarDecl ::= MultipleVarDecl VarDecl	
+					|
+					VarDecl
+					;
+					
 VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON;
 
 VarDeclList ::= VarDeclList COMMA VarDeclElement
@@ -277,7 +310,14 @@ ReturnType ::= 	(VoidReturnType) VoidType
 				(TypeReturnType) Type
 				;
 
-VoidType ::= VOID;				
+VoidType ::= VOID;	
+
+ActPars ::= ActPars COMMA ActParElement
+			|
+			ActParElement
+			;
+ActParElement ::= (ActParElement1)Expr;
+		
 
 Type ::= (Type1) IDENT;
 
@@ -310,10 +350,16 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				|
 				(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Matched
 				|
-				(MatchdWhile) DoWhileBegin Statement WHILE OPEN_PARENTHESES ConditionWhile CLOSE_PARENTHESES SEMICOLON
+				(MatchdWhile) DoWhileBegin StatementWhile WHILE OPEN_PARENTHESES ConditionWhile CLOSE_PARENTHESES SEMICOLON
+				|
+				(MatchedBreak) BREAK SEMICOLON
+				|
+				(MatchedContinue) CONTINUE SEMICOLON
 				;
 				
 DoWhileBegin ::= (DoWhileBegin1) DO;
+
+StatementWhile ::= (StatementWhile1) Statement;
 				
 Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
 				|
