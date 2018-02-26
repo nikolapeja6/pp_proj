@@ -1,0 +1,149 @@
+INFO  02:44:30,478 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\correction.mj
+INFO  02:44:30,520 - #40 program
+INFO  02:44:30,520 - #45 MJProgram
+INFO  02:44:30,520 - #45 int
+INFO  02:44:30,520 - #45 jedan
+INFO  02:44:30,520 - #13 ;
+INFO  02:44:30,521 - #45 int
+INFO  02:44:30,521 - #45 pet
+INFO  02:44:30,521 - #13 ;
+INFO  02:44:30,521 - #45 char
+INFO  02:44:30,521 - #45 nizch
+INFO  02:44:30,521 - #36 [
+INFO  02:44:30,521 - #37 ]
+INFO  02:44:30,521 - #13 ;
+INFO  02:44:30,522 - #34 {
+INFO  02:44:30,522 - #43 void
+INFO  02:44:30,523 - #45 main
+INFO  02:44:30,524 - #32 (
+INFO  02:44:30,524 - #33 )
+INFO  02:44:30,524 - #34 {
+INFO  02:44:30,524 - #45 jedan
+INFO  02:44:30,524 - #28 =
+INFO  02:44:30,525 - #9 1
+INFO  02:44:30,525 - #13 ;
+INFO  02:44:30,526 - #45 pet
+INFO  02:44:30,526 - #28 =
+INFO  02:44:30,526 - #9 5
+INFO  02:44:30,526 - #13 ;
+INFO  02:44:30,526 - #45 nizch
+INFO  02:44:30,526 - #28 =
+INFO  02:44:30,526 - #31 new
+INFO  02:44:30,527 - #45 char
+INFO  02:44:30,527 - #36 [
+INFO  02:44:30,527 - #9 3
+INFO  02:44:30,527 - #37 ]
+INFO  02:44:30,527 - #13 ;
+INFO  02:44:30,527 - #45 nizch
+INFO  02:44:30,527 - #36 [
+INFO  02:44:30,527 - #9 0
+INFO  02:44:30,527 - #37 ]
+INFO  02:44:30,527 - #28 =
+INFO  02:44:30,527 - #10 a
+INFO  02:44:30,527 - #13 ;
+INFO  02:44:30,527 - #45 nizch
+INFO  02:44:30,528 - #36 [
+INFO  02:44:30,528 - #45 jedan
+INFO  02:44:30,528 - #37 ]
+INFO  02:44:30,528 - #28 =
+INFO  02:44:30,528 - #10 b
+INFO  02:44:30,528 - #13 ;
+INFO  02:44:30,528 - #45 nizch
+INFO  02:44:30,528 - #36 [
+INFO  02:44:30,528 - #45 pet
+INFO  02:44:30,528 - #16 -
+INFO  02:44:30,528 - #9 3
+INFO  02:44:30,529 - #37 ]
+INFO  02:44:30,529 - #28 =
+INFO  02:44:30,529 - #10 c
+INFO  02:44:30,529 - #13 ;
+INFO  02:44:30,529 - #41 print
+INFO  02:44:30,529 - #32 (
+INFO  02:44:30,529 - #45 nizch
+INFO  02:44:30,529 - #36 [
+INFO  02:44:30,529 - #9 2
+INFO  02:44:30,529 - #16 -
+INFO  02:44:30,529 - #9 1
+INFO  02:44:30,530 - #37 ]
+INFO  02:44:30,530 - #33 )
+INFO  02:44:30,530 - #13 ;
+INFO  02:44:30,530 - #41 print
+INFO  02:44:30,530 - #32 (
+INFO  02:44:30,530 - #45 nizch
+INFO  02:44:30,530 - #36 [
+INFO  02:44:30,530 - #45 jedan
+INFO  02:44:30,530 - #17 *
+INFO  02:44:30,530 - #9 2
+INFO  02:44:30,531 - #37 ]
+INFO  02:44:30,531 - #33 )
+INFO  02:44:30,531 - #13 ;
+INFO  02:44:30,531 - #35 }
+INFO  02:44:30,531 - #35 }
+INFO  02:44:30,533 - ***Abstract tree****
+INFO  02:44:30,533 - #0
+DEBUG 02:44:30,540 - Variable with name jedan has the address of 0
+DEBUG 02:44:30,540 - Variable with name pet has the address of 1
+DEBUG 02:44:30,540 - found constant with value 1of type 1
+DEBUG 02:44:30,540 - constant factor is type 1
+DEBUG 02:44:30,540 - term SingleFactorterm is type 1
+DEBUG 02:44:30,540 - exprWithNoMinus is type 1
+DEBUG 02:44:30,540 - found constant with value 5of type 1
+DEBUG 02:44:30,540 - constant factor is type 1
+DEBUG 02:44:30,540 - term SingleFactorterm is type 1
+DEBUG 02:44:30,540 - exprWithNoMinus is type 1
+DEBUG 02:44:30,540 - found constant with value 3of type 1
+DEBUG 02:44:30,540 - constant factor is type 1
+DEBUG 02:44:30,540 - term SingleFactorterm is type 1
+DEBUG 02:44:30,540 - exprWithNoMinus is type 1
+DEBUG 02:44:30,540 - term SingleFactorterm is type 3
+DEBUG 02:44:30,540 - exprWithNoMinus is type 3
+DEBUG 02:44:30,540 - found constant with value 0of type 1
+DEBUG 02:44:30,541 - constant factor is type 1
+DEBUG 02:44:30,541 - term SingleFactorterm is type 1
+DEBUG 02:44:30,541 - exprWithNoMinus is type 1
+DEBUG 02:44:30,541 - found constant with value *****of type 2
+DEBUG 02:44:30,541 - found constant with value 97of type 2
+DEBUG 02:44:30,541 - constant factor is type 2
+DEBUG 02:44:30,541 - term SingleFactorterm is type 2
+DEBUG 02:44:30,541 - exprWithNoMinus is type 2
+ERROR 02:44:30,541 - Exprression is not assignable to desigantor
+DEBUG 02:44:30,541 - term SingleFactorterm is type 1
+DEBUG 02:44:30,541 - exprWithNoMinus is type 1
+DEBUG 02:44:30,541 - found constant with value *****of type 2
+DEBUG 02:44:30,541 - found constant with value 98of type 2
+DEBUG 02:44:30,541 - constant factor is type 2
+DEBUG 02:44:30,541 - term SingleFactorterm is type 2
+DEBUG 02:44:30,541 - exprWithNoMinus is type 2
+ERROR 02:44:30,541 - Exprression is not assignable to desigantor
+DEBUG 02:44:30,541 - term SingleFactorterm is type 1
+DEBUG 02:44:30,541 - found constant with value 3of type 1
+DEBUG 02:44:30,541 - constant factor is type 1
+DEBUG 02:44:30,541 - term SingleFactorterm is type 1
+DEBUG 02:44:30,541 - exprWithNoMinus is type 1
+DEBUG 02:44:30,541 - found constant with value *****of type 2
+DEBUG 02:44:30,541 - found constant with value 99of type 2
+DEBUG 02:44:30,541 - constant factor is type 2
+DEBUG 02:44:30,541 - term SingleFactorterm is type 2
+DEBUG 02:44:30,541 - exprWithNoMinus is type 2
+ERROR 02:44:30,541 - Exprression is not assignable to desigantor
+DEBUG 02:44:30,542 - found constant with value 2of type 1
+DEBUG 02:44:30,542 - constant factor is type 1
+DEBUG 02:44:30,542 - term SingleFactorterm is type 1
+DEBUG 02:44:30,542 - found constant with value 1of type 1
+DEBUG 02:44:30,542 - constant factor is type 1
+DEBUG 02:44:30,542 - term SingleFactorterm is type 1
+DEBUG 02:44:30,542 - exprWithNoMinus is type 1
+DEBUG 02:44:30,542 - term SingleFactorterm is type 2
+DEBUG 02:44:30,542 - exprWithNoMinus is type 2
+DEBUG 02:44:30,542 - print statement has arg of type 2
+DEBUG 02:44:30,542 - found constant with value 2of type 1
+DEBUG 02:44:30,542 - constant factor is type 1
+DEBUG 02:44:30,542 - term element is type 1
+DEBUG 02:44:30,542 - term list single is type 1
+DEBUG 02:44:30,542 - term MultiFactorTerm is type 1
+DEBUG 02:44:30,542 - exprWithNoMinus is type 1
+DEBUG 02:44:30,542 - term SingleFactorterm is type 2
+DEBUG 02:44:30,542 - exprWithNoMinus is type 2
+DEBUG 02:44:30,542 - print statement has arg of type 2
+INFO  02:44:30,542 - Print calls = 0
+ERROR 02:44:30,543 - Parsiranje NIJE uspesno zavrseno!

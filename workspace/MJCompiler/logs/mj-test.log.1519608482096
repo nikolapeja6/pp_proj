@@ -1,0 +1,6 @@
+INFO  02:27:27,124 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\test301.mj
+INFO  02:27:27,166 - #40 program
+INFO  02:27:27,166 - #45 test301
+INFO  02:27:27,166 - #44 const
+ERROR 02:27:27,166 - Sintaksna greska na liniji 5
+ERROR 02:27:27,166 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 5

@@ -247,8 +247,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct dst = designatorStatementAssignment.getLValueDesignator().obj.getType();
 		
 		
-		if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator() instanceof DesignatorArray )
-			dst = dst.getElemType();
+		//if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator() instanceof DesignatorArray )
+		//	dst = dst.getElemType();
 		
 		if(!src.assignableTo(dst))
 		{
@@ -579,7 +579,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		
-		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType());
+		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
 	}
 		
 	

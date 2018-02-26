@@ -2,6 +2,7 @@ package rs.ac.bg.etf.pp1;
 
 import java.util.Stack;
 
+import jdk.nashorn.internal.ir.WhileNode;
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -21,6 +22,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	private Stack<Integer> jmpNotThen = new Stack<>();
 	private Stack<Integer> jmpEndThen = new Stack<>();
+	private Stack<Integer> jmpWhileBegin = new Stack<>();
 
 	public int getMainPc() {
 		return mainPc;
@@ -199,23 +201,37 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put2(address, Code.pc - address + 1);
 	}
 	
+	public void visit(MatchdWhile matchdWhile)
+	{
+		// if cnd != 0, jmp beginning
+		int beginning = jmpWhileBegin.pop();
+		Code.loadConst(0);
+		Code.put(Code.jcc + Code.ne);
+		Code.put2(beginning - Code.pc + 1);
+	}
+	
+	public void visit(DoWhileBegin1 doWhileBegin1)
+	{
+		jmpWhileBegin.push(Code.pc);
+	}
+	
 	//ConditionElement ::= (ConditionElement1) OR CondTerm
 	public void visit(ConditionElement1 conditionElement1) {
 		
 		// if a != 0, jmp true1
 		Code.loadConst(0);
 		Code.put(Code.jcc+Code.ne);
-		Code.put2(7);
+		Code.put2(11);
 		
 		// if b != 0, jmp true2
 		Code.loadConst(0);
 		Code.put(Code.jcc + Code.ne);
-		Code.put2(5);
+		Code.put2(8);
 		
 		// false: put 0,jmp next 
 		Code.loadConst(0);
 		Code.put(Code.jmp);
-		Code.put2(4);
+		Code.put2(5);
 		
 		// true1
 		Code.put(Code.pop);
@@ -243,7 +259,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	{
 		// test and jmp if yes
 		Code.put(Code.jcc + cnd);
-		Code.put2(5);
+		Code.put2(7);
 					
 		// no: put 0, jmp next
 		Code.loadConst(0);

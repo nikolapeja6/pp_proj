@@ -223,10 +223,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 
 non terminal MatchedThen MatchedThen;
 
+non terminal DoWhileBegin DoWhileBegin;
+non terminal ConditionWhile ConditionWhile;
 /** END HELPER NON TERMINALS */
-
-precedence left PLUS, MINUS;
-precedence left MULTUPLY, DIV, MOD;
 
 
 /* TODO optional method decl*/
@@ -287,24 +286,6 @@ MultipleStatements ::= 	MultipleStatements:M1 Statement:S2 {: RESULT=new Multipl
 						Statement:S1 {: RESULT=new MultipleStatementsDerived2(S1); RESULT.setLine(S1left); :}
 						;
 
-/*
-Statement ::= 	DesignatorStatement SEMICOLON
-				|
-				(StatementReturnVoid) RETURN SEMICOLON 
-				|
-				(StatementReturnValue) RETURN Expr SEMICOLON
-				|
-				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON
-				|
-				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
-				|
-				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
-				|
-				OPEN_BRACES CLOSE_BRACES
-				|
-				OPEN_BRACES MultipleStatements CLOSE_BRACES
-				;
-*/
 
 Statement ::= 	Matched:M1 {: RESULT=new StatementDerived1(M1); RESULT.setLine(M1left); :} 
 				|
@@ -329,9 +310,10 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				|
 				(MatchedIf)	IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES MatchedThen:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(C1, M2, M3); RESULT.setLine(C1left); :}
 				|
-				(MatchdWhile) DO Statement:S1 WHILE OPEN_PARENTHESES Condition:C2 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(S1, C2); RESULT.setLine(S1left); :}
+				(MatchdWhile) DoWhileBegin:D1 Statement:S2 WHILE OPEN_PARENTHESES ConditionWhile:C3 CLOSE_PARENTHESES SEMICOLON {: RESULT=new MatchdWhile(D1, S2, C3); RESULT.setLine(D1left); :}
 				;
-
+				
+DoWhileBegin ::= (DoWhileBegin1) DO {: RESULT=new DoWhileBegin1(); :};
 				
 Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition:C1 CLOSE_PARENTHESES Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
 				|
@@ -355,6 +337,10 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
 				|
 				(ConditionSingle) CondTerm:C1 {: RESULT=new ConditionSingle(C1); RESULT.setLine(C1left); :}
+				;
+ConditionWhile ::= (ConditionMultipleWhile) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultipleWhile(C1, C2); RESULT.setLine(C1left); :}
+				|
+				(ConditionSingleWhile) CondTerm:C1 {: RESULT=new ConditionSingleWhile(C1); RESULT.setLine(C1left); :}
 				;
 
 ConditionList ::= 	(ConditionListMultiple) ConditionList:C1 ConditionElement:C2 {: RESULT=new ConditionListMultiple(C1, C2); RESULT.setLine(C1left); :}

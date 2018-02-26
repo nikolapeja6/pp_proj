@@ -2,9 +2,12 @@
 
 program test301
 
-	const int jedan = 1;
-	const int pet = 5;
 
+	//const int jedan = 1;
+	//const int pet = 5;
+	
+	int jedan;
+	int pet;
 	int niz[];
 	
 	char nizch[];
@@ -12,6 +15,9 @@ program test301
 {
 	void main()	int bodovi;
 	{
+		// TODO remove
+		jedan = 1;
+		pet = 5;
 	
 		bodovi = 0;
 		bodovi++;

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 24/1/2018 20:46:35
+// 26/1/2018 2:9:25
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -17,6 +17,7 @@ public interface Visitor {
     public void visit(Matched Matched);
     public void visit(Relop Relop);
     public void visit(TermList TermList);
+    public void visit(DoWhileBegin DoWhileBegin);
     public void visit(ConditionList ConditionList);
     public void visit(MultipleMethodDecl MultipleMethodDecl);
     public void visit(CondTermList CondTermList);
@@ -34,6 +35,7 @@ public interface Visitor {
     public void visit(Term Term);
     public void visit(Condition Condition);
     public void visit(MultipleVarDecl MultipleVarDecl);
+    public void visit(ConditionWhile ConditionWhile);
     public void visit(MultipleStatements MultipleStatements);
     public void visit(ExprList ExprList);
     public void visit(VarDeclElement VarDeclElement);
@@ -102,6 +104,8 @@ public interface Visitor {
     public void visit(ConditionElement1 ConditionElement1);
     public void visit(ConditionListSingle ConditionListSingle);
     public void visit(ConditionListMultiple ConditionListMultiple);
+    public void visit(ConditionSingleWhile ConditionSingleWhile);
+    public void visit(ConditionMultipleWhile ConditionMultipleWhile);
     public void visit(ConditionSingle ConditionSingle);
     public void visit(ConditionMultiple ConditionMultiple);
     public void visit(DesignatorStatementDec DesignatorStatementDec);
@@ -111,6 +115,7 @@ public interface Visitor {
     public void visit(MatchedThen1 MatchedThen1);
     public void visit(UnmatchedIfElse UnmatchedIfElse);
     public void visit(UnmatchedIf UnmatchedIf);
+    public void visit(DoWhileBegin1 DoWhileBegin1);
     public void visit(MatchdWhile MatchdWhile);
     public void visit(MatchedIf MatchedIf);
     public void visit(ReadStatement ReadStatement);

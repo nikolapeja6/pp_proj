@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Bool"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.Mulop"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.ProgramNoDecl"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.structure.SymbolDataStructure"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.CondFact"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.MatchedThen1"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
 </qualifiedTypeNameHistroy>
