@@ -80,7 +80,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-		
+	
+	public void visit()
+	
 	
 	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;

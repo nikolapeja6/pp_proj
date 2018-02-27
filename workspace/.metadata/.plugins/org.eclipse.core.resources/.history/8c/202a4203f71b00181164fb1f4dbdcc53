@@ -103,14 +103,12 @@ public class CodeGenerator extends VisitorAdaptor {
 		Collection<Obj> col = obj.getLocalSymbols();
 		
 		Stack<Obj> objs = new Stack<>();
-		int i =0;
+		
 		for(Obj o: col)
 		{
-			if(i == obj.getLevel())
-				break;
-			objs.push(o);
-			i++;
-
+			if(o.getFpPos() > 0){
+				objs.push(o);
+			}
 		}
 		
 		while(!objs.isEmpty())

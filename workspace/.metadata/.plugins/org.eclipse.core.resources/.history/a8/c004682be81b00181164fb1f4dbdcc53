@@ -80,8 +80,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-		
-	
 	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;
 	}
@@ -212,7 +210,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 
 		obj = Tab.insert(Obj.Var, name, elemType);
-		obj.setFpPos(fpCnt++);
+		obj.setFpPos(++fpCnt);
 		formalPar.obj = obj;
 	}
 
@@ -236,7 +234,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ActParElement1 actPar) {
 		Obj fp = null;
-	
+		apCnt.push(apCnt.pop()+1);
 		
 		for (Obj obj : currentMethodCall.getLocalSymbols()) {
 			if (obj.getFpPos() == apCnt.peek()) {
@@ -253,8 +251,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
 			report_error("ActPar is not assignable to formalPar", actPar);
 		}
-		
-		apCnt.push(apCnt.pop()+1);
 	}
 
 	public void visit(Type1 type) {

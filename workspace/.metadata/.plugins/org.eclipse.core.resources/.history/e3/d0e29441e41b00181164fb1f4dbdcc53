@@ -30,7 +30,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int fldCnt = 0;
 	int globalVarCnt = 0;
 	int fpCnt = 0;
-	Stack<Integer> apCnt = new Stack<>();
+	int apCnt = 0;
 
 	Obj currentMethodCall = null;
 
@@ -80,8 +80,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-		
-	
 	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;
 	}
@@ -212,13 +210,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 
 		obj = Tab.insert(Obj.Var, name, elemType);
-		obj.setFpPos(fpCnt++);
+		obj.setFpPos(++fpCnt);
 		formalPar.obj = obj;
 	}
 
 	public void visit(MethodDesignator1 methodDesignator1) {
 		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
-		apCnt.push(0);
+		apCnt = 0;
 		currentMethodCall = methodDesignator1.obj;
 	}
 
@@ -226,9 +224,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj fun = complexFunctionCall.getMethodDesignator().obj;
 
-		int cnt = apCnt.pop();
-		if (fun.getLevel() != cnt) {
-			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + cnt, null);
+		if (fun.getLevel() != apCnt) {
+			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + apCnt, null);
 		}
 		
 		complexFunctionCall.obj = fun;
@@ -236,10 +233,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ActParElement1 actPar) {
 		Obj fp = null;
-	
+		apCnt++;
 		
 		for (Obj obj : currentMethodCall.getLocalSymbols()) {
-			if (obj.getFpPos() == apCnt.peek()) {
+			if (obj.getFpPos() == apCnt) {
 				fp = obj;
 				break;
 			}
@@ -253,8 +250,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
 			report_error("ActPar is not assignable to formalPar", actPar);
 		}
-		
-		apCnt.push(apCnt.pop()+1);
 	}
 
 	public void visit(Type1 type) {
@@ -355,8 +350,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
-		
-		apCnt.pop();
 
 		designatorStatementFunctionCall.obj = obj;
 	}
@@ -560,7 +553,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		apCnt.pop();
 		functtionCallFactor.obj = obj;
 	}
 	
@@ -572,9 +564,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		
-		int cnt = apCnt.pop();
-		if (obj.getLevel() != cnt) {
-			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);
+		if (obj.getLevel() != apCnt) {
+			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + apCnt, null);
 		}
 
 		functtionCallFactor.obj = obj;

@@ -106,11 +106,10 @@ public class CodeGenerator extends VisitorAdaptor {
 		int i =0;
 		for(Obj o: col)
 		{
-			if(i == obj.getLevel())
-				break;
 			objs.push(o);
 			i++;
-
+			if(i == obj.getLevel())
+				break;
 		}
 		
 		while(!objs.isEmpty())

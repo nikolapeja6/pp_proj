@@ -155,6 +155,7 @@ terminal String IDENT;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Program;
 non terminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
@@ -243,6 +244,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
+
 /** END HELPER NON TERMINALS */
 
 
@@ -267,7 +270,23 @@ MultipleDecl ::= 	MultipleDecl ConstDecl
 					VarDecl
 					;
 					
+					
+ClassDecl ::= = ClassDeclBegin OPEN_BRACES CLOSE_BRACES
+				|
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl CLOSE_BRACES
+				|
+				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES CLOSE_BRACES
+				|
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES CLOSE_BRACES
+				;				
 
+
+ClassDeclBegin ::= (DerivedClassbegin) CLASS IDENT EXTENDS Type
+					|
+					(NewClassBegin) CLASS IDENT
+					;
+ 
+					
 ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;
 
 ConstDeclList ::= 	ConstDeclList COMMA ConstDeclElement
