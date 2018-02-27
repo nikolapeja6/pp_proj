@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/1/2018 22:20:40
+// 27/1/2018 5:21:57
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,14 +9,17 @@ public class MethodDeclDerived2 extends MethodDecl {
 
     private MethodNameAndRetType MethodNameAndRetType;
     private MultipleVarDecl MultipleVarDecl;
+    private MethodBegin MethodBegin;
     private MultipleStatements MultipleStatements;
     private MethodEnd MethodEnd;
 
-    public MethodDeclDerived2 (MethodNameAndRetType MethodNameAndRetType, MultipleVarDecl MultipleVarDecl, MultipleStatements MultipleStatements, MethodEnd MethodEnd) {
+    public MethodDeclDerived2 (MethodNameAndRetType MethodNameAndRetType, MultipleVarDecl MultipleVarDecl, MethodBegin MethodBegin, MultipleStatements MultipleStatements, MethodEnd MethodEnd) {
         this.MethodNameAndRetType=MethodNameAndRetType;
         if(MethodNameAndRetType!=null) MethodNameAndRetType.setParent(this);
         this.MultipleVarDecl=MultipleVarDecl;
         if(MultipleVarDecl!=null) MultipleVarDecl.setParent(this);
+        this.MethodBegin=MethodBegin;
+        if(MethodBegin!=null) MethodBegin.setParent(this);
         this.MultipleStatements=MultipleStatements;
         if(MultipleStatements!=null) MultipleStatements.setParent(this);
         this.MethodEnd=MethodEnd;
@@ -37,6 +40,14 @@ public class MethodDeclDerived2 extends MethodDecl {
 
     public void setMultipleVarDecl(MultipleVarDecl MultipleVarDecl) {
         this.MultipleVarDecl=MultipleVarDecl;
+    }
+
+    public MethodBegin getMethodBegin() {
+        return MethodBegin;
+    }
+
+    public void setMethodBegin(MethodBegin MethodBegin) {
+        this.MethodBegin=MethodBegin;
     }
 
     public MultipleStatements getMultipleStatements() {
@@ -62,6 +73,7 @@ public class MethodDeclDerived2 extends MethodDecl {
     public void childrenAccept(Visitor visitor) {
         if(MethodNameAndRetType!=null) MethodNameAndRetType.accept(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.accept(visitor);
+        if(MethodBegin!=null) MethodBegin.accept(visitor);
         if(MultipleStatements!=null) MultipleStatements.accept(visitor);
         if(MethodEnd!=null) MethodEnd.accept(visitor);
     }
@@ -70,6 +82,7 @@ public class MethodDeclDerived2 extends MethodDecl {
         accept(visitor);
         if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseTopDown(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseTopDown(visitor);
+        if(MethodBegin!=null) MethodBegin.traverseTopDown(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
         if(MethodEnd!=null) MethodEnd.traverseTopDown(visitor);
     }
@@ -77,6 +90,7 @@ public class MethodDeclDerived2 extends MethodDecl {
     public void traverseBottomUp(Visitor visitor) {
         if(MethodNameAndRetType!=null) MethodNameAndRetType.traverseBottomUp(visitor);
         if(MultipleVarDecl!=null) MultipleVarDecl.traverseBottomUp(visitor);
+        if(MethodBegin!=null) MethodBegin.traverseBottomUp(visitor);
         if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
         if(MethodEnd!=null) MethodEnd.traverseBottomUp(visitor);
         accept(visitor);
@@ -95,6 +109,12 @@ public class MethodDeclDerived2 extends MethodDecl {
 
         if(MultipleVarDecl!=null)
             buffer.append(MultipleVarDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(MethodBegin!=null)
+            buffer.append(MethodBegin.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

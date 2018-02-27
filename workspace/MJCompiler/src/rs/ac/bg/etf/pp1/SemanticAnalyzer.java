@@ -29,13 +29,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	int nFields = 0;
 	int fldCnt = 0;
 	int globalVarCnt = 0;
-	
+	int fpCnt = 0;
+	int apCnt = 0;
+
+	Obj currentMethodCall = null;
+
 	boolean globalVars = false;
-	
+
 	int inWhile = 0;
 
 	Stack<Obj> scopeStack = new Stack<>();
-	
+
 	Struct currentDeclType = null;
 	List<String> currentVarDeclIdents = new LinkedList<>();
 
@@ -66,9 +70,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		globalVars = true;
 		scopeStack.push(programName.obj);
 	}
-	
-	public void visit(ProgramBegin1 programBegin)
-	{
+
+	public void visit(ProgramBegin1 programBegin) {
 		globalVars = false;
 	}
 
@@ -77,77 +80,68 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-	public void visit(VarDecl1 varDecl)
-	{
+	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;
 	}
-	
-	public void visit(VarDeclElementArray varDeclElementArray)
-	{
+
+	public void visit(VarDeclElementArray varDeclElementArray) {
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
-		
+
 		String name = varDeclElementArray.getI1();
-		
+
 		Obj obj = Tab.find(name);
-		if(obj != Tab.noObj)
-		{
-			report_error("Identifier "+name+" already used.", null);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
 			return;
 		}
 		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
-		if(globalVars)
+		if (globalVars)
 			obj.setLevel(0);
 		obj.setAdr(globalVarCnt++);
 		varDeclElementArray.obj = obj;
 	}
-	
-	public void visit(VarDeclElementSingle varDeclElementSingle)
-	{
+
+	public void visit(VarDeclElementSingle varDeclElementSingle) {
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
-		
+
 		String name = varDeclElementSingle.getI1();
-		
+
 		Obj obj = Tab.find(name);
-		if(obj != Tab.noObj)
-		{
-			report_error("Identifier "+name+" already used.", null);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
 			return;
 		}
-		
+
 		obj = Tab.insert(Obj.Var, name, currentDeclType);
-		if(globalVars)
+		if (globalVars)
 			obj.setLevel(0);
 		obj.setAdr(globalVarCnt++);
 
 		varDeclElementSingle.obj = obj;
-		log.debug("Variable with name "+name+" has the address of "+varDeclElementSingle.obj.getAdr());
+		log.debug("Variable with name " + name + " has the address of " + varDeclElementSingle.obj.getAdr());
 	}
-	
-	
-	public void visit(ConstDecl1 constDecl1)
-	{
+
+	public void visit(ConstDecl1 constDecl1) {
 		currentDeclType = null;
 	}
-	
-	public void visit(ConstDeclElement1 constDeclElement1)
-	{
+
+	public void visit(ConstDeclElement1 constDeclElement1) {
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
-		
+
 		String name = constDeclElement1.getI1();
-		
+
 		Obj obj = Tab.find(name);
-		if(obj != Tab.noObj)
-		{
-			report_error("Identifier "+name+" already used.", null);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
 		}
-		
-		if(!constDeclElement1.getConstant().obj.getType().assignableTo(currentDeclType))
-		{
-			report_error("Value "+constDeclElement1.getConstant().obj.getAdr()+" not assignable to constant.", null);
+
+		if (!constDeclElement1.getConstant().obj.getType().assignableTo(currentDeclType)) {
+			report_error("Value " + constDeclElement1.getConstant().obj.getAdr() + " not assignable to constant.",
+					null);
 		}
-		
+
 		obj = Tab.insert(Obj.Con, name, currentDeclType);
-		if(globalVars)
+		if (globalVars)
 			obj.setLevel(0);
 		obj.setAdr(constDeclElement1.getConstant().obj.getAdr());
 
@@ -161,15 +155,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		methodNameAndRetType.obj = Tab.insert(Obj.Meth, name, type);
 		Tab.openScope();
 
+		fpCnt = 0;
 		currentMethod = methodNameAndRetType.obj;
 		scopeStack.push(methodNameAndRetType.obj);
 	}
+	
+	public void visit(MethodBegin1 methodBegin1){
+		methodBegin1.obj = currentMethod;
+	}
 
-	public void visit(MethodEnd methodEnd) {
-		scopeStack.peek().setLevel(Tab.currentScope.getnVars());
-		
+	public void visit(MethodEnd1 methodEnd) {
+		scopeStack.peek().setLevel(fpCnt);
+
 		currentMethod = null;
-		
+
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.closeScope();
 	}
@@ -182,6 +181,77 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		returnType.struct = Tab.find(((Type1) returnType.getType()).getI1()).getType();
 	}
 
+	// store formal pars
+	public void visit(FormParsElementArray formalPar) {
+		Struct elemType = formalPar.getType().struct;
+
+		String name = formalPar.getI2();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
+			return;
+		}
+
+		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, elemType));
+		obj.setFpPos(fpCnt++);
+		formalPar.obj = obj;
+	}
+
+	public void visit(FormParsElementSingle formalPar) {
+		Struct elemType = formalPar.getType().struct;
+
+		String name = formalPar.getI2();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
+			return;
+		}
+
+		obj = Tab.insert(Obj.Var, name, elemType);
+		obj.setFpPos(++fpCnt);
+		formalPar.obj = obj;
+	}
+
+	public void visit(MethodDesignator1 methodDesignator1) {
+		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
+		apCnt = 0;
+		currentMethodCall = methodDesignator1.obj;
+	}
+
+	public void visit(DesignatorStatementFunctionCallComplex complexFunctionCall) {
+
+		Obj fun = complexFunctionCall.getMethodDesignator().obj;
+
+		if (fun.getLevel() != apCnt) {
+			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + apCnt, null);
+		}
+		
+		complexFunctionCall.obj = fun;
+	}
+
+	public void visit(ActParElement1 actPar) {
+		Obj fp = null;
+		apCnt++;
+		
+		for (Obj obj : currentMethodCall.getLocalSymbols()) {
+			if (obj.getFpPos() == apCnt) {
+				fp = obj;
+				break;
+			}
+		}
+
+		if (fp == null) {
+			report_error("No appropreate act par found.", null);
+			return;
+		}
+
+		if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
+			report_error("ActPar is not assignable to formalPar", actPar);
+		}
+	}
+
 	public void visit(Type1 type) {
 		Obj tip = Tab.find(type.getI1());
 		if (tip.getKind() == Obj.Type)
@@ -190,49 +260,43 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error(type.getI1() + " is not a type.", null);
 			type.struct = Tab.noType;
 		}
-		
+
 		currentDeclType = type.struct;
 	}
-	
-	public void visit(StatementReturnVoid returnVoid)
-	{
-		if(currentMethod.getType() != Tab.noType)
-		{
+
+	public void visit(StatementReturnVoid returnVoid) {
+		if (currentMethod.getType() != Tab.noType) {
 			report_error("Method must return type", null);
 		}
 	}
-	
-	public void visit(StatementReturnValue returnValue)
-	{
-		if(!returnValue.getExpr().struct.assignableTo(currentMethod.getType()))
-		{
+
+	public void visit(StatementReturnValue returnValue) {
+		if (!returnValue.getExpr().struct.assignableTo(currentMethod.getType())) {
 			report_error("The value of the return expression is not assignable to return type.", null);
 		}
 	}
-	
-	public void visit(PrintStatementComplex printStatementComplex)
-	{
+
+	public void visit(PrintStatementComplex printStatementComplex) {
 		Struct argType = printStatementComplex.getExpr().struct;
-		
-		log.debug("print statement has arg of type "+argType.getKind());
-		
+
+		log.debug("print statement has arg of type " + argType.getKind());
+
 		if (argType != Tab.charType && argType != Tab.intType) {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
 					null);
 			return;
 		}
-		
-		if(!(printStatementComplex.getConstant() instanceof NumberConstant))
-		{
+
+		if (!(printStatementComplex.getConstant() instanceof NumberConstant)) {
 			report_error("The second argument in the print statement must be a number literal", null);
 		}
 	}
 
 	public void visit(PrintStatement printStatement) {
 		Struct argType = printStatement.getExpr().struct;
-		
-		log.debug("print statement has arg of type "+argType.getKind());
-		
+
+		log.debug("print statement has arg of type " + argType.getKind());
+
 		if (argType != Tab.charType && argType != Tab.intType) {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
 					null);
@@ -240,77 +304,68 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 
 	}
-	
-	public void visit(ReadStatement readStatement){
-		
+
+	public void visit(ReadStatement readStatement) {
+
 		int kind = readStatement.getLValueDesignator().obj.getKind();
-		if(kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem)
-		{
-			report_error("The argument of the read statement must be a variable, an element of an array or a field.", null);
+		if (kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem) {
+			report_error("The argument of the read statement must be a variable, an element of an array or a field.",
+					null);
 			return;
 		}
-		
+
 		Struct type = readStatement.getLValueDesignator().obj.getType();
-		if(type != Tab.intType && type != Tab.charType)
-		{
+		if (type != Tab.intType && type != Tab.charType) {
 			report_error("The argument of the read statement must be of int or char type.", null);
 			return;
 		}
-		
+
 		readStatement.obj = readStatement.getLValueDesignator().obj;
 	}
-	
-	public void visit(DesignatorStatementAssignment designatorStatementAssignment)
-	{
+
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
 		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
-		if(designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem)
-		{
+		if (designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem) {
 			report_error("Assignment can only be done for variables of class fields", null);
 			return;
 		}
-		
+
 		Struct src = designatorStatementAssignment.getExpr().struct;
 		Struct dst = designatorStatementAssignment.getLValueDesignator().obj.getType();
-		
-		
-		//if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator() instanceof DesignatorArray )
-		//	dst = dst.getElemType();
-		
-		if(!src.assignableTo(dst))
-		{
+
+		// if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator()
+		// instanceof DesignatorArray )
+		// dst = dst.getElemType();
+
+		if (!src.assignableTo(dst)) {
 			report_error("Exprression is not assignable to desigantor", null);
 			return;
 		}
 	}
-	
-	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall)
-	{
-		Obj obj = designatorStatementFunctionCall.getDesignator().obj;
-		
-		if(obj.getKind() != Obj.Meth)
-		{
-			report_error("Identifier "+obj.getName() + " is not a method.", null);
+
+	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall) {
+		Obj obj = designatorStatementFunctionCall.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
-		
+
 		designatorStatementFunctionCall.obj = obj;
 	}
 	
-	public void visit(DesignatorStatementInc designatorStatementInc)
-	{
+
+	public void visit(DesignatorStatementInc designatorStatementInc) {
 		Obj designator = designatorStatementInc.getLValueDesignator().obj;
-		if(designator.getType() != Tab.intType)
-		{
+		if (designator.getType() != Tab.intType) {
 			report_error("Increments are allowed only for int types, but found other type.", null);
 			return;
 		}
 	}
-	
-	public void visit(DesignatorStatementDec designatorStatementDec)
-	{
+
+	public void visit(DesignatorStatementDec designatorStatementDec) {
 		Obj designator = designatorStatementDec.getLValueDesignator().obj;
-		if(designator.getType() != Tab.intType)
-		{
+		if (designator.getType() != Tab.intType) {
 			report_error("Decrements are allowed only for int types, but found other type.", null);
 		}
 	}
@@ -426,38 +481,36 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		condFactElement1.obj = new Obj(Obj.NO_VALUE, "", type);
 	}
 
-
 	public void visit(ExprWithMinus expr) {
 		expr.struct = expr.getTerm().struct;
-		
-		if(expr.struct != Tab.intType)
-		{
+
+		if (expr.struct != Tab.intType) {
 			report_error("Expression with minus must be of int type", null);
 			return;
 		}
-		
-		log.debug("ExprWithMinus is type "+expr.struct.getKind());
+
+		log.debug("ExprWithMinus is type " + expr.struct.getKind());
 	}
 
 	public void visit(ExprWithNoMinus expr) {
 		expr.struct = expr.getTerm().struct;
-		log.debug("exprWithNoMinus is type "+expr.struct.getKind());
+		log.debug("exprWithNoMinus is type " + expr.struct.getKind());
 	}
 
 	public void visit(SingleFactorTerm term) {
 		term.struct = (term.getFactor()).obj.getType();
-		log.debug("term SingleFactorterm is type "+term.struct.getKind());
+		log.debug("term SingleFactorterm is type " + term.struct.getKind());
 	}
 
 	public void visit(MultiFactorTerm term) {
 		term.struct = term.getFactor().obj.getType();
-		log.debug("term MultiFactorTerm is type "+term.struct.getKind());
+		log.debug("term MultiFactorTerm is type " + term.struct.getKind());
 	}
 
 	public void visit(TermListSingle termListSingle) {
 		Obj obj = termListSingle.getTermElement().obj;
 		termListSingle.obj = new Obj(obj.getKind(), "", obj.getType());
-		log.debug("term list single is type "+termListSingle.obj.getType().getKind());
+		log.debug("term list single is type " + termListSingle.obj.getType().getKind());
 	}
 
 	public void visit(TermListMultiple termListMultiple) {
@@ -479,44 +532,56 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		termListMultiple.obj = new Obj(Obj.NO_VALUE, "", s1);
 
-		log.debug("term list multiple is type "+termListMultiple.obj.getType().getKind());
+		log.debug("term list multiple is type " + termListMultiple.obj.getType().getKind());
 
 	}
 
 	public void visit(TermElement1 termElement) {
 		termElement.obj = new Obj(termElement.getFactor().obj.getKind(), "", termElement.getFactor().obj.getType());
-		log.debug("term element is type "+termElement.obj.getType().getKind());
+		log.debug("term element is type " + termElement.obj.getType().getKind());
 	}
 
-	public void visit(VariableFactor variableFactor)
-	{
+	public void visit(VariableFactor variableFactor) {
 		variableFactor.obj = variableFactor.getRValueDesignator().obj;
 	}
-	
-	public void visit(FuncttionCallFactor functtionCallFactor)
-	{
-		Obj obj = functtionCallFactor.getDesignator().obj;
-		
-		if(obj.getKind() != Obj.Meth)
-		{
-			report_error("Identifier "+obj.getName() + " is not a method.", null);
+
+	public void visit(FuncttionCallFactor functtionCallFactor) {
+		Obj obj = functtionCallFactor.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
-		
+
 		functtionCallFactor.obj = obj;
 	}
 	
+	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
+		Obj obj = functtionCallFactor.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			return;
+		}
+		
+		if (obj.getLevel() != apCnt) {
+			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + apCnt, null);
+		}
+
+		functtionCallFactor.obj = obj;
+	}
+
 	public void visit(ConstantFactor constantFactor) {
 		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
 		constantFactor.obj.setAdr(constantFactor.getConstant().obj.getAdr());
-		log.debug("constant factor is type "+constantFactor.obj.getType().getKind());
+		log.debug("constant factor is type " + constantFactor.obj.getType().getKind());
 	}
-	
-	public void visit(FactorParenExpr parenFactor){
-		parenFactor.obj = new Obj(Obj.NO_VALUE, "",parenFactor.getExpr().struct);
+
+	public void visit(FactorParenExpr parenFactor) {
+		parenFactor.obj = new Obj(Obj.NO_VALUE, "", parenFactor.getExpr().struct);
 	}
-	
-	public void visit(FactorNewArray factorNewArray){
+
+	public void visit(FactorNewArray factorNewArray) {
 		Struct struct = new Struct(Struct.Array, factorNewArray.getType().struct);
 		factorNewArray.obj = new Obj(Obj.Var, "", struct);
 	}
@@ -524,140 +589,121 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(NumberConstant numberConstant) {
 		numberConstant.obj = new Obj(Obj.Con, "", Tab.intType);
 		numberConstant.obj.setAdr(numberConstant.getNumber());
-		log.debug("found constant with value "+numberConstant.obj.getAdr() + "of type "+numberConstant.obj.getType().getKind());
+		log.debug("found constant with value " + numberConstant.obj.getAdr() + "of type "
+				+ numberConstant.obj.getType().getKind());
 	}
 
 	public void visit(CharConstant charConstant) {
 		charConstant.obj = new Obj(Obj.Con, "", Tab.charType);
-		log.debug("found constant with value "+ "*****" + "of type "+charConstant.obj.getType().getKind());
+		log.debug("found constant with value " + "*****" + "of type " + charConstant.obj.getType().getKind());
 		charConstant.obj.setAdr(charConstant.getCh().charAt(0));
-		log.debug("found constant with value "+charConstant.obj.getAdr() + "of type "+charConstant.obj.getType().getKind());
+		log.debug("found constant with value " + charConstant.obj.getAdr() + "of type "
+				+ charConstant.obj.getType().getKind());
 	}
 
 	public void visit(BoolConstant boolConstant) {
 		boolConstant.obj = new Obj(Obj.Con, "", Tab.intType);
 		boolConstant.obj.setAdr(boolConstant.getBl().equals("true") ? 1 : 0);
-		log.debug("found constant with value "+boolConstant.obj.getAdr() + "of type "+boolConstant.obj.getType().getKind());
+		log.debug("found constant with value " + boolConstant.obj.getAdr() + "of type "
+				+ boolConstant.obj.getType().getKind());
 
 	}
-	
-	public void visit(LValueDesignator1 ldesignator)
-	{
+
+	public void visit(LValueDesignator1 ldesignator) {
 		Obj obj = ldesignator.getDesignator().obj;
-		
-		if(obj.getKind() == Obj.Con)
-		{
+
+		if (obj.getKind() == Obj.Con) {
 			report_error("Lvalue cannot be a constant", null);
 		}
-		
-		ldesignator.obj = obj;//new Obj(obj.getKind(), "", new Struct(Struct.Array, Tab.noType));
+
+		ldesignator.obj = obj;// new Obj(obj.getKind(), "", new
+								// Struct(Struct.Array, Tab.noType));
 	}
-	
-	public void visit(RValueDesignator1 rdesignator)
-	{
-		if(rdesignator.getDesignator().obj.getType().getKind() == Struct.Array)
-		{
-			String varName = ((DesignatorArray)rdesignator.getDesignator()).getArrayName().obj.getName();
-			rdesignator.obj = new Obj(Obj.Elem, varName,rdesignator.getDesignator().obj.getType().getElemType());
+
+	public void visit(RValueDesignator1 rdesignator) {
+		if (rdesignator.getDesignator().obj.getType().getKind() == Struct.Array) {
+			String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
+			rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
 			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
-		}
-		else
-		{
-		rdesignator.obj = rdesignator.getDesignator().obj;
+		} else {
+			rdesignator.obj = rdesignator.getDesignator().obj;
 		}
 	}
-	
-	public void visit(DesignatorSimple designatorSimple)
-	{	
+
+	public void visit(DesignatorSimple designatorSimple) {
 		String name = designatorSimple.getI1();
 		Obj obj = Tab.find(name);
-		
-		if(obj == Tab.noObj)
-		{
-			report_error("Identifier "+name+" was not defined.", null);
+
+		if (obj == Tab.noObj) {
+			report_error("Identifier " + name + " was not defined.", null);
 			return;
 		}
-		
-		if(obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE)
-		{
-			report_error("Identifier "+name+" is not a data identifier.", null);
+
+		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
+			report_error("Identifier " + name + " is not a data identifier.", null);
 			return;
 		}
-		
+
 		designatorSimple.obj = obj;
 	}
 
-	public void visit(DesignatorArray designatorArray)
-	{	
-		
+	public void visit(DesignatorArray designatorArray) {
+
 		Obj obj = designatorArray.getArrayName().obj;
 		String name = obj.getName();
-		
-		if(obj == Tab.noObj)
-		{
-			report_error("Identifier "+name+" was not defined.", null);
+
+		if (obj == Tab.noObj) {
+			report_error("Identifier " + name + " was not defined.", null);
 			return;
 		}
-		
-		if(obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE)
-		{
-			report_error("Identifier "+name+" is not a data identifier.", null);
+
+		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
+			report_error("Identifier " + name + " is not a data identifier.", null);
 			return;
 		}
-		
-		if(obj.getType().getKind() != Struct.Array)
-		{
+
+		if (obj.getType().getKind() != Struct.Array) {
 			report_error("Invalid operation. Tried indexing variable that is not an array.", null);
 			return;
 		}
-		
+
 		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
 	}
-		
-	
-	public void visit(ArrayName1 arrayName1)
-	{
+
+	public void visit(ArrayName1 arrayName1) {
 		Obj obj = Tab.find(arrayName1.getI1());
-		if(obj == Tab.noObj)
-		{
-			report_error("Undefined identifier "+arrayName1.getI1(), null);
+		if (obj == Tab.noObj) {
+			report_error("Undefined identifier " + arrayName1.getI1(), null);
 			return;
 		}
-		
-		if(obj.getType().getKind() != Struct.Array)
-		{
-			report_error("Variable "+arrayName1.getI1()+" is not an array.", null);
+
+		if (obj.getType().getKind() != Struct.Array) {
+			report_error("Variable " + arrayName1.getI1() + " is not an array.", null);
 		}
-		
+
 		arrayName1.obj = obj;
 	}
-	
-	public void visit(DoWhileBegin1 doWhileBegin1)
-	{
+
+	public void visit(DoWhileBegin1 doWhileBegin1) {
 		inWhile++;
 	}
-	
-	public void visit(MatchdWhile matchdWhile)
-	{
+
+	public void visit(MatchdWhile matchdWhile) {
 		inWhile--;
 	}
-	
-	
-	public void visit(MatchedBreak matchedBreak){
-		if(inWhile == 0)
-		{
+
+	public void visit(MatchedBreak matchedBreak) {
+		if (inWhile == 0) {
 			report_error("Break can only be used inside a loop.", null);
 		}
 	}
-	
-	public void visit(MatchedContinue matchedContinue)
-	{
-		if(inWhile == 0)
-		{
+
+	public void visit(MatchedContinue matchedContinue) {
+		if (inWhile == 0) {
 			report_error("Continue can only be used inside a loop.", null);
 		}
 	}
-	
+
 	public boolean passed() {
 		return !errorDetected;
 	}

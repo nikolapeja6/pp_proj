@@ -48,6 +48,5 @@ public class CounterVisitor extends VisitorAdaptor {
 		public boolean check(VarDeclElement varDeclElement) {
 			return varDeclElement.obj.getLevel() == 0;
 		}
-
 	}
 }

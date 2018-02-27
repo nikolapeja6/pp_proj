@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/1/2018 22:20:40
+// 27/1/2018 5:21:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorStatementFunctionCall extends DesignatorStatement {
 
-    private Designator Designator;
+    private MethodDesignator MethodDesignator;
 
-    public DesignatorStatementFunctionCall (Designator Designator) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public DesignatorStatementFunctionCall (MethodDesignator MethodDesignator) {
+        this.MethodDesignator=MethodDesignator;
+        if(MethodDesignator!=null) MethodDesignator.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public MethodDesignator getMethodDesignator() {
+        return MethodDesignator;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
+    public void setMethodDesignator(MethodDesignator MethodDesignator) {
+        this.MethodDesignator=MethodDesignator;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class DesignatorStatementFunctionCall extends DesignatorStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
+        if(MethodDesignator!=null) MethodDesignator.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(MethodDesignator!=null) MethodDesignator.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(MethodDesignator!=null) MethodDesignator.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class DesignatorStatementFunctionCall extends DesignatorStatement {
         buffer.append(tab);
         buffer.append("DesignatorStatementFunctionCall(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(MethodDesignator!=null)
+            buffer.append(MethodDesignator.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

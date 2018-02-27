@@ -164,6 +164,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ActPars; 
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormPars; 
+
+
 
 non terminal Mulop Mulop;
 non terminal Addop Addop;
@@ -188,6 +191,7 @@ non terminal ProgramBegin ProgramBegin;
 non terminal ProgramEnd ProgramEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
 non terminal MethodEnd MethodEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodBegin;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
 
@@ -227,6 +231,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormParsElement;
+
 non terminal MatchedThen MatchedThen;
 
 non terminal DoWhileBegin DoWhileBegin;
@@ -235,8 +241,7 @@ non terminal StatementWhile StatementWhile;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
 
-
-
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
 /** END HELPER NON TERMINALS */
 
@@ -296,13 +301,19 @@ MultipleMethodDecl ::= 	MultipleMethodDecl:M1 MethodDecl:M2 {: RESULT=new Multip
 						
 
 /* TODO optional multiple statements */					
-MethodDecl ::= 	MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements:M2 MethodEnd:M3 {: RESULT=new MethodDeclDerived1(M1, M2, M3); RESULT.setLine(M1left); :}
+MethodDecl ::= 	MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES MethodBegin:M2 MultipleStatements:M3 MethodEnd:M4 {: RESULT=new MethodDeclDerived1(M1, M2, M3, M4); RESULT.setLine(M1left); :}
 				|
-				MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl:M2 OPEN_BRACES MultipleStatements:M3 MethodEnd:M4 {: RESULT=new MethodDeclDerived2(M1, M2, M3, M4); RESULT.setLine(M1left); :}
+				MethodNameAndRetType:M1 OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl:M2 MethodBegin:M3 MultipleStatements:M4 MethodEnd:M5 {: RESULT=new MethodDeclDerived2(M1, M2, M3, M4, M5); RESULT.setLine(M1left); :}
+				|
+				MethodNameAndRetType:M1 OPEN_PARENTHESES FormPars:F2 CLOSE_PARENTHESES MethodBegin:M3 MultipleStatements:M4 MethodEnd:M5 {: RESULT=new MethodDeclDerived3(M1, F2, M3, M4, M5); RESULT.setLine(M1left); :}
+				|
+				MethodNameAndRetType:M1 OPEN_PARENTHESES FormPars:F2 CLOSE_PARENTHESES MultipleVarDecl:M3 MethodBegin:M4 MultipleStatements:M5 MethodEnd:M6 {: RESULT=new MethodDeclDerived4(M1, F2, M3, M4, M5, M6); RESULT.setLine(M1left); :}
+				
 				;
 				
 MethodNameAndRetType ::= (MethodNameAndRetType1) ReturnType:type IDENT:name {: RESULT=new MethodNameAndRetType1(type, name); RESULT.setLine(typeleft); :};
 
+MethodBegin ::= (MethodBegin1) OPEN_BRACES {: RESULT=new MethodBegin1(); :};
 MethodEnd ::= (MethodEnd1) CLOSE_BRACES {: RESULT=new MethodEnd1(); :};
 
 ReturnType ::= 	(VoidReturnType) VoidType:V1 {: RESULT=new VoidReturnType(V1); RESULT.setLine(V1left); :}
@@ -312,10 +323,21 @@ ReturnType ::= 	(VoidReturnType) VoidType:V1 {: RESULT=new VoidReturnType(V1); R
 
 VoidType ::= VOID {: RESULT=new VoidTypeDerived1(); :};	
 
+FormPars ::= 	FormPars:F1 COMMA FormParsElement:F2 {: RESULT=new FormParsDerived1(F1, F2); RESULT.setLine(F1left); :}
+				|
+				FormParsElement:F1 {: RESULT=new FormParsDerived2(F1); RESULT.setLine(F1left); :}
+				;
+
+FormParsElement ::= 	(FormParsElementArray) Type:T1 IDENT:I2 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new FormParsElementArray(T1, I2); RESULT.setLine(T1left); :}
+						|
+						(FormParsElementSingle) Type:T1 IDENT:I2 {: RESULT=new FormParsElementSingle(T1, I2); RESULT.setLine(T1left); :} 
+						;
+
 ActPars ::= ActPars:A1 COMMA ActParElement:A2 {: RESULT=new ActParsDerived1(A1, A2); RESULT.setLine(A1left); :}
 			|
 			ActParElement:A1 {: RESULT=new ActParsDerived2(A1); RESULT.setLine(A1left); :}
 			;
+			
 ActParElement ::= (ActParElement1)Expr:E1 {: RESULT=new ActParElement1(E1); RESULT.setLine(E1left); :};
 		
 
@@ -357,6 +379,7 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				(MatchedContinue) CONTINUE SEMICOLON {: RESULT=new MatchedContinue(); :}
 				;
 				
+				
 DoWhileBegin ::= (DoWhileBegin1) DO {: RESULT=new DoWhileBegin1(); :};
 
 StatementWhile ::= (StatementWhile1) Statement:S1 {: RESULT=new StatementWhile1(S1); RESULT.setLine(S1left); :};
@@ -372,13 +395,15 @@ MatchedThen ::= (MatchedThen1) Matched:M1 {: RESULT=new MatchedThen1(M1); RESULT
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASSIGN Expr:E2 {: RESULT=new DesignatorStatementAssignment(L1, E2); RESULT.setLine(L1left); :}
 							|
-							/* TODO */
-							(DesignatorStatementFunctionCall) Designator:D1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCall(D1); RESULT.setLine(D1left); :}
+							(DesignatorStatementFunctionCallComplex) MethodDesignator:M1 OPEN_PARENTHESES ActPars:A2 CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCallComplex(M1, A2); RESULT.setLine(M1left); :}
 							|
+							(DesignatorStatementFunctionCall) MethodDesignator:M1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCall(M1); RESULT.setLine(M1left); :}
+							| {: RESULT=new DesignatorStatementDerived1(); :}							|
 							(DesignatorStatementInc)LValueDesignator:L1 INC {: RESULT=new DesignatorStatementInc(L1); RESULT.setLine(L1left); :}
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
 							;
+MethodDesignator ::= (MethodDesignator1) Designator:D1 {: RESULT=new MethodDesignator1(D1); RESULT.setLine(D1left); :};
 
 Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
 				|
@@ -457,8 +482,10 @@ TermElement ::= (TermElement1) Mulop:M1 Factor:F2 {: RESULT=new TermElement1(M1,
 			/* TODO */
 Factor ::= 	(VariableFactor)RValueDesignator:desigantor {: RESULT=new VariableFactor(desigantor); RESULT.setLine(desigantorleft); :}
 			|
+			(FuncttionCallFactorComplex) MethodDesignator:M1 OPEN_PARENTHESES ActPars:A2 CLOSE_PARENTHESES {: RESULT=new FuncttionCallFactorComplex(M1, A2); RESULT.setLine(M1left); :}
+			|
 			/* TODO */
-			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new FuncttionCallFactor(designator); RESULT.setLine(designatorleft); :}
+			(FuncttionCallFactor) MethodDesignator:M1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new FuncttionCallFactor(M1); RESULT.setLine(M1left); :}
 			|
 			(ConstantFactor) Constant:constant {: RESULT=new ConstantFactor(constant); RESULT.setLine(constantleft); :}
 			|

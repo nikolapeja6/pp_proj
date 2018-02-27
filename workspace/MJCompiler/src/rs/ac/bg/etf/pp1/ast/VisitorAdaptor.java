@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/1/2018 22:20:41
+// 27/1/2018 5:21:58
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -15,6 +15,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Constant Constant) { }
     public void visit(CondFactElement CondFactElement) { }
     public void visit(Matched Matched) { }
+    public void visit(MethodBegin MethodBegin) { }
     public void visit(ConstDeclElement ConstDeclElement) { }
     public void visit(Relop Relop) { }
     public void visit(TermList TermList) { }
@@ -22,8 +23,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ConditionList ConditionList) { }
     public void visit(MultipleMethodDecl MultipleMethodDecl) { }
     public void visit(CondTermList CondTermList) { }
+    public void visit(MethodDesignator MethodDesignator) { }
     public void visit(ProgramEnd ProgramEnd) { }
     public void visit(OptionalExprList OptionalExprList) { }
+    public void visit(FormParsElement FormParsElement) { }
     public void visit(MatchedThen MatchedThen) { }
     public void visit(Addop Addop) { }
     public void visit(ProgramBegin ProgramBegin) { }
@@ -62,6 +65,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondFact CondFact) { }
     public void visit(Program Program) { }
     public void visit(TermElement TermElement) { }
+    public void visit(FormPars FormPars) { }
     public void visit(MulopMod MulopMod) { visit(); }
     public void visit(MulopDiv MulopDiv) { visit(); }
     public void visit(MulopMultiply MulopMultiply) { visit(); }
@@ -85,6 +89,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FactorParenExpr FactorParenExpr) { visit(); }
     public void visit(ConstantFactor ConstantFactor) { visit(); }
     public void visit(FuncttionCallFactor FuncttionCallFactor) { visit(); }
+    public void visit(FuncttionCallFactorComplex FuncttionCallFactorComplex) { visit(); }
     public void visit(VariableFactor VariableFactor) { visit(); }
     public void visit(TermElement1 TermElement1) { visit(); }
     public void visit(TermListSingle TermListSingle) { visit(); }
@@ -115,9 +120,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ConditionMultipleWhile ConditionMultipleWhile) { visit(); }
     public void visit(ConditionSingle ConditionSingle) { visit(); }
     public void visit(ConditionMultiple ConditionMultiple) { visit(); }
+    public void visit(MethodDesignator1 MethodDesignator1) { visit(); }
     public void visit(DesignatorStatementDec DesignatorStatementDec) { visit(); }
     public void visit(DesignatorStatementInc DesignatorStatementInc) { visit(); }
+    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1) { visit(); }
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall) { visit(); }
+    public void visit(DesignatorStatementFunctionCallComplex DesignatorStatementFunctionCallComplex) { visit(); }
     public void visit(DesignatorStatementAssignment DesignatorStatementAssignment) { visit(); }
     public void visit(MatchedThen1 MatchedThen1) { visit(); }
     public void visit(UnmatchedIfElse UnmatchedIfElse) { visit(); }
@@ -144,11 +152,18 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActParElement1 ActParElement1) { visit(); }
     public void visit(ActParsDerived2 ActParsDerived2) { visit(); }
     public void visit(ActParsDerived1 ActParsDerived1) { visit(); }
+    public void visit(FormParsElementSingle FormParsElementSingle) { visit(); }
+    public void visit(FormParsElementArray FormParsElementArray) { visit(); }
+    public void visit(FormParsDerived2 FormParsDerived2) { visit(); }
+    public void visit(FormParsDerived1 FormParsDerived1) { visit(); }
     public void visit(VoidTypeDerived1 VoidTypeDerived1) { visit(); }
     public void visit(TypeReturnType TypeReturnType) { visit(); }
     public void visit(VoidReturnType VoidReturnType) { visit(); }
     public void visit(MethodEnd1 MethodEnd1) { visit(); }
+    public void visit(MethodBegin1 MethodBegin1) { visit(); }
     public void visit(MethodNameAndRetType1 MethodNameAndRetType1) { visit(); }
+    public void visit(MethodDeclDerived4 MethodDeclDerived4) { visit(); }
+    public void visit(MethodDeclDerived3 MethodDeclDerived3) { visit(); }
     public void visit(MethodDeclDerived2 MethodDeclDerived2) { visit(); }
     public void visit(MethodDeclDerived1 MethodDeclDerived1) { visit(); }
     public void visit(MultipleMethodDeclDerived2 MultipleMethodDeclDerived2) { visit(); }

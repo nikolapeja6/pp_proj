@@ -1,5 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.Collection;
 import java.util.Stack;
 
 import javax.management.StandardEmitterMBean;
@@ -93,9 +94,29 @@ public class CodeGenerator extends VisitorAdaptor {
 		// Generate the entry.
 		Code.put(Code.enter);
 		Code.put(fpCnt.getCount());
-		Code.put(varCnt.getCount() + fpCnt.getCount());
+		Code.put(varCnt.getCount());
 	}
 
+	public void visit(MethodBegin1 methodBegin1){
+		Obj obj = methodBegin1.obj;
+		
+		Collection<Obj> col = obj.getLocalSymbols();
+		
+		Stack<Obj> objs = new Stack<>();
+		
+		for(Obj o: col)
+		{
+			if(o.getFpPos() > 0){
+				objs.push(o);
+			}
+		}
+		
+		while(!objs.isEmpty())
+		{
+			Code.store(objs.pop());
+		}
+	}
+	
 	public void visit(MethodEnd1 methodEnd) {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
@@ -108,6 +129,19 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall)
 	{
 		Obj obj = designatorStatementFunctionCall.obj; 
+		
+		int dstAdr = obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(dstAdr);
+		
+		if(obj.getType() != Tab.noType){
+			Code.put(Code.pop);
+		}
+	}
+	
+	public void visit(DesignatorStatementFunctionCallComplex complexFunctionCall){
+		
+		Obj obj = complexFunctionCall.obj; 
 		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
@@ -381,6 +415,15 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(FuncttionCallFactor functionCallFactor)
+	{
+		Obj obj = functionCallFactor.obj; 
+		
+		int dstAdr = obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(dstAdr);
+	}
+	
+	public void visit(FuncttionCallFactorComplex functionCallFactor)
 	{
 		Obj obj = functionCallFactor.obj; 
 		

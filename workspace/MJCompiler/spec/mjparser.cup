@@ -164,6 +164,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
 non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ActPars; 
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormPars; 
+
+
 
 non terminal Mulop;
 non terminal Addop;
@@ -188,6 +191,7 @@ non terminal ProgramBegin;
 non terminal ProgramEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
 non terminal MethodEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodBegin;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
 
@@ -227,6 +231,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclElement;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormParsElement;
+
 non terminal MatchedThen;
 
 non terminal DoWhileBegin;
@@ -235,8 +241,7 @@ non terminal StatementWhile;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
 
-
-
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
 /** END HELPER NON TERMINALS */
 
@@ -296,13 +301,19 @@ MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
 						
 
 /* TODO optional multiple statements */					
-MethodDecl ::= 	MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES OPEN_BRACES MultipleStatements MethodEnd
+MethodDecl ::= 	MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MethodBegin MultipleStatements MethodEnd
 				|
-				MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl OPEN_BRACES MultipleStatements MethodEnd
+				MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl MethodBegin MultipleStatements MethodEnd
+				|
+				MethodNameAndRetType OPEN_PARENTHESES FormPars CLOSE_PARENTHESES MethodBegin MultipleStatements MethodEnd
+				|
+				MethodNameAndRetType OPEN_PARENTHESES FormPars CLOSE_PARENTHESES MultipleVarDecl MethodBegin MultipleStatements MethodEnd
+				
 				;
 				
 MethodNameAndRetType ::= (MethodNameAndRetType1) ReturnType:type IDENT:name;
 
+MethodBegin ::= (MethodBegin1) OPEN_BRACES;
 MethodEnd ::= (MethodEnd1) CLOSE_BRACES;
 
 ReturnType ::= 	(VoidReturnType) VoidType
@@ -312,10 +323,21 @@ ReturnType ::= 	(VoidReturnType) VoidType
 
 VoidType ::= VOID;	
 
+FormPars ::= 	FormPars COMMA FormParsElement
+				|
+				FormParsElement
+				;
+
+FormParsElement ::= 	(FormParsElementArray) Type IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
+						|
+						(FormParsElementSingle) Type IDENT 
+						;
+
 ActPars ::= ActPars COMMA ActParElement
 			|
 			ActParElement
 			;
+			
 ActParElement ::= (ActParElement1)Expr;
 		
 
@@ -357,6 +379,7 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				(MatchedContinue) CONTINUE SEMICOLON
 				;
 				
+				
 DoWhileBegin ::= (DoWhileBegin1) DO;
 
 StatementWhile ::= (StatementWhile1) Statement;
@@ -372,13 +395,15 @@ MatchedThen ::= (MatchedThen1) Matched;
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN Expr
 							|
-							/* TODO */
-							(DesignatorStatementFunctionCall) Designator OPEN_PARENTHESES CLOSE_PARENTHESES
+							(DesignatorStatementFunctionCallComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
 							|
+							(DesignatorStatementFunctionCall) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
+							|							|
 							(DesignatorStatementInc)LValueDesignator INC
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
 							;
+MethodDesignator ::= (MethodDesignator1) Designator;
 
 Condition ::= 	(ConditionMultiple) CondTerm ConditionList
 				|
@@ -457,8 +482,10 @@ TermElement ::= (TermElement1) Mulop Factor;
 			/* TODO */
 Factor ::= 	(VariableFactor)RValueDesignator:desigantor
 			|
+			(FuncttionCallFactorComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+			|
 			/* TODO */
-			(FuncttionCallFactor) Designator:designator OPEN_PARENTHESES CLOSE_PARENTHESES
+			(FuncttionCallFactor) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
 			|
 			(ConstantFactor) Constant:constant
 			|
