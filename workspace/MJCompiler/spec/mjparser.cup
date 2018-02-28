@@ -245,6 +245,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
 non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
+non terminal ClassDeclEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
 
 /** END HELPER NON TERMINALS */
 
@@ -271,20 +273,21 @@ MultipleDecl ::= 	MultipleDecl ConstDecl
 					;
 					
 					
-ClassDecl ::= = ClassDeclBegin OPEN_BRACES CLOSE_BRACES
+ClassDecl ::= = ClassDeclBegin OPEN_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl CLOSE_BRACES
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES CLOSE_BRACES
+				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES CLOSE_BRACES
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				;				
 
 
-ClassDeclBegin ::= (DerivedClassbegin) CLASS IDENT EXTENDS Type
+ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
 					|
 					(NewClassBegin) CLASS IDENT
 					;
+ClassDeclEnd ::= (ClassDeclEnd1)CLOSE_BRACES;
  
 					
 ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;
@@ -511,6 +514,8 @@ Factor ::= 	(VariableFactor)RValueDesignator:desigantor
 			(FactorParenExpr) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
 			|
 			(FactorNewArray) NEW Type OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
+			|
+			(FactorNewObject) NEW Type
 			;
 			
 Constant ::= (NumberConstant) NUMBER:number
@@ -523,12 +528,18 @@ Constant ::= (NumberConstant) NUMBER:number
 LValueDesignator ::= (LValueDesignator1) Designator;
 RValueDesignator ::= (RValueDesignator1) Designator;
 			
-Designator ::= (DesignatorSimple)IDENT
+Designator ::= (DesignatorClass) IDENT DesignatorClassElement
+				|
+				(DesignatorSimple)IDENT
 				|
 				/* TODO ident designator*/
 				(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 				;
 				
+DesignatorClassElement ::=		(DesignatorClassElementArray) DOT IDENT OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
+								|
+								(DesignatorClassElementSimple) DOT IDENT
+								;
 				
 ArrayName ::= (ArrayName1) IDENT;
 

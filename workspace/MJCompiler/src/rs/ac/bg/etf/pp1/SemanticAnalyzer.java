@@ -19,6 +19,7 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class SemanticAnalyzer extends VisitorAdaptor {
 
@@ -42,6 +43,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	Struct currentDeclType = null;
 	List<String> currentVarDeclIdents = new LinkedList<>();
+
+	boolean inClassDecl = false;
 
 	Logger log = Logger.getLogger(getClass());
 
@@ -80,8 +83,38 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-		
-	
+	public void visit(DerivedClassBegin derivedClassBegin) {
+		inClassDecl = true;
+		fldCnt = 0;
+		throw new NotImplementedException();
+	}
+
+	public void visit(NewClassBegin newClassBegin) {
+		String name = newClassBegin.getI1();
+
+		Obj obj = Tab.find(name);
+
+		if (obj != null && obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", newClassBegin);
+		} else {
+			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
+		}
+
+		newClassBegin.obj = obj;
+		Tab.openScope();
+
+		inClassDecl = true;
+		fldCnt = 0;
+		scopeStack.push(newClassBegin.obj);obj.getType()
+	}
+
+	public void visit(ClassDeclEnd1 classDeclEnd1) {
+		inClassDecl = false;
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.closeScope();
+
+	}
+
 	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;
 	}
@@ -96,10 +129,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Identifier " + name + " already used.", null);
 			return;
 		}
-		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
-		if (globalVars)
-			obj.setLevel(0);
-		obj.setAdr(globalVarCnt++);
+
+		if (!inClassDecl) {
+			obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
+			if (globalVars)
+				obj.setLevel(0);
+			obj.setAdr(globalVarCnt++);
+		} else {
+			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
+			obj.setAdr(fldCnt++);
+		}
 		varDeclElementArray.obj = obj;
 	}
 
@@ -114,10 +153,15 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		obj = Tab.insert(Obj.Var, name, currentDeclType);
-		if (globalVars)
-			obj.setLevel(0);
-		obj.setAdr(globalVarCnt++);
+		if (!inClassDecl) {
+			obj = Tab.insert(Obj.Var, name, currentDeclType);
+			if (globalVars)
+				obj.setLevel(0);
+			obj.setAdr(globalVarCnt++);
+		} else {
+			obj = Tab.insert(Obj.Fld, name, currentDeclType);
+			obj.setAdr(fldCnt++);
+		}
 
 		varDeclElementSingle.obj = obj;
 		log.debug("Variable with name " + name + " has the address of " + varDeclElementSingle.obj.getAdr());
@@ -161,8 +205,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currentMethod = methodNameAndRetType.obj;
 		scopeStack.push(methodNameAndRetType.obj);
 	}
-	
-	public void visit(MethodBegin1 methodBegin1){
+
+	public void visit(MethodBegin1 methodBegin1) {
 		methodBegin1.obj = currentMethod;
 	}
 
@@ -215,6 +259,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		obj.setFpPos(fpCnt++);
 		formalPar.obj = obj;
 	}
+	
+	public void visit(FactorNewObject factorNewObject){
+		
+	}
 
 	public void visit(MethodDesignator1 methodDesignator1) {
 		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
@@ -230,14 +278,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (fun.getLevel() != cnt) {
 			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + cnt, null);
 		}
-		
+
 		complexFunctionCall.obj = fun;
 	}
 
 	public void visit(ActParElement1 actPar) {
 		Obj fp = null;
-	
-		
+
 		for (Obj obj : currentMethodCall.getLocalSymbols()) {
 			if (obj.getFpPos() == apCnt.peek()) {
 				fp = obj;
@@ -253,8 +300,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
 			report_error("ActPar is not assignable to formalPar", actPar);
 		}
-		
-		apCnt.push(apCnt.pop()+1);
+
+		apCnt.push(apCnt.pop() + 1);
 	}
 
 	public void visit(Type1 type) {
@@ -355,12 +402,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
-		
+
 		apCnt.pop();
 
 		designatorStatementFunctionCall.obj = obj;
 	}
-	
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
 		Obj designator = designatorStatementInc.getLValueDesignator().obj;
@@ -563,7 +609,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		apCnt.pop();
 		functtionCallFactor.obj = obj;
 	}
-	
+
 	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
@@ -571,7 +617,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
-		
+
 		int cnt = apCnt.pop();
 		if (obj.getLevel() != cnt) {
 			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);

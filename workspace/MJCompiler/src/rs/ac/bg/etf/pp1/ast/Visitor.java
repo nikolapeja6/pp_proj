@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 27/1/2018 5:21:58
+// 28/1/2018 0:28:27
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,6 +26,7 @@ public interface Visitor {
     public void visit(MethodDesignator MethodDesignator);
     public void visit(ProgramEnd ProgramEnd);
     public void visit(OptionalExprList OptionalExprList);
+    public void visit(DesignatorClassElement DesignatorClassElement);
     public void visit(FormParsElement FormParsElement);
     public void visit(MatchedThen MatchedThen);
     public void visit(Addop Addop);
@@ -57,15 +58,18 @@ public interface Visitor {
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(MultipleDecl MultipleDecl);
     public void visit(Statement Statement);
+    public void visit(ClassDeclBegin ClassDeclBegin);
     public void visit(VarDecl VarDecl);
     public void visit(Type Type);
     public void visit(CondTermElement CondTermElement);
+    public void visit(ClassDecl ClassDecl);
     public void visit(ConstDecl ConstDecl);
     public void visit(ExprElement ExprElement);
     public void visit(CondFact CondFact);
     public void visit(Program Program);
     public void visit(TermElement TermElement);
     public void visit(FormPars FormPars);
+    public void visit(ClassDeclEnd ClassDeclEnd);
     public void visit(MulopMod MulopMod);
     public void visit(MulopDiv MulopDiv);
     public void visit(MulopMultiply MulopMultiply);
@@ -78,13 +82,17 @@ public interface Visitor {
     public void visit(RelopNEq RelopNEq);
     public void visit(RelopEq RelopEq);
     public void visit(ArrayName1 ArrayName1);
+    public void visit(DesignatorClassElementSimple DesignatorClassElementSimple);
+    public void visit(DesignatorClassElementArray DesignatorClassElementArray);
     public void visit(DesignatorArray DesignatorArray);
     public void visit(DesignatorSimple DesignatorSimple);
+    public void visit(DesignatorClass DesignatorClass);
     public void visit(RValueDesignator1 RValueDesignator1);
     public void visit(LValueDesignator1 LValueDesignator1);
     public void visit(BoolConstant BoolConstant);
     public void visit(CharConstant CharConstant);
     public void visit(NumberConstant NumberConstant);
+    public void visit(FactorNewObject FactorNewObject);
     public void visit(FactorNewArray FactorNewArray);
     public void visit(FactorParenExpr FactorParenExpr);
     public void visit(ConstantFactor ConstantFactor);
@@ -179,6 +187,13 @@ public interface Visitor {
     public void visit(ConstDeclListDerived2 ConstDeclListDerived2);
     public void visit(ConstDeclListDerived1 ConstDeclListDerived1);
     public void visit(ConstDecl1 ConstDecl1);
+    public void visit(ClassDeclEnd1 ClassDeclEnd1);
+    public void visit(NewClassBegin NewClassBegin);
+    public void visit(DerivedClassBegin DerivedClassBegin);
+    public void visit(ClassDeclDerived4 ClassDeclDerived4);
+    public void visit(ClassDeclDerived3 ClassDeclDerived3);
+    public void visit(ClassDeclDerived2 ClassDeclDerived2);
+    public void visit(ClassDeclDerived1 ClassDeclDerived1);
     public void visit(MultipleDeclDerived4 MultipleDeclDerived4);
     public void visit(MultipleDeclDerived3 MultipleDeclDerived3);
     public void visit(MultipleDeclDerived2 MultipleDeclDerived2);
