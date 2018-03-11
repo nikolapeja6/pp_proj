@@ -145,6 +145,23 @@ public class CodeGenerator extends VisitorAdaptor {
 		
 		Obj obj = complexFunctionCall.obj; 
 		
+		// len(array)
+		if(obj.getName().equals("len")){
+			Code.put(Code.arraylength);
+			if(obj.getType() != Tab.noType){
+				Code.put(Code.pop);
+			}
+			return;
+		}
+		
+		if(obj.getName().equals("ord") ||obj.getName().equals("char") ){
+			if(obj.getType() != Tab.noType){
+				Code.put(Code.pop);
+			}
+			return;
+		}
+		
+		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(dstAdr);
@@ -428,6 +445,17 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(FuncttionCallFactorComplex functionCallFactor)
 	{
 		Obj obj = functionCallFactor.obj; 
+		
+		// len(array)
+		if(obj.getName().equals("len")){
+			Code.put(Code.arraylength);
+			return;
+		}
+		
+		if(obj.getName().equals("ord") || obj.getName().equals("char"))
+		{
+			return;
+		}
 		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);

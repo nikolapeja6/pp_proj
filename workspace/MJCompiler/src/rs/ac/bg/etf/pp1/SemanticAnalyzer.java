@@ -105,7 +105,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		inClassDecl = true;
 		fldCnt = 0;
-		scopeStack.push(newClassBegin.obj);obj.getType()
+		scopeStack.push(newClassBegin.obj);obj.getType();
 	}
 
 	public void visit(ClassDeclEnd1 classDeclEnd1) {
@@ -677,9 +677,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(RValueDesignator1 rdesignator) {
 		if (rdesignator.getDesignator().obj.getType().getKind() == Struct.Array) {
+			
+			if(rdesignator.getDesignator() instanceof DesignatorArray){
 			String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
 			rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
 			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			}
+			else
+			{
+				String varName = ((DesignatorSimple) rdesignator.getDesignator()).getI1();
+				rdesignator.obj = new Obj(Obj.Var, varName, rdesignator.getDesignator().obj.getType());
+				rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			}
 		} else {
 			rdesignator.obj = rdesignator.getDesignator().obj;
 		}

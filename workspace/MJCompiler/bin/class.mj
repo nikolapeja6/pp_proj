@@ -1,14 +1,27 @@
 program BBB{
 
-	class A{
-		int x;
-	}
+
+	//class A{
+	//	int x;
+	//}
 	
-	void main() A a;{
-		a = new A;
-		a.x = 5;
+	void main()// A a;
+	int a0[], a1[], a2[], a5[];
+	{
+		//a = new A;
+		//a.x = 5;
 		
-		print(a.x);
+		//print(a.x);
+		
+		a0 = new int[0];
+		a1 = new int[1];
+		a2 = new int[2];
+		a5 = new int[5];
+		
+		print(len(a0));
+		print(len(a1));
+		print(len(a2));
+		print(len(a5));
 	}
 
 }
