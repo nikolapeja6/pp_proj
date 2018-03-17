@@ -1,25 +1,36 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/2/2018 15:7:45
+// 15/2/2018 22:35:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MultipleDeclDerived3 extends MultipleDecl {
 
-    private ConstDecl ConstDecl;
+    private MultipleDecl MultipleDecl;
+    private ClassDecl ClassDecl;
 
-    public MultipleDeclDerived3 (ConstDecl ConstDecl) {
-        this.ConstDecl=ConstDecl;
-        if(ConstDecl!=null) ConstDecl.setParent(this);
+    public MultipleDeclDerived3 (MultipleDecl MultipleDecl, ClassDecl ClassDecl) {
+        this.MultipleDecl=MultipleDecl;
+        if(MultipleDecl!=null) MultipleDecl.setParent(this);
+        this.ClassDecl=ClassDecl;
+        if(ClassDecl!=null) ClassDecl.setParent(this);
     }
 
-    public ConstDecl getConstDecl() {
-        return ConstDecl;
+    public MultipleDecl getMultipleDecl() {
+        return MultipleDecl;
     }
 
-    public void setConstDecl(ConstDecl ConstDecl) {
-        this.ConstDecl=ConstDecl;
+    public void setMultipleDecl(MultipleDecl MultipleDecl) {
+        this.MultipleDecl=MultipleDecl;
+    }
+
+    public ClassDecl getClassDecl() {
+        return ClassDecl;
+    }
+
+    public void setClassDecl(ClassDecl ClassDecl) {
+        this.ClassDecl=ClassDecl;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +38,19 @@ public class MultipleDeclDerived3 extends MultipleDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ConstDecl!=null) ConstDecl.accept(visitor);
+        if(MultipleDecl!=null) MultipleDecl.accept(visitor);
+        if(ClassDecl!=null) ClassDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ConstDecl!=null) ConstDecl.traverseTopDown(visitor);
+        if(MultipleDecl!=null) MultipleDecl.traverseTopDown(visitor);
+        if(ClassDecl!=null) ClassDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ConstDecl!=null) ConstDecl.traverseBottomUp(visitor);
+        if(MultipleDecl!=null) MultipleDecl.traverseBottomUp(visitor);
+        if(ClassDecl!=null) ClassDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +59,14 @@ public class MultipleDeclDerived3 extends MultipleDecl {
         buffer.append(tab);
         buffer.append("MultipleDeclDerived3(\n");
 
-        if(ConstDecl!=null)
-            buffer.append(ConstDecl.toString("  "+tab));
+        if(MultipleDecl!=null)
+            buffer.append(MultipleDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ClassDecl!=null)
+            buffer.append(ClassDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

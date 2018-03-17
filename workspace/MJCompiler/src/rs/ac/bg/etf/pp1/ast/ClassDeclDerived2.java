@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 11/2/2018 15:7:45
+// 15/2/2018 22:35:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,14 +8,14 @@ package rs.ac.bg.etf.pp1.ast;
 public class ClassDeclDerived2 extends ClassDecl {
 
     private ClassDeclBegin ClassDeclBegin;
-    private MultipleVarDecl MultipleVarDecl;
+    private MultipleMethodDecl MultipleMethodDecl;
     private ClassDeclEnd ClassDeclEnd;
 
-    public ClassDeclDerived2 (ClassDeclBegin ClassDeclBegin, MultipleVarDecl MultipleVarDecl, ClassDeclEnd ClassDeclEnd) {
+    public ClassDeclDerived2 (ClassDeclBegin ClassDeclBegin, MultipleMethodDecl MultipleMethodDecl, ClassDeclEnd ClassDeclEnd) {
         this.ClassDeclBegin=ClassDeclBegin;
         if(ClassDeclBegin!=null) ClassDeclBegin.setParent(this);
-        this.MultipleVarDecl=MultipleVarDecl;
-        if(MultipleVarDecl!=null) MultipleVarDecl.setParent(this);
+        this.MultipleMethodDecl=MultipleMethodDecl;
+        if(MultipleMethodDecl!=null) MultipleMethodDecl.setParent(this);
         this.ClassDeclEnd=ClassDeclEnd;
         if(ClassDeclEnd!=null) ClassDeclEnd.setParent(this);
     }
@@ -28,12 +28,12 @@ public class ClassDeclDerived2 extends ClassDecl {
         this.ClassDeclBegin=ClassDeclBegin;
     }
 
-    public MultipleVarDecl getMultipleVarDecl() {
-        return MultipleVarDecl;
+    public MultipleMethodDecl getMultipleMethodDecl() {
+        return MultipleMethodDecl;
     }
 
-    public void setMultipleVarDecl(MultipleVarDecl MultipleVarDecl) {
-        this.MultipleVarDecl=MultipleVarDecl;
+    public void setMultipleMethodDecl(MultipleMethodDecl MultipleMethodDecl) {
+        this.MultipleMethodDecl=MultipleMethodDecl;
     }
 
     public ClassDeclEnd getClassDeclEnd() {
@@ -50,20 +50,20 @@ public class ClassDeclDerived2 extends ClassDecl {
 
     public void childrenAccept(Visitor visitor) {
         if(ClassDeclBegin!=null) ClassDeclBegin.accept(visitor);
-        if(MultipleVarDecl!=null) MultipleVarDecl.accept(visitor);
+        if(MultipleMethodDecl!=null) MultipleMethodDecl.accept(visitor);
         if(ClassDeclEnd!=null) ClassDeclEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(ClassDeclBegin!=null) ClassDeclBegin.traverseTopDown(visitor);
-        if(MultipleVarDecl!=null) MultipleVarDecl.traverseTopDown(visitor);
+        if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseTopDown(visitor);
         if(ClassDeclEnd!=null) ClassDeclEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ClassDeclBegin!=null) ClassDeclBegin.traverseBottomUp(visitor);
-        if(MultipleVarDecl!=null) MultipleVarDecl.traverseBottomUp(visitor);
+        if(MultipleMethodDecl!=null) MultipleMethodDecl.traverseBottomUp(visitor);
         if(ClassDeclEnd!=null) ClassDeclEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -79,8 +79,8 @@ public class ClassDeclDerived2 extends ClassDecl {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MultipleVarDecl!=null)
-            buffer.append(MultipleVarDecl.toString("  "+tab));
+        if(MultipleMethodDecl!=null)
+            buffer.append(MultipleMethodDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

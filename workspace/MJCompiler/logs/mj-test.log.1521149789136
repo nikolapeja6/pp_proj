@@ -1,0 +1,43 @@
+INFO  01:27:25,490 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  01:27:25,543 - #40 program
+INFO  01:27:25,543 - #45 BBB
+INFO  01:27:25,543 - #38 class
+INFO  01:27:25,544 - #45 A
+INFO  01:27:25,544 - #34 {
+INFO  01:27:25,544 - #35 }
+INFO  01:27:25,544 - #34 {
+INFO  01:27:25,545 - #43 void
+INFO  01:27:25,546 - #45 main
+INFO  01:27:25,546 - #32 (
+INFO  01:27:25,547 - #33 )
+INFO  01:27:25,547 - #45 A
+INFO  01:27:25,547 - #45 a
+INFO  01:27:25,547 - #13 ;
+INFO  01:27:25,547 - #34 {
+INFO  01:27:25,547 - #45 a
+INFO  01:27:25,548 - #28 =
+INFO  01:27:25,548 - #31 new
+INFO  01:27:25,548 - #45 A
+INFO  01:27:25,548 - #13 ;
+INFO  01:27:25,549 - #45 a
+INFO  01:27:25,550 - #14 .
+INFO  01:27:25,550 - #45 x
+INFO  01:27:25,550 - #28 =
+INFO  01:27:25,550 - #9 5
+INFO  01:27:25,550 - #13 ;
+INFO  01:27:25,551 - #41 print
+INFO  01:27:25,551 - #32 (
+INFO  01:27:25,551 - #45 a
+INFO  01:27:25,551 - #14 .
+INFO  01:27:25,551 - #45 x
+INFO  01:27:25,551 - #33 )
+INFO  01:27:25,551 - #13 ;
+INFO  01:27:25,551 - #35 }
+INFO  01:27:25,551 - #35 }
+INFO  01:27:25,553 - ***Abstract tree****
+INFO  01:27:25,553 - #0
+DEBUG 01:27:25,560 - multiple decl
+DEBUG 01:27:25,561 - program begin
+ERROR 01:27:25,561 - A is not a type. na liniji 6
+DEBUG 01:27:25,561 - Variable with name a has the address of 0
+ERROR 01:27:25,561 - A is not a type. na liniji 8

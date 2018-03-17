@@ -252,9 +252,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
 
 
 /* TODO optional method decl*/
-Program ::= (Program1) PROG ProgramName:P1 ProgramBegin:P2 MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new Program1(P1, P2, M3, P4); RESULT.setLine(P1left); :}
+Program ::= (Program2) PROG ProgramName:P1 MultipleDecl:M2 ProgramBegin:P3 MultipleMethodDecl:M4 ProgramEnd:P5 {: RESULT=new Program2(P1, M2, P3, M4, P5); RESULT.setLine(P1left); :}
 			|
-			(Program2) PROG ProgramName:P1 MultipleDecl:M2 ProgramBegin:P3 MultipleMethodDecl:M4 ProgramEnd:P5 {: RESULT=new Program2(P1, M2, P3, M4, P5); RESULT.setLine(P1left); :}
+			(Program1) PROG ProgramName:P1 ProgramBegin:P2 MultipleMethodDecl:M3 ProgramEnd:P4 {: RESULT=new Program1(P1, P2, M3, P4); RESULT.setLine(P1left); :}
 			;
 			
 ProgramName ::= (ProgName) IDENT:name {: RESULT=new ProgName(name); RESULT.setLine(nameleft); :};
@@ -267,19 +267,23 @@ MultipleDecl ::= 	MultipleDecl:M1 ConstDecl:C2 {: RESULT=new MultipleDeclDerived
 					|
 					MultipleDecl:M1 VarDecl:V2 {: RESULT=new MultipleDeclDerived2(M1, V2); RESULT.setLine(M1left); :}
 					|
-					ConstDecl:C1 {: RESULT=new MultipleDeclDerived3(C1); RESULT.setLine(C1left); :}
+					MultipleDecl:M1 ClassDecl:C2 {: RESULT=new MultipleDeclDerived3(M1, C2); RESULT.setLine(M1left); :}
 					|
-					VarDecl:V1 {: RESULT=new MultipleDeclDerived4(V1); RESULT.setLine(V1left); :}
+					ConstDecl:C1 {: RESULT=new MultipleDeclDerived4(C1); RESULT.setLine(C1left); :}
+					|
+					VarDecl:V1 {: RESULT=new MultipleDeclDerived5(V1); RESULT.setLine(V1left); :}
+					|
+					ClassDecl:C1 {: RESULT=new MultipleDeclDerived6(C1); RESULT.setLine(C1left); :}
 					;
 					
 					
-ClassDecl ::= = ClassDeclBegin OPEN_BRACES ClassDeclEnd
-				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+ClassDecl ::= = ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
 				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+				|
+				ClassDeclBegin OPEN_BRACES ClassDeclEnd
 				;				
 
 
@@ -287,7 +291,8 @@ ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT:I1 EXTENDS Type:T2 {: RESULT=
 					|
 					(NewClassBegin) CLASS IDENT:I1 {: RESULT=new NewClassBegin(I1); RESULT.setLine(I1left); :}
 					;
-ClassDeclEnd ::= (ClassDeclEnd1)CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
+
+ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
  
 					
 ConstDecl ::= (ConstDecl1) CONST Type:T1 ConstDeclList:C2 SEMICOLON {: RESULT=new ConstDecl1(T1, C2); RESULT.setLine(T1left); :};

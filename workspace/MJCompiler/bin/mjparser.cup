@@ -252,9 +252,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
 
 
 /* TODO optional method decl*/
-Program ::= (Program1) PROG ProgramName ProgramBegin MultipleMethodDecl ProgramEnd
+Program ::= (Program2) PROG ProgramName MultipleDecl ProgramBegin MultipleMethodDecl ProgramEnd
 			|
-			(Program2) PROG ProgramName MultipleDecl ProgramBegin MultipleMethodDecl ProgramEnd
+			(Program1) PROG ProgramName ProgramBegin MultipleMethodDecl ProgramEnd
 			;
 			
 ProgramName ::= (ProgName) IDENT:name;
@@ -267,19 +267,23 @@ MultipleDecl ::= 	MultipleDecl ConstDecl
 					|
 					MultipleDecl VarDecl
 					|
+					MultipleDecl ClassDecl
+					|
 					ConstDecl
 					|
 					VarDecl
+					|
+					ClassDecl
 					;
 					
 					
-ClassDecl ::= = ClassDeclBegin OPEN_BRACES ClassDeclEnd
-				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+ClassDecl ::= = ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
 				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+				|
+				ClassDeclBegin OPEN_BRACES ClassDeclEnd
 				;				
 
 
@@ -287,7 +291,8 @@ ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
 					|
 					(NewClassBegin) CLASS IDENT
 					;
-ClassDeclEnd ::= (ClassDeclEnd1)CLOSE_BRACES;
+
+ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES;
  
 					
 ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;

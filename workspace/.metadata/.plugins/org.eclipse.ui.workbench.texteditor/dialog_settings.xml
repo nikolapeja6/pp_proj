@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="openScope" key="selection"/>
+		<item value="FunctionCall" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="openScope"/>
-			<item value="65"/>
-			<item value="Code.store"/>
-			<item value="Code.load"/>
-			<item value="Code.store("/>
-			<item value="fpCnt"/>
-			<item value="currentMethodCall"/>
-			<item value="main"/>
+			<item value="functioncall"/>
+			<item value="&#x09;&#x09;// len(array)"/>
+			<item value="call"/>
+			<item value="ActPar is not assignable to formalPar"/>
+			<item value="ActPar is not assignable to formalPar "/>
+			<item value="ActPar is not assignable to formalPar na liniji 21"/>
+			<item value=" is not assignable to desigantor"/>
+			<item value="expression is not assignable to de"/>
 		</list>
 		<list key="replacehistory">
 			<item value="parser.log.info"/>

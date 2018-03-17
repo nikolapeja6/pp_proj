@@ -53,11 +53,11 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.mj.runtime.Code"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
-<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.CodeGenerator"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.DerivedClassBegin"/>
 <fullyQualifiedTypeName name="sun.reflect.generics.reflectiveObjects.NotImplementedException"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.NewClassBegin"/>
 <fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Struct"/>
 <fullyQualifiedTypeName name="rs.ac.bg.etf.pp1.ast.FactorNewObject"/>
+<fullyQualifiedTypeName name="rs.etf.pp1.symboltable.concepts.Obj"/>
 </qualifiedTypeNameHistroy>
