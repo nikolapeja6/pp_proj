@@ -1,27 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/2/2018 22:35:52
+// 18/2/2018 21:16:59
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorClassElementArray extends DesignatorClassElement {
 
-    private String I1;
+    private ArrayFieldName ArrayFieldName;
     private Expr Expr;
 
-    public DesignatorClassElementArray (String I1, Expr Expr) {
-        this.I1=I1;
+    public DesignatorClassElementArray (ArrayFieldName ArrayFieldName, Expr Expr) {
+        this.ArrayFieldName=ArrayFieldName;
+        if(ArrayFieldName!=null) ArrayFieldName.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ArrayFieldName getArrayFieldName() {
+        return ArrayFieldName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setArrayFieldName(ArrayFieldName ArrayFieldName) {
+        this.ArrayFieldName=ArrayFieldName;
     }
 
     public Expr getExpr() {
@@ -37,15 +38,18 @@ public class DesignatorClassElementArray extends DesignatorClassElement {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ArrayFieldName!=null) ArrayFieldName.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ArrayFieldName!=null) ArrayFieldName.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ArrayFieldName!=null) ArrayFieldName.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -55,7 +59,10 @@ public class DesignatorClassElementArray extends DesignatorClassElement {
         buffer.append(tab);
         buffer.append("DesignatorClassElementArray(\n");
 
-        buffer.append(" "+tab+I1);
+        if(ArrayFieldName!=null)
+            buffer.append(ArrayFieldName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(Expr!=null)

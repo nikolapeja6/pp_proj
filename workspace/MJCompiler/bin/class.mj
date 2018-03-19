@@ -1,6 +1,7 @@
 program BBB
-
+	int x;
 	class A {
+		int b;
 	}
 {
 	void main() A a;

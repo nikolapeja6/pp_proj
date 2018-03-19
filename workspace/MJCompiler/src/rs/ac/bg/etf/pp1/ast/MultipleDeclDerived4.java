@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/2/2018 22:35:52
+// 18/2/2018 21:16:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MultipleDeclDerived4 extends MultipleDecl {
 
-    private ConstDecl ConstDecl;
+    private ClassDecl ClassDecl;
 
-    public MultipleDeclDerived4 (ConstDecl ConstDecl) {
-        this.ConstDecl=ConstDecl;
-        if(ConstDecl!=null) ConstDecl.setParent(this);
+    public MultipleDeclDerived4 (ClassDecl ClassDecl) {
+        this.ClassDecl=ClassDecl;
+        if(ClassDecl!=null) ClassDecl.setParent(this);
     }
 
-    public ConstDecl getConstDecl() {
-        return ConstDecl;
+    public ClassDecl getClassDecl() {
+        return ClassDecl;
     }
 
-    public void setConstDecl(ConstDecl ConstDecl) {
-        this.ConstDecl=ConstDecl;
+    public void setClassDecl(ClassDecl ClassDecl) {
+        this.ClassDecl=ClassDecl;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class MultipleDeclDerived4 extends MultipleDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ConstDecl!=null) ConstDecl.accept(visitor);
+        if(ClassDecl!=null) ClassDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ConstDecl!=null) ConstDecl.traverseTopDown(visitor);
+        if(ClassDecl!=null) ClassDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ConstDecl!=null) ConstDecl.traverseBottomUp(visitor);
+        if(ClassDecl!=null) ClassDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class MultipleDeclDerived4 extends MultipleDecl {
         buffer.append(tab);
         buffer.append("MultipleDeclDerived4(\n");
 
-        if(ConstDecl!=null)
-            buffer.append(ConstDecl.toString("  "+tab));
+        if(ClassDecl!=null)
+            buffer.append(ClassDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

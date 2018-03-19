@@ -16,10 +16,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CodeGenerator extends VisitorAdaptor {
 
-	private int varCount;
-
-	private int paramCnt;
-
+	public int staticVarCount;
+	public int totalStaticDataSize;
 	private int mainPc;
 	
 	private Stack<Integer> jmpNotThen = new Stack<>();
@@ -125,9 +123,31 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
-		Code.store(designatorStatementAssignment.getLValueDesignator().obj);
+		Obj lValueObj = designatorStatementAssignment.getLValueDesignator().obj;
+		Code.store(lValueObj);
+		
+		if(lValueObj.getType().getKind() == Struct.Class)
+		{
+			// class designator.
+			Code.load(lValueObj);
+			Code.loadConst(totalStaticDataSize);
+			Code.put(Code.putfield);
+			Code.loadConst(0);
+		}
 	}
 	
+	public void visit(DesignatorClassElementSimple designator){
+		Code.put(Code.getfield);
+		Code.load(designator.obj);
+	}
+	
+	// TODO
+	/*
+	public void visit(DesignatorClassElementArray designator)
+	{
+		Code.put(Code.get);
+	}
+	*/
 	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall)
 	{
 		Obj obj = designatorStatementFunctionCall.obj; 
@@ -169,6 +189,13 @@ public class CodeGenerator extends VisitorAdaptor {
 		if(obj.getType() != Tab.noType){
 			Code.put(Code.pop);
 		}
+	}
+	
+	public void visit(FactorNewObject newObj)
+	{
+		Code.put(newObj.getLine());
+		Code.put(Code.new_);
+		
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {

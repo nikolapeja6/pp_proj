@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/2/2018 22:35:52
+// 18/2/2018 21:16:58
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MultipleDeclDerived6 extends MultipleDecl {
 
-    private ClassDecl ClassDecl;
+    private VarDecl VarDecl;
 
-    public MultipleDeclDerived6 (ClassDecl ClassDecl) {
-        this.ClassDecl=ClassDecl;
-        if(ClassDecl!=null) ClassDecl.setParent(this);
+    public MultipleDeclDerived6 (VarDecl VarDecl) {
+        this.VarDecl=VarDecl;
+        if(VarDecl!=null) VarDecl.setParent(this);
     }
 
-    public ClassDecl getClassDecl() {
-        return ClassDecl;
+    public VarDecl getVarDecl() {
+        return VarDecl;
     }
 
-    public void setClassDecl(ClassDecl ClassDecl) {
-        this.ClassDecl=ClassDecl;
+    public void setVarDecl(VarDecl VarDecl) {
+        this.VarDecl=VarDecl;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class MultipleDeclDerived6 extends MultipleDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ClassDecl!=null) ClassDecl.accept(visitor);
+        if(VarDecl!=null) VarDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ClassDecl!=null) ClassDecl.traverseTopDown(visitor);
+        if(VarDecl!=null) VarDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ClassDecl!=null) ClassDecl.traverseBottomUp(visitor);
+        if(VarDecl!=null) VarDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class MultipleDeclDerived6 extends MultipleDecl {
         buffer.append(tab);
         buffer.append("MultipleDeclDerived6(\n");
 
-        if(ClassDecl!=null)
-            buffer.append(ClassDecl.toString("  "+tab));
+        if(VarDecl!=null)
+            buffer.append(VarDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

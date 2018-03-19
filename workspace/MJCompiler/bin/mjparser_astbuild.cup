@@ -247,6 +247,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
 non terminal ClassDeclEnd ClassDeclEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassELementList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
 /** END HELPER NON TERMINALS */
 
@@ -269,31 +272,31 @@ MultipleDecl ::= 	MultipleDecl:M1 ConstDecl:C2 {: RESULT=new MultipleDeclDerived
 					|
 					MultipleDecl:M1 ClassDecl:C2 {: RESULT=new MultipleDeclDerived3(M1, C2); RESULT.setLine(M1left); :}
 					|
-					ConstDecl:C1 {: RESULT=new MultipleDeclDerived4(C1); RESULT.setLine(C1left); :}
+					ClassDecl:C1 {: RESULT=new MultipleDeclDerived4(C1); RESULT.setLine(C1left); :}
+					| 
+					ConstDecl:C1 {: RESULT=new MultipleDeclDerived5(C1); RESULT.setLine(C1left); :}
 					|
-					VarDecl:V1 {: RESULT=new MultipleDeclDerived5(V1); RESULT.setLine(V1left); :}
-					|
-					ClassDecl:C1 {: RESULT=new MultipleDeclDerived6(C1); RESULT.setLine(C1left); :}
+					VarDecl:V1 {: RESULT=new MultipleDeclDerived6(V1); RESULT.setLine(V1left); :}
 					;
 					
 					
-ClassDecl ::= = ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+ClassDecl ::= 	(ClassDecl1) ClassDeclBegin:C1 OPEN_BRACES MultipleVarDecl:M2 OPEN_BRACES MultipleMethodDecl:M3 CLOSE_BRACES ClassDeclEnd:C4 {: RESULT=new ClassDecl1(C1, M2, M3, C4); RESULT.setLine(C1left); :}
 				|
-				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				(ClassDecl2) ClassDeclBegin:C1 OPEN_BRACES OPEN_BRACES MultipleMethodDecl:M2 CLOSE_BRACES ClassDeclEnd:C3 {: RESULT=new ClassDecl2(C1, M2, C3); RESULT.setLine(C1left); :}
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+				(ClassDecl3) ClassDeclBegin:C1 OPEN_BRACES MultipleVarDecl:M2 ClassDeclEnd:C3 {: RESULT=new ClassDecl3(C1, M2, C3); RESULT.setLine(C1left); :}
 				|
-				ClassDeclBegin OPEN_BRACES ClassDeclEnd
-				;				
+				(ClassDecl4) ClassDeclBegin:C1 OPEN_BRACES ClassDeclEnd:C2 {: RESULT=new ClassDecl4(C1, C2); RESULT.setLine(C1left); :}
+				;
 
 
+								
 ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT:I1 EXTENDS Type:T2 {: RESULT=new DerivedClassBegin(I1, T2); RESULT.setLine(I1left); :}
 					|
 					(NewClassBegin) CLASS IDENT:I1 {: RESULT=new NewClassBegin(I1); RESULT.setLine(I1left); :}
 					;
-
+					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
- 
 					
 ConstDecl ::= (ConstDecl1) CONST Type:T1 ConstDeclList:C2 SEMICOLON {: RESULT=new ConstDecl1(T1, C2); RESULT.setLine(T1left); :};
 
@@ -425,7 +428,7 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 							(DesignatorStatementFunctionCallComplex) MethodDesignator:M1 OPEN_PARENTHESES ActPars:A2 CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCallComplex(M1, A2); RESULT.setLine(M1left); :}
 							|
 							(DesignatorStatementFunctionCall) MethodDesignator:M1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCall(M1); RESULT.setLine(M1left); :}
-							| {: RESULT=new DesignatorStatementDerived1(); :}							|
+							|							
 							(DesignatorStatementInc)LValueDesignator:L1 INC {: RESULT=new DesignatorStatementInc(L1); RESULT.setLine(L1left); :}
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
@@ -541,7 +544,8 @@ Designator ::= (DesignatorClass) IDENT:I1 DesignatorClassElement:D2 {: RESULT=ne
 				(DesignatorArray) ArrayName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(A1, E2); RESULT.setLine(A1left); :}
 				;
 				
-DesignatorClassElement ::=		(DesignatorClassElementArray) DOT IDENT:I1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorClassElementArray(I1, E2); RESULT.setLine(I1left); :} 
+				
+DesignatorClassElement ::=		(DesignatorClassElementArray) DOT ArrayFieldName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorClassElementArray(A1, E2); RESULT.setLine(A1left); :} 
 								|
 								(DesignatorClassElementSimple) DOT IDENT:I1 {: RESULT=new DesignatorClassElementSimple(I1); RESULT.setLine(I1left); :}
 								;

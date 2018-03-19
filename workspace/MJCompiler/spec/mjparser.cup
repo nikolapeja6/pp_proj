@@ -247,6 +247,9 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
 non terminal ClassDeclEnd;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassELementList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
 /** END HELPER NON TERMINALS */
 
@@ -269,31 +272,31 @@ MultipleDecl ::= 	MultipleDecl ConstDecl
 					|
 					MultipleDecl ClassDecl
 					|
+					ClassDecl
+					| 
 					ConstDecl
 					|
 					VarDecl
-					|
-					ClassDecl
 					;
 					
 					
-ClassDecl ::= = ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+ClassDecl ::= 	(ClassDecl1) ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				(ClassDecl2) ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+				(ClassDecl3) ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
 				|
-				ClassDeclBegin OPEN_BRACES ClassDeclEnd
-				;				
+				(ClassDecl4) ClassDeclBegin OPEN_BRACES ClassDeclEnd
+				;
 
 
+								
 ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
 					|
 					(NewClassBegin) CLASS IDENT
 					;
-
+					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES;
- 
 					
 ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;
 
@@ -425,7 +428,7 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN
 							(DesignatorStatementFunctionCallComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
 							|
 							(DesignatorStatementFunctionCall) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
-							|							|
+							|							
 							(DesignatorStatementInc)LValueDesignator INC
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
@@ -541,7 +544,8 @@ Designator ::= (DesignatorClass) IDENT DesignatorClassElement
 				(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 				;
 				
-DesignatorClassElement ::=		(DesignatorClassElementArray) DOT IDENT OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
+				
+DesignatorClassElement ::=		(DesignatorClassElementArray) DOT ArrayFieldName OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
 								|
 								(DesignatorClassElementSimple) DOT IDENT
 								;

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/2/2018 22:35:53
+// 18/2/2018 21:16:59
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Unmatched Unmatched) { }
     public void visit(ArrayName ArrayName) { }
     public void visit(ReturnType ReturnType) { }
+    public void visit(ArrayFieldName ArrayFieldName) { }
     public void visit(Mulop Mulop) { }
     public void visit(MethodDecl MethodDecl) { }
     public void visit(Constant Constant) { }
@@ -60,6 +61,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Statement Statement) { }
     public void visit(ClassDeclBegin ClassDeclBegin) { }
     public void visit(VarDecl VarDecl) { }
+    public void visit(DesignatorClassELementList DesignatorClassELementList) { }
     public void visit(Type Type) { }
     public void visit(CondTermElement CondTermElement) { }
     public void visit(ClassDecl ClassDecl) { }
@@ -69,6 +71,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Program Program) { }
     public void visit(TermElement TermElement) { }
     public void visit(FormPars FormPars) { }
+    public void visit(DesignatorClassBegin DesignatorClassBegin) { }
     public void visit(ClassDeclEnd ClassDeclEnd) { }
     public void visit(MulopMod MulopMod) { visit(); }
     public void visit(MulopDiv MulopDiv) { visit(); }
@@ -131,7 +134,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MethodDesignator1 MethodDesignator1) { visit(); }
     public void visit(DesignatorStatementDec DesignatorStatementDec) { visit(); }
     public void visit(DesignatorStatementInc DesignatorStatementInc) { visit(); }
-    public void visit(DesignatorStatementDerived1 DesignatorStatementDerived1) { visit(); }
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall) { visit(); }
     public void visit(DesignatorStatementFunctionCallComplex DesignatorStatementFunctionCallComplex) { visit(); }
     public void visit(DesignatorStatementAssignment DesignatorStatementAssignment) { visit(); }
@@ -190,10 +192,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ClassDeclEnd1 ClassDeclEnd1) { visit(); }
     public void visit(NewClassBegin NewClassBegin) { visit(); }
     public void visit(DerivedClassBegin DerivedClassBegin) { visit(); }
-    public void visit(ClassDeclDerived4 ClassDeclDerived4) { visit(); }
-    public void visit(ClassDeclDerived3 ClassDeclDerived3) { visit(); }
-    public void visit(ClassDeclDerived2 ClassDeclDerived2) { visit(); }
-    public void visit(ClassDeclDerived1 ClassDeclDerived1) { visit(); }
+    public void visit(ClassDecl4 ClassDecl4) { visit(); }
+    public void visit(ClassDecl3 ClassDecl3) { visit(); }
+    public void visit(ClassDecl2 ClassDecl2) { visit(); }
+    public void visit(ClassDecl1 ClassDecl1) { visit(); }
     public void visit(MultipleDeclDerived6 MultipleDeclDerived6) { visit(); }
     public void visit(MultipleDeclDerived5 MultipleDeclDerived5) { visit(); }
     public void visit(MultipleDeclDerived4 MultipleDeclDerived4) { visit(); }

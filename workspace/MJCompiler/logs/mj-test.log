@@ -1,43 +1,54 @@
-INFO  22:36:29,139 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
-INFO  22:36:29,193 - #40 program
-INFO  22:36:29,193 - #45 BBB
-INFO  22:36:29,193 - #38 class
-INFO  22:36:29,193 - #45 A
-INFO  22:36:29,193 - #34 {
-INFO  22:36:29,194 - #35 }
-INFO  22:36:29,194 - #34 {
-INFO  22:36:29,194 - #43 void
-INFO  22:36:29,195 - #45 main
-INFO  22:36:29,196 - #32 (
-INFO  22:36:29,196 - #33 )
-INFO  22:36:29,196 - #45 A
-INFO  22:36:29,196 - #45 a
-INFO  22:36:29,197 - #13 ;
-INFO  22:36:29,197 - #34 {
-INFO  22:36:29,197 - #45 a
-INFO  22:36:29,198 - #28 =
-INFO  22:36:29,198 - #31 new
-INFO  22:36:29,199 - #45 A
-INFO  22:36:29,199 - #13 ;
-INFO  22:36:29,199 - #45 a
-INFO  22:36:29,200 - #14 .
-INFO  22:36:29,200 - #45 x
-INFO  22:36:29,200 - #28 =
-INFO  22:36:29,201 - #9 5
-INFO  22:36:29,201 - #13 ;
-INFO  22:36:29,201 - #41 print
-INFO  22:36:29,201 - #32 (
-INFO  22:36:29,201 - #45 a
-INFO  22:36:29,201 - #14 .
-INFO  22:36:29,201 - #45 x
-INFO  22:36:29,201 - #33 )
-INFO  22:36:29,201 - #13 ;
-INFO  22:36:29,201 - #35 }
-INFO  22:36:29,202 - #35 }
-INFO  22:36:29,203 - ***Abstract tree****
-INFO  22:36:29,203 - #0
-DEBUG 22:36:29,210 - multiple decl
-DEBUG 22:36:29,210 - program begin
-ERROR 22:36:29,211 - A is not a type. na liniji 6
-DEBUG 22:36:29,211 - Variable with name a has the address of 0
-ERROR 22:36:29,211 - A is not a type. na liniji 8
+INFO  19:04:45,287 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  19:04:45,351 - #40 program
+INFO  19:04:45,351 - #45 BBB
+INFO  19:04:45,351 - #45 int
+INFO  19:04:45,351 - #45 x
+INFO  19:04:45,352 - #13 ;
+INFO  19:04:45,352 - #38 class
+INFO  19:04:45,352 - #45 A
+INFO  19:04:45,352 - #34 {
+INFO  19:04:45,353 - #45 int
+INFO  19:04:45,353 - #45 b
+INFO  19:04:45,353 - #13 ;
+INFO  19:04:45,353 - #35 }
+INFO  19:04:45,353 - #34 {
+INFO  19:04:45,354 - #43 void
+INFO  19:04:45,355 - #45 main
+INFO  19:04:45,355 - #32 (
+INFO  19:04:45,355 - #33 )
+INFO  19:04:45,356 - #45 A
+INFO  19:04:45,356 - #45 a
+INFO  19:04:45,356 - #13 ;
+INFO  19:04:45,356 - #34 {
+INFO  19:04:45,356 - #45 a
+INFO  19:04:45,357 - #28 =
+INFO  19:04:45,357 - #31 new
+INFO  19:04:45,357 - #45 A
+INFO  19:04:45,357 - #13 ;
+INFO  19:04:45,358 - #45 a
+INFO  19:04:45,358 - #14 .
+INFO  19:04:45,358 - #45 x
+INFO  19:04:45,358 - #28 =
+INFO  19:04:45,358 - #9 5
+INFO  19:04:45,359 - #13 ;
+INFO  19:04:45,359 - #41 print
+INFO  19:04:45,359 - #32 (
+INFO  19:04:45,359 - #45 a
+INFO  19:04:45,359 - #14 .
+INFO  19:04:45,359 - #45 x
+INFO  19:04:45,359 - #33 )
+INFO  19:04:45,359 - #13 ;
+INFO  19:04:45,359 - #35 }
+INFO  19:04:45,359 - #35 }
+INFO  19:04:45,361 - ***Abstract tree****
+INFO  19:04:45,361 - #0
+DEBUG 19:04:45,370 - program name
+DEBUG 19:04:45,370 - Variable with name x has the address of 0
+DEBUG 19:04:45,370 - ClassBegin
+DEBUG 19:04:45,370 - Variable with name b has the address of 1
+DEBUG 19:04:45,370 - class decl end
+DEBUG 19:04:45,371 - class decl 3
+DEBUG 19:04:45,371 - program begin
+DEBUG 19:04:45,371 - Variable with name a has the address of 1
+DEBUG 19:04:45,371 - term SingleFactorterm is type 4
+DEBUG 19:04:45,371 - exprWithNoMinus is type 4
