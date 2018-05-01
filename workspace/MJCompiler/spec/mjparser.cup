@@ -246,8 +246,11 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
 non terminal ClassDeclEnd;
+
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
-non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassELementList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementMultiple;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElemenListFirst;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
@@ -533,24 +536,31 @@ Constant ::= (NumberConstant) NUMBER:number
 			(BoolConstant) BOOL:bl
 			;
 
-LValueDesignator ::= (LValueDesignator1) Designator;
-RValueDesignator ::= (RValueDesignator1) Designator;
-			
-Designator ::= (DesignatorClass) IDENT DesignatorClassElement
+LValueDesignator ::= 						/* TODO */
+						(LValueClassDesignator) DesignatorClassElementMultiple DOT Designator
+						|
+						(LValueDesignator1) Designator
+						;
+RValueDesignator ::= 						/* TODO */
+					(RValueClassDesignator) DesignatorClassElementMultiple DOT Designator
+					|
+					(RValueDesignator1) Designator
+					;
+					
+DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple DOT DesignatorClassElement 
+									|
+									(DesignatorClassElementMultipleSingle)DesignatorClassElement
+									;
+									
+DesignatorClassElement ::= (DesignatorClassElement1)Designator;
+									
+Designator ::= 	(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 				|
 				(DesignatorSimple)IDENT
-				|
-				/* TODO ident designator*/
-				(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
 				;
-				
-				
-DesignatorClassElement ::=		(DesignatorClassElementArray) DOT ArrayFieldName OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
-								|
-								(DesignatorClassElementSimple) DOT IDENT
-								;
-				
-ArrayName ::= (ArrayName1) IDENT;
+									
+			
+ArrayName ::= (ArrayName1) IDENT ;
 
 
 Relop ::= 	(RelopEq) EQUAL

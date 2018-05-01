@@ -134,7 +134,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		inClassDecl = true;
 		fldCnt = 1;
 		currentClass = newClassBegin.obj;
-		scopeStack.push(newClassBegin.obj);obj.getType();
+		scopeStack.push(newClassBegin.obj);
 	}
 	
 	public void visit(ClassDeclEnd1 end)
@@ -145,6 +145,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currentClass.setLevel(fldCnt);
 		fldCnt = 0;
 		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.chainLocalSymbols(currentClass.getType());
 		Tab.closeScope();
 		currentClass = null;
 	}
@@ -180,6 +181,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			obj.setAdr(globalVarCnt++);
 		} else {
 			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
+			currentClass.getType().getMembers().insertKey(obj);
 			obj.setAdr(fldCnt++);
 		}
 		varDeclElementArray.obj = obj;
@@ -203,6 +205,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			obj.setAdr(globalVarCnt++);
 		} else {
 			obj = Tab.insert(Obj.Fld, name, currentDeclType);
+			currentClass.getType().getMembers().insertKey(obj);
 			obj.setAdr(fldCnt++);
 		}
 
@@ -719,6 +722,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Lvalue cannot be a constant", null);
 		}
 
+		currentClassObj = null;
 		ldesignator.obj = obj;// new Obj(obj.getKind(), "", new
 								// Struct(Struct.Array, Tab.noType));
 	}
@@ -740,8 +744,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		} else {
 			rdesignator.obj = rdesignator.getDesignator().obj;
 		}
+		
+		currentClassObj = null;
+	}
+	
+	public void visit(DesignatorClassElement1 designatorClassElement){
+		designatorClassElement.obj = designatorClassElement.getDesignator().obj;
 	}
 
+	// TODO
+	/*
 	public void visit(DesignatorClassElementSimple designator){
 		
 		if(currentClassObj.getType().getKind() != Struct.Class)
@@ -759,6 +771,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	
+
 	public void visit(DesignatorClassElementArray designator)
 	{
 		if(currentClassObj.getType().getKind()!= Struct.Array)
@@ -782,7 +795,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Class does not have field "+designator.obj.getName(), designator);
 		}
 	}
-	
+	*/
 	// TODO
 	/*
 	public void visit(ArrayFieldName1 arrayName){
@@ -802,19 +815,62 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(DesignatorSimple designatorSimple) {
 		String name = designatorSimple.getI1();
-		Obj obj = Tab.find(name);
-
+		
+		Obj obj = null;
+		if(currentClassObj != null){
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+		}
+		else
+		{
+		obj = Tab.find(name);
+		}
 		if (obj == Tab.noObj) {
 			report_error("Identifier " + name + " was not defined.", null);
 			return;
 		}
 
+		log.debug("designator simple at line "+designatorSimple.getLine() + ": "+designatorSimple.getI1());
 		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
 			report_error("Identifier " + name + " is not a data identifier.", null);
 			return;
 		}
-
+		
+		if(obj.getType().getKind() == Struct.Class)
+		{
+			designatorSimple.obj = obj;
+			checkThatClassContainsField(currentClassObj, designatorSimple.getI1());
+			currentClassObj = obj;
+		}
+		else{
 		designatorSimple.obj = obj;
+		}
+	}
+	
+	private void checkThatClassContainsField(Obj clss, String name)
+	{
+		// first
+		if(clss == null)
+			return;
+		
+		Struct type = clss.getType();
+		Obj obj = type.getMembers().searchKey(name);
+		if(obj == null || obj == Tab.noObj)
+		{
+			report_error("Class "+clss.getName() + " does not contain a field named "+name, null);
+		}
+	}
+	
+	public void visit(LValueClassDesignator designator)
+	{
+		designator.obj = designator.getDesignator().obj;
+		currentClassObj = null;
+	}
+	
+	public void visit(RValueClassDesignator designator)
+	{
+		designator.obj = designator.getDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
 	}
 
 	public void visit(DesignatorArray designatorArray) {
@@ -837,11 +893,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
+		if(obj.getType().getElemType().getKind() == Struct.Class){
+			designatorArray.obj = new MyObj(Obj.Elem, "", obj.getType().getElemType());
+			checkThatClassContainsField(currentClassObj, name);
+			currentClassObj = designatorArray.obj;
+		}
+		else{
+			designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
+		}
 	}
 
 	public void visit(ArrayName1 arrayName1) {
-		Obj obj = Tab.find(arrayName1.getI1());
+		
+		Obj obj = null;
+		if(currentClassObj != null){
+			obj = currentClassObj.getType().getMembers().searchKey(arrayName1.getI1());
+		}
+		else{
+		 obj = Tab.find(arrayName1.getI1());
+		}
 		if (obj == Tab.noObj) {
 			report_error("Undefined identifier " + arrayName1.getI1(), null);
 			return;

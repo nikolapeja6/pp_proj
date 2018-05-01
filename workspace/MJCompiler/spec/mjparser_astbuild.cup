@@ -246,8 +246,11 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
 non terminal ClassDeclEnd ClassDeclEnd;
+
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
-non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassELementList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementMultiple;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElemenListFirst;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
@@ -533,24 +536,31 @@ Constant ::= (NumberConstant) NUMBER:number {: RESULT=new NumberConstant(number)
 			(BoolConstant) BOOL:bl {: RESULT=new BoolConstant(bl); RESULT.setLine(blleft); :}
 			;
 
-LValueDesignator ::= (LValueDesignator1) Designator:D1 {: RESULT=new LValueDesignator1(D1); RESULT.setLine(D1left); :};
-RValueDesignator ::= (RValueDesignator1) Designator:D1 {: RESULT=new RValueDesignator1(D1); RESULT.setLine(D1left); :};
-			
-Designator ::= (DesignatorClass) IDENT:I1 DesignatorClassElement:D2 {: RESULT=new DesignatorClass(I1, D2); RESULT.setLine(I1left); :}
+LValueDesignator ::= 						/* TODO */
+						(LValueClassDesignator) DesignatorClassElementMultiple:D1 DOT Designator:D2 {: RESULT=new LValueClassDesignator(D1, D2); RESULT.setLine(D1left); :}
+						|
+						(LValueDesignator1) Designator:D1 {: RESULT=new LValueDesignator1(D1); RESULT.setLine(D1left); :}
+						;
+RValueDesignator ::= 						/* TODO */
+					(RValueClassDesignator) DesignatorClassElementMultiple:D1 DOT Designator:D2 {: RESULT=new RValueClassDesignator(D1, D2); RESULT.setLine(D1left); :}
+					|
+					(RValueDesignator1) Designator:D1 {: RESULT=new RValueDesignator1(D1); RESULT.setLine(D1left); :}
+					;
+					
+DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple:D1 DOT DesignatorClassElement:D2 {: RESULT=new DesignatorClassElementMultipleMultiple(D1, D2); RESULT.setLine(D1left); :} 
+									|
+									(DesignatorClassElementMultipleSingle)DesignatorClassElement:D1 {: RESULT=new DesignatorClassElementMultipleSingle(D1); RESULT.setLine(D1left); :}
+									;
+									
+DesignatorClassElement ::= (DesignatorClassElement1)Designator:D1 {: RESULT=new DesignatorClassElement1(D1); RESULT.setLine(D1left); :};
+									
+Designator ::= 	(DesignatorArray) ArrayName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(A1, E2); RESULT.setLine(A1left); :}
 				|
 				(DesignatorSimple)IDENT:I1 {: RESULT=new DesignatorSimple(I1); RESULT.setLine(I1left); :}
-				|
-				/* TODO ident designator*/
-				(DesignatorArray) ArrayName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorArray(A1, E2); RESULT.setLine(A1left); :}
 				;
-				
-				
-DesignatorClassElement ::=		(DesignatorClassElementArray) DOT ArrayFieldName:A1 OPEN_CHEVRONS Expr:E2 CLOSE_CHEVRONS {: RESULT=new DesignatorClassElementArray(A1, E2); RESULT.setLine(A1left); :} 
-								|
-								(DesignatorClassElementSimple) DOT IDENT:I1 {: RESULT=new DesignatorClassElementSimple(I1); RESULT.setLine(I1left); :}
-								;
-				
-ArrayName ::= (ArrayName1) IDENT:I1 {: RESULT=new ArrayName1(I1); RESULT.setLine(I1left); :};
+									
+			
+ArrayName ::= (ArrayName1) IDENT:I1 {: RESULT=new ArrayName1(I1); RESULT.setLine(I1left); :} ;
 
 
 Relop ::= 	(RelopEq) EQUAL {: RESULT=new RelopEq(); :}

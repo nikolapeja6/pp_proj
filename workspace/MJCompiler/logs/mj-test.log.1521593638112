@@ -1,0 +1,50 @@
+INFO  01:53:22,657 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  01:53:22,714 - #40 program
+INFO  01:53:22,714 - #45 BBB
+INFO  01:53:22,714 - #38 class
+INFO  01:53:22,714 - #45 A
+INFO  01:53:22,714 - #34 {
+INFO  01:53:22,714 - #45 int
+INFO  01:53:22,714 - #45 b
+INFO  01:53:22,714 - #13 ;
+INFO  01:53:22,715 - #35 }
+INFO  01:53:22,715 - #34 {
+INFO  01:53:22,716 - #43 void
+INFO  01:53:22,717 - #45 main
+INFO  01:53:22,718 - #32 (
+INFO  01:53:22,718 - #33 )
+INFO  01:53:22,718 - #45 A
+INFO  01:53:22,719 - #45 a
+INFO  01:53:22,719 - #13 ;
+INFO  01:53:22,719 - #34 {
+INFO  01:53:22,719 - #45 a
+INFO  01:53:22,719 - #28 =
+INFO  01:53:22,720 - #31 new
+INFO  01:53:22,720 - #45 A
+INFO  01:53:22,720 - #13 ;
+INFO  01:53:22,721 - #45 a
+INFO  01:53:22,722 - #14 .
+INFO  01:53:22,722 - #45 b
+INFO  01:53:22,722 - #28 =
+INFO  01:53:22,722 - #9 5
+INFO  01:53:22,722 - #13 ;
+INFO  01:53:22,722 - #41 print
+INFO  01:53:22,722 - #32 (
+INFO  01:53:22,723 - #45 a
+INFO  01:53:22,723 - #14 .
+INFO  01:53:22,723 - #45 b
+INFO  01:53:22,723 - #33 )
+INFO  01:53:22,723 - #13 ;
+INFO  01:53:22,723 - #35 }
+INFO  01:53:22,723 - #35 }
+INFO  01:53:22,725 - ***Abstract tree****
+INFO  01:53:22,725 - #0
+DEBUG 01:53:22,734 - program name
+DEBUG 01:53:22,734 - ClassBegin
+DEBUG 01:53:22,734 - Variable with name b has the address of 1
+DEBUG 01:53:22,734 - class decl end
+DEBUG 01:53:22,734 - class decl 3
+DEBUG 01:53:22,734 - program begin
+DEBUG 01:53:22,734 - Variable with name a has the address of 0
+DEBUG 01:53:22,734 - term SingleFactorterm is type 4
+DEBUG 01:53:22,734 - exprWithNoMinus is type 4
