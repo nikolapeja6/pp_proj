@@ -1,0 +1,180 @@
+INFO  00:40:52,859 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  00:40:52,914 - #40 program
+INFO  00:40:52,914 - #45 BBB
+INFO  00:40:52,914 - #38 class
+INFO  00:40:52,914 - #45 A
+INFO  00:40:52,914 - #34 {
+INFO  00:40:52,915 - #45 int
+INFO  00:40:52,915 - #45 b
+INFO  00:40:52,915 - #13 ;
+INFO  00:40:52,915 - #35 }
+INFO  00:40:52,915 - #38 class
+INFO  00:40:52,916 - #45 B
+INFO  00:40:52,916 - #34 {
+INFO  00:40:52,916 - #45 A
+INFO  00:40:52,916 - #45 a
+INFO  00:40:52,916 - #13 ;
+INFO  00:40:52,916 - #35 }
+INFO  00:40:52,916 - #38 class
+INFO  00:40:52,917 - #45 C
+INFO  00:40:52,917 - #34 {
+INFO  00:40:52,917 - #45 B
+INFO  00:40:52,917 - #45 b
+INFO  00:40:52,917 - #13 ;
+INFO  00:40:52,918 - #35 }
+INFO  00:40:52,918 - #34 {
+INFO  00:40:52,918 - #43 void
+INFO  00:40:52,918 - #45 main
+INFO  00:40:52,919 - #32 (
+INFO  00:40:52,919 - #33 )
+INFO  00:40:52,919 - #45 C
+INFO  00:40:52,919 - #45 c
+INFO  00:40:52,919 - #13 ;
+INFO  00:40:52,919 - #34 {
+INFO  00:40:52,919 - #45 c
+INFO  00:40:52,920 - #28 =
+INFO  00:40:52,920 - #31 new
+INFO  00:40:52,920 - #45 C
+INFO  00:40:52,920 - #13 ;
+INFO  00:40:52,921 - #45 c
+INFO  00:40:52,921 - #14 .
+INFO  00:40:52,922 - #45 b
+INFO  00:40:52,922 - #28 =
+INFO  00:40:52,922 - #31 new
+INFO  00:40:52,922 - #45 B
+INFO  00:40:52,922 - #13 ;
+INFO  00:40:52,922 - #45 c
+INFO  00:40:52,922 - #14 .
+INFO  00:40:52,922 - #45 b
+INFO  00:40:52,922 - #14 .
+INFO  00:40:52,922 - #45 a
+INFO  00:40:52,922 - #28 =
+INFO  00:40:52,922 - #31 new
+INFO  00:40:52,922 - #45 A
+INFO  00:40:52,922 - #13 ;
+INFO  00:40:52,923 - #45 c
+INFO  00:40:52,923 - #14 .
+INFO  00:40:52,923 - #45 b
+INFO  00:40:52,923 - #14 .
+INFO  00:40:52,923 - #45 a
+INFO  00:40:52,923 - #14 .
+INFO  00:40:52,923 - #45 b
+INFO  00:40:52,923 - #28 =
+INFO  00:40:52,923 - #9 5
+INFO  00:40:52,923 - #13 ;
+INFO  00:40:52,923 - #41 print
+INFO  00:40:52,923 - #32 (
+INFO  00:40:52,923 - #45 c
+INFO  00:40:52,923 - #14 .
+INFO  00:40:52,923 - #45 b
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 a
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 b
+INFO  00:40:52,924 - #33 )
+INFO  00:40:52,924 - #13 ;
+INFO  00:40:52,924 - #45 c
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 b
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 a
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 b
+INFO  00:40:52,924 - #28 =
+INFO  00:40:52,924 - #45 c
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,924 - #45 b
+INFO  00:40:52,924 - #14 .
+INFO  00:40:52,925 - #45 a
+INFO  00:40:52,925 - #14 .
+INFO  00:40:52,925 - #45 b
+INFO  00:40:52,925 - #17 *
+INFO  00:40:52,925 - #9 2
+INFO  00:40:52,925 - #13 ;
+INFO  00:40:52,926 - #41 print
+INFO  00:40:52,926 - #32 (
+INFO  00:40:52,926 - #45 c
+INFO  00:40:52,926 - #14 .
+INFO  00:40:52,926 - #45 b
+INFO  00:40:52,926 - #14 .
+INFO  00:40:52,926 - #45 a
+INFO  00:40:52,926 - #14 .
+INFO  00:40:52,926 - #45 b
+INFO  00:40:52,926 - #33 )
+INFO  00:40:52,926 - #13 ;
+INFO  00:40:52,926 - #35 }
+INFO  00:40:52,926 - #35 }
+INFO  00:40:52,928 - ***Abstract tree****
+INFO  00:40:52,928 - #0
+DEBUG 00:40:52,936 - program name
+DEBUG 00:40:52,936 - ClassBegin
+DEBUG 00:40:52,936 - Variable with name b has the address of 1
+DEBUG 00:40:52,936 - class decl end
+DEBUG 00:40:52,936 - class decl 3
+DEBUG 00:40:52,936 - ClassBegin
+DEBUG 00:40:52,936 - Variable with name a has the address of 1
+DEBUG 00:40:52,936 - class decl end
+DEBUG 00:40:52,936 - class decl 3
+DEBUG 00:40:52,936 - ClassBegin
+DEBUG 00:40:52,936 - Variable with name b has the address of 1
+DEBUG 00:40:52,936 - class decl end
+DEBUG 00:40:52,936 - class decl 3
+DEBUG 00:40:52,936 - program begin
+DEBUG 00:40:52,937 - Variable with name c has the address of 0
+DEBUG 00:40:52,937 - designator simple at line 17: c
+DEBUG 00:40:52,937 - term SingleFactorterm is type 4
+DEBUG 00:40:52,937 - exprWithNoMinus is type 4
+DEBUG 00:40:52,937 - designator simple at line 19: c
+DEBUG 00:40:52,937 - designator simple at line 19: b
+DEBUG 00:40:52,937 - term SingleFactorterm is type 4
+DEBUG 00:40:52,937 - exprWithNoMinus is type 4
+DEBUG 00:40:52,937 - designator simple at line 21: c
+DEBUG 00:40:52,937 - designator simple at line 21: b
+DEBUG 00:40:52,937 - designator simple at line 21: a
+DEBUG 00:40:52,937 - term SingleFactorterm is type 4
+DEBUG 00:40:52,937 - exprWithNoMinus is type 4
+DEBUG 00:40:52,937 - designator simple at line 23: c
+DEBUG 00:40:52,937 - designator simple at line 23: b
+DEBUG 00:40:52,937 - designator simple at line 23: a
+DEBUG 00:40:52,937 - designator simple at line 23: b
+DEBUG 00:40:52,937 - found constant with value 5of type 1
+DEBUG 00:40:52,937 - constant factor is type 1
+DEBUG 00:40:52,937 - term SingleFactorterm is type 1
+DEBUG 00:40:52,937 - exprWithNoMinus is type 1
+DEBUG 00:40:52,937 - designator simple at line 25: c
+DEBUG 00:40:52,937 - designator simple at line 25: b
+DEBUG 00:40:52,937 - designator simple at line 25: a
+DEBUG 00:40:52,937 - designator simple at line 25: b
+DEBUG 00:40:52,937 - term SingleFactorterm is type 1
+DEBUG 00:40:52,938 - exprWithNoMinus is type 1
+DEBUG 00:40:52,938 - print statement has arg of type 1
+DEBUG 00:40:52,938 - designator simple at line 27: c
+DEBUG 00:40:52,938 - designator simple at line 27: b
+DEBUG 00:40:52,938 - designator simple at line 27: a
+DEBUG 00:40:52,938 - designator simple at line 27: b
+DEBUG 00:40:52,938 - designator simple at line 27: c
+DEBUG 00:40:52,938 - designator simple at line 27: b
+DEBUG 00:40:52,938 - designator simple at line 27: a
+DEBUG 00:40:52,938 - designator simple at line 27: b
+DEBUG 00:40:52,938 - found constant with value 2of type 1
+DEBUG 00:40:52,938 - constant factor is type 1
+DEBUG 00:40:52,938 - term element is type 1
+DEBUG 00:40:52,938 - term list single is type 1
+DEBUG 00:40:52,938 - term MultiFactorTerm is type 1
+DEBUG 00:40:52,938 - exprWithNoMinus is type 1
+DEBUG 00:40:52,938 - designator simple at line 29: c
+DEBUG 00:40:52,938 - designator simple at line 29: b
+DEBUG 00:40:52,938 - designator simple at line 29: a
+DEBUG 00:40:52,938 - designator simple at line 29: b
+DEBUG 00:40:52,938 - term SingleFactorterm is type 1
+DEBUG 00:40:52,938 - exprWithNoMinus is type 1
+DEBUG 00:40:52,938 - print statement has arg of type 1
+INFO  00:40:52,938 - Print calls = 0
+INFO  00:40:52,940 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+DEBUG 00:40:52,942 - new called with level = 1
+DEBUG 00:40:52,942 - class is 4
+DEBUG 00:40:52,942 - new called with level = 1
+DEBUG 00:40:52,943 - class is 4
+DEBUG 00:40:52,943 - new called with level = 1
+DEBUG 00:40:52,943 - class is 4
+INFO  00:40:52,947 - Parsiranje uspesno zavrseno!

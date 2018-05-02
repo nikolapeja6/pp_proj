@@ -221,7 +221,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		log.debug("class is "+newObj.obj.getType().getKind());
 		
 		Code.put(Code.new_);
-		Code.put2(newObj.obj.getType().getNumberOfFields());
+		Code.put2(newObj.obj.getType().getNumberOfFields()*4);
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
