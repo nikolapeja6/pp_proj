@@ -1,0 +1,14 @@
+program BBB
+
+	class A {
+		int b;
+	}
+{
+	void main() A a;
+	{
+		a = new A;
+		a.b = 5;
+		
+		print(a.b);
+	}
+}

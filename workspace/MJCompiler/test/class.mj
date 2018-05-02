@@ -1,14 +1,52 @@
 program BBB
-	int x;
+
 	class A {
 		int b;
 	}
+	
+	class B{
+		A a;
+		int x;
+	}
+	
+	class C{
+		B b;
+	}
 {
-	void main() A a;
+	void main() C c;
 	{
-		a = new A;
-		a.x = 5;
+		c = new C;
 		
-		print(a.x);
+		c.b = new B;
+		
+		c.b.a = new A;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = 5;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.x = 2;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = 5;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = c.b.a.b * c.b.a.b * c.b.x;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		//a = new A;
+		//a.b = 5;
+		
+		//print(a.b);
 	}
 }

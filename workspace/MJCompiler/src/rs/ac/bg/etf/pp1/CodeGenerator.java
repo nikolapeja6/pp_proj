@@ -5,6 +5,8 @@ import java.util.Stack;
 
 import javax.management.StandardEmitterMBean;
 
+import org.apache.log4j.Logger;
+
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -13,6 +15,7 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import sun.util.logging.resources.logging;
 
 public class CodeGenerator extends VisitorAdaptor {
 
@@ -27,9 +30,14 @@ public class CodeGenerator extends VisitorAdaptor {
 	private Stack<Stack<Integer>> jmpBreak = new Stack<>();
 	private Stack<Stack<Integer>> jmpContinue = new Stack<>();
 
+	Logger log = Logger.getLogger(getClass());
+
+	
 	public int getMainPc() {
 		return mainPc;
 	}
+	
+	private Obj currentClassObj = null;
 
 	
 	public void visit(StatementReturnVoid returnVoid)
@@ -122,24 +130,35 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.return_);
 	}
 
-	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
-		Obj lValueObj = designatorStatementAssignment.getLValueDesignator().obj;
-		Code.store(lValueObj);
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {		
 		
-		if(lValueObj.getType().getKind() == Struct.Class)
+		if(designatorStatementAssignment.getLValueDesignator() instanceof LValueClassDesignator)
 		{
+			Obj obj =  ((LValueClassDesignator)designatorStatementAssignment.getLValueDesignator()).getDesignator().obj;
 			// class designator.
+			Code.store(obj);
+			/*
 			Code.load(lValueObj);
 			Code.loadConst(totalStaticDataSize);
 			Code.put(Code.putfield);
 			Code.loadConst(0);
+			*/
 		}
+		else
+		{
+			Obj lValueObj = designatorStatementAssignment.getLValueDesignator().obj;
+			Code.store(lValueObj);
+		}
+		
 	}
 	
+	// TODO
+	/*
 	public void visit(DesignatorClassElementSimple designator){
 		Code.put(Code.getfield);
 		Code.load(designator.obj);
 	}
+	*/
 	
 	// TODO
 	/*
@@ -190,12 +209,19 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.pop);
 		}
 	}
+
+	
+	public void visit(DesignatorClassElement1 designatorClassElement){
+		Code.load(designatorClassElement.obj);
+	}
 	
 	public void visit(FactorNewObject newObj)
 	{
-		Code.put(newObj.getLine());
-		Code.put(Code.new_);
+		log.debug("new called with level = "+newObj.obj.getType().getNumberOfFields());
+		log.debug("class is "+newObj.obj.getType().getKind());
 		
+		Code.put(Code.new_);
+		Code.put2(newObj.obj.getType().getNumberOfFields()*4);
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
@@ -519,6 +545,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 		*/
 		System.out.println("LValueDesignotr without code gen");
+		currentClassObj = null;
 	}
 
 	public void visit(RValueDesignator1 rvDesignator1) {
@@ -527,10 +554,22 @@ public class CodeGenerator extends VisitorAdaptor {
 		 * Code.put(rvDesignator1.obj.getAdr()); }
 		 */
 		Code.load(rvDesignator1.obj);
+		currentClassObj = null;
 	}
 
 	public void visit(DesignatorSimple designatorSimple) {
-		System.out.println("DesignatorSimlpe without code gen");
+
+		
+	}
+	
+	public void visit(RValueClassDesignator cls)
+	{
+		Code.load(cls.obj);
+		currentClassObj  =null;
+	}
+	public void visit(LValueClassDesignator cls)
+	{
+		currentClassObj = null;
 	}
 
 	public void visit(ArrayName1 arrayName1) {

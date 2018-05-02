@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/2/2018 21:16:59
+// 2/4/2018 0:40:45
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public abstract class DesignatorClassELementList implements SyntaxNode {
+public abstract class DesignatorClassElementList implements SyntaxNode {
 
     private SyntaxNode parent;
 

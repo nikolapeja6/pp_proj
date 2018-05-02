@@ -1,0 +1,208 @@
+INFO  02:06:26,424 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  02:06:26,486 - #40 program
+INFO  02:06:26,487 - #45 BBB
+INFO  02:06:26,487 - #38 class
+INFO  02:06:26,487 - #45 A
+INFO  02:06:26,487 - #34 {
+INFO  02:06:26,487 - #45 int
+INFO  02:06:26,487 - #45 b
+INFO  02:06:26,488 - #13 ;
+INFO  02:06:26,488 - #35 }
+INFO  02:06:26,488 - #34 {
+INFO  02:06:26,489 - #43 void
+INFO  02:06:26,490 - #45 main
+INFO  02:06:26,491 - #32 (
+INFO  02:06:26,491 - #33 )
+INFO  02:06:26,491 - #45 A
+INFO  02:06:26,491 - #45 a
+INFO  02:06:26,492 - #13 ;
+INFO  02:06:26,492 - #34 {
+INFO  02:06:26,492 - #45 a
+INFO  02:06:26,492 - #28 =
+INFO  02:06:26,493 - #31 new
+INFO  02:06:26,493 - #45 A
+INFO  02:06:26,507 - #13 ;
+INFO  02:06:26,508 - #45 a
+INFO  02:06:26,509 - #14 .
+INFO  02:06:26,509 - #45 b
+INFO  02:06:26,509 - #28 =
+INFO  02:06:26,509 - #9 5
+INFO  02:06:26,509 - #13 ;
+INFO  02:06:26,510 - #41 print
+INFO  02:06:26,510 - #32 (
+INFO  02:06:26,510 - #45 a
+INFO  02:06:26,510 - #14 .
+INFO  02:06:26,510 - #45 b
+INFO  02:06:26,510 - #33 )
+INFO  02:06:26,510 - #13 ;
+INFO  02:06:26,511 - #35 }
+INFO  02:06:26,511 - #35 }
+INFO  02:06:26,513 - ***Abstract tree****
+INFO  02:06:26,513 - #0
+DEBUG 02:06:26,539 - program name
+DEBUG 02:06:26,539 - ClassBegin
+DEBUG 02:06:26,539 - Variable with name b has the address of 1
+DEBUG 02:06:26,539 - class decl end
+DEBUG 02:06:26,539 - class decl 3
+DEBUG 02:06:26,539 - program begin
+DEBUG 02:06:26,539 - Variable with name a has the address of 0
+INFO  02:06:28,411 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  02:06:28,472 - #40 program
+INFO  02:06:28,472 - #45 BBB
+INFO  02:06:28,472 - #38 class
+INFO  02:06:28,472 - #45 A
+INFO  02:06:28,472 - #34 {
+INFO  02:06:28,473 - #45 int
+INFO  02:06:28,473 - #45 b
+INFO  02:06:28,473 - #13 ;
+INFO  02:06:28,473 - #35 }
+INFO  02:06:28,473 - #34 {
+INFO  02:06:28,475 - #43 void
+INFO  02:06:28,475 - #45 main
+INFO  02:06:28,476 - #32 (
+INFO  02:06:28,476 - #33 )
+INFO  02:06:28,476 - #45 A
+INFO  02:06:28,476 - #45 a
+INFO  02:06:28,476 - #13 ;
+INFO  02:06:28,476 - #34 {
+INFO  02:06:28,477 - #45 a
+INFO  02:06:28,477 - #28 =
+INFO  02:06:28,477 - #31 new
+INFO  02:06:28,477 - #45 A
+INFO  02:06:28,478 - #13 ;
+INFO  02:06:28,479 - #45 a
+INFO  02:06:28,479 - #14 .
+INFO  02:06:28,479 - #45 b
+INFO  02:06:28,479 - #28 =
+INFO  02:06:28,480 - #9 5
+INFO  02:06:28,480 - #13 ;
+INFO  02:06:28,480 - #41 print
+INFO  02:06:28,480 - #32 (
+INFO  02:06:28,480 - #45 a
+INFO  02:06:28,480 - #14 .
+INFO  02:06:28,480 - #45 b
+INFO  02:06:28,480 - #33 )
+INFO  02:06:28,481 - #13 ;
+INFO  02:06:28,481 - #35 }
+INFO  02:06:28,481 - #35 }
+INFO  02:06:28,483 - ***Abstract tree****
+INFO  02:06:28,483 - #0
+DEBUG 02:06:28,504 - program name
+DEBUG 02:06:28,504 - ClassBegin
+DEBUG 02:06:28,505 - Variable with name b has the address of 1
+DEBUG 02:06:28,505 - class decl end
+DEBUG 02:06:28,505 - class decl 3
+DEBUG 02:06:28,505 - program begin
+DEBUG 02:06:28,505 - Variable with name a has the address of 0
+DEBUG 02:06:34,889 - designator simple at line 9: a
+DEBUG 02:06:43,443 - term SingleFactorterm is type 4
+DEBUG 02:06:43,443 - exprWithNoMinus is type 4
+DEBUG 02:07:15,589 - designator simple at line 10: a
+INFO  02:10:01,272 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  02:10:02,381 - #40 program
+INFO  02:10:02,381 - #45 BBB
+INFO  02:10:02,381 - #38 class
+INFO  02:10:02,382 - #45 A
+INFO  02:10:02,382 - #34 {
+INFO  02:10:02,383 - #45 int
+INFO  02:10:02,383 - #45 b
+INFO  02:10:02,383 - #13 ;
+INFO  02:10:02,384 - #35 }
+INFO  02:10:02,385 - #34 {
+INFO  02:10:02,392 - #43 void
+INFO  02:10:02,398 - #45 main
+INFO  02:10:02,400 - #32 (
+INFO  02:10:02,401 - #33 )
+INFO  02:10:02,401 - #45 A
+INFO  02:10:02,401 - #45 a
+INFO  02:10:02,401 - #13 ;
+INFO  02:10:02,401 - #34 {
+INFO  02:10:02,401 - #45 a
+INFO  02:10:02,416 - #28 =
+INFO  02:10:02,417 - #31 new
+INFO  02:10:02,417 - #45 A
+INFO  02:10:02,417 - #13 ;
+INFO  02:10:02,419 - #45 a
+INFO  02:10:02,419 - #14 .
+INFO  02:10:02,420 - #45 b
+INFO  02:10:02,420 - #28 =
+INFO  02:10:02,420 - #9 5
+INFO  02:10:02,420 - #13 ;
+INFO  02:10:02,420 - #41 print
+INFO  02:10:02,420 - #32 (
+INFO  02:10:02,420 - #45 a
+INFO  02:10:02,420 - #14 .
+INFO  02:10:02,420 - #45 b
+INFO  02:10:02,420 - #33 )
+INFO  02:10:02,421 - #13 ;
+INFO  02:10:02,421 - #35 }
+INFO  02:10:02,421 - #35 }
+INFO  02:10:02,431 - ***Abstract tree****
+INFO  02:10:02,431 - #0
+DEBUG 02:10:02,543 - program name
+DEBUG 02:10:02,543 - ClassBegin
+INFO  02:15:54,662 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  02:15:54,812 - #40 program
+INFO  02:15:54,812 - #45 BBB
+INFO  02:15:54,812 - #38 class
+INFO  02:15:54,812 - #45 A
+INFO  02:15:54,812 - #34 {
+INFO  02:15:54,812 - #45 int
+INFO  02:15:54,813 - #45 b
+INFO  02:15:54,813 - #13 ;
+INFO  02:15:54,813 - #35 }
+INFO  02:15:54,813 - #34 {
+INFO  02:15:54,814 - #43 void
+INFO  02:15:54,815 - #45 main
+INFO  02:15:54,816 - #32 (
+INFO  02:15:54,816 - #33 )
+INFO  02:15:54,816 - #45 A
+INFO  02:15:54,816 - #45 a
+INFO  02:15:54,816 - #13 ;
+INFO  02:15:54,816 - #34 {
+INFO  02:15:54,816 - #45 a
+INFO  02:15:54,817 - #28 =
+INFO  02:15:54,817 - #31 new
+INFO  02:15:54,817 - #45 A
+INFO  02:15:54,817 - #13 ;
+INFO  02:15:54,818 - #45 a
+INFO  02:15:54,819 - #14 .
+INFO  02:15:54,819 - #45 b
+INFO  02:15:54,819 - #28 =
+INFO  02:15:54,819 - #9 5
+INFO  02:15:54,819 - #13 ;
+INFO  02:15:54,819 - #41 print
+INFO  02:15:54,819 - #32 (
+INFO  02:15:54,819 - #45 a
+INFO  02:15:54,819 - #14 .
+INFO  02:15:54,819 - #45 b
+INFO  02:15:54,820 - #33 )
+INFO  02:15:54,820 - #13 ;
+INFO  02:15:54,820 - #35 }
+INFO  02:15:54,820 - #35 }
+INFO  02:15:54,822 - ***Abstract tree****
+INFO  02:15:54,822 - #0
+DEBUG 02:15:54,833 - program name
+DEBUG 02:15:54,833 - ClassBegin
+DEBUG 02:15:54,833 - Variable with name b has the address of 1
+DEBUG 02:15:54,833 - class decl end
+DEBUG 02:15:54,833 - class decl 3
+DEBUG 02:15:54,833 - program begin
+DEBUG 02:15:54,833 - Variable with name a has the address of 0
+DEBUG 02:15:54,834 - designator simple at line 9: a
+DEBUG 02:15:54,834 - term SingleFactorterm is type 4
+DEBUG 02:15:54,834 - exprWithNoMinus is type 4
+DEBUG 02:15:54,834 - designator simple at line 10: a
+DEBUG 02:15:54,834 - designator simple at line 10: b
+DEBUG 02:15:54,834 - found constant with value 5of type 1
+DEBUG 02:15:54,834 - constant factor is type 1
+DEBUG 02:15:54,834 - term SingleFactorterm is type 1
+DEBUG 02:15:54,834 - exprWithNoMinus is type 1
+DEBUG 02:15:54,834 - designator simple at line 12: a
+DEBUG 02:15:54,834 - designator simple at line 12: b
+DEBUG 02:15:54,834 - term SingleFactorterm is type 1
+DEBUG 02:15:54,834 - exprWithNoMinus is type 1
+DEBUG 02:15:54,834 - print statement has arg of type 1
+INFO  02:15:54,834 - Print calls = 0
+INFO  02:15:54,855 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  02:15:54,879 - Parsiranje uspesno zavrseno!
