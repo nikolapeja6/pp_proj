@@ -132,7 +132,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.openScope();
 
 		inClassDecl = true;
-		fldCnt = 0;
+		fldCnt = 1;
 		currentClass = newClassBegin.obj;
 		scopeStack.push(newClassBegin.obj);
 	}
@@ -142,7 +142,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		log.debug("class decl end");
 		inClassDecl = false;
 		
-		currentClass.setLevel(fldCnt+1);
+		currentClass.setLevel(fldCnt);
 		fldCnt = 0;
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.chainLocalSymbols(currentClass.getType());
@@ -152,7 +152,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(DerivedClassBegin derivedClassBegin) {
 		inClassDecl = true;
-		fldCnt = 0;
+		fldCnt = 1;
 		currentClass = derivedClassBegin.obj;
 		throw new NotImplementedException();
 	}
