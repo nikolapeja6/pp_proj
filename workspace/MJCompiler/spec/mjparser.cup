@@ -256,6 +256,7 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
 non terminal rs.etf.pp1.symboltable.concepts.Obj ClassMethodBegin;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj OptionalThis;
 /** END HELPER NON TERMINALS */
 
 
@@ -554,7 +555,9 @@ RValueDesignator ::= 						/* TODO */
 					(RValueDesignator1) Designator
 					;
 					
-MethodDesignator ::= (MethodDesignator1) Designator;	
+MethodDesignator ::= (MethodDesignator1)  Designator;
+
+	
 	
 DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple DOT DesignatorClassElement 
 									|

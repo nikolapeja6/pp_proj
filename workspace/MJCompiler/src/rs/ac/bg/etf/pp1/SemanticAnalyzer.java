@@ -264,6 +264,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		if (currentClass != null) {
 			GlobalStuff.AddFunction(currentClass.getName(), name);
+			Obj obj = Tab.insert(Obj.Var, "this", currentClass.getType());
+			obj.setFpPos(fpCnt++);
 		}
 	}
 
@@ -333,7 +335,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(MethodDesignator1 methodDesignator1) {
 		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
-		apCnt.push(0);
+		if(currentClassObj != null || currentClass != null)
+			apCnt.push(1);
+		else
+			apCnt.push(0);
 		currentMethodCall = methodDesignator1.obj;
 	}
 
@@ -351,7 +356,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ActParElement1 actPar) {
 		Obj fp = null;
-
+		
+		// fix no argument this.func calls
+		if(currentMethod.getLevel() > 0 && currentMethodCall.getLocalSymbols().size() == 0)
+			return;
+		
 		for (Obj obj : currentMethodCall.getLocalSymbols()) {
 			if (obj.getFpPos() == apCnt.peek()) {
 				fp = obj;
@@ -359,6 +368,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 		}
 
+		
 		if (fp == null) {
 			report_error("No appropreate act par found.", null);
 			return;
@@ -674,6 +684,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		apCnt.pop();
 		functtionCallFactor.obj = obj;
+		currentClassObj = null;
 	}
 
 	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
@@ -688,6 +699,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (obj.getLevel() != cnt) {
 			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);
 		}
+		
+		currentClassObj = null;
 
 		functtionCallFactor.obj = obj;
 	}
@@ -888,6 +901,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
 		currentClassObj = null;
 	}
+		
 	
 	public void visit(RValueMethodCall2 designator)
 	{

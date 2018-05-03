@@ -25,6 +25,9 @@ public class CodeGenerator extends VisitorAdaptor {
 	public int totalStaticDataSize;
 	private int mainPc;
 	
+	private Obj currentObjectReference = null;
+	private Obj currentClassDef = null;
+	
 	private Stack<Integer> jmpNotThen = new Stack<>();
 	private Stack<Integer> jmpEndThen = new Stack<>();
 	private Stack<Integer> jmpWhileBegin = new Stack<>();
@@ -202,9 +205,21 @@ public class CodeGenerator extends VisitorAdaptor {
 	{
 		Obj obj = designatorStatementFunctionCall.obj; 
 		
+		if(obj.getLevel() > 0){
+			String methodName = ((MethodDesignator1)designatorStatementFunctionCall.getMethodDesignator()).getDesignator().obj.getName();
+			
+			RValueMethodCallStuff(methodName);
+			
+			currentObjectReference = null;
+			currentClassObj  =null;
+			currentObjectReference = null;
+		}
+		else{
+		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(dstAdr);
+		}
 		
 		if(obj.getType() != Tab.noType){
 			Code.put(Code.pop);
@@ -232,9 +247,21 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 		
 		
+		if(obj.getLevel() > 0){
+			String methodName = ((MethodDesignator1)complexFunctionCall.getMethodDesignator()).getDesignator().obj.getName();
+			
+			RValueMethodCallStuff(methodName);
+			
+			currentObjectReference = null;
+			currentClassObj  =null;
+			currentObjectReference = null;
+		}
+		else{
+		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(dstAdr);
+		}
 		
 		if(obj.getType() != Tab.noType){
 			Code.put(Code.pop);
@@ -269,18 +296,32 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
+		
+		
+		
+		if(currentClassDecl != null){
+			Code.put(Code.load_n);
+			Code.put(Code.dup);
+			Code.put(Code.putstatic);
+			Code.put2(0);
+		}
+		currentObjectReference = null;
 	}
 	
 	public void visit(RValueMethodCall1 rValueMethodCall){
 		String methodName = ((MethodDesignator1)rValueMethodCall.getMethodDesignator()).getDesignator().obj.getName();
 		
 		RValueMethodCallStuff(methodName);
+		
+		currentObjectReference = null;
 	}
 	
 	public void visit(RValueMethodCall2 rValueMethodCall){
 		String methodName = ((MethodDesignator1)rValueMethodCall.getMethodDesignator()).getDesignator().obj.getName();
 		
 		RValueMethodCallStuff(methodName);
+		
+		currentObjectReference = null;
 	}
 	
 	private void RValueMethodCallStuff(String methodName){
@@ -562,9 +603,21 @@ public class CodeGenerator extends VisitorAdaptor {
 	{
 		Obj obj = functionCallFactor.obj; 
 		
+		if(obj.getLevel() > 0){
+			String methodName = ((MethodDesignator1)functionCallFactor.getMethodDesignator()).getDesignator().obj.getName();
+			
+			RValueMethodCallStuff(methodName);
+			
+			currentObjectReference = null;
+			currentClassObj  =null;
+			currentObjectReference = null;
+		}
+		else{
+		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(dstAdr);
+		}
 	}
 	
 	public void visit(FuncttionCallFactorComplex functionCallFactor)
@@ -582,9 +635,21 @@ public class CodeGenerator extends VisitorAdaptor {
 			return;
 		}
 		
+		if(obj.getLevel() > 0){
+			String methodName = ((MethodDesignator1)functionCallFactor.getMethodDesignator()).getDesignator().obj.getName();
+			
+			RValueMethodCallStuff(methodName);
+			
+			currentObjectReference = null;
+			currentClassObj  =null;
+			currentObjectReference = null;
+		}
+		else{
+		
 		int dstAdr = obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(dstAdr);
+		}
 	}
 
 	public void visit(ConstantFactor constantFactor) {
@@ -618,6 +683,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		*/
 		System.out.println("LValueDesignotr without code gen");
 		currentClassObj = null;
+		currentObjectReference = null;
 	}
 
 	public void visit(RValueDesignator1 rvDesignator1) {
@@ -627,21 +693,34 @@ public class CodeGenerator extends VisitorAdaptor {
 		 */
 		Code.load(rvDesignator1.obj);
 		currentClassObj = null;
+		currentObjectReference = null;
+	}
+	
+	public void visit(DesignatorArray designatorArray) {
+		if(currentObjectReference == null && designatorArray.obj.getKind() == Obj.Fld){
+			Code.put(Code.load_n);
+		}
+		currentObjectReference = designatorArray.obj;
 	}
 
 	public void visit(DesignatorSimple designatorSimple) {
-
-		
+		if(currentObjectReference == null && designatorSimple.obj.getKind() == Obj.Fld){
+			Code.put(Code.load_n);
+		}
+		currentObjectReference = designatorSimple.obj;
 	}
 	
 	public void visit(RValueClassDesignator cls)
 	{
 		Code.load(cls.obj);
 		currentClassObj  =null;
+		currentObjectReference = null;
 	}
+	
 	public void visit(LValueClassDesignator cls)
 	{
 		currentClassObj = null;
+		currentObjectReference = null;
 	}
 
 	public void visit(ArrayName1 arrayName1) {
