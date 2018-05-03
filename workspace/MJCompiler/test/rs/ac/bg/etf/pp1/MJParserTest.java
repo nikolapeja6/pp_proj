@@ -57,6 +57,8 @@ public class MJParserTest {
 	        log.info("Print calls = " + semanticCheck.printCallCount);
 	        Tab.dump();
 	        
+	        log.debug(GlobalStuff.VirtualFunctions());
+	        
 	        // TODO
 	        if (/*!p.errorDetected &&*/ semanticCheck.passed()) {
 	        	
@@ -71,9 +73,10 @@ public class MJParserTest {
 	        	
 	        	// Code generation...
 	        	CodeGenerator codeGenerator = new CodeGenerator();
-	        	codeGenerator.staticVarCount = codeGenerator.totalStaticDataSize = globalVarCounter.count;
+	        	codeGenerator.staticVarCount = codeGenerator.totalStaticDataSize = globalVarCounter.count+1;
+	        	GlobalStuff.vTableAddress = GlobalStuff.initialVTableAddress = globalVarCounter.count+1;
 	        	prog.traverseBottomUp(codeGenerator);
-	        	Code.dataSize = codeGenerator.totalStaticDataSize;//semanticCheck.nVars;
+	        	Code.dataSize = GlobalStuff.vTableAddress;//codeGenerator.totalStaticDataSize;//semanticCheck.nVars;
 	        	Code.mainPc = codeGenerator.getMainPc();
 	        	Code.write(new FileOutputStream(objFile));
 	        	log.info("Parsiranje uspesno zavrseno!");

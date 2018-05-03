@@ -1,0 +1,73 @@
+program BBB
+
+	class A {
+		int b;
+		{
+		void p1(){print('1',1);}
+		void pa(){print('a',1);}
+		}
+	}
+	
+	class B{
+		A a;
+		int x;
+		{
+		void p2(){print('b',1);}
+		}
+	}
+	
+	class C{
+		B b;
+		{
+		void p3(){return;}
+		}
+	}
+{
+	void main()  A a; B b; C c; 
+	{
+		a = new A;
+		b = new B;
+		a.p1( );
+		a.pa();
+		print('-',1);
+		
+		b.p2();
+		print(eol);
+	
+		c = new C;
+		
+		c.b = new B;
+		
+		c.b.a = new A;
+		
+
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = 5;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.x = 2;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = 5;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		c.b.a.b = c.b.a.b * c.b.a.b * c.b.x;
+		
+		print(c.b.a.b);
+		print(c.b.x);
+		
+		//a = new A;
+		//a.b = 5;
+		
+		//print(a.b);
+	}
+}

@@ -1,0 +1,16 @@
+INFO  22:40:33,635 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  22:40:33,690 - #40 program
+INFO  22:40:33,691 - #45 BBB
+INFO  22:40:33,691 - #38 class
+INFO  22:40:33,691 - #45 A
+INFO  22:40:33,691 - #34 {
+INFO  22:40:33,691 - #45 int
+INFO  22:40:33,691 - #45 b
+INFO  22:40:33,691 - #13 ;
+INFO  22:40:33,692 - #43 void
+ERROR 22:40:33,692 - Sintaksna greska na liniji 6
+ERROR 22:40:33,692 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
+INFO  22:40:33,695 - ***Abstract tree****
+INFO  22:40:33,695 - #39
+DEBUG 22:40:33,700 - Variable with name b has the address of 0
+INFO  22:40:33,700 - Print calls = 0

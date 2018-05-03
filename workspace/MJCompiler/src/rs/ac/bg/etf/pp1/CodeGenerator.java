@@ -7,6 +7,8 @@ import javax.management.StandardEmitterMBean;
 
 import org.apache.log4j.Logger;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodType;
+
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -38,6 +40,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	private Obj currentClassObj = null;
+	private Obj currentClassDecl = null;
 
 	
 	public void visit(StatementReturnVoid returnVoid)
@@ -83,10 +86,33 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 	}
 
+	public void visit(NewClassBegin classBegin)
+	{
+		currentClassDecl = classBegin.obj;
+		Obj obj = GlobalStuff.classTypeObjects.get(currentClassDecl.getName());
+		obj.setAdr(GlobalStuff.vTableAddress);
+	}
+	
+	public void visit(ClassDeclEnd1 classEnd)
+	{
+		log.debug("updating vTableAddress by "+currentClassDecl.getName() + " class. OldValue =  "+GlobalStuff.vTableAddress);
+		GlobalStuff.UpdateVTableAddress(currentClassDecl.getName());
+		log.debug("^new value = "+GlobalStuff.vTableAddress);
+		currentClassDecl = null;
+	}
+	
 	@Override
 	public void visit(MethodNameAndRetType1 MethodTypeName) {
 		if ("main".equalsIgnoreCase(((MethodNameAndRetType1) MethodTypeName).getName())) {
 			mainPc = Code.pc;
+			
+			Integer[] data = GlobalStuff.GetVTablesInitializationValues();
+			
+			for(int i =0; i< data.length; i++ ){
+				Code.loadConst(data[i]);
+				Code.put(Code.putstatic);
+				Code.put2(GlobalStuff.initialVTableAddress + i);
+			}
 		}
 		MethodTypeName.obj.setAdr(Code.pc);
 
@@ -96,6 +122,11 @@ public class CodeGenerator extends VisitorAdaptor {
 		methodNode.traverseTopDown(varCnt);
 		FormParamCounter fpCnt = new FormParamCounter();
 		methodNode.traverseTopDown(fpCnt);
+		
+		if(currentClassDecl != null)
+		{
+			GlobalStuff.UpdateAddressOfFunction(currentClassDecl.getName(), MethodTypeName.getName(), Code.pc);
+		}
 		
 		// Generate the entry.
 		Code.put(Code.enter);
@@ -220,8 +251,49 @@ public class CodeGenerator extends VisitorAdaptor {
 		log.debug("new called with level = "+newObj.obj.getType().getNumberOfFields());
 		log.debug("class is "+newObj.obj.getType().getKind());
 		
+		String className = ((Type1)newObj.getType()).getI1();
+		Obj typeObj = GlobalStuff.classTypeObjects.get(className);
+		int vTableAddress = typeObj.getAdr();
+		
 		Code.put(Code.new_);
 		Code.put2(newObj.obj.getType().getNumberOfFields()*4);
+		Code.put(Code.dup);
+		Code.loadConst(vTableAddress); // v_table value
+		Code.put(Code.putfield);
+		Code.put2(0);
+	}
+	
+	public void visit(MethodDesignator1 methodDesignator1) {
+		if(methodDesignator1.getParent() instanceof RValueMethodCall1 || methodDesignator1.getParent() instanceof RValueMethodCall2){
+			Code.put(Code.dup);
+			Code.put(Code.putstatic);
+			Code.put2(0);
+		}
+	}
+	
+	public void visit(RValueMethodCall1 rValueMethodCall){
+		String methodName = ((MethodDesignator1)rValueMethodCall.getMethodDesignator()).getDesignator().obj.getName();
+		
+		RValueMethodCallStuff(methodName);
+	}
+	
+	public void visit(RValueMethodCall2 rValueMethodCall){
+		String methodName = ((MethodDesignator1)rValueMethodCall.getMethodDesignator()).getDesignator().obj.getName();
+		
+		RValueMethodCallStuff(methodName);
+	}
+	
+	private void RValueMethodCallStuff(String methodName){
+		log.debug("class methoad call " + methodName);
+
+		Code.put(Code.getstatic);
+		Code.put2(0);
+		Code.put(Code.getfield);
+		Code.put2(0);
+		Code.put(Code.invokevirtual);
+		for(int i =0; i< methodName.length(); i++)
+			Code.put4(methodName.charAt(i));
+		Code.put4(-1);
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {

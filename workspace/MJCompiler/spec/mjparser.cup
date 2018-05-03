@@ -254,6 +254,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassMethodBegin;
+
 /** END HELPER NON TERMINALS */
 
 
@@ -428,6 +430,8 @@ MatchedThen ::= (MatchedThen1) Matched;
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN Expr
 							|
+							(RValueDesignatorStatement) RValueDesignator
+							|
 							(DesignatorStatementFunctionCallComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
 							|
 							(DesignatorStatementFunctionCall) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
@@ -436,7 +440,6 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
 							;
-MethodDesignator ::= (MethodDesignator1) Designator;
 
 Condition ::= 	(ConditionMultiple) CondTerm ConditionList
 				|
@@ -542,11 +545,17 @@ LValueDesignator ::= 						/* TODO */
 						(LValueDesignator1) Designator
 						;
 RValueDesignator ::= 						/* TODO */
+					(RValueMethodCall1) DesignatorClassElementMultiple DOT MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+					|
+					(RValueMethodCall2) DesignatorClassElementMultiple DOT MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
+					|
 					(RValueClassDesignator) DesignatorClassElementMultiple DOT Designator
 					|
 					(RValueDesignator1) Designator
 					;
 					
+MethodDesignator ::= (MethodDesignator1) Designator;	
+	
 DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple DOT DesignatorClassElement 
 									|
 									(DesignatorClassElementMultipleSingle)DesignatorClassElement

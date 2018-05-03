@@ -1,0 +1,32 @@
+package rs.ac.bg.etf.pp1;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class GlobalStuff {
+	
+	class Function{
+		public String name;
+		public long adr;
+		
+		public Function(String _name){name = _name;}
+		public Function(String _name, long _adr){name = _name; adr = _adr;}
+	}
+	
+	static HashMap<String, LinkedList<Function>> virtualFunctionStack = new HashMap<>();
+	
+	public static void AddClass(String className)
+	{
+		virtualFunctionStack.put(className, new LinkedList<>());
+	}
+	
+	public static void AddFunction(String className, String functionName)
+	{
+		LinkedList<Function> list = virtualFunctionStack.get(className);
+		
+		assert(list != null);
+		
+		list.add(new Function(){name = functionName;})
+	}
+	
+}

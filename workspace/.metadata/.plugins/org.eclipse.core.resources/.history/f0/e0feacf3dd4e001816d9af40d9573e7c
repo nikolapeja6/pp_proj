@@ -1,0 +1,78 @@
+// generated with ast extension for cup
+// version 0.8
+// 3/4/2018 16:7:5
+
+
+package rs.ac.bg.etf.pp1.ast;
+
+public class RValueMethodCall extends RValueDesignator {
+
+    private ClassMethodBegin ClassMethodBegin;
+    private ActPars ActPars;
+
+    public RValueMethodCall (ClassMethodBegin ClassMethodBegin, ActPars ActPars) {
+        this.ClassMethodBegin=ClassMethodBegin;
+        if(ClassMethodBegin!=null) ClassMethodBegin.setParent(this);
+        this.ActPars=ActPars;
+        if(ActPars!=null) ActPars.setParent(this);
+    }
+
+    public ClassMethodBegin getClassMethodBegin() {
+        return ClassMethodBegin;
+    }
+
+    public void setClassMethodBegin(ClassMethodBegin ClassMethodBegin) {
+        this.ClassMethodBegin=ClassMethodBegin;
+    }
+
+    public ActPars getActPars() {
+        return ActPars;
+    }
+
+    public void setActPars(ActPars ActPars) {
+        this.ActPars=ActPars;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+    public void childrenAccept(Visitor visitor) {
+        if(ClassMethodBegin!=null) ClassMethodBegin.accept(visitor);
+        if(ActPars!=null) ActPars.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(ClassMethodBegin!=null) ClassMethodBegin.traverseTopDown(visitor);
+        if(ActPars!=null) ActPars.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(ClassMethodBegin!=null) ClassMethodBegin.traverseBottomUp(visitor);
+        if(ActPars!=null) ActPars.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("RValueMethodCall(\n");
+
+        if(ClassMethodBegin!=null)
+            buffer.append(ClassMethodBegin.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ActPars!=null)
+            buffer.append(ActPars.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [RValueMethodCall]");
+        return buffer.toString();
+    }
+}

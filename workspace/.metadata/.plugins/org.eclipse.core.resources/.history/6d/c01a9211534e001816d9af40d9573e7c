@@ -1,0 +1,98 @@
+package rs.ac.bg.etf.pp1;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+
+public class GlobalStuff {
+	
+	public static long vTableAddress;
+	
+	static HashMap<String, LinkedList<Function>> virtualFunctionStack = new HashMap<>();
+	
+	public static void AddClass(String className)
+	{
+		virtualFunctionStack.put(className, new LinkedList<>());
+	}
+	
+	public static void AddFunction(String className, String functionName)
+	{
+		LinkedList<Function> list = virtualFunctionStack.get(className);
+		
+		assert(list != null);
+		
+		list.add(new Function(functionName));		
+	}
+	
+	public static String VirtualFunctions(){
+		StringBuilder sb = new StringBuilder();
+		
+		Iterator it = virtualFunctionStack.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pair = (Map.Entry)it.next();
+	        
+	        sb.append(((String)pair.getKey()) + "\n\t");
+	        
+	        LinkedList<Function> list = GetFunctions((String) pair.getKey());
+	        for(Function f: list)
+	        {
+	        	sb.append(f.toString() + "; " );
+	        }
+	        
+	        sb.append("\n");
+	    }
+	    
+	    return sb.toString();
+	}
+	
+	public static long CalculateVTableSize(String classNme){
+		LinkedList<Function> list = GetFunctions(classNme);
+		
+		long ret = 0;
+		for(Function f : list)
+		{
+			ret+=f.name.length() + 1;
+		}
+		
+		ret+=1;
+		
+		return ret;
+	}
+	
+	private static LinkedList<Function> GetFunctions(String classNme){
+		return virtualFunctionStack.get(classNme);
+	}
+	
+	public static void main(String [] args){
+		AddClass("aaa");
+		AddFunction("aaa", "fun_a");
+		AddClass("bbb");
+		AddFunction("bbb", "fun_b");
+		
+		System.out.println("aaa functions: ");
+		for(Function f: GetFunctions("aaa"))
+			System.out.print(f.name + "; ");
+		
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("bbb functions: ");
+		for(Function f: GetFunctions("bbb"))
+			System.out.print(f.name + "; ");
+		
+		
+	}
+	
+}
+
+class Function{
+	public String name;
+	public long adr;
+	
+	public Function(){}
+	public Function(String _name){name = _name;}
+	public Function(String _name, long _adr){name = _name; adr = _adr;}
+	
+	public String toString(){return name + "("+adr+")";}
+}

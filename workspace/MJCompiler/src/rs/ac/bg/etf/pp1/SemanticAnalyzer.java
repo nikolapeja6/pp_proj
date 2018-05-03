@@ -32,7 +32,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	boolean returnFound = false;
 	int nFields = 0;
 	int fldCnt = 0;
-	int globalVarCnt = 0;
+	int globalVarCnt = 1;
+	int localVarCnt = 0;
 	int fpCnt = 0;
 	Stack<Integer> apCnt = new Stack<>();
 
@@ -135,6 +136,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		fldCnt = 1;
 		currentClass = newClassBegin.obj;
 		scopeStack.push(newClassBegin.obj);
+		
+		GlobalStuff.AddClass(name);
+		GlobalStuff.classTypeObjects.put(name, obj);
 	}
 	
 	public void visit(ClassDeclEnd1 end)
@@ -176,9 +180,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		if (!inClassDecl) {
 			obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
-			if (globalVars)
+			if (globalVars) {
 				obj.setLevel(0);
-			obj.setAdr(globalVarCnt++);
+				obj.setAdr(globalVarCnt++);
+			} else {
+				obj.setAdr(localVarCnt++);
+			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
 			currentClass.getType().getMembers().insertKey(obj);
@@ -200,9 +207,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		if (!inClassDecl) {
 			obj = Tab.insert(Obj.Var, name, currentDeclType);
-			if (globalVars)
+			if (globalVars) {
 				obj.setLevel(0);
-			obj.setAdr(globalVarCnt++);
+				obj.setAdr(globalVarCnt++);
+			} else {
+				obj.setAdr(localVarCnt++);
+			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, currentDeclType);
 			currentClass.getType().getMembers().insertKey(obj);
@@ -248,8 +258,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.openScope();
 
 		fpCnt = 0;
+		localVarCnt = 0;
 		currentMethod = methodNameAndRetType.obj;
 		scopeStack.push(methodNameAndRetType.obj);
+		
+		if (currentClass != null) {
+			GlobalStuff.AddFunction(currentClass.getName(), name);
+		}
 	}
 
 	public void visit(MethodBegin1 methodBegin1) {
@@ -813,6 +828,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	*/
 	
+	
 	public void visit(DesignatorSimple designatorSimple) {
 		String name = designatorSimple.getI1();
 		
@@ -872,6 +888,23 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
 		currentClassObj = null;
 	}
+	
+	public void visit(RValueMethodCall2 designator)
+	{
+		designator.obj = designator.getMethodDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
+	}
+	
+	public void visit(RValueMethodCall1 designator)
+	{
+		designator.obj = designator.getMethodDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
+	}
+	
+	
+
 
 	public void visit(DesignatorArray designatorArray) {
 

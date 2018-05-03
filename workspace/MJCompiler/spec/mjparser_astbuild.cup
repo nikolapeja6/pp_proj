@@ -254,6 +254,8 @@ non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementList;
 non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
 non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
 
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassMethodBegin;
+
 /** END HELPER NON TERMINALS */
 
 
@@ -428,6 +430,8 @@ MatchedThen ::= (MatchedThen1) Matched:M1 {: RESULT=new MatchedThen1(M1); RESULT
 
 DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASSIGN Expr:E2 {: RESULT=new DesignatorStatementAssignment(L1, E2); RESULT.setLine(L1left); :}
 							|
+							(RValueDesignatorStatement) RValueDesignator:R1 {: RESULT=new RValueDesignatorStatement(R1); RESULT.setLine(R1left); :}
+							|
 							(DesignatorStatementFunctionCallComplex) MethodDesignator:M1 OPEN_PARENTHESES ActPars:A2 CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCallComplex(M1, A2); RESULT.setLine(M1left); :}
 							|
 							(DesignatorStatementFunctionCall) MethodDesignator:M1 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new DesignatorStatementFunctionCall(M1); RESULT.setLine(M1left); :}
@@ -436,7 +440,6 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
 							;
-MethodDesignator ::= (MethodDesignator1) Designator:D1 {: RESULT=new MethodDesignator1(D1); RESULT.setLine(D1left); :};
 
 Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
 				|
@@ -542,11 +545,17 @@ LValueDesignator ::= 						/* TODO */
 						(LValueDesignator1) Designator:D1 {: RESULT=new LValueDesignator1(D1); RESULT.setLine(D1left); :}
 						;
 RValueDesignator ::= 						/* TODO */
+					(RValueMethodCall1) DesignatorClassElementMultiple:D1 DOT MethodDesignator:M2 OPEN_PARENTHESES ActPars:A3 CLOSE_PARENTHESES {: RESULT=new RValueMethodCall1(D1, M2, A3); RESULT.setLine(D1left); :}
+					|
+					(RValueMethodCall2) DesignatorClassElementMultiple:D1 DOT MethodDesignator:M2 OPEN_PARENTHESES CLOSE_PARENTHESES {: RESULT=new RValueMethodCall2(D1, M2); RESULT.setLine(D1left); :}
+					|
 					(RValueClassDesignator) DesignatorClassElementMultiple:D1 DOT Designator:D2 {: RESULT=new RValueClassDesignator(D1, D2); RESULT.setLine(D1left); :}
 					|
 					(RValueDesignator1) Designator:D1 {: RESULT=new RValueDesignator1(D1); RESULT.setLine(D1left); :}
 					;
 					
+MethodDesignator ::= (MethodDesignator1) Designator:D1 {: RESULT=new MethodDesignator1(D1); RESULT.setLine(D1left); :};	
+	
 DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple:D1 DOT DesignatorClassElement:D2 {: RESULT=new DesignatorClassElementMultipleMultiple(D1, D2); RESULT.setLine(D1left); :} 
 									|
 									(DesignatorClassElementMultipleSingle)DesignatorClassElement:D1 {: RESULT=new DesignatorClassElementMultipleSingle(D1); RESULT.setLine(D1left); :}
