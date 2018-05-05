@@ -15,13 +15,11 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javafx.geometry.Pos;
 import jdk.nashorn.internal.ir.WhileNode;
-import jdk.nashorn.internal.objects.Global;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
-import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -141,8 +139,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		GlobalStuff.AddClass(name);
 		GlobalStuff.classTypeObjects.put(name, obj);
-		
-		GlobalStuff.baseClassesFor.put(obj.getType(), new LinkedList<>());
 	}
 	
 	public void visit(DerivedClassBegin derivedClassBegin) {
@@ -163,10 +159,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (obj != null && obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", derivedClassBegin);
 		} else {
-			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
-			LinkedList<Struct> list = (LinkedList<Struct>) GlobalStuff.baseClassesFor.get(baseType).clone();
-			list.add(baseType);
-			GlobalStuff.baseClassesFor.put(obj.getType(), list);
+			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class, baseType));
 		}
 		
 		derivedClassBegin.obj = obj;
@@ -184,34 +177,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		
 		LinkedList<String> list;
-		list = GlobalStuff.areDerivedFromClasses.get(baseClassName);
+		
+		list = GlobalStuff.derivedClasses.get(baseClassName);
 		if(list == null){
 			list = new LinkedList<>();
-			GlobalStuff.areDerivedFromClasses.put(baseClassName, list);
+			GlobalStuff.derivedClasses.put(baseClassName, list);
 		}
-		list.add(name);		
+		list.add(name);
 		
-		for (Obj local : baseClass.getLocalSymbols()){
-
-			Obj derivedLocal = Tab.insert(local.getKind(), local.getName(), local.getType());
-			derivedLocal.setAdr(local.getAdr());
-			derivedLocal.setLevel(local.getLevel());
-			derivedLocal.setFpPos(local.getFpPos());
-			
-			if (derivedLocal.getKind() == Obj.Meth) {
-				GlobalStuff.AddFunction(name, derivedLocal.getName());
-				Obj par = Tab.insert(Obj.Var, "this", obj.getType());
-				par.setFpPos(0);
-				
-				SymbolDataStructure symbols = SymbolTableFactory.instance().createSymbolTableDataStructure();
-				
-				for(Obj o : local.getLocalSymbols())
-					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
-				
-				derivedLocal.setLocals(symbols);
-			}
-		}
+		
+		
 	}
 	
 	public void visit(ClassDeclEnd1 end)
@@ -437,11 +412,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("No appropreate act par found.", null);
 			return;
 		}
-		
-			if (!AssignableTo(fp.getType(), actPar.getExpr().struct)) {
-				report_error("ActPar is not assignable to formalPar", actPar);
-			}
 
+		if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
+			report_error("ActPar is not assignable to formalPar", actPar);
+		}
 
 		apCnt.push(apCnt.pop() + 1);
 	}
@@ -462,30 +436,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Method must return type", null);
 		}
 	}
-	
-	private static boolean AssignableTo(Struct lValue, Struct rValue ){
-		if(lValue.getKind() != Struct.Class)
-			return rValue.assignableTo(lValue);
-		
-		if(lValue == rValue)
-			return true;
-		
-		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
-		
-		for(Struct s: list){
-			if(s == lValue){
-				return true;
-			}
-		}
-		
-		return false;
-		
-	}
 
 	public void visit(StatementReturnValue returnValue) {
-			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
-				report_error("The value of the return expression is not assignable to return type.", null);
-			}
+		if (!returnValue.getExpr().struct.assignableTo(currentMethod.getType())) {
+			report_error("The value of the return expression is not assignable to return type.", null);
+		}
 	}
 
 	public void visit(PrintStatementComplex printStatementComplex) {
@@ -549,7 +504,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		// instanceof DesignatorArray )
 		// dst = dst.getElemType();
 
-		if (!AssignableTo(dst, src)) {
+		if (!src.assignableTo(dst)) {
 			report_error("Exprression is not assignable to desigantor", null);
 			return;
 		}
@@ -931,8 +886,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
-				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{

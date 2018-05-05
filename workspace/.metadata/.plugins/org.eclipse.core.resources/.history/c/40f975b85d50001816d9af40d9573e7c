@@ -15,7 +15,6 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javafx.geometry.Pos;
 import jdk.nashorn.internal.ir.WhileNode;
-import jdk.nashorn.internal.objects.Global;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
@@ -141,8 +140,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		GlobalStuff.AddClass(name);
 		GlobalStuff.classTypeObjects.put(name, obj);
-		
-		GlobalStuff.baseClassesFor.put(obj.getType(), new LinkedList<>());
 	}
 	
 	public void visit(DerivedClassBegin derivedClassBegin) {
@@ -163,10 +160,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (obj != null && obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", derivedClassBegin);
 		} else {
-			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
-			LinkedList<Struct> list = (LinkedList<Struct>) GlobalStuff.baseClassesFor.get(baseType).clone();
-			list.add(baseType);
-			GlobalStuff.baseClassesFor.put(obj.getType(), list);
+			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class, baseType));
 		}
 		
 		derivedClassBegin.obj = obj;
@@ -184,10 +178,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		
 		LinkedList<String> list;
-		list = GlobalStuff.areDerivedFromClasses.get(baseClassName);
+		list = GlobalStuff.derivedClasses.get(baseClassName);
 		if(list == null){
 			list = new LinkedList<>();
-			GlobalStuff.areDerivedFromClasses.put(baseClassName, list);
+			GlobalStuff.derivedClasses.put(baseClassName, list);
 		}
 		list.add(name);		
 		
@@ -207,7 +201,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				
 				for(Obj o : local.getLocalSymbols())
 					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
+					symbols.symbols().add(o);
 				
 				derivedLocal.setLocals(symbols);
 			}
@@ -438,10 +432,23 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		
-			if (!AssignableTo(fp.getType(), actPar.getExpr().struct)) {
+		if (fp.getType().getKind() != Struct.Class) {
+			if (!actPar.getExpr().struct.assignableTo(fp.getType())) {
 				report_error("ActPar is not assignable to formalPar", actPar);
 			}
-
+		} else {
+			Struct arg = actPar.obj.getType();
+			Struct par = fp.getType();
+			
+			while(arg != null && arg != par)
+			{
+				arg = arg.getElemType();
+			}
+			
+			if(arg == null){
+				report_error("ActPar is not assignable to formalPar", actPar);
+			}
+		}
 
 		apCnt.push(apCnt.pop() + 1);
 	}
@@ -467,25 +474,27 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if(lValue.getKind() != Struct.Class)
 			return rValue.assignableTo(lValue);
 		
-		if(lValue == rValue)
-			return true;
-		
-		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
-		
-		for(Struct s: list){
-			if(s == lValue){
-				return true;
-			}
+		while(rValue != null && rValue != lValue)
+		{
+			rValue = rValue.getElemType();
 		}
 		
-		return false;
-		
+		return rValue != null;
 	}
 
 	public void visit(StatementReturnValue returnValue) {
-			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
+		
+		if (returnValue.getExpr().struct.getKind() != Struct.Class) {
+			if (!returnValue.getExpr().struct.assignableTo(currentMethod.getType())) {
 				report_error("The value of the return expression is not assignable to return type.", null);
 			}
+			
+		} else {
+			if(AssignableToClass(currentMethod.getType(), returnValue.getExpr().struct)){
+				report_error("ActPar is not assignable to formalPar", actPar);
+			}
+		}
+
 	}
 
 	public void visit(PrintStatementComplex printStatementComplex) {
@@ -549,7 +558,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		// instanceof DesignatorArray )
 		// dst = dst.getElemType();
 
-		if (!AssignableTo(dst, src)) {
+		if (!src.assignableTo(dst)) {
 			report_error("Exprression is not assignable to desigantor", null);
 			return;
 		}
@@ -931,8 +940,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
-				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{

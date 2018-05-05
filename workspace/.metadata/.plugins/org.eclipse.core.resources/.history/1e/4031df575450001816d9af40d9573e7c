@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import rs.etf.pp1.symboltable.concepts.Obj;
-import rs.etf.pp1.symboltable.concepts.Struct;
 
 public class GlobalStuff {
 	
@@ -17,10 +16,6 @@ public class GlobalStuff {
 	static HashMap<String, LinkedList<Function>> virtualFunctionStack = new HashMap<>();
 	
 	public static HashMap<String, Obj> classTypeObjects = new HashMap<>();
-	
-	public static HashMap<String, LinkedList<String>> areDerivedFromClasses = new HashMap<>();
-	
-	public static HashMap<Struct, LinkedList<Struct>> baseClassesFor = new HashMap<>();
 	
 	public static void AddClass(String className)
 	{

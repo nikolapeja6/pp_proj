@@ -96,12 +96,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		obj.setAdr(GlobalStuff.vTableAddress);
 	}
 	
-	public void visit(DerivedClassBegin classBegin){
-		currentClassDecl = classBegin.obj;
-		Obj obj = GlobalStuff.classTypeObjects.get(currentClassDecl.getName());
-		obj.setAdr(GlobalStuff.vTableAddress);
-	}
-	
 	public void visit(ClassDeclEnd1 classEnd)
 	{
 		log.debug("updating vTableAddress by "+currentClassDecl.getName() + " class. OldValue =  "+GlobalStuff.vTableAddress);

@@ -18,7 +18,7 @@ public class GlobalStuff {
 	
 	public static HashMap<String, Obj> classTypeObjects = new HashMap<>();
 	
-	public static HashMap<String, LinkedList<String>> areDerivedFromClasses = new HashMap<>();
+	public static HashMap<String, LinkedList<String>> derivedClasses = new HashMap<>();
 	
 	public static HashMap<Struct, LinkedList<Struct>> baseClassesFor = new HashMap<>();
 	

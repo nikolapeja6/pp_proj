@@ -15,7 +15,6 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javafx.geometry.Pos;
 import jdk.nashorn.internal.ir.WhileNode;
-import jdk.nashorn.internal.objects.Global;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
@@ -141,8 +140,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		GlobalStuff.AddClass(name);
 		GlobalStuff.classTypeObjects.put(name, obj);
-		
-		GlobalStuff.baseClassesFor.put(obj.getType(), new LinkedList<>());
 	}
 	
 	public void visit(DerivedClassBegin derivedClassBegin) {
@@ -164,9 +161,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Identifier " + name + " already used.", derivedClassBegin);
 		} else {
 			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
-			LinkedList<Struct> list = (LinkedList<Struct>) GlobalStuff.baseClassesFor.get(baseType).clone();
-			list.add(baseType);
-			GlobalStuff.baseClassesFor.put(obj.getType(), list);
 		}
 		
 		derivedClassBegin.obj = obj;
@@ -207,7 +201,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				
 				for(Obj o : local.getLocalSymbols())
 					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
+					symbols.symbols().add(o);
 				
 				derivedLocal.setLocals(symbols);
 			}
@@ -467,19 +461,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if(lValue.getKind() != Struct.Class)
 			return rValue.assignableTo(lValue);
 		
-		if(lValue == rValue)
-			return true;
-		
-		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
-		
-		for(Struct s: list){
-			if(s == lValue){
-				return true;
-			}
+		while(rValue != null && rValue != lValue)
+		{
+			rValue = rValue.getElemType();
 		}
 		
-		return false;
-		
+		return rValue != null;
 	}
 
 	public void visit(StatementReturnValue returnValue) {
@@ -931,8 +918,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
-				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{

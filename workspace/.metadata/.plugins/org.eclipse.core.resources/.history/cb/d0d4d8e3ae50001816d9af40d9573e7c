@@ -207,7 +207,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				
 				for(Obj o : local.getLocalSymbols())
 					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
+					symbols.symbols().add(o);
 				
 				derivedLocal.setLocals(symbols);
 			}
@@ -467,19 +467,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if(lValue.getKind() != Struct.Class)
 			return rValue.assignableTo(lValue);
 		
-		if(lValue == rValue)
-			return true;
-		
-		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
-		
-		for(Struct s: list){
-			if(s == lValue){
-				return true;
-			}
+		while(rValue != null && rValue != lValue)
+		{
+			rValue = rValue.getElemType();
 		}
 		
-		return false;
-		
+		return rValue != null;
 	}
 
 	public void visit(StatementReturnValue returnValue) {
@@ -931,8 +924,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
-				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{

@@ -933,6 +933,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if(currentClassObj != null){
 			if(!currentClassObj.getName().equals("this"))
 				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			else
+				obj = currentClass.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{

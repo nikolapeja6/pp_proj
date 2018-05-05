@@ -207,7 +207,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				
 				for(Obj o : local.getLocalSymbols())
 					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
+					symbols.symbols().add(o);
 				
 				derivedLocal.setLocals(symbols);
 			}
@@ -931,8 +931,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
-				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
+			obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{
