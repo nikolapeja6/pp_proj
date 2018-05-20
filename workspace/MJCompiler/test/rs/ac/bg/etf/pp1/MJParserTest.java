@@ -79,6 +79,10 @@ public class MJParserTest {
 	        	Code.dataSize = GlobalStuff.vTableAddress;//codeGenerator.totalStaticDataSize;//semanticCheck.nVars;
 	        	Code.mainPc = codeGenerator.getMainPc();
 	        	Code.write(new FileOutputStream(objFile));
+	        	
+	        	log.info("Finished code generation");
+		        Tab.dump();
+		        log.info(GlobalStuff.VirtualFunctions());
 	        	log.info("Parsiranje uspesno zavrseno!");
 	        }
 	        else {

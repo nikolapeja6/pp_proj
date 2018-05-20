@@ -33,6 +33,15 @@ public class GlobalStuff {
 		
 		assert(list != null);
 		
+		for(int i =0; i < list.size(); ){
+			Function f = list.get(i);
+			if(f.name.equals(functionName)){
+				list.remove(f);
+			}
+			else{
+				i++;
+			}
+		}
 		list.add(new Function(functionName));		
 	}
 	
@@ -65,8 +74,17 @@ public class GlobalStuff {
 			Function f = list.get(i);
 			if(f.name.equals(functionName)){
 				f.adr = address;
-				return;
+				break;
 			}
+		}
+		
+		LinkedList<String> derived = areDerivedFromClasses.get(className);
+		if(derived == null || derived.size() == 0){
+			return;
+		}
+		
+		for(String derivedClassName: derived){
+			UpdateAddressOfFunction(derivedClassName, functionName, address);
 		}
 	}
 	

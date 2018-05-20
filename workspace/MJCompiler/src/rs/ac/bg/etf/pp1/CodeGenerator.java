@@ -667,17 +667,17 @@ public class CodeGenerator extends VisitorAdaptor {
 
 		Code.put(Code.newarray);
 
-		if (elementType == Tab.intType) {
-			Code.put(1);
-			return;
-		}
-
 		if (elementType == Tab.charType) {
 			Code.put(0);
 			return;
 		}
+		
+		//if (elementType == Tab.intType) {
+			Code.put(1);
+			return;
+		//}
 
-		System.out.println("unmatched new");
+		//System.out.println("unmatched new");
 
 	}
 

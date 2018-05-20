@@ -212,6 +212,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				derivedLocal.setLocals(symbols);
 			}
 		}
+		
+		Tab.chainLocalSymbols(baseClass.getType());
+		
 	}
 	
 	public void visit(ClassDeclEnd1 end)
@@ -362,8 +365,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = Tab.find(name);
 		if (obj != Tab.noObj) {
+			
+			if(!inClassDecl ||  obj.getFpPos() !=0){
 			report_error("Identifier " + name + " already used.", null);
 			return;
+			}
 		}
 
 		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, elemType));
@@ -378,8 +384,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = Tab.find(name);
 		if (obj != Tab.noObj) {
+			if(!inClassDecl ||  obj.getFpPos() !=0){
 			report_error("Identifier " + name + " already used.", null);
 			return;
+			}
 		}
 
 		obj = Tab.insert(Obj.Var, name, elemType);
@@ -537,6 +545,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
 		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
+		
+		if(designator == null || designator == Tab.noObj)
+		{
+			report_error("designator is null in designator statement assignment", designatorStatementAssignment);
+			return;
+		}
+		
 		if (designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem) {
 			report_error("Assignment can only be done for variables of class fields", null);
 			return;
@@ -709,8 +724,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		expr.struct = expr.getTerm().struct;
 		log.debug("exprWithNoMinus is type " + expr.struct.getKind());
 	}
+	
+	private  boolean checkObj(Obj obj){
+		if (obj == null || obj == Tab.noObj){
+			report_error("obj is null", null);
+			return false;
+		}
+		
+		return true;
+	}
 
 	public void visit(SingleFactorTerm term) {
+		
+		if(!checkObj(term.getFactor().obj))
+			return;
+		
 		term.struct = (term.getFactor()).obj.getType();
 		log.debug("term SingleFactorterm is type " + term.struct.getKind());
 	}
@@ -840,6 +868,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(RValueDesignator1 rdesignator) {
+		
+		if(rdesignator.getDesignator().obj == null || rdesignator.getDesignator().obj == Tab.noObj){
+			report_error("designator obj is null in rvaluedesignator1 ", rdesignator);
+			return;
+		}
+		
 		if (rdesignator.getDesignator().obj.getType().getKind() == Struct.Array) {
 			
 			if(rdesignator.getDesignator() instanceof DesignatorArray){
@@ -931,14 +965,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Obj obj = null;
 		if(currentClassObj != null){
-			if(!currentClassObj.getName().equals("this"))
 				obj = currentClassObj.getType().getMembers().searchKey(designatorSimple.getI1());
 		}
 		else
 		{
 		obj = Tab.find(name);
 		}
-		if (obj == Tab.noObj) {
+		if (obj == null || obj == Tab.noObj) {
 			report_error("Identifier " + name + " was not defined.", null);
 			return;
 		}
