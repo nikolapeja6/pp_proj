@@ -253,7 +253,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 		
 		
-		if(currentClassObj != null){
+		if(obj.getLevel() > 0){
 			String methodName = ((MethodDesignator1)complexFunctionCall.getMethodDesignator()).getDesignator().obj.getName();
 			
 			RValueMethodCallStuff(methodName);
