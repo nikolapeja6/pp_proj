@@ -3,7 +3,6 @@ package rs.ac.bg.etf.pp1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
@@ -16,7 +15,7 @@ public class GlobalStuff {
 	public static int vTableAddress;
 	public static int initialVTableAddress;
 	
-	static LinkedHashMap<String, LinkedList<Function>> virtualFunctionStack = new LinkedHashMap<>();
+	static TreeMap<String, LinkedList<Function>> virtualFunctionStack = new TreeMap<>();
 	
 	public static HashMap<String, Obj> classTypeObjects = new HashMap<>();
 	

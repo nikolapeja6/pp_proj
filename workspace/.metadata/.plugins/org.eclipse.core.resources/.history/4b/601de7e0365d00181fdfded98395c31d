@@ -82,7 +82,7 @@ public class MJParserTest {
 	        	
 	        	log.info("Finished code generation");
 		        Tab.dump();
-		        log.debug(GlobalStuff.VirtualFunctions());
+		        log.info(GlobalStuff.VirtualFunctions());
 	        	log.info("Parsiranje uspesno zavrseno!");
 	        }
 	        else {

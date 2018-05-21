@@ -437,7 +437,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		else
 			apCnt.push(0);
 		currentMethodCall = methodDesignator1.obj;
-		currentClassObj = null;
 	}
 
 	public void visit(DesignatorStatementFunctionCallComplex complexFunctionCall) {
