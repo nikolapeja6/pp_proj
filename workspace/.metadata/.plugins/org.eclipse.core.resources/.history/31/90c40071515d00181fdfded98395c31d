@@ -1,8 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
 import rs.ac.bg.etf.pp1.ast.ConstDeclElement1;
-import rs.ac.bg.etf.pp1.ast.FormParsElementArray;
-import rs.ac.bg.etf.pp1.ast.FormParsElementSingle;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarDeclElement;
 import rs.ac.bg.etf.pp1.ast.VarDeclElementArray;
@@ -22,15 +20,11 @@ public class CounterVisitor extends VisitorAdaptor {
 
 	public static class FormParamCounter extends CounterVisitor {
 
-		
-		  public void visit(FormParsElementSingle formParamDecl1) {
-		  count++; 
-		  }
-		  
-		  public void visit(FormParsElementArray formParamDecl1) {
-		  count++; 
-		  }
-		  
+		// TODO
+		/*
+		 * @Override public void visit(FormalParamDecl formParamDecl1) {
+		 * count++; }
+		 */
 	}
 
 	public static class VarCounter extends CounterVisitor {

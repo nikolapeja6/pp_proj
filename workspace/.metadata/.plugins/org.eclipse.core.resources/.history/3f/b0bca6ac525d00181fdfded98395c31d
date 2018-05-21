@@ -139,12 +139,12 @@ public class CodeGenerator extends VisitorAdaptor {
 		
 		// Generate the entry.
 		Code.put(Code.enter);
-		Code.put(fpCnt.getCount() + (currentClassDecl != null ? 1 : 0));
+		Code.put(fpCnt.getCount());
 		Code.put(varCnt.getCount());
 	}
 
 	public void visit(MethodBegin1 methodBegin1){
-		/*
+		
 		Obj obj = methodBegin1.obj;
 		
 		Collection<Obj> col = obj.getLocalSymbols();
@@ -164,7 +164,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		{
 			Code.store(objs.pop());
 		}
-		*/
+		
 	}
 	
 	public void visit(MethodEnd1 methodEnd) {

@@ -139,8 +139,8 @@ public class CodeGenerator extends VisitorAdaptor {
 		
 		// Generate the entry.
 		Code.put(Code.enter);
-		Code.put(fpCnt.getCount() + (currentClassDecl != null ? 1 : 0));
 		Code.put(varCnt.getCount());
+		Code.put(fpCnt.getCount());
 	}
 
 	public void visit(MethodBegin1 methodBegin1){
