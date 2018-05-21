@@ -22,7 +22,6 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
-import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -193,31 +192,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		list.add(name);		
 		
 		SymbolDataStructure x = baseClass.getType().getMembers();
-		SymbolDataStructure y = new  HashTableDataStructure();
-		for(Obj o : x.symbols()){
-			if(o.getKind() == obj.Fld){
-				y.insertKey(o);
-				continue;
-			}
-						
-			if(o.getKind() == Obj.Meth){
-				LinkedList<Obj> toRemove = new LinkedList<>();
-				SymbolDataStructure xx = o.getType().getMembers();
-				SymbolDataStructure yy =  new HashTableDataStructure();
-				for(Obj oo : xx.symbols()){
-					if(oo.getFpPos() != 0)
-						yy.insertKey(oo);
-				}
-				
-				Struct ooo_s = new Struct(o.getType().getKind(), o.getType().getElemType());
-				ooo_s.setMembers(yy);
-				Obj ooo = new Obj(o.getKind(), o.getName(),ooo_s );
-				y.insertKey(ooo);				
-			}
+		LinkedList<Obj> toRemove = new LinkedList<>();
+		for(Obj o : x.symbols())
+			if(o.getFpPos() == 0)
+				toRemove.add(o);
+		
+		for(Obj o: toRemove){
+			x.deleteKey(o.getName());
 		}
-
 	
-		obj.getType().setMembers(y);
+		obj.getType().setMembers(x);
 		
 		for (Obj local : baseClass.getLocalSymbols()){
 

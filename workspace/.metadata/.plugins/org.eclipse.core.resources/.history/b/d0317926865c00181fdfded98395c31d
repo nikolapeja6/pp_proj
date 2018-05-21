@@ -88,10 +88,6 @@ public class MJParserTest {
 	        else {
 	        	log.error("Parsiranje NIJE uspesno zavrseno!");
 	        }
-		}catch(Exception e){
-			e.printStackTrace();
-			//Tab.dump();
-	        //log.info(GlobalStuff.VirtualFunctions());
 		}
 	}
 }

@@ -22,10 +22,8 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
-import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 
 public class SemanticAnalyzer extends VisitorAdaptor {
 
@@ -50,12 +48,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	Struct currentDeclType = null;
 	List<String> currentVarDeclIdents = new LinkedList<>();
-	
+
 	HashMap<String, List<Integer>> vTableFix = new HashMap<>();
 	boolean inClassDecl = false;
 	Obj currentClass = null;
 	int classFieldCnt = 0;
-	
+
 	Obj currentClassObj = null;
 
 	Logger log = Logger.getLogger(getClass());
@@ -76,7 +74,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			msg.append(" na liniji ").append(line);
 		log.info(msg.toString());
 	}
-	
 
 	public void visit(ProgName programName) {
 		log.debug("program name");
@@ -97,31 +94,26 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.closeScope();
 	}
-	
-	public void visit(ClassDecl1 classDecl)
-	{
+
+	public void visit(ClassDecl1 classDecl) {
 		log.debug("class decl 1");
 	}
-	
-	public void visit(ClassDecl2 classDecl)
-	{
+
+	public void visit(ClassDecl2 classDecl) {
 		log.debug("class decl 2");
 	}
-	
-	public void visit(ClassDecl3 classDecl)
-	{
+
+	public void visit(ClassDecl3 classDecl) {
 		log.debug("class decl 3");
 	}
-	
-	public void visit(ClassDecl4 classDecl)
-	{
+
+	public void visit(ClassDecl4 classDecl) {
 		log.debug("class decl 4");
 	}
-	
-	public void visit(NewClassBegin newClassBegin)
-	{
+
+	public void visit(NewClassBegin newClassBegin) {
 		log.debug("ClassBegin");
-		
+
 		String name = newClassBegin.getI1();
 
 		Obj obj = Tab.find(name);
@@ -139,28 +131,28 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		fldCnt = 1;
 		currentClass = newClassBegin.obj;
 		scopeStack.push(newClassBegin.obj);
-		
+
 		GlobalStuff.AddClass(name);
 		GlobalStuff.classTypeObjects.put(name, obj);
-		
+
 		GlobalStuff.baseClassesFor.put(obj.getType(), new LinkedList<>());
 	}
-	
+
 	public void visit(DerivedClassBegin derivedClassBegin) {
-		
+
 		log.debug("derived ClassBegin");
-		
+
 		String name = derivedClassBegin.getI1();
 		Struct baseType = derivedClassBegin.getType().struct;
-		String baseClassName = ((Type1)derivedClassBegin.getType()).getI1();
+		String baseClassName = ((Type1) derivedClassBegin.getType()).getI1();
 		Obj baseClass = Tab.find(baseClassName);
-		
-		if(baseType.getKind() != Struct.Class){
+
+		if (baseType.getKind() != Struct.Class) {
 			report_error("Base type must be a type.", derivedClassBegin);
 		}
-		
+
 		Obj obj = Tab.find(name);
-		
+
 		if (obj != null && obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", derivedClassBegin);
 		} else {
@@ -169,7 +161,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			list.add(baseType);
 			GlobalStuff.baseClassesFor.put(obj.getType(), list);
 		}
-		
+
 		derivedClassBegin.obj = obj;
 		Tab.openScope();
 
@@ -177,84 +169,67 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		fldCnt = 1;
 		currentClass = derivedClassBegin.obj;
 		scopeStack.push(obj);
-		
-		// TODO 
-		
+
+		// TODO
+
 		GlobalStuff.AddClass(name);
 		GlobalStuff.classTypeObjects.put(name, obj);
-		
-		
+
 		LinkedList<String> list;
 		list = GlobalStuff.areDerivedFromClasses.get(baseClassName);
-		if(list == null){
+		if (list == null) {
 			list = new LinkedList<>();
 			GlobalStuff.areDerivedFromClasses.put(baseClassName, list);
 		}
-		list.add(name);		
-		
+		list.add(name);
+
 		SymbolDataStructure x = baseClass.getType().getMembers();
-		SymbolDataStructure y = new  HashTableDataStructure();
-		for(Obj o : x.symbols()){
-			if(o.getKind() == obj.Fld){
-				y.insertKey(o);
-				continue;
-			}
-						
-			if(o.getKind() == Obj.Meth){
-				LinkedList<Obj> toRemove = new LinkedList<>();
-				SymbolDataStructure xx = o.getType().getMembers();
-				SymbolDataStructure yy =  new HashTableDataStructure();
-				for(Obj oo : xx.symbols()){
-					if(oo.getFpPos() != 0)
-						yy.insertKey(oo);
-				}
-				
-				Struct ooo_s = new Struct(o.getType().getKind(), o.getType().getElemType());
-				ooo_s.setMembers(yy);
-				Obj ooo = new Obj(o.getKind(), o.getName(),ooo_s );
-				y.insertKey(ooo);				
-			}
+		LinkedList<Obj> toRemove = new LinkedList<>();
+		for (Obj o : x.symbols())
+			if (o.getFpPos() == 0)
+				toRemove.add(o);
+
+		for (Obj o : toRemove) {
+			x.deleteKey(o.getName());
 		}
 
-	
-		obj.getType().setMembers(y);
-		
-		for (Obj local : baseClass.getLocalSymbols()){
+		obj.getType().setMembers(x);
+
+		for (Obj local : baseClass.getLocalSymbols()) {
 
 			Obj derivedLocal = Tab.insert(local.getKind(), local.getName(), local.getType());
 			derivedLocal.setAdr(local.getAdr());
 			derivedLocal.setLevel(local.getLevel());
 			derivedLocal.setFpPos(local.getFpPos());
-			
+
 			if (derivedLocal.getKind() == Obj.Meth) {
 				GlobalStuff.AddFunction(name, derivedLocal.getName());
 				Obj par = Tab.insert(Obj.Var, "this", obj.getType());
 				par.setFpPos(0);
-				
+
 				SymbolDataStructure symbols = SymbolTableFactory.instance().createSymbolTableDataStructure();
-				
-				for(Obj o : local.getLocalSymbols())
-					if(!o.getName().equals("this"))
-					symbols.insertKey(o);
-				
+
+				for (Obj o : local.getLocalSymbols())
+					if (!o.getName().equals("this"))
+						symbols.insertKey(o);
+
 				derivedLocal.setLocals(symbols);
 			}
-		}		
+		}
 	}
-	
-	public void visit(ClassDeclEnd1 end)
-	{
+
+	public void visit(ClassDeclEnd1 end) {
 		log.debug("class decl end");
 		inClassDecl = false;
-		
+
 		currentClass.setLevel(fldCnt);
 		fldCnt = 0;
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.chainLocalSymbols(currentClass.getType());
 		Tab.closeScope();
 		currentClass = null;
-	}	
-	
+	}
+
 	public void visit(VarDecl1 varDecl) {
 		currentDeclType = null;
 	}
@@ -353,7 +328,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		localVarCnt = 0;
 		currentMethod = methodNameAndRetType.obj;
 		scopeStack.push(methodNameAndRetType.obj);
-		
+
 		if (currentClass != null) {
 			GlobalStuff.AddFunction(currentClass.getName(), name);
 			Obj obj = Tab.insert(Obj.Var, "this", currentClass.getType());
@@ -390,10 +365,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = Tab.find(name);
 		if (obj != Tab.noObj) {
-			
-			if(!inClassDecl ||  obj.getFpPos() !=0){
-			report_error("Identifier " + name + " already used.", null);
-			return;
+
+			if (!inClassDecl || obj.getFpPos() != 0) {
+				report_error("Identifier " + name + " already used.", null);
+				return;
 			}
 		}
 
@@ -409,9 +384,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = Tab.find(name);
 		if (obj != Tab.noObj) {
-			if(!inClassDecl ||  obj.getFpPos() !=0){
-			report_error("Identifier " + name + " already used.", null);
-			return;
+			if (!inClassDecl || obj.getFpPos() != 0) {
+				report_error("Identifier " + name + " already used.", null);
+				return;
 			}
 		}
 
@@ -419,20 +394,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		obj.setFpPos(fpCnt++);
 		formalPar.obj = obj;
 	}
-	
-	public void visit(FactorNewObject factorNewObject){
+
+	public void visit(FactorNewObject factorNewObject) {
 		Struct type = factorNewObject.getType().struct;
-		if(type.getKind() != Struct.Class)
-		{
-			report_error("Type must be class.",factorNewObject );
+		if (type.getKind() != Struct.Class) {
+			report_error("Type must be class.", factorNewObject);
 		}
-		
+
 		factorNewObject.obj = new Obj(Obj.Var, "", type);
 	}
 
 	public void visit(MethodDesignator1 methodDesignator1) {
 		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
-		if(currentClassObj != null || currentClass != null)
+		if (currentClassObj != null || currentClass != null)
 			apCnt.push(1);
 		else
 			apCnt.push(0);
@@ -453,11 +427,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ActParElement1 actPar) {
 		Obj fp = null;
-		
+
 		// fix no argument this.func calls
-		if(currentMethod.getLevel() > 0 && currentMethodCall.getLocalSymbols().size() == 0)
+		if (currentMethod.getLevel() > 0 && currentMethodCall.getLocalSymbols().size() == 0)
 			return;
-		
+
 		for (Obj obj : currentMethodCall.getLocalSymbols()) {
 			if (obj.getFpPos() == apCnt.peek()) {
 				fp = obj;
@@ -465,16 +439,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 		}
 
-		
 		if (fp == null) {
 			report_error("No appropreate act par found.", null);
 			return;
 		}
-		
-			if (!AssignableTo(fp.getType(), actPar.getExpr().struct)) {
-				report_error("ActPar is not assignable to formalPar", actPar);
-			}
 
+		if (!AssignableTo(fp.getType(), actPar.getExpr().struct)) {
+			report_error("ActPar is not assignable to formalPar", actPar);
+		}
 
 		apCnt.push(apCnt.pop() + 1);
 	}
@@ -495,30 +467,30 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Method must return type", null);
 		}
 	}
-	
-	private static boolean AssignableTo(Struct lValue, Struct rValue ){
-		if(lValue.getKind() != Struct.Class)
+
+	private static boolean AssignableTo(Struct lValue, Struct rValue) {
+		if (lValue.getKind() != Struct.Class)
 			return rValue.assignableTo(lValue);
-		
-		if(lValue == rValue)
+
+		if (lValue == rValue)
 			return true;
-		
+
 		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
-		
-		for(Struct s: list){
-			if(s == lValue){
+
+		for (Struct s : list) {
+			if (s == lValue) {
 				return true;
 			}
 		}
-		
+
 		return false;
-		
+
 	}
 
 	public void visit(StatementReturnValue returnValue) {
-			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
-				report_error("The value of the return expression is not assignable to return type.", null);
-			}
+		if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)) {
+			report_error("The value of the return expression is not assignable to return type.", null);
+		}
 	}
 
 	public void visit(PrintStatementComplex printStatementComplex) {
@@ -570,13 +542,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
 		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
-		
-		if(designator == null || designator == Tab.noObj)
-		{
+
+		if (designator == null || designator == Tab.noObj) {
 			report_error("designator is null in designator statement assignment", designatorStatementAssignment);
 			return;
 		}
-		
+
 		if (designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem) {
 			report_error("Assignment can only be done for variables of class fields", null);
 			return;
@@ -749,21 +720,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		expr.struct = expr.getTerm().struct;
 		log.debug("exprWithNoMinus");
 	}
-	
-	private  boolean checkObj(Obj obj){
-		if (obj == null || obj == Tab.noObj){
+
+	private boolean checkObj(Obj obj) {
+		if (obj == null || obj == Tab.noObj) {
 			report_error("obj is null", null);
 			return false;
 		}
-		
+
 		return true;
 	}
 
 	public void visit(SingleFactorTerm term) {
-		
-		if(!checkObj(term.getFactor().obj))
+
+		if (!checkObj(term.getFactor().obj))
 			return;
-		
+
 		term.struct = (term.getFactor()).obj.getType();
 		log.debug("term SingleFactorterm is type " + term.struct.getKind());
 	}
@@ -836,7 +807,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (obj.getLevel() != cnt) {
 			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);
 		}
-		
+
 		currentClassObj = null;
 
 		functtionCallFactor.obj = obj;
@@ -893,21 +864,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(RValueDesignator1 rdesignator) {
-		
-		if(rdesignator.getDesignator().obj == null || rdesignator.getDesignator().obj == Tab.noObj){
+
+		if (rdesignator.getDesignator().obj == null || rdesignator.getDesignator().obj == Tab.noObj) {
 			report_error("designator obj is null in rvaluedesignator1 ", rdesignator);
 			return;
 		}
-		
+
 		if (rdesignator.getDesignator().obj.getType().getKind() == Struct.Array) {
-			
-			if(rdesignator.getDesignator() instanceof DesignatorArray){
-			String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
-			rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
-			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
-			}
-			else
-			{
+
+			if (rdesignator.getDesignator() instanceof DesignatorArray) {
+				String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
+				rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
+				rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			} else {
 				String varName = ((DesignatorSimple) rdesignator.getDesignator()).getI1();
 				rdesignator.obj = new Obj(Obj.Var, varName, rdesignator.getDesignator().obj.getType());
 				rdesignator.obj.setAdr(Tab.find(varName).getAdr());
@@ -915,153 +884,123 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		} else {
 			rdesignator.obj = rdesignator.getDesignator().obj;
 		}
-		
+
 		currentClassObj = null;
 	}
-	
-	public void visit(DesignatorClassElement1 designatorClassElement){
+
+	public void visit(DesignatorClassElement1 designatorClassElement) {
 		designatorClassElement.obj = designatorClassElement.getDesignator().obj;
 	}
 
 	// TODO
 	/*
-	public void visit(DesignatorClassElementSimple designator){
-		
-		if(currentClassObj.getType().getKind() != Struct.Class)
-		{
-			report_error("tried accesing field of non class object", designator);
-			designator.obj = Tab.noObj;
-			return;
-		}
-		
-		designator.obj = currentClassObj.getType().getMembers().searchKey(designator.getI1());
-		currentClassObj = designator.obj;		
-		if(currentClassObj == null || currentClassObj == Tab.noObj)
-		{
-			report_error("Class does not have field "+designator.getI1(), designator);
-		}
-	}
-	
-
-	public void visit(DesignatorClassElementArray designator)
-	{
-		if(currentClassObj.getType().getKind()!= Struct.Array)
-		{
-			report_error("tried accesing non array variable as array", designator);
-			designator.obj = Tab.noObj;
-			return;
-		}
-		
-		if(currentClassObj.getType().getElemType().getKind()!= Struct.Class)
-		{
-			report_error("tried accesing field of non class object", designator);
-			designator.obj = Tab.noObj;
-			return;
-		}
-		
-		designator.obj = currentClassObj.getType().getElemType().getMembers().searchKey(designator.obj.getName());
-		currentClassObj = designator.obj;		
-		if(currentClassObj == null || currentClassObj == Tab.noObj)
-		{
-			report_error("Class does not have field "+designator.obj.getName(), designator);
-		}
-	}
-	*/
+	 * public void visit(DesignatorClassElementSimple designator){
+	 * 
+	 * if(currentClassObj.getType().getKind() != Struct.Class) { report_error(
+	 * "tried accesing field of non class object", designator); designator.obj =
+	 * Tab.noObj; return; }
+	 * 
+	 * designator.obj =
+	 * currentClassObj.getType().getMembers().searchKey(designator.getI1());
+	 * currentClassObj = designator.obj; if(currentClassObj == null ||
+	 * currentClassObj == Tab.noObj) { report_error("Class does not have field "
+	 * +designator.getI1(), designator); } }
+	 * 
+	 * 
+	 * public void visit(DesignatorClassElementArray designator) {
+	 * if(currentClassObj.getType().getKind()!= Struct.Array) { report_error(
+	 * "tried accesing non array variable as array", designator); designator.obj
+	 * = Tab.noObj; return; }
+	 * 
+	 * if(currentClassObj.getType().getElemType().getKind()!= Struct.Class) {
+	 * report_error("tried accesing field of non class object", designator);
+	 * designator.obj = Tab.noObj; return; }
+	 * 
+	 * designator.obj =
+	 * currentClassObj.getType().getElemType().getMembers().searchKey(designator
+	 * .obj.getName()); currentClassObj = designator.obj; if(currentClassObj ==
+	 * null || currentClassObj == Tab.noObj) { report_error(
+	 * "Class does not have field "+designator.obj.getName(), designator); } }
+	 */
 	// TODO
 	/*
-	public void visit(ArrayFieldName1 arrayName){
-		Obj obj = currentClassObj.getType().getMembers().searchKey(arrayName.getI1());
-		if (obj == Tab.noObj || obj == null) {
-			report_error("Undefined identifier " + arrayName1.getI1(), null);
-			return;
-		}
+	 * public void visit(ArrayFieldName1 arrayName){ Obj obj =
+	 * currentClassObj.getType().getMembers().searchKey(arrayName.getI1()); if
+	 * (obj == Tab.noObj || obj == null) { report_error("Undefined identifier "
+	 * + arrayName1.getI1(), null); return; }
+	 * 
+	 * if (obj.getType().getKind() != Struct.Array) { report_error("Variable " +
+	 * arrayName1.getI1() + " is not an array.", null); }
+	 * 
+	 * arrayName1.obj = obj; }
+	 */
 
-		if (obj.getType().getKind() != Struct.Array) {
-			report_error("Variable " + arrayName1.getI1() + " is not an array.", null);
-		}
-
-		arrayName1.obj = obj;
-	}
-	*/
-	
-	
 	public void visit(DesignatorSimple designatorSimple) {
 		String name = designatorSimple.getI1();
-		
+
 		Obj obj = null;
-		if(currentClassObj != null){
-				obj = currentClassObj.getType().getMembers().searchKey(name);
-		}
-		else
-		{
-		obj = Tab.find(name);
+		if (currentClassObj != null) {
+			obj = currentClassObj.getType().getMembers().searchKey(name);
+		} else {
+			obj = Tab.find(name);
 		}
 		if (obj == null || obj == Tab.noObj) {
 			report_error("Identifier " + name + " was not defined.", null);
 			return;
 		}
 
-		log.debug("designator simple at line "+designatorSimple.getLine() + ": "+designatorSimple.getI1());
+		log.debug("designator simple at line " + designatorSimple.getLine() + ": " + designatorSimple.getI1());
 		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
 			report_error("Identifier " + name + " is not a data identifier.", null);
 			return;
 		}
-		
-		if(obj.getType().getKind() == Struct.Class)
-		{
+
+		if (obj.getType().getKind() == Struct.Class) {
 			designatorSimple.obj = obj;
 			checkThatClassContainsField(currentClassObj, designatorSimple.getI1());
 			currentClassObj = obj;
-		}
-		else{
-		designatorSimple.obj = obj;
+		} else {
+			designatorSimple.obj = obj;
 		}
 	}
-	
-	private void checkThatClassContainsField(Obj clss, String name)
-	{
+
+	private void checkThatClassContainsField(Obj clss, String name) {
 		// first
-		if(clss == null)
+		if (clss == null)
 			return;
-		
+
 		Struct type = clss.getType();
 		Obj obj = type.getMembers().searchKey(name);
-		if(obj == null || obj == Tab.noObj)
-		{
-			report_error("Class "+clss.getName() + " does not contain a field named "+name, null);
+		if (obj == null || obj == Tab.noObj) {
+			report_error("Class " + clss.getName() + " does not contain a field named " + name, null);
 		}
 	}
-	
-	public void visit(LValueClassDesignator designator)
-	{
-		designator.obj = designator.getDesignator().obj;
-		currentClassObj = null;
-	}
-	
-	public void visit(RValueClassDesignator designator)
-	{
-		designator.obj = designator.getDesignator().obj;
-		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
-		currentClassObj = null;
-	}
-		
-	
-	public void visit(RValueMethodCall2 designator)
-	{
-		designator.obj = designator.getMethodDesignator().obj;
-		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
-		currentClassObj = null;
-	}
-	
-	public void visit(RValueMethodCall1 designator)
-	{
-		designator.obj = designator.getMethodDesignator().obj;
-		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
-		currentClassObj = null;
-	}
-	
-	
 
+	public void visit(LValueClassDesignator designator) {
+		designator.obj = designator.getDesignator().obj;
+		currentClassObj = null;
+	}
+
+	public void visit(RValueClassDesignator designator) {
+		designator.obj = designator.getDesignator().obj;
+		// designator.obj = new MyObj(designator.obj.getKind(), "load",
+		// designator.obj.getType());
+		currentClassObj = null;
+	}
+
+	public void visit(RValueMethodCall2 designator) {
+		designator.obj = designator.getMethodDesignator().obj;
+		// designator.obj = new MyObj(designator.obj.getKind(), "load",
+		// designator.obj.getType());
+		currentClassObj = null;
+	}
+
+	public void visit(RValueMethodCall1 designator) {
+		designator.obj = designator.getMethodDesignator().obj;
+		// designator.obj = new MyObj(designator.obj.getKind(), "load",
+		// designator.obj.getType());
+		currentClassObj = null;
+	}
 
 	public void visit(DesignatorArray designatorArray) {
 
@@ -1083,24 +1022,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		if(obj.getType().getElemType().getKind() == Struct.Class){
+		if (obj.getType().getElemType().getKind() == Struct.Class) {
 			designatorArray.obj = new MyObj(Obj.Elem, "", obj.getType().getElemType());
 			checkThatClassContainsField(currentClassObj, name);
 			currentClassObj = designatorArray.obj;
-		}
-		else{
+		} else {
 			designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
 		}
 	}
 
 	public void visit(ArrayName1 arrayName1) {
-		
+
 		Obj obj = null;
-		if(currentClassObj != null){
+		if (currentClassObj != null) {
 			obj = currentClassObj.getType().getMembers().searchKey(arrayName1.getI1());
-		}
-		else{
-		 obj = Tab.find(arrayName1.getI1());
+		} else {
+			obj = Tab.find(arrayName1.getI1());
 		}
 		if (obj == Tab.noObj) {
 			report_error("Undefined identifier " + arrayName1.getI1(), null);

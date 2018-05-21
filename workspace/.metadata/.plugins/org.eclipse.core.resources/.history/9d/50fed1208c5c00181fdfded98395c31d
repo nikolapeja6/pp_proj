@@ -90,8 +90,8 @@ public class MJParserTest {
 	        }
 		}catch(Exception e){
 			e.printStackTrace();
-			//Tab.dump();
-	        //log.info(GlobalStuff.VirtualFunctions());
+			Tab.dump();
+	        log.info(GlobalStuff.VirtualFunctions());
 		}
 	}
 }

@@ -22,7 +22,6 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
-import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -192,32 +191,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		list.add(name);		
 		
-		SymbolDataStructure x = baseClass.getType().getMembers();
-		SymbolDataStructure y = new  HashTableDataStructure();
-		for(Obj o : x.symbols()){
-			if(o.getKind() == obj.Fld){
-				y.insertKey(o);
-				continue;
-			}
-						
-			if(o.getKind() == Obj.Meth){
-				LinkedList<Obj> toRemove = new LinkedList<>();
-				SymbolDataStructure xx = o.getType().getMembers();
-				SymbolDataStructure yy =  new HashTableDataStructure();
-				for(Obj oo : xx.symbols()){
-					if(oo.getFpPos() != 0)
-						yy.insertKey(oo);
-				}
-				
-				Struct ooo_s = new Struct(o.getType().getKind(), o.getType().getElemType());
-				ooo_s.setMembers(yy);
-				Obj ooo = new Obj(o.getKind(), o.getName(),ooo_s );
-				y.insertKey(ooo);				
-			}
-		}
-
-	
-		obj.getType().setMembers(y);
+		obj.getType().setMembers(baseClass.getType().getMembers());
 		
 		for (Obj local : baseClass.getLocalSymbols()){
 
@@ -234,10 +208,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				SymbolDataStructure symbols = SymbolTableFactory.instance().createSymbolTableDataStructure();
 				
 				for(Obj o : local.getLocalSymbols())
-					if(!o.getName().equals("this"))
+					if(!o.getName().equals("this") && o.getLevel() == 0)
 					symbols.insertKey(o);
 				
-				derivedLocal.setLocals(symbols);
+				//derivedLocal.setLocals(symbols);
 			}
 		}		
 	}
