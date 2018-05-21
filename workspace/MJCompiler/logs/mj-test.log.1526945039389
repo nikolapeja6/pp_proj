@@ -1,0 +1,875 @@
+INFO  01:23:02,864 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\test303.mj
+INFO  01:23:02,927 - #40 program
+INFO  01:23:02,927 - #45 test_303
+INFO  01:23:02,927 - #44 const
+INFO  01:23:02,928 - #45 int
+INFO  01:23:02,928 - #45 cinilac
+INFO  01:23:02,928 - #28 =
+INFO  01:23:02,928 - #9 4
+INFO  01:23:02,928 - #12 ,
+INFO  01:23:02,928 - #45 delilac
+INFO  01:23:02,928 - #28 =
+INFO  01:23:02,928 - #9 3
+INFO  01:23:02,929 - #13 ;
+INFO  01:23:02,929 - #38 class
+INFO  01:23:02,929 - #45 Predmet
+INFO  01:23:02,929 - #34 {
+INFO  01:23:02,929 - #45 int
+INFO  01:23:02,929 - #45 tezina
+INFO  01:23:02,929 - #13 ;
+INFO  01:23:02,930 - #45 char
+INFO  01:23:02,930 - #45 vrsta
+INFO  01:23:02,930 - #13 ;
+INFO  01:23:02,931 - #34 {
+INFO  01:23:02,931 - #43 void
+INFO  01:23:02,931 - #45 postaviTezinu
+INFO  01:23:02,932 - #32 (
+INFO  01:23:02,932 - #45 int
+INFO  01:23:02,932 - #45 tezina
+INFO  01:23:02,932 - #33 )
+INFO  01:23:02,932 - #34 {
+INFO  01:23:02,932 - #45 this
+INFO  01:23:02,933 - #14 .
+INFO  01:23:02,933 - #45 tezina
+INFO  01:23:02,933 - #28 =
+INFO  01:23:02,934 - #45 tezina
+INFO  01:23:02,934 - #13 ;
+INFO  01:23:02,935 - #35 }
+INFO  01:23:02,935 - #43 void
+INFO  01:23:02,936 - #45 ucitajTezinu
+INFO  01:23:02,936 - #32 (
+INFO  01:23:02,936 - #33 )
+INFO  01:23:02,936 - #34 {
+INFO  01:23:02,936 - #42 read
+INFO  01:23:02,936 - #32 (
+INFO  01:23:02,936 - #45 tezina
+INFO  01:23:02,936 - #33 )
+INFO  01:23:02,936 - #13 ;
+INFO  01:23:02,936 - #35 }
+INFO  01:23:02,937 - #45 int
+INFO  01:23:02,937 - #45 zapremina
+INFO  01:23:02,937 - #32 (
+INFO  01:23:02,937 - #33 )
+INFO  01:23:02,937 - #34 {
+INFO  01:23:02,937 - #8 return
+INFO  01:23:02,937 - #9 0
+INFO  01:23:02,937 - #13 ;
+INFO  01:23:02,937 - #35 }
+INFO  01:23:02,938 - #45 int
+INFO  01:23:02,938 - #45 Q
+INFO  01:23:02,938 - #32 (
+INFO  01:23:02,938 - #33 )
+INFO  01:23:02,938 - #34 {
+INFO  01:23:02,938 - #8 return
+INFO  01:23:02,938 - #45 this
+INFO  01:23:02,938 - #14 .
+INFO  01:23:02,938 - #45 zapremina
+INFO  01:23:02,938 - #32 (
+INFO  01:23:02,938 - #33 )
+INFO  01:23:02,938 - #17 *
+INFO  01:23:02,938 - #45 tezina
+INFO  01:23:02,939 - #13 ;
+INFO  01:23:02,939 - #35 }
+INFO  01:23:02,939 - #43 void
+INFO  01:23:02,939 - #45 postaviVrstu
+INFO  01:23:02,939 - #32 (
+INFO  01:23:02,940 - #45 char
+INFO  01:23:02,940 - #45 vrsta
+INFO  01:23:02,940 - #33 )
+INFO  01:23:02,940 - #34 {
+INFO  01:23:02,940 - #45 this
+INFO  01:23:02,940 - #14 .
+INFO  01:23:02,940 - #45 vrsta
+INFO  01:23:02,940 - #28 =
+INFO  01:23:02,940 - #45 vrsta
+INFO  01:23:02,940 - #13 ;
+INFO  01:23:02,940 - #35 }
+INFO  01:23:02,940 - #35 }
+INFO  01:23:02,940 - #35 }
+INFO  01:23:02,940 - #38 class
+INFO  01:23:02,941 - #45 Sfera
+INFO  01:23:02,941 - #39 extends
+INFO  01:23:02,941 - #45 Predmet
+INFO  01:23:02,941 - #34 {
+INFO  01:23:02,941 - #45 int
+INFO  01:23:02,941 - #45 r
+INFO  01:23:02,941 - #13 ;
+INFO  01:23:02,941 - #34 {
+INFO  01:23:02,941 - #43 void
+INFO  01:23:02,941 - #45 postaviTezinu
+INFO  01:23:02,942 - #32 (
+INFO  01:23:02,942 - #45 int
+INFO  01:23:02,942 - #45 tezina
+INFO  01:23:02,942 - #33 )
+INFO  01:23:02,942 - #34 {
+INFO  01:23:02,942 - #45 this
+INFO  01:23:02,942 - #14 .
+INFO  01:23:02,942 - #45 tezina
+INFO  01:23:02,942 - #28 =
+INFO  01:23:02,942 - #45 tezina
+INFO  01:23:02,942 - #13 ;
+INFO  01:23:02,942 - #45 vrsta
+INFO  01:23:02,942 - #28 =
+INFO  01:23:02,942 - #10 s
+INFO  01:23:02,942 - #13 ;
+INFO  01:23:02,942 - #35 }
+INFO  01:23:02,943 - #43 void
+INFO  01:23:02,943 - #45 postaviPoluprecnik
+INFO  01:23:02,943 - #32 (
+INFO  01:23:02,943 - #45 int
+INFO  01:23:02,943 - #45 r
+INFO  01:23:02,943 - #33 )
+INFO  01:23:02,943 - #34 {
+INFO  01:23:02,943 - #45 this
+INFO  01:23:02,943 - #14 .
+INFO  01:23:02,943 - #45 r
+INFO  01:23:02,943 - #28 =
+INFO  01:23:02,943 - #45 r
+INFO  01:23:02,943 - #13 ;
+INFO  01:23:02,943 - #45 postaviVrstu
+INFO  01:23:02,943 - #32 (
+INFO  01:23:02,944 - #10 s
+INFO  01:23:02,944 - #33 )
+INFO  01:23:02,944 - #13 ;
+INFO  01:23:02,944 - #41 print
+INFO  01:23:02,944 - #32 (
+INFO  01:23:02,944 - #10 x
+INFO  01:23:02,944 - #33 )
+INFO  01:23:02,944 - #13 ;
+INFO  01:23:02,944 - #41 print
+INFO  01:23:02,944 - #32 (
+INFO  01:23:02,944 - #45 r
+INFO  01:23:02,944 - #12 ,
+INFO  01:23:02,944 - #9 1
+INFO  01:23:02,944 - #33 )
+INFO  01:23:02,945 - #13 ;
+INFO  01:23:02,945 - #41 print
+INFO  01:23:02,945 - #32 (
+INFO  01:23:02,945 - #10 :
+INFO  01:23:02,945 - #33 )
+INFO  01:23:02,945 - #13 ;
+INFO  01:23:02,945 - #41 print
+INFO  01:23:02,945 - #32 (
+INFO  01:23:02,945 - #45 this
+INFO  01:23:02,945 - #14 .
+INFO  01:23:02,945 - #45 r
+INFO  01:23:02,945 - #12 ,
+INFO  01:23:02,945 - #9 1
+INFO  01:23:02,945 - #33 )
+INFO  01:23:02,945 - #13 ;
+INFO  01:23:02,945 - #35 }
+INFO  01:23:02,946 - #45 int
+INFO  01:23:02,946 - #45 zapremina
+INFO  01:23:02,946 - #32 (
+INFO  01:23:02,946 - #33 )
+INFO  01:23:02,946 - #45 int
+INFO  01:23:02,946 - #45 z
+INFO  01:23:02,946 - #13 ;
+INFO  01:23:02,946 - #34 {
+INFO  01:23:02,946 - #45 z
+INFO  01:23:02,946 - #28 =
+INFO  01:23:02,946 - #45 cinilac
+INFO  01:23:02,946 - #13 ;
+INFO  01:23:02,946 - #8 return
+INFO  01:23:02,946 - #45 z
+INFO  01:23:02,946 - #17 *
+INFO  01:23:02,946 - #32 (
+INFO  01:23:02,946 - #45 r
+INFO  01:23:02,946 - #18 /
+INFO  01:23:02,946 - #45 delilac
+INFO  01:23:02,947 - #33 )
+INFO  01:23:02,947 - #13 ;
+INFO  01:23:02,947 - #35 }
+INFO  01:23:02,947 - #35 }
+INFO  01:23:02,947 - #35 }
+INFO  01:23:02,947 - #38 class
+INFO  01:23:02,947 - #45 Kvadar
+INFO  01:23:02,947 - #39 extends
+INFO  01:23:02,947 - #45 Predmet
+INFO  01:23:02,947 - #34 {
+INFO  01:23:02,947 - #45 int
+INFO  01:23:02,947 - #45 a
+INFO  01:23:02,947 - #12 ,
+INFO  01:23:02,947 - #45 b
+INFO  01:23:02,947 - #12 ,
+INFO  01:23:02,948 - #45 c
+INFO  01:23:02,948 - #13 ;
+INFO  01:23:02,948 - #34 {
+INFO  01:23:02,948 - #43 void
+INFO  01:23:02,948 - #45 postaviTezinu
+INFO  01:23:02,948 - #32 (
+INFO  01:23:02,948 - #45 int
+INFO  01:23:02,948 - #45 tezina
+INFO  01:23:02,948 - #33 )
+INFO  01:23:02,948 - #34 {
+INFO  01:23:02,948 - #45 this
+INFO  01:23:02,948 - #14 .
+INFO  01:23:02,948 - #45 tezina
+INFO  01:23:02,948 - #28 =
+INFO  01:23:02,948 - #45 tezina
+INFO  01:23:02,948 - #13 ;
+INFO  01:23:02,948 - #45 vrsta
+INFO  01:23:02,948 - #28 =
+INFO  01:23:02,948 - #10 k
+INFO  01:23:02,948 - #13 ;
+INFO  01:23:02,948 - #35 }
+INFO  01:23:02,948 - #43 void
+INFO  01:23:02,948 - #45 postaviStranice
+INFO  01:23:02,948 - #32 (
+INFO  01:23:02,948 - #45 int
+INFO  01:23:02,948 - #45 a
+INFO  01:23:02,948 - #12 ,
+INFO  01:23:02,948 - #45 int
+INFO  01:23:02,949 - #45 b
+INFO  01:23:02,949 - #12 ,
+INFO  01:23:02,949 - #45 int
+INFO  01:23:02,949 - #45 c
+INFO  01:23:02,949 - #33 )
+INFO  01:23:02,949 - #34 {
+INFO  01:23:02,949 - #45 this
+INFO  01:23:02,949 - #14 .
+INFO  01:23:02,949 - #45 a
+INFO  01:23:02,949 - #28 =
+INFO  01:23:02,949 - #45 a
+INFO  01:23:02,949 - #13 ;
+INFO  01:23:02,949 - #45 this
+INFO  01:23:02,949 - #14 .
+INFO  01:23:02,949 - #45 b
+INFO  01:23:02,949 - #28 =
+INFO  01:23:02,949 - #45 b
+INFO  01:23:02,949 - #13 ;
+INFO  01:23:02,949 - #45 this
+INFO  01:23:02,949 - #14 .
+INFO  01:23:02,949 - #45 c
+INFO  01:23:02,949 - #28 =
+INFO  01:23:02,949 - #45 c
+INFO  01:23:02,949 - #13 ;
+INFO  01:23:02,950 - #45 vrsta
+INFO  01:23:02,950 - #28 =
+INFO  01:23:02,950 - #10 k
+INFO  01:23:02,950 - #13 ;
+INFO  01:23:02,950 - #35 }
+INFO  01:23:02,950 - #45 int
+INFO  01:23:02,950 - #45 zapremina
+INFO  01:23:02,950 - #32 (
+INFO  01:23:02,950 - #33 )
+INFO  01:23:02,950 - #45 int
+INFO  01:23:02,950 - #45 z
+INFO  01:23:02,950 - #13 ;
+INFO  01:23:02,950 - #34 {
+INFO  01:23:02,950 - #45 z
+INFO  01:23:02,950 - #28 =
+INFO  01:23:02,950 - #45 a
+INFO  01:23:02,950 - #17 *
+INFO  01:23:02,950 - #45 b
+INFO  01:23:02,950 - #17 *
+INFO  01:23:02,950 - #45 c
+INFO  01:23:02,950 - #13 ;
+INFO  01:23:02,951 - #8 return
+INFO  01:23:02,951 - #45 z
+INFO  01:23:02,951 - #13 ;
+INFO  01:23:02,951 - #35 }
+INFO  01:23:02,951 - #35 }
+INFO  01:23:02,951 - #35 }
+INFO  01:23:02,951 - #45 int
+INFO  01:23:02,951 - #45 zapreminaK
+INFO  01:23:02,951 - #12 ,
+INFO  01:23:02,951 - #45 zapreminaS
+INFO  01:23:02,951 - #13 ;
+INFO  01:23:02,951 - #45 int
+INFO  01:23:02,951 - #45 tezinaK
+INFO  01:23:02,951 - #12 ,
+INFO  01:23:02,951 - #45 tezinaS
+INFO  01:23:02,951 - #13 ;
+INFO  01:23:02,951 - #34 {
+INFO  01:23:02,951 - #43 void
+INFO  01:23:02,952 - #45 ispis
+INFO  01:23:02,952 - #32 (
+INFO  01:23:02,952 - #45 Predmet
+INFO  01:23:02,952 - #45 p
+INFO  01:23:02,952 - #33 )
+INFO  01:23:02,952 - #34 {
+INFO  01:23:02,952 - #41 print
+INFO  01:23:02,952 - #32 (
+INFO  01:23:02,952 - #45 p
+INFO  01:23:02,952 - #14 .
+INFO  01:23:02,952 - #45 vrsta
+INFO  01:23:02,952 - #33 )
+INFO  01:23:02,953 - #13 ;
+INFO  01:23:02,953 - #41 print
+INFO  01:23:02,953 - #32 (
+INFO  01:23:02,953 - #45 p
+INFO  01:23:02,953 - #14 .
+INFO  01:23:02,953 - #45 tezina
+INFO  01:23:02,953 - #33 )
+INFO  01:23:02,953 - #13 ;
+INFO  01:23:02,953 - #41 print
+INFO  01:23:02,953 - #32 (
+INFO  01:23:02,953 - #45 eol
+INFO  01:23:02,953 - #33 )
+INFO  01:23:02,953 - #13 ;
+INFO  01:23:02,953 - #35 }
+INFO  01:23:02,953 - #43 void
+INFO  01:23:02,953 - #45 main
+INFO  01:23:02,953 - #32 (
+INFO  01:23:02,953 - #33 )
+INFO  01:23:02,953 - #45 Predmet
+INFO  01:23:02,953 - #45 predmeti
+INFO  01:23:02,953 - #36 [
+INFO  01:23:02,953 - #37 ]
+INFO  01:23:02,953 - #13 ;
+INFO  01:23:02,954 - #45 int
+INFO  01:23:02,954 - #45 i
+INFO  01:23:02,954 - #13 ;
+INFO  01:23:02,954 - #45 Sfera
+INFO  01:23:02,954 - #45 s1
+INFO  01:23:02,954 - #12 ,
+INFO  01:23:02,954 - #45 s2
+INFO  01:23:02,954 - #12 ,
+INFO  01:23:02,955 - #45 s3
+INFO  01:23:02,955 - #13 ;
+INFO  01:23:02,955 - #45 Kvadar
+INFO  01:23:02,955 - #45 k1
+INFO  01:23:02,955 - #12 ,
+INFO  01:23:02,955 - #45 k2
+INFO  01:23:02,955 - #12 ,
+INFO  01:23:02,955 - #45 k3
+INFO  01:23:02,955 - #13 ;
+INFO  01:23:02,955 - #45 int
+INFO  01:23:02,955 - #45 t
+INFO  01:23:02,955 - #13 ;
+INFO  01:23:02,955 - #34 {
+INFO  01:23:02,955 - #45 predmeti
+INFO  01:23:02,955 - #28 =
+INFO  01:23:02,955 - #31 new
+INFO  01:23:02,955 - #45 Predmet
+INFO  01:23:02,955 - #36 [
+INFO  01:23:02,955 - #9 6
+INFO  01:23:02,955 - #37 ]
+INFO  01:23:02,955 - #13 ;
+INFO  01:23:02,955 - #45 s1
+INFO  01:23:02,956 - #28 =
+INFO  01:23:02,956 - #31 new
+INFO  01:23:02,956 - #45 Sfera
+INFO  01:23:02,956 - #13 ;
+INFO  01:23:02,956 - #45 s2
+INFO  01:23:02,956 - #28 =
+INFO  01:23:02,956 - #31 new
+INFO  01:23:02,956 - #45 Sfera
+INFO  01:23:02,956 - #13 ;
+INFO  01:23:02,956 - #45 s3
+INFO  01:23:02,956 - #28 =
+INFO  01:23:02,956 - #31 new
+INFO  01:23:02,956 - #45 Sfera
+INFO  01:23:02,956 - #13 ;
+INFO  01:23:02,956 - #45 k1
+INFO  01:23:02,956 - #28 =
+INFO  01:23:02,956 - #31 new
+INFO  01:23:02,956 - #45 Kvadar
+INFO  01:23:02,956 - #13 ;
+INFO  01:23:02,956 - #45 k2
+INFO  01:23:02,956 - #28 =
+INFO  01:23:02,956 - #31 new
+INFO  01:23:02,956 - #45 Kvadar
+INFO  01:23:02,956 - #13 ;
+INFO  01:23:02,957 - #45 k3
+INFO  01:23:02,957 - #28 =
+INFO  01:23:02,957 - #31 new
+INFO  01:23:02,957 - #45 Kvadar
+INFO  01:23:02,957 - #13 ;
+INFO  01:23:02,957 - #45 s1
+INFO  01:23:02,957 - #14 .
+INFO  01:23:02,957 - #45 postaviPoluprecnik
+INFO  01:23:02,957 - #32 (
+INFO  01:23:02,957 - #9 1
+INFO  01:23:02,957 - #33 )
+INFO  01:23:02,957 - #13 ;
+INFO  01:23:02,957 - #45 s2
+INFO  01:23:02,957 - #14 .
+INFO  01:23:02,957 - #45 postaviPoluprecnik
+INFO  01:23:02,958 - #32 (
+INFO  01:23:02,958 - #9 2
+INFO  01:23:02,958 - #33 )
+INFO  01:23:02,958 - #13 ;
+INFO  01:23:02,958 - #45 s3
+INFO  01:23:02,958 - #14 .
+INFO  01:23:02,958 - #45 postaviPoluprecnik
+INFO  01:23:02,958 - #32 (
+INFO  01:23:02,958 - #9 3
+INFO  01:23:02,958 - #33 )
+INFO  01:23:02,958 - #13 ;
+INFO  01:23:02,958 - #45 k1
+INFO  01:23:02,958 - #14 .
+INFO  01:23:02,958 - #45 postaviStranice
+INFO  01:23:02,958 - #32 (
+INFO  01:23:02,958 - #9 1
+INFO  01:23:02,958 - #12 ,
+INFO  01:23:02,958 - #9 2
+INFO  01:23:02,958 - #12 ,
+INFO  01:23:02,958 - #9 3
+INFO  01:23:02,958 - #33 )
+INFO  01:23:02,958 - #13 ;
+INFO  01:23:02,958 - #45 k2
+INFO  01:23:02,958 - #14 .
+INFO  01:23:02,958 - #45 postaviStranice
+INFO  01:23:02,958 - #32 (
+INFO  01:23:02,958 - #9 2
+INFO  01:23:02,958 - #12 ,
+INFO  01:23:02,958 - #9 3
+INFO  01:23:02,958 - #12 ,
+INFO  01:23:02,959 - #9 4
+INFO  01:23:02,959 - #33 )
+INFO  01:23:02,959 - #13 ;
+INFO  01:23:02,959 - #45 k3
+INFO  01:23:02,959 - #14 .
+INFO  01:23:02,959 - #45 postaviStranice
+INFO  01:23:02,959 - #32 (
+INFO  01:23:02,959 - #9 3
+INFO  01:23:02,959 - #12 ,
+INFO  01:23:02,959 - #9 4
+INFO  01:23:02,959 - #12 ,
+INFO  01:23:02,959 - #9 5
+INFO  01:23:02,959 - #33 )
+INFO  01:23:02,959 - #13 ;
+INFO  01:23:02,959 - #41 print
+INFO  01:23:02,959 - #32 (
+INFO  01:23:02,959 - #45 s1
+INFO  01:23:02,959 - #14 .
+INFO  01:23:02,959 - #45 zapremina
+INFO  01:23:02,959 - #32 (
+INFO  01:23:02,959 - #33 )
+INFO  01:23:02,959 - #33 )
+INFO  01:23:02,959 - #13 ;
+INFO  01:23:02,959 - #41 print
+INFO  01:23:02,959 - #32 (
+INFO  01:23:02,959 - #45 s2
+INFO  01:23:02,959 - #14 .
+INFO  01:23:02,959 - #45 zapremina
+INFO  01:23:02,959 - #32 (
+INFO  01:23:02,959 - #33 )
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #13 ;
+INFO  01:23:02,960 - #41 print
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #45 s3
+INFO  01:23:02,960 - #14 .
+INFO  01:23:02,960 - #45 zapremina
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #13 ;
+INFO  01:23:02,960 - #41 print
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #45 k1
+INFO  01:23:02,960 - #14 .
+INFO  01:23:02,960 - #45 zapremina
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #13 ;
+INFO  01:23:02,960 - #41 print
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #45 k2
+INFO  01:23:02,960 - #14 .
+INFO  01:23:02,960 - #45 zapremina
+INFO  01:23:02,960 - #32 (
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #33 )
+INFO  01:23:02,960 - #13 ;
+INFO  01:23:02,960 - #41 print
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #45 k3
+INFO  01:23:02,961 - #14 .
+INFO  01:23:02,961 - #45 zapremina
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #13 ;
+INFO  01:23:02,961 - #41 print
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #45 eol
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #13 ;
+INFO  01:23:02,961 - #41 print
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #45 s1
+INFO  01:23:02,961 - #14 .
+INFO  01:23:02,961 - #45 r
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #13 ;
+INFO  01:23:02,961 - #41 print
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #45 s2
+INFO  01:23:02,961 - #14 .
+INFO  01:23:02,961 - #45 r
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #13 ;
+INFO  01:23:02,961 - #41 print
+INFO  01:23:02,961 - #32 (
+INFO  01:23:02,961 - #45 s3
+INFO  01:23:02,961 - #14 .
+INFO  01:23:02,961 - #45 r
+INFO  01:23:02,961 - #33 )
+INFO  01:23:02,961 - #13 ;
+INFO  01:23:02,961 - #45 predmeti
+INFO  01:23:02,961 - #36 [
+INFO  01:23:02,962 - #9 0
+INFO  01:23:02,962 - #37 ]
+INFO  01:23:02,962 - #28 =
+INFO  01:23:02,962 - #45 s1
+INFO  01:23:02,962 - #13 ;
+INFO  01:23:02,962 - #45 predmeti
+INFO  01:23:02,962 - #36 [
+INFO  01:23:02,962 - #9 2
+INFO  01:23:02,962 - #37 ]
+INFO  01:23:02,962 - #28 =
+INFO  01:23:02,962 - #45 s2
+INFO  01:23:02,962 - #13 ;
+INFO  01:23:02,962 - #45 predmeti
+INFO  01:23:02,962 - #36 [
+INFO  01:23:02,962 - #9 4
+INFO  01:23:02,962 - #37 ]
+INFO  01:23:02,962 - #28 =
+INFO  01:23:02,962 - #45 s3
+INFO  01:23:02,962 - #13 ;
+INFO  01:23:02,962 - #45 predmeti
+INFO  01:23:02,962 - #36 [
+INFO  01:23:02,962 - #9 1
+INFO  01:23:02,962 - #37 ]
+INFO  01:23:02,963 - #28 =
+INFO  01:23:02,963 - #45 k1
+INFO  01:23:02,963 - #13 ;
+INFO  01:23:02,963 - #45 predmeti
+INFO  01:23:02,963 - #36 [
+INFO  01:23:02,963 - #9 3
+INFO  01:23:02,963 - #37 ]
+INFO  01:23:02,963 - #28 =
+INFO  01:23:02,963 - #45 k2
+INFO  01:23:02,963 - #13 ;
+INFO  01:23:02,963 - #45 predmeti
+INFO  01:23:02,963 - #36 [
+INFO  01:23:02,963 - #9 5
+INFO  01:23:02,963 - #37 ]
+INFO  01:23:02,963 - #28 =
+INFO  01:23:02,963 - #45 k3
+INFO  01:23:02,963 - #13 ;
+INFO  01:23:02,963 - #42 read
+INFO  01:23:02,963 - #32 (
+INFO  01:23:02,963 - #45 t
+INFO  01:23:02,963 - #33 )
+INFO  01:23:02,963 - #13 ;
+INFO  01:23:02,963 - #45 i
+INFO  01:23:02,963 - #28 =
+INFO  01:23:02,963 - #9 0
+INFO  01:23:02,963 - #13 ;
+INFO  01:23:02,963 - #5 do
+INFO  01:23:02,963 - #34 {
+INFO  01:23:02,964 - #45 predmeti
+INFO  01:23:02,964 - #36 [
+INFO  01:23:02,964 - #45 i
+INFO  01:23:02,964 - #37 ]
+INFO  01:23:02,964 - #14 .
+INFO  01:23:02,964 - #45 postaviTezinu
+INFO  01:23:02,964 - #32 (
+INFO  01:23:02,964 - #45 t
+INFO  01:23:02,964 - #33 )
+INFO  01:23:02,964 - #13 ;
+INFO  01:23:02,964 - #45 i
+INFO  01:23:02,965 - #29 ++
+INFO  01:23:02,965 - #13 ;
+INFO  01:23:02,965 - #35 }
+INFO  01:23:02,965 - #6 while
+INFO  01:23:02,965 - #32 (
+INFO  01:23:02,965 - #45 i
+INFO  01:23:02,965 - #23 <
+INFO  01:23:02,965 - #9 6
+INFO  01:23:02,966 - #33 )
+INFO  01:23:02,966 - #13 ;
+INFO  01:23:02,966 - #45 i
+INFO  01:23:02,967 - #28 =
+INFO  01:23:02,967 - #9 0
+INFO  01:23:02,967 - #13 ;
+INFO  01:23:02,967 - #45 zapreminaS
+INFO  01:23:02,967 - #28 =
+INFO  01:23:02,967 - #9 0
+INFO  01:23:02,967 - #13 ;
+INFO  01:23:02,967 - #45 tezinaS
+INFO  01:23:02,967 - #28 =
+INFO  01:23:02,967 - #9 0
+INFO  01:23:02,967 - #13 ;
+INFO  01:23:02,967 - #5 do
+INFO  01:23:02,967 - #34 {
+INFO  01:23:02,967 - #45 i
+INFO  01:23:02,967 - #29 ++
+INFO  01:23:02,967 - #13 ;
+INFO  01:23:02,967 - #2 if
+INFO  01:23:02,967 - #32 (
+INFO  01:23:02,967 - #45 i
+INFO  01:23:02,967 - #19 %
+INFO  01:23:02,967 - #9 2
+INFO  01:23:02,968 - #20 ==
+INFO  01:23:02,968 - #9 0
+INFO  01:23:02,968 - #33 )
+INFO  01:23:02,968 - #7 continue
+INFO  01:23:02,968 - #13 ;
+INFO  01:23:02,968 - #45 zapreminaS
+INFO  01:23:02,969 - #28 =
+INFO  01:23:02,969 - #45 zapreminaS
+INFO  01:23:02,969 - #15 +
+INFO  01:23:02,969 - #45 predmeti
+INFO  01:23:02,969 - #36 [
+INFO  01:23:02,969 - #45 i
+INFO  01:23:02,970 - #16 -
+INFO  01:23:02,970 - #9 1
+INFO  01:23:02,970 - #37 ]
+INFO  01:23:02,970 - #14 .
+INFO  01:23:02,970 - #45 zapremina
+INFO  01:23:02,970 - #32 (
+INFO  01:23:02,970 - #33 )
+INFO  01:23:02,970 - #13 ;
+INFO  01:23:02,970 - #45 tezinaS
+INFO  01:23:02,970 - #28 =
+INFO  01:23:02,971 - #45 tezinaS
+INFO  01:23:02,971 - #15 +
+INFO  01:23:02,971 - #45 predmeti
+INFO  01:23:02,971 - #36 [
+INFO  01:23:02,971 - #45 i
+INFO  01:23:02,971 - #16 -
+INFO  01:23:02,971 - #9 1
+INFO  01:23:02,971 - #37 ]
+INFO  01:23:02,971 - #14 .
+INFO  01:23:02,971 - #45 Q
+INFO  01:23:02,971 - #32 (
+INFO  01:23:02,971 - #33 )
+INFO  01:23:02,971 - #13 ;
+INFO  01:23:02,971 - #45 ispis
+INFO  01:23:02,971 - #32 (
+INFO  01:23:02,971 - #45 predmeti
+INFO  01:23:02,971 - #36 [
+INFO  01:23:02,971 - #45 i
+INFO  01:23:02,971 - #16 -
+INFO  01:23:02,971 - #9 1
+INFO  01:23:02,971 - #37 ]
+INFO  01:23:02,971 - #33 )
+INFO  01:23:02,971 - #13 ;
+INFO  01:23:02,971 - #35 }
+INFO  01:23:02,971 - #6 while
+INFO  01:23:02,971 - #32 (
+INFO  01:23:02,971 - #45 i
+INFO  01:23:02,971 - #23 <
+INFO  01:23:02,971 - #9 6
+INFO  01:23:02,971 - #33 )
+INFO  01:23:02,971 - #13 ;
+INFO  01:23:02,971 - #45 i
+INFO  01:23:02,971 - #28 =
+INFO  01:23:02,971 - #9 0
+INFO  01:23:02,971 - #13 ;
+INFO  01:23:02,971 - #45 zapreminaK
+INFO  01:23:02,971 - #28 =
+INFO  01:23:02,972 - #9 0
+INFO  01:23:02,972 - #13 ;
+INFO  01:23:02,972 - #45 tezinaK
+INFO  01:23:02,972 - #28 =
+INFO  01:23:02,972 - #9 0
+INFO  01:23:02,972 - #13 ;
+INFO  01:23:02,972 - #5 do
+INFO  01:23:02,972 - #34 {
+INFO  01:23:02,972 - #45 i
+INFO  01:23:02,972 - #29 ++
+INFO  01:23:02,972 - #13 ;
+INFO  01:23:02,972 - #2 if
+INFO  01:23:02,972 - #32 (
+INFO  01:23:02,972 - #45 i
+INFO  01:23:02,972 - #19 %
+INFO  01:23:02,972 - #9 2
+INFO  01:23:02,972 - #20 ==
+INFO  01:23:02,972 - #9 1
+INFO  01:23:02,972 - #33 )
+INFO  01:23:02,972 - #7 continue
+INFO  01:23:02,972 - #13 ;
+INFO  01:23:02,972 - #45 zapreminaK
+INFO  01:23:02,972 - #28 =
+INFO  01:23:02,975 - #45 zapreminaK
+INFO  01:23:02,975 - #15 +
+INFO  01:23:02,975 - #45 predmeti
+INFO  01:23:02,975 - #36 [
+INFO  01:23:02,975 - #45 i
+INFO  01:23:02,975 - #16 -
+INFO  01:23:02,975 - #9 1
+INFO  01:23:02,975 - #37 ]
+INFO  01:23:02,975 - #14 .
+INFO  01:23:02,975 - #45 zapremina
+INFO  01:23:02,975 - #32 (
+INFO  01:23:02,975 - #33 )
+INFO  01:23:02,975 - #13 ;
+INFO  01:23:02,975 - #45 tezinaK
+INFO  01:23:02,975 - #28 =
+INFO  01:23:02,975 - #45 tezinaK
+INFO  01:23:02,975 - #15 +
+INFO  01:23:02,975 - #45 predmeti
+INFO  01:23:02,975 - #36 [
+INFO  01:23:02,975 - #45 i
+INFO  01:23:02,975 - #16 -
+INFO  01:23:02,975 - #9 1
+INFO  01:23:02,975 - #37 ]
+INFO  01:23:02,975 - #14 .
+INFO  01:23:02,975 - #45 Q
+INFO  01:23:02,975 - #32 (
+INFO  01:23:02,975 - #33 )
+INFO  01:23:02,975 - #13 ;
+INFO  01:23:02,976 - #45 ispis
+INFO  01:23:02,976 - #32 (
+INFO  01:23:02,976 - #45 predmeti
+INFO  01:23:02,976 - #36 [
+INFO  01:23:02,976 - #45 i
+INFO  01:23:02,976 - #16 -
+INFO  01:23:02,976 - #9 1
+INFO  01:23:02,976 - #37 ]
+INFO  01:23:02,976 - #33 )
+INFO  01:23:02,976 - #13 ;
+INFO  01:23:02,976 - #35 }
+INFO  01:23:02,976 - #6 while
+INFO  01:23:02,976 - #32 (
+INFO  01:23:02,976 - #45 i
+INFO  01:23:02,976 - #23 <
+INFO  01:23:02,976 - #9 6
+INFO  01:23:02,976 - #33 )
+INFO  01:23:02,976 - #13 ;
+INFO  01:23:02,976 - #41 print
+INFO  01:23:02,976 - #32 (
+INFO  01:23:02,976 - #45 zapreminaS
+INFO  01:23:02,976 - #33 )
+INFO  01:23:02,976 - #13 ;
+INFO  01:23:02,976 - #41 print
+INFO  01:23:02,976 - #32 (
+INFO  01:23:02,976 - #45 eol
+INFO  01:23:02,976 - #33 )
+INFO  01:23:02,976 - #13 ;
+INFO  01:23:02,976 - #41 print
+INFO  01:23:02,976 - #32 (
+INFO  01:23:02,976 - #45 zapreminaK
+INFO  01:23:02,976 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #41 print
+INFO  01:23:02,977 - #32 (
+INFO  01:23:02,977 - #45 eol
+INFO  01:23:02,977 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #41 print
+INFO  01:23:02,977 - #32 (
+INFO  01:23:02,977 - #45 tezinaS
+INFO  01:23:02,977 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #41 print
+INFO  01:23:02,977 - #32 (
+INFO  01:23:02,977 - #45 eol
+INFO  01:23:02,977 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #41 print
+INFO  01:23:02,977 - #32 (
+INFO  01:23:02,977 - #45 tezinaK
+INFO  01:23:02,977 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #41 print
+INFO  01:23:02,977 - #32 (
+INFO  01:23:02,977 - #45 eol
+INFO  01:23:02,977 - #33 )
+INFO  01:23:02,977 - #13 ;
+INFO  01:23:02,977 - #35 }
+INFO  01:23:02,977 - #35 }
+INFO  01:23:02,978 - ***Abstract tree****
+INFO  01:23:02,978 - #0
+DEBUG 01:23:03,033 - program name
+DEBUG 01:23:03,034 - found constant with value 4of type 1
+DEBUG 01:23:03,034 - found constant with value 3of type 1
+DEBUG 01:23:03,034 - ClassBegin
+DEBUG 01:23:03,038 - Variable with name tezina has the address of 1
+DEBUG 01:23:03,038 - Variable with name vrsta has the address of 2
+DEBUG 01:23:03,039 - designator simple at line 12: this
+DEBUG 01:23:03,039 - designator simple at line 12: tezina
+DEBUG 01:23:03,039 - designator simple at line 12: tezina
+DEBUG 01:23:03,039 - term SingleFactorterm is type 1
+DEBUG 01:23:03,039 - exprWithNoMinus
+DEBUG 01:23:03,039 - designator simple at line 13: tezina
+DEBUG 01:23:03,039 - found constant with value 0of type 1
+DEBUG 01:23:03,039 - constant factor is type 1
+DEBUG 01:23:03,039 - term SingleFactorterm is type 1
+DEBUG 01:23:03,039 - exprWithNoMinus
+DEBUG 01:23:03,039 - designator simple at line 15: this
+DEBUG 01:23:03,039 - designator simple at line 15: zapremina
+DEBUG 01:23:03,039 - designator simple at line 15: tezina
+DEBUG 01:23:03,039 - term element is type 1
+DEBUG 01:23:03,039 - term list single is type 1
+DEBUG 01:23:03,039 - term MultiFactorTerm is type 1
+DEBUG 01:23:03,039 - exprWithNoMinus
+DEBUG 01:23:03,039 - designator simple at line 16: this
+DEBUG 01:23:03,039 - designator simple at line 16: vrsta
+DEBUG 01:23:03,039 - designator simple at line 16: vrsta
+DEBUG 01:23:03,039 - term SingleFactorterm is type 2
+DEBUG 01:23:03,039 - exprWithNoMinus
+DEBUG 01:23:03,039 - class decl end
+DEBUG 01:23:17,457 - class decl 1
+DEBUG 01:23:17,457 - derived ClassBegin
+DEBUG 01:23:30,690 - Variable with name r has the address of 3
+DEBUG 01:23:30,690 - designator simple at line 24: this
+DEBUG 01:23:30,690 - designator simple at line 24: tezina
+DEBUG 01:23:30,690 - designator simple at line 24: tezina
+DEBUG 01:23:30,690 - term SingleFactorterm is type 1
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,690 - designator simple at line 24: vrsta
+DEBUG 01:23:30,690 - found constant with value *****of type 2
+DEBUG 01:23:30,690 - found constant with value 115of type 2
+DEBUG 01:23:30,690 - constant factor is type 2
+DEBUG 01:23:30,690 - term SingleFactorterm is type 2
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,690 - designator simple at line 26: this
+DEBUG 01:23:30,690 - designator simple at line 26: r
+DEBUG 01:23:30,690 - designator simple at line 26: r
+DEBUG 01:23:30,690 - term SingleFactorterm is type 1
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,690 - designator simple at line 27: postaviVrstu
+DEBUG 01:23:30,690 - found constant with value *****of type 2
+DEBUG 01:23:30,690 - found constant with value 115of type 2
+DEBUG 01:23:30,690 - constant factor is type 2
+DEBUG 01:23:30,690 - term SingleFactorterm is type 2
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,690 - found constant with value *****of type 2
+DEBUG 01:23:30,690 - found constant with value 120of type 2
+DEBUG 01:23:30,690 - constant factor is type 2
+DEBUG 01:23:30,690 - term SingleFactorterm is type 2
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,690 - print statement has arg of type 2
+DEBUG 01:23:30,690 - designator simple at line 29: r
+DEBUG 01:23:30,690 - term SingleFactorterm is type 1
+DEBUG 01:23:30,690 - exprWithNoMinus
+DEBUG 01:23:30,691 - found constant with value 1of type 1
+DEBUG 01:23:30,691 - print statement has arg of type 1
+DEBUG 01:23:30,691 - found constant with value *****of type 2
+DEBUG 01:23:30,691 - found constant with value 58of type 2
+DEBUG 01:23:30,691 - constant factor is type 2
+DEBUG 01:23:30,691 - term SingleFactorterm is type 2
+DEBUG 01:23:30,691 - exprWithNoMinus
+DEBUG 01:23:30,691 - print statement has arg of type 2
+DEBUG 01:23:30,691 - designator simple at line 31: this
+DEBUG 01:23:30,691 - designator simple at line 31: r
+DEBUG 01:23:30,691 - term SingleFactorterm is type 1
+DEBUG 01:23:30,691 - exprWithNoMinus
+DEBUG 01:23:30,691 - found constant with value 1of type 1
+DEBUG 01:23:30,691 - print statement has arg of type 1
+DEBUG 01:23:30,691 - Variable with name z has the address of 4
+DEBUG 01:23:30,691 - designator simple at line 36: z
+DEBUG 01:23:30,691 - designator simple at line 36: cinilac
+DEBUG 01:23:30,691 - term SingleFactorterm is type 1
+DEBUG 01:23:30,691 - exprWithNoMinus
+DEBUG 01:23:30,691 - designator simple at line 37: z
+DEBUG 01:23:30,691 - designator simple at line 37: r
+DEBUG 01:23:30,691 - designator simple at line 37: delilac
+DEBUG 01:23:30,691 - term element is type 1
+DEBUG 01:23:30,691 - term list single is type 1
+DEBUG 01:23:30,691 - term MultiFactorTerm is type 1
+DEBUG 01:23:30,691 - exprWithNoMinus
+DEBUG 01:23:30,691 - term element is type 1
+DEBUG 01:23:30,691 - term list single is type 1
+DEBUG 01:23:30,691 - term MultiFactorTerm is type 1
+DEBUG 01:23:30,691 - exprWithNoMinus
+DEBUG 01:23:30,691 - class decl end

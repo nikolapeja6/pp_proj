@@ -122,7 +122,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	{
 		log.debug("ClassBegin");
 		
-		globalVars = false;
 		String name = newClassBegin.getI1();
 
 		Obj obj = Tab.find(name);
@@ -150,7 +149,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(DerivedClassBegin derivedClassBegin) {
 		
 		log.debug("derived ClassBegin");
-		globalVars = false;
 		
 		String name = derivedClassBegin.getI1();
 		Struct baseType = derivedClassBegin.getType().struct;
@@ -249,14 +247,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		
 		// TODO
-		fldCnt = maxFldCnt + 1;
+		fldCnt = maxFldCnt;
 	}
 	
 	public void visit(ClassDeclEnd1 end)
 	{
 		log.debug("class decl end");
 		inClassDecl = false;
-		globalVars = true;
+		
 		currentClass.setLevel(fldCnt);
 		fldCnt = 0;
 		Tab.chainLocalSymbols(scopeStack.pop());
@@ -307,7 +305,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		if (!inClassDecl || currentMethod != null) {
+		if (!inClassDecl) {
 			obj = Tab.insert(Obj.Var, name, currentDeclType);
 			if (globalVars) {
 				obj.setLevel(0);

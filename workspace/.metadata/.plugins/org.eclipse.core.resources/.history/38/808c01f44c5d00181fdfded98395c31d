@@ -289,7 +289,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		int vTableAddress = typeObj.getAdr();
 		
 		Code.put(Code.new_);
-		Code.put2((newObj.obj.getType().getNumberOfFields()+1)*4);
+		Code.put2(newObj.obj.getType().getNumberOfFields()*4);
 		Code.put(Code.dup);
 		Code.loadConst(vTableAddress); // v_table value
 		Code.put(Code.putfield);
