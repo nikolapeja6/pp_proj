@@ -203,7 +203,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				continue;
 			}
 						
-			if(/*o.getKind() == Obj. Meth || */o.getKind() == 42){
+			if(o.getKind() == Obj. || o.getKind() == 42){
 				LinkedList<Obj> toRemove = new LinkedList<>();
 				SymbolDataStructure xx = o.getType().getMembers();
 				SymbolDataStructure yy =  new HashTableDataStructure();
@@ -233,7 +233,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				maxFldCnt = local.getAdr();
 			}
 			
-			if (derivedLocal.getKind() == Obj.Meth || derivedLocal.getKind() == 42) {
+			if (derivedLocal.getKind() == Obj.Meth) {
 				GlobalStuff.AddFunction(name, derivedLocal.getName());
 				Obj par = Tab.insert(Obj.Var, "this", obj.getType());
 				par.setFpPos(0);
@@ -286,7 +286,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
@@ -313,7 +313,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, currentDeclType);
@@ -356,7 +356,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = (methodNameAndRetType).getName();
 		Struct type = (methodNameAndRetType).getReturnType().struct;
 
-		methodNameAndRetType.obj = Tab.insert(inClassDecl ? 42 : Obj.Meth, name, type);
+		methodNameAndRetType.obj = Tab.insert(Obj.Meth, name, type);
 		Tab.openScope();
 
 		fpCnt = 0;
@@ -609,7 +609,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall) {
 		Obj obj = designatorStatementFunctionCall.getMethodDesignator().obj;
 
-		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
+		if (obj.getKind() != Obj.Meth || o.getKind() == 42) {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
@@ -825,7 +825,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(FuncttionCallFactor functtionCallFactor) {
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
-		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
+		if (obj.getKind() != Obj.Meth) {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}
@@ -838,7 +838,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
-		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
+		if (obj.getKind() != Obj.Meth) {
 			report_error("Identifier " + obj.getName() + " is not a method.", null);
 			return;
 		}

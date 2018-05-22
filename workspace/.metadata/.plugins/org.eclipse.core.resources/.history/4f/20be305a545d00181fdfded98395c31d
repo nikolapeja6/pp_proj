@@ -643,7 +643,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			return;
 		}
 		
-		if(obj.getKind() != Obj.Meth){
+		if(obj.getLevel() > 0){
 			String methodName = ((MethodDesignator1)functionCallFactor.getMethodDesignator()).getDesignator().obj.getName();
 			
 			RValueMethodCallStuff(methodName);

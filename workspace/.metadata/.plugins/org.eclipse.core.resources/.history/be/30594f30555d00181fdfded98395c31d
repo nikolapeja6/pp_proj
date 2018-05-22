@@ -203,7 +203,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				continue;
 			}
 						
-			if(/*o.getKind() == Obj. Meth || */o.getKind() == 42){
+			if(o.getKind() == Obj.Meth && o.getKind() != 42){
 				LinkedList<Obj> toRemove = new LinkedList<>();
 				SymbolDataStructure xx = o.getType().getMembers();
 				SymbolDataStructure yy =  new HashTableDataStructure();
@@ -286,7 +286,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
@@ -313,7 +313,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, currentDeclType);
@@ -356,7 +356,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = (methodNameAndRetType).getName();
 		Struct type = (methodNameAndRetType).getReturnType().struct;
 
-		methodNameAndRetType.obj = Tab.insert(inClassDecl ? 42 : Obj.Meth, name, type);
+		methodNameAndRetType.obj = Tab.insert(currentClass != null ?  42: Obj.Meth, name, type);
 		Tab.openScope();
 
 		fpCnt = 0;

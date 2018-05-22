@@ -233,7 +233,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				maxFldCnt = local.getAdr();
 			}
 			
-			if (derivedLocal.getKind() == Obj.Meth || derivedLocal.getKind() == 42) {
+			if (derivedLocal.getKind() == Obj.Meth) {
 				GlobalStuff.AddFunction(name, derivedLocal.getName());
 				Obj par = Tab.insert(Obj.Var, "this", obj.getType());
 				par.setFpPos(0);
@@ -286,7 +286,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
@@ -313,7 +313,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				obj.setLevel(0);
 				obj.setAdr(globalVarCnt++);
 			} else {
-				obj.setAdr(localVarCnt++ + fpCnt);
+				obj.setAdr(localVarCnt++);
 			}
 		} else {
 			obj = Tab.insert(Obj.Fld, name, currentDeclType);
