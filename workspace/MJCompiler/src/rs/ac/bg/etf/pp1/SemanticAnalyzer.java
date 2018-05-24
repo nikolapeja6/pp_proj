@@ -373,6 +373,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(MethodBegin1 methodBegin1) {
 		methodBegin1.obj = currentMethod;
+		scopeStack.peek().setLevel(fpCnt);
+		Tab.chainLocalSymbols(scopeStack.peek());
 	}
 
 	public void visit(MethodEnd1 methodEnd) {

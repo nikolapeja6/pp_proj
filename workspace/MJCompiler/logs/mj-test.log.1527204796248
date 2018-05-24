@@ -1,0 +1,74 @@
+INFO  01:28:39,549 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\recursion.mj
+INFO  01:28:39,596 - #40 program
+INFO  01:28:39,596 - #45 MJProgram
+INFO  01:28:39,597 - #34 {
+INFO  01:28:39,597 - #43 void
+INFO  01:28:39,597 - #45 rec
+INFO  01:28:39,598 - #32 (
+INFO  01:28:39,599 - #45 int
+INFO  01:28:39,599 - #45 x
+INFO  01:28:39,599 - #12 ,
+INFO  01:28:39,599 - #45 int
+INFO  01:28:39,599 - #45 y
+INFO  01:28:39,599 - #33 )
+INFO  01:28:39,600 - #45 int
+INFO  01:28:39,600 - #45 z
+INFO  01:28:39,600 - #13 ;
+INFO  01:28:39,600 - #34 {
+INFO  01:28:39,600 - #41 print
+INFO  01:28:39,601 - #32 (
+INFO  01:28:39,601 - #45 x
+INFO  01:28:39,601 - #12 ,
+INFO  01:28:39,602 - #9 1
+INFO  01:28:39,602 - #33 )
+INFO  01:28:39,603 - #13 ;
+INFO  01:28:39,603 - #41 print
+INFO  01:28:39,604 - #32 (
+INFO  01:28:39,604 - #45 y
+INFO  01:28:39,604 - #12 ,
+INFO  01:28:39,604 - #9 1
+INFO  01:28:39,604 - #33 )
+INFO  01:28:39,604 - #13 ;
+INFO  01:28:39,604 - #45 z
+INFO  01:28:39,604 - #28 =
+INFO  01:28:39,604 - #45 x
+INFO  01:28:39,604 - #16 -
+INFO  01:28:39,604 - #9 1
+INFO  01:28:39,605 - #13 ;
+INFO  01:28:39,605 - #41 print
+INFO  01:28:39,605 - #32 (
+INFO  01:28:39,606 - #45 z
+INFO  01:28:39,606 - #12 ,
+INFO  01:28:39,606 - #9 1
+INFO  01:28:39,606 - #33 )
+INFO  01:28:39,606 - #13 ;
+INFO  01:28:39,606 - #41 print
+INFO  01:28:39,606 - #32 (
+INFO  01:28:39,606 - #45 eol
+INFO  01:28:39,606 - #33 )
+INFO  01:28:39,606 - #13 ;
+INFO  01:28:39,606 - #2 if
+INFO  01:28:39,606 - #32 (
+INFO  01:28:39,606 - #45 z
+INFO  01:28:39,606 - #22 >
+INFO  01:28:39,606 - #9 0
+INFO  01:28:39,607 - #33 )
+INFO  01:28:39,607 - #34 {
+INFO  01:28:39,608 - #45 rec
+INFO  01:28:39,608 - #32 (
+INFO  01:28:39,608 - #45 z
+INFO  01:28:39,608 - #12 ,
+INFO  01:28:39,608 - #45 y
+INFO  01:28:39,608 - #33 )
+INFO  01:28:39,608 - #13 ;
+INFO  01:28:39,608 - #35 }
+INFO  01:28:39,608 - #3 else
+ERROR 01:28:39,608 - Sintaksna greska na liniji 14
+ERROR 01:28:39,608 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 14
+INFO  01:28:39,611 - ***Abstract tree****
+INFO  01:28:39,611 - #30
+ERROR 01:28:39,617 - Identifier rec was not defined.
+ERROR 01:28:39,617 - Identifier z was not defined.
+ERROR 01:28:39,617 - designator obj is null in rvaluedesignator1  na liniji 12
+ERROR 01:28:39,617 - obj is null
+DEBUG 01:28:39,617 - exprWithNoMinus

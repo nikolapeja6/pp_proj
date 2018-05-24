@@ -388,10 +388,6 @@ MultipleStatements ::= 	MultipleStatements Statement
 Statement ::= 	Matched 
 				|
 				Unmatched
-				|
-				OPEN_BRACES CLOSE_BRACES
-				|
-				OPEN_BRACES MultipleStatements CLOSE_BRACES
 				;
 
 Matched ::= 	DesignatorStatement SEMICOLON
@@ -413,6 +409,10 @@ Matched ::= 	DesignatorStatement SEMICOLON
 				(MatchedBreak) BREAK SEMICOLON
 				|
 				(MatchedContinue) CONTINUE SEMICOLON
+				|
+				OPEN_BRACES CLOSE_BRACES
+				|
+				OPEN_BRACES MultipleStatements CLOSE_BRACES
 				;
 				
 				

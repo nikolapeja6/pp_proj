@@ -388,10 +388,6 @@ MultipleStatements ::= 	MultipleStatements:M1 Statement:S2 {: RESULT=new Multipl
 Statement ::= 	Matched:M1 {: RESULT=new StatementDerived1(M1); RESULT.setLine(M1left); :} 
 				|
 				Unmatched:U1 {: RESULT=new StatementDerived2(U1); RESULT.setLine(U1left); :}
-				|
-				OPEN_BRACES CLOSE_BRACES {: RESULT=new StatementDerived3(); :}
-				|
-				OPEN_BRACES MultipleStatements:M1 CLOSE_BRACES {: RESULT=new StatementDerived4(M1); RESULT.setLine(M1left); :}
 				;
 
 Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1); RESULT.setLine(D1left); :}
@@ -413,6 +409,10 @@ Matched ::= 	DesignatorStatement:D1 SEMICOLON {: RESULT=new MatchedDerived1(D1);
 				(MatchedBreak) BREAK SEMICOLON {: RESULT=new MatchedBreak(); :}
 				|
 				(MatchedContinue) CONTINUE SEMICOLON {: RESULT=new MatchedContinue(); :}
+				|
+				OPEN_BRACES CLOSE_BRACES {: RESULT=new MatchedDerived2(); :}
+				|
+				OPEN_BRACES MultipleStatements:M1 CLOSE_BRACES {: RESULT=new MatchedDerived3(M1); RESULT.setLine(M1left); :}
 				;
 				
 				
