@@ -3,10 +3,10 @@ program MJProgram
 	void rec(int x, int y)
 	int z;
 	{
-		print(x,1);
-		print(y,1);
+		print(x,3);
+		print(y,3);
 		z = x-1;
-		print(z,1);
+		print(z,3);
 		print(eol);
 		if(z > 0){
 			rec(z,y);
@@ -16,9 +16,9 @@ program MJProgram
 			print('x');
 			print(eol);
 		}
-		print(x,1);
-		print(y,1);
-		print(z,1);
+		print(x,3);
+		print(y,3);
+		print(z,3);
 		print(eol);
 	}
 	

@@ -140,7 +140,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		// Generate the entry.
 		Code.put(Code.enter);
 		Code.put(fpCnt.getCount() + (currentClassDecl != null ? 1 : 0));
-		Code.put(fpCnt.getCount() + (currentClassDecl != null ? 1 : 0)+varCnt.getCount());
+		Code.put(varCnt.getCount());
 	}
 
 	public void visit(MethodBegin1 methodBegin1){
