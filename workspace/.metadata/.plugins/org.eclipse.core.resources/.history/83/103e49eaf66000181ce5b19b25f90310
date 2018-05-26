@@ -144,7 +144,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(MethodBegin1 methodBegin1){
-		// Removed due to Code.enter functionality.
 		/*
 		Obj obj = methodBegin1.obj;
 		
@@ -280,7 +279,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	public void visit(DesignatorClassElement1 designatorClassElement){
 		Code.load(designatorClassElement.obj);
-		currentClassObj = designatorClassElement.obj;
 	}
 	
 	public void visit(FactorNewObject newObj)
@@ -301,20 +299,19 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(MethodDesignator1 methodDesignator1) {
-
 		if(methodDesignator1.getParent() instanceof RValueMethodCall1 || methodDesignator1.getParent() instanceof RValueMethodCall2){
 			Code.put(Code.dup);
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
 
-		if(currentClassDecl != null && currentClassObj == null){
+		if(currentClassDecl != null){
 			Code.put(Code.load_n);
 			Code.put(Code.dup);
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
-		currentClassObj = null;
+		currentObjectReference = null;
 	}
 	
 	public void visit(RValueMethodCall1 rValueMethodCall){
@@ -323,7 +320,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	public void visit(RValueMethodCall2 rValueMethodCall){
@@ -332,7 +328,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	private void RValueMethodCallStuff(String methodName){
@@ -750,4 +745,39 @@ public class CodeGenerator extends VisitorAdaptor {
 		jmpContinue.peek().push(Code.pc);
 		Code.put2(0);
 	}
+
+	/*
+	 * @Override public void visit(VarDecl VarDecl) { varCount++; }
+	 * 
+	 * @Override public void visit(FormalParamDecl FormalParam) { paramCnt++; }
+	 * 
+	 * @Override public void visit(MethodDecl MethodDecl) { Code.put(Code.exit);
+	 * Code.put(Code.return_); }
+	 * 
+	 * @Override public void visit(ReturnExpr ReturnExpr) { Code.put(Code.exit);
+	 * Code.put(Code.return_); }
+	 * 
+	 * @Override public void visit(ReturnNoExpr ReturnNoExpr) {
+	 * Code.put(Code.exit); Code.put(Code.return_); }
+	 * 
+	 * @Override public void visit(Assignment Assignment) {
+	 * Code.store(Assignment.getDesignator().obj); }
+	 * 
+	 * @Override public void visit(Const Const) { Code.load(new Obj(Obj.Con,
+	 * "$", Const.struct, Const.getN1(), 0)); }
+	 * 
+	 * @Override public void visit(Designator Designator) { SyntaxNode parent =
+	 * Designator.getParent(); if (Assignment.class != parent.getClass() &&
+	 * FuncCall.class != parent.getClass()) { Code.load(Designator.obj); } }
+	 * 
+	 * @Override public void visit(FuncCall FuncCall) { Obj functionObj =
+	 * FuncCall.getDesignator().obj; int offset = functionObj.getAdr() -
+	 * Code.pc; Code.put(Code.call); Code.put2(offset); }
+	 * 
+	 * @Override public void visit(PrintStmt PrintStmt) {
+	 * Code.put(Code.const_5); Code.put(Code.print); }
+	 * 
+	 * @Override public void visit(AddExpr AddExpr) { Code.put(Code.add); }
+	 * 
+	 */
 }

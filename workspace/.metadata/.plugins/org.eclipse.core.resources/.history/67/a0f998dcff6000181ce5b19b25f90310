@@ -280,7 +280,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	public void visit(DesignatorClassElement1 designatorClassElement){
 		Code.load(designatorClassElement.obj);
-		currentClassObj = designatorClassElement.obj;
 	}
 	
 	public void visit(FactorNewObject newObj)
@@ -308,13 +307,13 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put2(0);
 		}
 
-		if(currentClassDecl != null && currentClassObj == null){
+		if(currentClassDecl != null){
 			Code.put(Code.load_n);
 			Code.put(Code.dup);
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
-		currentClassObj = null;
+		currentObjectReference = null;
 	}
 	
 	public void visit(RValueMethodCall1 rValueMethodCall){
@@ -323,7 +322,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	public void visit(RValueMethodCall2 rValueMethodCall){
@@ -332,7 +330,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	private void RValueMethodCallStuff(String methodName){

@@ -144,7 +144,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(MethodBegin1 methodBegin1){
-		// Removed due to Code.enter functionality.
+		// Removed due to enter.
 		/*
 		Obj obj = methodBegin1.obj;
 		
@@ -280,7 +280,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	public void visit(DesignatorClassElement1 designatorClassElement){
 		Code.load(designatorClassElement.obj);
-		currentClassObj = designatorClassElement.obj;
 	}
 	
 	public void visit(FactorNewObject newObj)
@@ -301,20 +300,19 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(MethodDesignator1 methodDesignator1) {
-
 		if(methodDesignator1.getParent() instanceof RValueMethodCall1 || methodDesignator1.getParent() instanceof RValueMethodCall2){
 			Code.put(Code.dup);
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
 
-		if(currentClassDecl != null && currentClassObj == null){
+		if(currentClassDecl != null){
 			Code.put(Code.load_n);
 			Code.put(Code.dup);
 			Code.put(Code.putstatic);
 			Code.put2(0);
 		}
-		currentClassObj = null;
+		currentObjectReference = null;
 	}
 	
 	public void visit(RValueMethodCall1 rValueMethodCall){
@@ -323,7 +321,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	public void visit(RValueMethodCall2 rValueMethodCall){
@@ -332,7 +329,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		RValueMethodCallStuff(methodName);
 		
 		currentObjectReference = null;
-		currentClassObj = null;
 	}
 	
 	private void RValueMethodCallStuff(String methodName){

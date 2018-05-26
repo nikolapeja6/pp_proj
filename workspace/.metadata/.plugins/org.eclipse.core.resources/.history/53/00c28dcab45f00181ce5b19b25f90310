@@ -13,14 +13,14 @@ class Predmet
 		void ucitajTezinu() { read(tezina); }
 		int zapremina() { return 0;}
 		int Q() {
-			//print('z');
+			print('z');
 			print(zapremina());
-			//print(':');
+			print(':');
 			print(this.zapremina());
-			//print(':');
-			//print(tezina);
-			//print(':');
-			//print(this.tezina);
+			print(':');
+			print(tezina);
+			print(':');
+			print(this.tezina);
 			print(eol);
 		return zapremina() * tezina;}
 		void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
@@ -33,8 +33,15 @@ class Sfera extends Predmet
 	{
 		void postaviTezinu(int tezina) {this.tezina = tezina; vrsta = 's';}
 		void postaviPoluprecnik(int r) {
+		print(r,2);
 		this.r = r; 
+		print(r,2);
 		postaviVrstu('s');
+		print(r,2);
+		//print('x');
+		//print(r,3);
+		//print(':');
+		//print(this.r, 1);
 		}
 		int zapremina()
 		int z;
@@ -101,9 +108,12 @@ int tezinaK, tezinaS;
 		print(k3.zapremina());
 		
 		print(eol);
-
+		
+		 print(s1.r);
+		 print(s2.r);
+		 print(s3.r);
 		 
-		predmeti[0] = s1;
+		 predmeti[0] = s1;
 		predmeti[2] = s2;
 		predmeti[4] = s3;
 		predmeti[1] = k1;

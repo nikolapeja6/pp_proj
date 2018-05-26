@@ -13,14 +13,14 @@ class Predmet
 		void ucitajTezinu() { read(tezina); }
 		int zapremina() { return 0;}
 		int Q() {
-			//print('z');
+			print('z');
 			print(zapremina());
-			//print(':');
+			print(':');
 			print(this.zapremina());
-			//print(':');
-			//print(tezina);
-			//print(':');
-			//print(this.tezina);
+			print(':');
+			print(tezina);
+			print(':');
+			print(this.tezina);
 			print(eol);
 		return zapremina() * tezina;}
 		void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
