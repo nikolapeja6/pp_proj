@@ -300,6 +300,8 @@ ClassDecl ::= 	(ClassDecl1) ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRAC
 ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
 					|
 					(NewClassBegin) CLASS IDENT
+					|
+					(ErrorClass) error {:parser.log.error("Error");:}
 					;
 					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES;
@@ -318,11 +320,15 @@ MultipleVarDecl ::= MultipleVarDecl VarDecl
 					VarDecl
 					;
 					
-VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON;
+VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON
+			|
+			error {:parser.log.error("Error");:}SEMICOLON;
 
 VarDeclList ::= VarDeclList COMMA VarDeclElement
 				|
 				VarDeclElement
+				|
+				error {:parser.log.error("Greska.");:}
 				;
 			
 VarDeclElement ::= 	(VarDeclElementArray) IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
@@ -367,6 +373,8 @@ FormPars ::= 	FormPars COMMA FormParsElement
 FormParsElement ::= 	(FormParsElementArray) Type IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
 						|
 						(FormParsElementSingle) Type IDENT 
+						|
+						error {:parser.log.error("Error");:}
 						;
 
 ActPars ::= ActPars COMMA ActParElement
@@ -440,11 +448,15 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN
 							(DesignatorStatementInc)LValueDesignator INC
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
+							|
+							error {:parser.log.error("Error");:}
 							;
 
 Condition ::= 	(ConditionMultiple) CondTerm ConditionList
 				|
 				(ConditionSingle) CondTerm
+				|
+				error {:parser.log.error("Error");:}
 				;
 ConditionWhile ::= (ConditionMultipleWhile) CondTerm ConditionList
 				|

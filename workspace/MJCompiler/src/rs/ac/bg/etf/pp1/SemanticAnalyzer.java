@@ -13,6 +13,7 @@ import org.omg.PortableServer.RequestProcessingPolicyOperations;
 import com.sun.java_cup.internal.runtime.Symbol;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java_cup.production;
 import javafx.geometry.Pos;
 import jdk.nashorn.internal.ir.WhileNode;
 import jdk.nashorn.internal.objects.Global;
@@ -79,6 +80,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 
 	public void visit(ProgName programName) {
+		programName.obj = Tab.noObj;
 		log.debug("program name");
 		String name = programName.getName();
 
@@ -100,26 +102,31 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(ClassDecl1 classDecl)
 	{
+		classDecl.obj = Tab.noObj;
 		log.debug("class decl 1");
 	}
 	
 	public void visit(ClassDecl2 classDecl)
 	{
+		classDecl.obj = Tab.noObj;
 		log.debug("class decl 2");
 	}
 	
 	public void visit(ClassDecl3 classDecl)
 	{
+		classDecl.obj = Tab.noObj;
 		log.debug("class decl 3");
 	}
 	
 	public void visit(ClassDecl4 classDecl)
 	{
+		classDecl.obj = Tab.noObj;
 		log.debug("class decl 4");
 	}
 	
 	public void visit(NewClassBegin newClassBegin)
 	{
+		newClassBegin.obj = Tab.noObj;
 		log.debug("ClassBegin");
 		
 		globalVars = false;
@@ -148,6 +155,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	public void visit(DerivedClassBegin derivedClassBegin) {
+		derivedClassBegin.obj = Tab.noObj;
 		
 		log.debug("derived ClassBegin");
 		globalVars = false;
@@ -252,24 +260,43 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		fldCnt = maxFldCnt + 1;
 	}
 	
+	public void visit(ErrorClass e){
+		currentClass =Tab.noObj;
+		e.obj = Tab.noObj;
+		log.debug("ClassBegin");
+		
+		globalVars = false;
+		
+		Tab.openScope();
+
+		inClassDecl = true;
+		fldCnt = 1;		
+		
+	}
+	
 	public void visit(ClassDeclEnd1 end)
 	{
 		log.debug("class decl end");
 		inClassDecl = false;
 		globalVars = true;
-		currentClass.setLevel(fldCnt);
+		if(currentClass != Tab.noObj){
+			currentClass.setLevel(fldCnt);
+			Tab.chainLocalSymbols(currentClass.getType());
+			Tab.chainLocalSymbols(scopeStack.pop());
+		}
 		fldCnt = 0;
-		Tab.chainLocalSymbols(scopeStack.pop());
-		Tab.chainLocalSymbols(currentClass.getType());
+
 		Tab.closeScope();
 		currentClass = null;
 	}	
 	
 	public void visit(VarDecl1 varDecl) {
+		varDecl.obj = Tab.noObj;
 		currentDeclType = null;
 	}
 
 	public void visit(VarDeclElementArray varDeclElementArray) {
+		varDeclElementArray.obj = Tab.noObj;
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
 
 		String name = varDeclElementArray.getI1();
@@ -297,6 +324,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(VarDeclElementSingle varDeclElementSingle) {
+		varDeclElementSingle.obj = Tab.noObj;
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
 
 		String name = varDeclElementSingle.getI1();
@@ -326,10 +354,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ConstDecl1 constDecl1) {
+		constDecl1.obj = Tab.noObj;
 		currentDeclType = null;
 	}
 
 	public void visit(ConstDeclElement1 constDeclElement1) {
+		constDeclElement1.obj = Tab.noObj;
 		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
 
 		String name = constDeclElement1.getI1();
@@ -353,6 +383,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(MethodNameAndRetType1 methodNameAndRetType) {
+		methodNameAndRetType.obj = Tab.noObj;
 		String name = (methodNameAndRetType).getName();
 		Struct type = (methodNameAndRetType).getReturnType().struct;
 
@@ -372,6 +403,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(MethodBegin1 methodBegin1) {
+		methodBegin1.obj = Tab.noObj;
 		methodBegin1.obj = currentMethod;
 		scopeStack.peek().setLevel(fpCnt);
 		Tab.chainLocalSymbols(scopeStack.peek());
@@ -396,6 +428,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	// store formal pars
 	public void visit(FormParsElementArray formalPar) {
+		formalPar.obj = Tab.noObj;
 		Struct elemType = formalPar.getType().struct;
 
 		String name = formalPar.getI2();
@@ -415,6 +448,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(FormParsElementSingle formalPar) {
+		formalPar.obj = Tab.noObj;
 		Struct elemType = formalPar.getType().struct;
 
 		String name = formalPar.getI2();
@@ -433,6 +467,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	public void visit(FactorNewObject factorNewObject){
+		factorNewObject.obj = Tab.noObj;
 		Struct type = factorNewObject.getType().struct;
 		if(type.getKind() != Struct.Class)
 		{
@@ -443,6 +478,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(MethodDesignator1 methodDesignator1) {
+		methodDesignator1.obj = Tab.noObj;
 		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
 		if(currentClassObj != null || currentClass != null)
 			apCnt.push(1);
@@ -453,7 +489,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementFunctionCallComplex complexFunctionCall) {
-
+		complexFunctionCall.obj = Tab.noObj;
 		Obj fun = complexFunctionCall.getMethodDesignator().obj;
 
 		int cnt = apCnt.pop();
@@ -465,6 +501,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ActParElement1 actPar) {
+		actPar.obj = Tab.noObj;
 		Obj fp = null;
 		
 		// fix no argument this.func calls
@@ -503,6 +540,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(StatementReturnVoid returnVoid) {
+		returnVoid.obj = Tab.noObj;
 		if (currentMethod.getType() != Tab.noType) {
 			report_error("Method must return type", null);
 		}
@@ -524,16 +562,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		
 		return false;
-		
 	}
 
 	public void visit(StatementReturnValue returnValue) {
+		returnValue.obj = Tab.noObj;
 			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
 				report_error("The value of the return expression is not assignable to return type.", null);
 			}
 	}
 
 	public void visit(PrintStatementComplex printStatementComplex) {
+		printStatementComplex.obj = Tab.noObj;
 		Struct argType = printStatementComplex.getExpr().struct;
 
 		log.debug("print statement has arg of type " + argType.getKind());
@@ -550,10 +589,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(PrintStatement printStatement) {
+		printStatement.obj = Tab.noObj;
 		Struct argType = printStatement.getExpr().struct;
 
-		log.debug("print statement has arg of type " + argType.getKind());
-
+		if(argType != null){
+			log.debug("print statement has arg of type " + argType.getKind());
+		}
 		if (argType != Tab.charType && argType != Tab.intType) {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
 					null);
@@ -563,7 +604,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ReadStatement readStatement) {
-
+		readStatement.obj = Tab.noObj;
 		int kind = readStatement.getLValueDesignator().obj.getKind();
 		if (kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem) {
 			report_error("The argument of the read statement must be a variable, an element of an array or a field.",
@@ -581,6 +622,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
+		designatorStatementAssignment.obj = Tab.noObj;
 		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
 		
 		if(designator == null || designator == Tab.noObj)
@@ -608,6 +650,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall) {
+		designatorStatementFunctionCall.obj = Tab.noObj;
 		Obj obj = designatorStatementFunctionCall.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
@@ -621,6 +664,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
+		designatorStatementInc.obj = Tab.noObj;
 		Obj designator = designatorStatementInc.getLValueDesignator().obj;
 		if (designator.getType() != Tab.intType) {
 			report_error("Increments are allowed only for int types, but found other type.", null);
@@ -629,6 +673,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementDec designatorStatementDec) {
+		designatorStatementDec.obj = Tab.noObj;
 		Obj designator = designatorStatementDec.getLValueDesignator().obj;
 		if (designator.getType() != Tab.intType) {
 			report_error("Decrements are allowed only for int types, but found other type.", null);
@@ -636,6 +681,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ConditionMultiple conditionMultiple) {
+		conditionMultiple.obj = Tab.noObj;
 		Struct type1 = conditionMultiple.getConditionList().obj.getType();
 		Struct type2 = conditionMultiple.getCondTerm().obj.getType();
 
@@ -646,10 +692,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ConditionSingle conditionSingle) {
+		conditionSingle.obj = Tab.noObj;
 		conditionSingle.obj = new Obj(Obj.NO_VALUE, "", conditionSingle.getCondTerm().obj.getType());
 	}
 
 	public void visit(ConditionListMultiple conditionListMultiple) {
+		conditionListMultiple.obj = Tab.noObj;
 		Struct type1 = conditionListMultiple.getConditionElement().obj.getType();
 		Struct type2 = conditionListMultiple.getConditionList().obj.getType();
 
@@ -660,14 +708,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ConditionListSingle conditionListSingle) {
+		conditionListSingle.obj = Tab.noObj;
 		conditionListSingle.obj = new Obj(Obj.NO_VALUE, "", conditionListSingle.getConditionElement().obj.getType());
 	}
 
 	public void visit(ConditionElement1 conditionElement1) {
+		conditionElement1.obj = Tab.noObj;
 		conditionElement1.obj = new Obj(Obj.NO_VALUE, "", conditionElement1.getCondTerm().obj.getType());
 	}
 
 	public void visit(CondTermMultiple condTermMultiple) {
+		condTermMultiple.obj = Tab.noObj;
 		Struct type1 = condTermMultiple.getCondFact().obj.getType();
 		Struct type2 = condTermMultiple.getCondTermList().obj.getType();
 
@@ -678,10 +729,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(CondTermSingle condTermSingle) {
+		condTermSingle.obj = Tab.noObj;
 		condTermSingle.obj = new Obj(Obj.NO_VALUE, "", condTermSingle.getCondFact().obj.getType());
 	}
 
 	public void visit(CondTermListMultiple condTermListMultiple) {
+		condTermListMultiple.obj = Tab.noObj;
 		Struct type1 = condTermListMultiple.getCondTermElement().obj.getType();
 		Struct type2 = condTermListMultiple.getCondTermList().obj.getType();
 
@@ -694,14 +747,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(CondTermListSingle condTermListSingle) {
+		condTermListSingle.obj = Tab.noObj;
 		condTermListSingle.obj = new Obj(Obj.NO_VALUE, "", condTermListSingle.getCondTermElement().obj.getType());
 	}
 
 	public void visit(CondTermElement1 condTermElement1) {
+		condTermElement1.obj = Tab.noObj;
 		condTermElement1.obj = new Obj(Obj.NO_VALUE, "", condTermElement1.getCondFact().obj.getType());
 	}
 
 	public void visit(CondFactMultiple condFactMultiple) {
+		condFactMultiple.obj = Tab.noObj;
 		Struct type1 = condFactMultiple.getExpr().struct;
 
 		if (type1 != Tab.intType) {
@@ -712,6 +768,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(CondFactSingle condFactSingle) {
+		condFactSingle.obj = Tab.noObj;
 		Struct type1 = condFactSingle.getExpr().struct;
 
 		if (type1 != Tab.intType) {
@@ -722,6 +779,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(CondFactListMultiple condFactListMultiple) {
+		condFactListMultiple.obj = Tab.noObj;
 		Struct type1 = condFactListMultiple.getCondFactElement().obj.getType();
 		Struct type2 = condFactListMultiple.getCondFactList().obj.getType();
 
@@ -733,10 +791,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(CondFactListSingle condFactListSingle) {
+		condFactListSingle.obj = Tab.noObj;
 		condFactListSingle.obj = new Obj(Obj.NO_VALUE, "", condFactListSingle.getCondFactElement().obj.getType());
 	}
 
 	public void visit(CondFactElement1 condFactElement1) {
+		condFactElement1.obj = Tab.noObj;
 		Struct type = condFactElement1.getExpr().struct;
 
 		if (type != Tab.intType) {
@@ -762,7 +822,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		log.debug("exprWithNoMinus");
 	}
 	
-	private  boolean checkObj(Obj obj){
+	private boolean checkObj(Obj obj){
 		if (obj == null || obj == Tab.noObj){
 			report_error("obj is null", null);
 			return false;
@@ -772,7 +832,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(SingleFactorTerm term) {
-		
 		if(!checkObj(term.getFactor().obj))
 			return;
 		
@@ -786,12 +845,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(TermListSingle termListSingle) {
+		termListSingle.obj = Tab.noObj;
 		Obj obj = termListSingle.getTermElement().obj;
 		termListSingle.obj = new Obj(obj.getKind(), "", obj.getType());
 		log.debug("term list single is type " + termListSingle.obj.getType().getKind());
 	}
 
 	public void visit(TermListMultiple termListMultiple) {
+		termListMultiple.obj = Tab.noObj;
 		Obj obj1 = termListMultiple.getTermList().obj;
 		Obj obj2 = termListMultiple.getTermElement().obj;
 
@@ -815,15 +876,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(TermElement1 termElement) {
+		termElement.obj = Tab.noObj;
 		termElement.obj = new Obj(termElement.getFactor().obj.getKind(), "", termElement.getFactor().obj.getType());
 		log.debug("term element is type " + termElement.obj.getType().getKind());
 	}
 
 	public void visit(VariableFactor variableFactor) {
+		variableFactor.obj = Tab.noObj;
 		variableFactor.obj = variableFactor.getRValueDesignator().obj;
 	}
 
 	public void visit(FuncttionCallFactor functtionCallFactor) {
+		functtionCallFactor.obj = Tab.noObj;
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
@@ -837,6 +901,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
+		functtionCallFactor.obj = Tab.noObj;
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
@@ -855,16 +920,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ConstantFactor constantFactor) {
+		constantFactor.obj = Tab.noObj;
 		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
 		constantFactor.obj.setAdr(constantFactor.getConstant().obj.getAdr());
 		log.debug("constant factor is type " + constantFactor.obj.getType().getKind());
 	}
 
 	public void visit(FactorParenExpr parenFactor) {
+		parenFactor.obj = Tab.noObj;
 		parenFactor.obj = new Obj(Obj.NO_VALUE, "", parenFactor.getExpr().struct);
 	}
 
 	public void visit(FactorNewArray factorNewArray) {
+		factorNewArray.obj = Tab.noObj;
 		Struct struct = new Struct(Struct.Array, factorNewArray.getType().struct);
 		factorNewArray.obj = new Obj(Obj.Var, "", struct);
 	}
@@ -893,8 +961,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(LValueDesignator1 ldesignator) {
+		ldesignator.obj = Tab.noObj;
+		
 		Obj obj = ldesignator.getDesignator().obj;
-
+		
+		
 		if (obj.getKind() == Obj.Con) {
 			report_error("Lvalue cannot be a constant", null);
 		}
@@ -905,6 +976,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(RValueDesignator1 rdesignator) {
+		rdesignator.obj = Tab.noObj;
+		rdesignator.obj = Tab.noObj;
 		
 		if(rdesignator.getDesignator().obj == null || rdesignator.getDesignator().obj == Tab.noObj){
 			report_error("designator obj is null in rvaluedesignator1 ", rdesignator);
@@ -932,6 +1005,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	public void visit(DesignatorClassElement1 designatorClassElement){
+		designatorClassElement.obj = Tab.noObj;
 		designatorClassElement.obj = designatorClassElement.getDesignator().obj;
 	}
 
@@ -998,9 +1072,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	
 	public void visit(DesignatorSimple designatorSimple) {
+		designatorSimple.obj = Tab.noObj;
 		String name = designatorSimple.getI1();
 		
-		Obj obj = null;
+		Obj obj = Tab.noObj;
 		if(currentClassObj != null){
 				obj = currentClassObj.getType().getMembers().searchKey(name);
 				if(obj == null){
@@ -1049,12 +1124,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(LValueClassDesignator designator)
 	{
+		designator.obj = Tab.noObj;
 		designator.obj = designator.getDesignator().obj;
 		currentClassObj = null;
 	}
 	
 	public void visit(RValueClassDesignator designator)
 	{
+		designator.obj = Tab.noObj;
 		designator.obj = designator.getDesignator().obj;
 		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
 		currentClassObj = null;
@@ -1063,6 +1140,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(RValueMethodCall2 designator)
 	{
+		designator.obj = Tab.noObj;
 		designator.obj = designator.getMethodDesignator().obj;
 		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
 		currentClassObj = null;
@@ -1070,6 +1148,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	public void visit(RValueMethodCall1 designator)
 	{
+		designator.obj = Tab.noObj;
 		designator.obj = designator.getMethodDesignator().obj;
 		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
 		currentClassObj = null;
@@ -1079,7 +1158,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 
 	public void visit(DesignatorArray designatorArray) {
-
+		designatorArray.obj = Tab.noObj;
 		Obj obj = designatorArray.getArrayName().obj;
 		String name = obj.getName();
 
@@ -1109,8 +1188,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(ArrayName1 arrayName1) {
-		
-		Obj obj = null;
+		arrayName1.obj = Tab.noObj;
+		Obj obj = Tab.noObj;
 		if(currentClassObj != null){
 			obj = currentClassObj.getType().getMembers().searchKey(arrayName1.getI1());
 		}
@@ -1138,12 +1217,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(MatchedBreak matchedBreak) {
+		matchedBreak.obj = Tab.noObj;
 		if (inWhile == 0) {
 			report_error("Break can only be used inside a loop.", null);
 		}
 	}
 
 	public void visit(MatchedContinue matchedContinue) {
+		matchedContinue.obj = Tab.noObj;
 		if (inWhile == 0) {
 			report_error("Continue can only be used inside a loop.", null);
 		}

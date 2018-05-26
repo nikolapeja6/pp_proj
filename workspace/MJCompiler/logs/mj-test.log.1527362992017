@@ -1,0 +1,87 @@
+INFO  21:29:38,579 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+INFO  21:29:38,628 - #40 program
+INFO  21:29:38,628 - #45 AAA
+INFO  21:29:38,628 - #45 int
+INFO  21:29:38,629 - #45 x
+INFO  21:29:38,629 - #45 a
+ERROR 21:29:38,629 - Sintaksna greska na liniji 3
+INFO  21:29:38,629 - #12 ,
+INFO  21:29:38,629 - #45 b
+INFO  21:29:38,629 - #13 ;
+INFO  21:29:38,630 - #38 class
+ERROR 21:29:38,630 - Greska.
+INFO  21:29:38,630 - #45 K
+INFO  21:29:38,630 - #34 {
+INFO  21:29:38,630 - #45 int
+INFO  21:29:38,631 - #45 ada
+INFO  21:29:38,631 - #45 asdasdasd
+ERROR 21:29:38,631 - Sintaksna greska na liniji 6
+INFO  21:29:38,631 - #45 asdasdas
+INFO  21:29:38,631 - #13 ;
+INFO  21:29:38,631 - #45 int
+INFO  21:29:38,631 - #45 b
+INFO  21:29:38,631 - #13 ;
+ERROR 21:29:38,631 - Greska.
+INFO  21:29:38,632 - #34 {
+INFO  21:29:38,632 - #35 }
+ERROR 21:29:38,632 - Sintaksna greska na liniji 9
+INFO  21:29:38,632 - #35 }
+INFO  21:29:38,632 - #34 {
+INFO  21:29:38,632 - #45 int
+INFO  21:29:38,632 - #45 f
+INFO  21:29:38,632 - #32 (
+INFO  21:29:38,632 - #45 x
+INFO  21:29:38,632 - #45 x
+INFO  21:29:38,632 - #45 x
+INFO  21:29:38,632 - #33 )
+INFO  21:29:38,632 - #34 {
+INFO  21:29:38,632 - #8 return
+INFO  21:29:38,632 - #9 1
+INFO  21:29:38,632 - #13 ;
+INFO  21:29:38,632 - #35 }
+INFO  21:29:38,632 - #43 void
+INFO  21:29:38,632 - #45 main
+INFO  21:29:38,633 - #32 (
+INFO  21:29:38,633 - #33 )
+INFO  21:29:38,633 - #34 {
+INFO  21:29:38,633 - #45 x
+INFO  21:29:38,633 - #28 =
+INFO  21:29:38,633 - #9 5
+INFO  21:29:38,633 - #13 ;
+INFO  21:29:38,633 - #45 b
+INFO  21:29:38,633 - #28 =
+INFO  21:29:38,633 - #9 4
+INFO  21:29:38,633 - #9 3
+INFO  21:29:38,633 - #9 2
+INFO  21:29:38,633 - #9 1
+INFO  21:29:38,633 - #13 ;
+INFO  21:29:38,633 - #2 if
+INFO  21:29:38,633 - #32 (
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #45 a
+INFO  21:29:38,633 - #33 )
+INFO  21:29:38,633 - #34 {
+INFO  21:29:38,633 - #35 }
+INFO  21:29:38,634 - #41 print
+INFO  21:29:38,634 - #32 (
+INFO  21:29:38,634 - #45 x
+INFO  21:29:38,634 - #33 )
+INFO  21:29:38,634 - #13 ;
+INFO  21:29:38,634 - #35 }
+INFO  21:29:38,634 - #35 }
+ERROR 21:29:38,634 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 27
+INFO  21:29:38,637 - ***Abstract tree****
+INFO  21:29:38,637 - #32
+DEBUG 21:29:38,642 - Variable with name b has the address of 0
+INFO  21:29:38,642 - Print calls = 0
+DEBUG 21:29:38,643 - 
+INFO  21:29:38,644 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  21:29:38,648 - Finished code generation
+DEBUG 21:29:38,648 - 
+INFO  21:29:38,648 - Parsiranje uspesno zavrseno!

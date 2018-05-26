@@ -300,6 +300,8 @@ ClassDecl ::= 	(ClassDecl1) ClassDeclBegin:C1 OPEN_BRACES MultipleVarDecl:M2 OPE
 ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT:I1 EXTENDS Type:T2 {: RESULT=new DerivedClassBegin(I1, T2); RESULT.setLine(I1left); :}
 					|
 					(NewClassBegin) CLASS IDENT:I1 {: RESULT=new NewClassBegin(I1); RESULT.setLine(I1left); :}
+					|
+					(ErrorClass) error {:parser.log.error("Error");:} {: RESULT=new ErrorClass(); :}
 					;
 					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
@@ -318,11 +320,15 @@ MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclD
 					VarDecl:V1 {: RESULT=new MultipleVarDeclDerived2(V1); RESULT.setLine(V1left); :}
 					;
 					
-VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :};
+VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :}
+			|
+			error {:parser.log.error("Error");:}SEMICOLON {: RESULT=new VarDeclDerived1(); :};
 
 VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclListDerived1(V1, V2); RESULT.setLine(V1left); :}
 				|
 				VarDeclElement:V1 {: RESULT=new VarDeclListDerived2(V1); RESULT.setLine(V1left); :}
+				|
+				error {:parser.log.error("Greska.");:} {: RESULT=new VarDeclListDerived3(); :}
 				;
 			
 VarDeclElement ::= 	(VarDeclElementArray) IDENT:I1 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new VarDeclElementArray(I1); RESULT.setLine(I1left); :} 
@@ -367,6 +373,8 @@ FormPars ::= 	FormPars:F1 COMMA FormParsElement:F2 {: RESULT=new FormParsDerived
 FormParsElement ::= 	(FormParsElementArray) Type:T1 IDENT:I2 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new FormParsElementArray(T1, I2); RESULT.setLine(T1left); :}
 						|
 						(FormParsElementSingle) Type:T1 IDENT:I2 {: RESULT=new FormParsElementSingle(T1, I2); RESULT.setLine(T1left); :} 
+						|
+						error {:parser.log.error("Error");:} {: RESULT=new FormParsElementDerived1(); :}
 						;
 
 ActPars ::= ActPars:A1 COMMA ActParElement:A2 {: RESULT=new ActParsDerived1(A1, A2); RESULT.setLine(A1left); :}
@@ -440,11 +448,15 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 							(DesignatorStatementInc)LValueDesignator:L1 INC {: RESULT=new DesignatorStatementInc(L1); RESULT.setLine(L1left); :}
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
+							|
+							error {:parser.log.error("Error");:} {: RESULT=new DesignatorStatementDerived1(); :}
 							;
 
 Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
 				|
 				(ConditionSingle) CondTerm:C1 {: RESULT=new ConditionSingle(C1); RESULT.setLine(C1left); :}
+				|
+				error {:parser.log.error("Error");:} {: RESULT=new ConditionDerived1(); :}
 				;
 ConditionWhile ::= (ConditionMultipleWhile) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultipleWhile(C1, C2); RESULT.setLine(C1left); :}
 				|

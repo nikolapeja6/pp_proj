@@ -1,0 +1,56 @@
+INFO  21:20:59,531 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+INFO  21:20:59,580 - #40 program
+INFO  21:20:59,580 - #45 AAA
+INFO  21:20:59,580 - #45 int
+INFO  21:20:59,580 - #45 x
+INFO  21:20:59,580 - #45 a
+ERROR 21:20:59,581 - Sintaksna greska na liniji 3
+INFO  21:20:59,581 - #12 ,
+INFO  21:20:59,581 - #45 b
+INFO  21:20:59,581 - #13 ;
+INFO  21:20:59,581 - #34 {
+ERROR 21:20:59,581 - Greska.
+INFO  21:20:59,582 - #43 void
+INFO  21:20:59,583 - #45 main
+INFO  21:20:59,583 - #32 (
+INFO  21:20:59,583 - #33 )
+INFO  21:20:59,583 - #34 {
+INFO  21:20:59,583 - #45 x
+INFO  21:20:59,584 - #28 =
+INFO  21:20:59,584 - #9 5
+INFO  21:20:59,584 - #13 ;
+INFO  21:20:59,585 - #45 b
+INFO  21:20:59,585 - #28 =
+INFO  21:20:59,586 - #9 4
+INFO  21:20:59,586 - #13 ;
+INFO  21:20:59,586 - #41 print
+INFO  21:20:59,586 - #32 (
+INFO  21:20:59,586 - #45 x
+INFO  21:20:59,586 - #33 )
+INFO  21:20:59,586 - #13 ;
+INFO  21:20:59,586 - #35 }
+INFO  21:20:59,586 - #35 }
+INFO  21:20:59,588 - ***Abstract tree****
+INFO  21:20:59,588 - #0
+DEBUG 21:20:59,596 - program name
+DEBUG 21:20:59,596 - Variable with name b has the address of 1
+DEBUG 21:20:59,596 - program begin
+ERROR 21:20:59,596 - Identifier x was not defined.
+DEBUG 21:20:59,596 - found constant with value 5of type 1
+DEBUG 21:20:59,596 - constant factor is type 1
+DEBUG 21:20:59,596 - term SingleFactorterm is type 1
+DEBUG 21:20:59,596 - exprWithNoMinus
+ERROR 21:20:59,596 - designator is null in designator statement assignment na liniji 9
+DEBUG 21:20:59,596 - designator simple at line 10: b
+DEBUG 21:20:59,596 - found constant with value 4of type 1
+DEBUG 21:20:59,596 - constant factor is type 1
+DEBUG 21:20:59,596 - term SingleFactorterm is type 1
+DEBUG 21:20:59,596 - exprWithNoMinus
+ERROR 21:20:59,596 - Identifier x was not defined.
+ERROR 21:20:59,596 - designator obj is null in rvaluedesignator1  na liniji 11
+ERROR 21:20:59,597 - obj is null
+DEBUG 21:20:59,597 - exprWithNoMinus
+ERROR 21:20:59,597 - Print function can only be called with 'int' or 'char' expression, is called with null
+INFO  21:20:59,597 - Print calls = 0
+DEBUG 21:20:59,598 - 
+ERROR 21:20:59,598 - Parsiranje NIJE uspesno zavrseno!
