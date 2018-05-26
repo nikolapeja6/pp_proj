@@ -322,18 +322,19 @@ MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclD
 					
 VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :}
 			|
-			error {:parser.log.error("Error");:}SEMICOLON {: RESULT=new VarDeclDerived1(); :};
+			error {:parser.log.error("Error");:}SEMICOLON {: RESULT=new VarDeclDerived1(); :}
+			;
 
 VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclListDerived1(V1, V2); RESULT.setLine(V1left); :}
 				|
 				VarDeclElement:V1 {: RESULT=new VarDeclListDerived2(V1); RESULT.setLine(V1left); :}
-				|
-				error {:parser.log.error("Greska.");:} {: RESULT=new VarDeclListDerived3(); :}
 				;
 			
 VarDeclElement ::= 	(VarDeclElementArray) IDENT:I1 OPEN_CHEVRONS CLOSE_CHEVRONS {: RESULT=new VarDeclElementArray(I1); RESULT.setLine(I1left); :} 
 					|
 					(VarDeclElementSingle)IDENT:I1 {: RESULT=new VarDeclElementSingle(I1); RESULT.setLine(I1left); :}
+					|
+					error {:parser.log.error("Greska.");:} {: RESULT=new VarDeclElementDerived1(); :}
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl:M1 MethodDecl:M2 {: RESULT=new MultipleMethodDeclDerived1(M1, M2); RESULT.setLine(M1left); :}

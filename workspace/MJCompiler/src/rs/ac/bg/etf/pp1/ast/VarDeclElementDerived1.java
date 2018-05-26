@@ -5,9 +5,9 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class FormParsElementDerived1 extends FormParsElement {
+public class VarDeclElementDerived1 extends VarDeclElement {
 
-    public FormParsElementDerived1 () {
+    public VarDeclElementDerived1 () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class FormParsElementDerived1 extends FormParsElement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("FormParsElementDerived1(\n");
+        buffer.append("VarDeclElementDerived1(\n");
 
         buffer.append(tab);
-        buffer.append(") [FormParsElementDerived1]");
+        buffer.append(") [VarDeclElementDerived1]");
         return buffer.toString();
     }
 }

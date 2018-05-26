@@ -322,18 +322,19 @@ MultipleVarDecl ::= MultipleVarDecl VarDecl
 					
 VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON
 			|
-			error {:parser.log.error("Error");:}SEMICOLON;
+			error {:parser.log.error("Error");:}SEMICOLON
+			;
 
 VarDeclList ::= VarDeclList COMMA VarDeclElement
 				|
 				VarDeclElement
-				|
-				error {:parser.log.error("Greska.");:}
 				;
 			
 VarDeclElement ::= 	(VarDeclElementArray) IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
 					|
 					(VarDeclElementSingle)IDENT
+					|
+					error {:parser.log.error("Greska.");:}
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
