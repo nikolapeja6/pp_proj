@@ -6,7 +6,7 @@ path
 C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\lib
 
 to find out options of flex
-java -jer JFlex.jar -h
+java -jar JFlex.jar -h
 
 command
 java -jar JFlex.jar -d ..\src\rs\ac\bg\etf\pp1 ..\spec\mjlexer.flex
