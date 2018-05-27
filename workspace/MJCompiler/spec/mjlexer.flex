@@ -93,5 +93,5 @@ import org.apache.log4j.*;
 
 
 
-. {Logger.getLogger(getClass()).error("Leksicka greska ("+yytext()+") na "+(yycolumn+1)+" karakteru "+ (yyline + 1) +" linije.");}
+. {Logger.getLogger(getClass()).error("Lexical error on line "+(yyline + 1)+" ("+(yycolumn+1)+"): ("+yytext()+").");}
 

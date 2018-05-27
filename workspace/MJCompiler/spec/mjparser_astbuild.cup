@@ -22,13 +22,13 @@ parser code {:
 	
 	public void syntax_error(Symbol cur_token)
 	{
-		report_error("Sintaksna greska", cur_token);
+		report_error("Syntax error", cur_token);
 		syntaxErrorFound = true;
 	}
 	
 	public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception
 	{
-		report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+		report_fatal_error("Fatal error, parsing cannot continue. Aborting.", cur_token);
 	}
 	
 	public void report_error(String message, Object info)
@@ -36,7 +36,7 @@ parser code {:
 		StringBuilder msg = new StringBuilder(message);
 		if(info instanceof Symbol)
 		{
-			msg.append(" na liniji ").append(((Symbol)info).left);
+			msg.append(" on line ").append(((Symbol)info).left);
 		}
 		log.error(msg.toString());
 	}
@@ -46,7 +46,7 @@ parser code {:
 		StringBuilder msg = new StringBuilder(message);
 		if(info instanceof Symbol)
 		{
-			msg.append(" na liniji ").append(((Symbol)info).left);
+			msg.append(" on line ").append(((Symbol)info).left);
 		}
 		log.info(msg.toString());
 	}
@@ -56,7 +56,7 @@ parser code {:
 		StringBuilder msg = new StringBuilder(message);
 		if(info instanceof Symbol)
 		{
-			msg.append(" na liniji ").append(((Symbol)info).left);
+			msg.append(" on line ").append(((Symbol)info).left);
 		}
 		log.debug(msg.toString());
 	}
@@ -65,7 +65,7 @@ parser code {:
 scan with {:
 	Symbol s = this.getScanner().next_token();
 	if(s != null && s.value != null)
-		log.info(s.toString() + " " + s.value.toString());
+		log.debug(s.toString() + " " + s.value.toString());
 	return s;
 :}
 
@@ -301,7 +301,7 @@ ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT:I1 EXTENDS Type:T2 {: RESULT=
 					|
 					(NewClassBegin) CLASS IDENT:I1 {: RESULT=new NewClassBegin(I1); RESULT.setLine(I1left); :}
 					|
-					(ErrorClass) error {:parser.log.error("Error");:} {: RESULT=new ErrorClass(); :}
+					(ErrorClass) error {:parser.log.error("Error in class declaration.");:} {: RESULT=new ErrorClass(); :}
 					;
 					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
@@ -322,7 +322,7 @@ MultipleVarDecl ::= MultipleVarDecl:M1 VarDecl:V2 {: RESULT=new MultipleVarDeclD
 					
 VarDecl ::= (VarDecl1) Type:T1 VarDeclList:V2 SEMICOLON {: RESULT=new VarDecl1(T1, V2); RESULT.setLine(T1left); :}
 			|
-			error {:parser.log.error("Error");:}SEMICOLON {: RESULT=new VarDeclDerived1(); :}
+			error {:parser.log.error("Error in var declaration.");:}SEMICOLON {: RESULT=new VarDeclDerived1(); :}
 			;
 
 VarDeclList ::= VarDeclList:V1 COMMA VarDeclElement:V2 {: RESULT=new VarDeclListDerived1(V1, V2); RESULT.setLine(V1left); :}

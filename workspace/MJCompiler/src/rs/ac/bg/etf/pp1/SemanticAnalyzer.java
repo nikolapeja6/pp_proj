@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.naming.ldap.Rdn;
+
 import org.apache.log4j.Logger;
 import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
@@ -25,6 +27,8 @@ import rs.etf.pp1.symboltable.concepts.Struct;
 import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
 import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
+import rs.etf.pp1.symboltable.visitors.DumpSymbolTableVisitor;
+import sun.dc.DuctusRenderingEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
@@ -132,7 +136,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		globalVars = false;
 		String name = newClassBegin.getI1();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, newClassBegin);
 
 		if (obj != null && obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", newClassBegin);
@@ -163,13 +167,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = derivedClassBegin.getI1();
 		Struct baseType = derivedClassBegin.getType().struct;
 		String baseClassName = ((Type1)derivedClassBegin.getType()).getI1();
-		Obj baseClass = Tab.find(baseClassName);
+		Obj baseClass = search(baseClassName, derivedClassBegin);
 		
 		if(baseType.getKind() != Struct.Class){
 			report_error("Base type must be a type.", derivedClassBegin);
 		}
 		
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, derivedClassBegin);
 		
 		if (obj != null && obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", derivedClassBegin);
@@ -301,7 +305,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		String name = varDeclElementArray.getI1();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, varDeclElementArray);
 		if (obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", null);
 			return;
@@ -329,7 +333,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		String name = varDeclElementSingle.getI1();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, varDeclElementSingle);
 		if (obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", null);
 			return;
@@ -364,7 +368,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		String name = constDeclElement1.getI1();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, constDeclElement1);
 		if (obj != Tab.noObj) {
 			report_error("Identifier " + name + " already used.", null);
 		}
@@ -423,7 +427,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(TypeReturnType returnType) {
-		returnType.struct = Tab.find(((Type1) returnType.getType()).getI1()).getType();
+		Obj obj = search(((Type1) returnType.getType()).getI1(), returnType);
+		returnType.struct = obj.getType();
+	}
+	
+	private void found(Obj obj, SyntaxNode node)
+	{
+		report_info("Searchinf for obj "+obj.getName()+" (line "+(node.getLine() +1)+") - found "+ObjToString(obj), node);
+	}
+	
+	private static String ObjToString(Obj obj){
+		DumpSymbolTableVisitor visitor = new DumpSymbolTableVisitor();
+		visitor.visitObjNode(obj);
+		return visitor.getOutput();
+	}
+	
+	private Obj search(String name, SyntaxNode node){
+		Obj obj = Tab.find(name);
+		found(obj, node);
+		return obj;
 	}
 
 	// store formal pars
@@ -433,7 +455,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		String name = formalPar.getI2();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, formalPar);
 		if (obj != Tab.noObj) {
 			
 			if(!inClassDecl ||  obj.getFpPos() !=0){
@@ -453,7 +475,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		String name = formalPar.getI2();
 
-		Obj obj = Tab.find(name);
+		Obj obj = search(name, formalPar);
 		if (obj != Tab.noObj) {
 			if(!inClassDecl ||  obj.getFpPos() !=0){
 			report_error("Identifier " + name + " already used.", null);
@@ -529,7 +551,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public void visit(Type1 type) {
-		Obj tip = Tab.find(type.getI1());
+		Obj tip = search(type.getI1(), type);
 		if (tip.getKind() == Obj.Type)
 			type.struct = tip.getType();
 		else {
@@ -989,13 +1011,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			if(rdesignator.getDesignator() instanceof DesignatorArray){
 			String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
 			rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
-			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			rdesignator.obj.setAdr(search(varName, rdesignator).getAdr());
 			}
 			else
 			{
 				String varName = ((DesignatorSimple) rdesignator.getDesignator()).getI1();
 				rdesignator.obj = new Obj(Obj.Var, varName, rdesignator.getDesignator().obj.getType());
-				rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+				rdesignator.obj.setAdr(search(varName, rdesignator).getAdr());
 			}
 		} else {
 			rdesignator.obj = rdesignator.getDesignator().obj;
@@ -1079,12 +1101,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if(currentClassObj != null){
 				obj = currentClassObj.getType().getMembers().searchKey(name);
 				if(obj == null){
-					obj = Tab.find(name);
+					obj = search(name, designatorSimple);
 				}
 		}
 		else
 		{
-		obj = Tab.find(name);
+		obj = search(name,designatorSimple);
 		}
 		if (obj == null || obj == Tab.noObj) {
 			report_error("Identifier " + name + " was not defined.", null);
@@ -1194,7 +1216,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			obj = currentClassObj.getType().getMembers().searchKey(arrayName1.getI1());
 		}
 		else{
-		 obj = Tab.find(arrayName1.getI1());
+		 obj = search(arrayName1.getI1(), arrayName1);
 		}
 		if (obj == Tab.noObj) {
 			report_error("Undefined identifier " + arrayName1.getI1(), null);

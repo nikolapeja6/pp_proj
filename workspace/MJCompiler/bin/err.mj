@@ -1,5 +1,6 @@
 program AAA
 
+int a!;
 int if a, b;
 
 //class K{

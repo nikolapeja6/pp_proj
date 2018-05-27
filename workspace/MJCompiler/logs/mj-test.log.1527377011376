@@ -1,0 +1,114 @@
+INFO  21:52:46,500 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+INFO  21:52:46,550 - #40 program
+INFO  21:52:46,550 - #45 AAA
+INFO  21:52:46,550 - #45 int
+INFO  21:52:46,550 - #2 if
+ERROR 21:52:46,551 - Sintaksna greska na liniji 3
+INFO  21:52:46,551 - #45 a
+INFO  21:52:46,551 - #12 ,
+INFO  21:52:46,551 - #45 b
+INFO  21:52:46,551 - #13 ;
+INFO  21:52:46,551 - #38 class
+INFO  21:52:46,551 - #45 KK
+INFO  21:52:46,551 - #39 extends
+ERROR 21:52:46,551 - Error
+INFO  21:52:46,552 - #45 K
+INFO  21:52:46,552 - #45 asdasdasda
+ERROR 21:52:46,552 - Sintaksna greska na liniji 11
+INFO  21:52:46,552 - #45 as
+INFO  21:52:46,552 - #45 dasdasda
+INFO  21:52:46,552 - #45 asdadasdas
+INFO  21:52:46,552 - #45 dasdasd
+INFO  21:52:46,552 - #34 {
+INFO  21:52:46,552 - #35 }
+INFO  21:52:46,552 - #34 {
+INFO  21:52:46,552 - #45 int
+ERROR 21:52:46,552 - Error
+INFO  21:52:46,554 - #45 f
+INFO  21:52:46,554 - #32 (
+INFO  21:52:46,554 - #45 x
+INFO  21:52:46,554 - #45 x
+INFO  21:52:46,554 - #45 x
+ERROR 21:52:46,554 - Sintaksna greska na liniji 14
+INFO  21:52:46,554 - #33 )
+INFO  21:52:46,554 - #34 {
+INFO  21:52:46,554 - #8 return
+INFO  21:52:46,554 - #9 1
+ERROR 21:52:46,555 - Error
+INFO  21:52:46,556 - #13 ;
+INFO  21:52:46,556 - #35 }
+INFO  21:52:46,557 - #43 void
+INFO  21:52:46,558 - #45 main
+INFO  21:52:46,559 - #32 (
+INFO  21:52:46,559 - #33 )
+INFO  21:52:46,559 - #34 {
+INFO  21:52:46,559 - #45 x
+INFO  21:52:46,559 - #28 =
+INFO  21:52:46,559 - #9 5
+INFO  21:52:46,559 - #13 ;
+INFO  21:52:46,559 - #45 b
+INFO  21:52:46,559 - #28 =
+INFO  21:52:46,559 - #9 4
+INFO  21:52:46,560 - #9 3
+ERROR 21:52:46,560 - Sintaksna greska na liniji 21
+INFO  21:52:46,560 - #9 2
+INFO  21:52:46,560 - #9 1
+INFO  21:52:46,560 - #13 ;
+INFO  21:52:46,560 - #2 if
+INFO  21:52:46,560 - #32 (
+INFO  21:52:46,560 - #45 a
+ERROR 21:52:46,560 - Error
+INFO  21:52:46,561 - #45 a
+ERROR 21:52:46,561 - Sintaksna greska na liniji 23
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #45 a
+INFO  21:52:46,561 - #33 )
+INFO  21:52:46,561 - #34 {
+INFO  21:52:46,561 - #35 }
+INFO  21:52:46,561 - #45 b
+ERROR 21:52:46,561 - Error
+INFO  21:52:46,563 - #28 =
+INFO  21:52:46,563 - #9 5
+INFO  21:52:46,563 - #13 ;
+INFO  21:52:46,563 - #41 print
+INFO  21:52:46,563 - #32 (
+INFO  21:52:46,563 - #45 x
+INFO  21:52:46,563 - #33 )
+INFO  21:52:46,563 - #13 ;
+INFO  21:52:46,563 - #35 }
+INFO  21:52:46,563 - #35 }
+INFO  21:52:46,564 - ***Abstract tree****
+INFO  21:52:46,564 - #0
+DEBUG 21:52:46,572 - program name
+DEBUG 21:52:46,572 - ClassBegin
+DEBUG 21:52:46,572 - class decl end
+DEBUG 21:52:46,572 - class decl 4
+DEBUG 21:52:46,572 - program begin
+DEBUG 21:52:46,572 - found constant with value 1of type 1
+DEBUG 21:52:46,572 - constant factor is type 1
+DEBUG 21:52:46,572 - term SingleFactorterm is type 1
+DEBUG 21:52:46,572 - exprWithNoMinus
+ERROR 21:52:46,572 - Identifier x was not defined.
+DEBUG 21:52:46,572 - found constant with value 5of type 1
+DEBUG 21:52:46,572 - constant factor is type 1
+DEBUG 21:52:46,572 - term SingleFactorterm is type 1
+DEBUG 21:52:46,572 - exprWithNoMinus
+ERROR 21:52:46,572 - designator is null in designator statement assignment na liniji 20
+ERROR 21:52:46,572 - Identifier b was not defined.
+DEBUG 21:52:46,572 - found constant with value 5of type 1
+DEBUG 21:52:46,572 - constant factor is type 1
+DEBUG 21:52:46,572 - term SingleFactorterm is type 1
+DEBUG 21:52:46,572 - exprWithNoMinus
+ERROR 21:52:46,572 - designator is null in designator statement assignment na liniji 25
+ERROR 21:52:46,572 - Identifier x was not defined.
+ERROR 21:52:46,572 - designator obj is null in rvaluedesignator1  na liniji 26
+ERROR 21:52:46,572 - obj is null
+DEBUG 21:52:46,572 - exprWithNoMinus
+ERROR 21:52:46,572 - Print function can only be called with 'int' or 'char' expression, is called with null
+INFO  21:52:46,572 - Print calls = 0
+DEBUG 21:52:46,573 - 
+ERROR 21:52:46,574 - Parsiranje NIJE uspesno zavrseno!
