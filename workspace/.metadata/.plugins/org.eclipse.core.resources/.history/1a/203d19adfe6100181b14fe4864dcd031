@@ -1,0 +1,58 @@
+program Green1C
+
+
+class A{
+	A a;
+	{
+	void do(){
+		print('A');
+		a.do();
+	}
+	
+	void setA(A a){this.a = a;}
+	}
+}
+
+class B extends A{
+{
+	void do(){
+		print('B');
+		a.do();
+		
+	}
+	}
+}
+
+class C extends B{
+{
+	void do(){
+		print('C');
+		a.do();
+	}
+	}
+}
+
+
+{
+
+
+	void main()A a; A x;{
+		a = new A();
+		x = new A();
+		x.setA(a);
+		x.do();
+		
+		x = new B();
+		x.setA(a);
+		x.do();
+		
+		x = new C();
+		a = new C();
+		x.setA(a);
+		x.do();
+	
+	
+	}
+
+
+}

@@ -1,0 +1,167 @@
+INFO  23:49:58,617 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green2.mj
+INFO  23:49:58,770 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  23:49:58,770 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  23:49:58,771 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  23:49:58,771 - Searching for obj eol (line 16) - found Con eol: char, 10, 0  on line 15
+INFO  23:49:58,771 - Searching for obj eol (line 17) - found Con eol: char, 10, 0  on line 16
+INFO  23:49:58,772 - Searching for obj noObj (line 21) - found Var noObj: notype, -1, -1  on line 20
+INFO  23:49:58,772 - Searching for obj int (line 21) - found Type int: int, -1, -1  on line 20
+INFO  23:49:58,773 - Searching for obj noObj (line 21) - found Var noObj: notype, -1, -1  on line 20
+INFO  23:49:58,773 - Searching for obj int (line 21) - found Type int: int, -1, -1  on line 20
+INFO  23:49:58,773 - Searching for obj noObj (line 21) - found Var noObj: notype, -1, -1  on line 20
+INFO  23:49:58,773 - Searching for obj i (line 23) - found Var i: int, 1, 1  on line 22
+INFO  23:49:58,773 - Searching for obj i (line 25) - found Var i: int, 1, 1  on line 24
+INFO  23:49:58,773 - Searching for obj i (line 26) - found Var i: int, 1, 1  on line 25
+INFO  23:49:58,773 - Searching for obj time (line 26) - found Var time: int, 0, 1  on line 25
+INFO  23:49:58,773 - Searching for obj noObj (line 30) - found Var noObj: notype, -1, -1  on line 29
+INFO  23:49:58,773 - Searching for obj bool (line 30) - found Type bool: int, 0, 1  on line 29
+INFO  23:49:58,774 - Searching for obj noObj (line 30) - found Var noObj: notype, -1, -1  on line 29
+INFO  23:49:58,774 - Searching for obj bool (line 30) - found Type bool: int, 0, 1  on line 29
+INFO  23:49:58,774 - Searching for obj noObj (line 30) - found Var noObj: notype, -1, -1  on line 29
+INFO  23:49:58,774 - Searching for obj a (line 33) - found Var a: int, 0, 1  on line 32
+INFO  23:49:58,774 - Searching for obj b (line 39) - found Var b: int, 1, 1  on line 38
+INFO  23:49:58,774 - Searching for obj eol (line 41) - found Con eol: char, 10, 0  on line 40
+INFO  23:49:58,775 - Searching for obj a (line 48) - found Var a: int, 0, 1  on line 47
+INFO  23:49:58,775 - Searching for obj b (line 48) - found Var b: int, 1, 1  on line 47
+INFO  23:49:58,776 - Searching for obj a (line 48) - found Var a: int, 0, 1  on line 47
+INFO  23:49:58,776 - Searching for obj b (line 48) - found Var b: int, 1, 1  on line 47
+INFO  23:49:58,776 - Searching for obj a (line 48) - found Var a: int, 0, 1  on line 47
+INFO  23:49:58,776 - Searching for obj b (line 48) - found Var b: int, 1, 1  on line 47
+INFO  23:49:58,776 - Searching for obj eol (line 53) - found Con eol: char, 10, 0  on line 52
+INFO  23:49:58,776 - Searching for obj noObj (line 57) - found Var noObj: notype, -1, -1  on line 56
+INFO  23:49:58,776 - Searching for obj sleep (line 59) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 58
+INFO  23:49:58,776 - Searching for obj SLEEP_TIME (line 59) - found Con SLEEP_TIME: int, 7654321, 0  on line 58
+INFO  23:49:58,776 - Searching for obj sleep (line 61) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 60
+INFO  23:49:58,776 - Searching for obj SLEEP_TIME (line 61) - found Con SLEEP_TIME: int, 7654321, 0  on line 60
+INFO  23:49:58,776 - Searching for obj sleep (line 63) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 62
+INFO  23:49:58,776 - Searching for obj SLEEP_TIME (line 63) - found Con SLEEP_TIME: int, 7654321, 0  on line 62
+INFO  23:49:58,777 - Searching for obj noObj (line 66) - found Var noObj: notype, -1, -1  on line 65
+INFO  23:49:58,777 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  23:49:58,777 - Searching for obj int (line 80) - found Type int: int, -1, -1  on line 79
+INFO  23:49:58,777 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  23:49:58,777 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  23:49:58,777 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  23:49:58,777 - Searching for obj int (line 81) - found Type int: int, -1, -1  on line 80
+INFO  23:49:58,777 - Searching for obj noObj (line 81) - found Var noObj: notype, -1, -1  on line 80
+INFO  23:49:58,777 - Searching for obj hello (line 84) - found Meth hello: notype, 0, 0 
+ on line 83
+INFO  23:49:58,777 - Searching for obj i (line 86) - found Var i: int, 0, 1  on line 85
+INFO  23:49:58,777 - Searching for obj j (line 87) - found Var j: int, 1, 1  on line 86
+INFO  23:49:58,777 - Searching for obj cnt (line 88) - found Var cnt: int, 2, 1  on line 87
+INFO  23:49:58,777 - Searching for obj n (line 90) - found Var n: int, 3, 1  on line 89
+INFO  23:49:58,777 - Searching for obj j (line 93) - found Var j: int, 1, 1  on line 92
+INFO  23:49:58,777 - Searching for obj i (line 94) - found Var i: int, 0, 1  on line 93
+INFO  23:49:58,777 - Searching for obj i (line 95) - found Var i: int, 0, 1  on line 94
+INFO  23:49:58,777 - Searching for obj j (line 97) - found Var j: int, 1, 1  on line 96
+INFO  23:49:58,777 - Searching for obj i (line 98) - found Var i: int, 0, 1  on line 97
+INFO  23:49:58,777 - Searching for obj j (line 98) - found Var j: int, 1, 1  on line 97
+INFO  23:49:58,777 - Searching for obj i (line 100) - found Var i: int, 0, 1  on line 99
+INFO  23:49:58,777 - Searching for obj j (line 100) - found Var j: int, 1, 1  on line 99
+INFO  23:49:58,778 - Searching for obj i (line 102) - found Var i: int, 0, 1  on line 101
+INFO  23:49:58,778 - Searching for obj j (line 102) - found Var j: int, 1, 1  on line 101
+INFO  23:49:58,778 - Searching for obj n (line 102) - found Var n: int, 3, 1  on line 101
+INFO  23:49:58,778 - Searching for obj j (line 104) - found Var j: int, 1, 1  on line 103
+INFO  23:49:58,778 - Searching for obj j (line 105) - found Var j: int, 1, 1  on line 104
+INFO  23:49:58,778 - Searching for obj j (line 107) - found Var j: int, 1, 1  on line 106
+INFO  23:49:58,778 - Searching for obj n (line 107) - found Var n: int, 3, 1  on line 106
+INFO  23:49:58,778 - Searching for obj j (line 112) - found Var j: int, 1, 1  on line 111
+INFO  23:49:58,778 - Searching for obj j (line 113) - found Var j: int, 1, 1  on line 112
+INFO  23:49:58,778 - Searching for obj j (line 115) - found Var j: int, 1, 1  on line 114
+INFO  23:49:58,778 - Searching for obj j (line 116) - found Var j: int, 1, 1  on line 115
+INFO  23:49:58,778 - Searching for obj j (line 117) - found Var j: int, 1, 1  on line 116
+INFO  23:49:58,778 - Searching for obj n (line 117) - found Var n: int, 3, 1  on line 116
+INFO  23:49:58,778 - Searching for obj goToSleep (line 119) - found Meth goToSleep: notype, 0, 0 
+ on line 118
+INFO  23:49:58,778 - Searching for obj eol (line 120) - found Con eol: char, 10, 0  on line 119
+INFO  23:49:58,778 - Searching for obj i (line 121) - found Var i: int, 0, 1  on line 120
+INFO  23:49:58,778 - Searching for obj eol (line 122) - found Con eol: char, 10, 0  on line 121
+INFO  23:49:58,778 - Searching for obj i (line 123) - found Var i: int, 0, 1  on line 122
+INFO  23:49:58,778 - Searching for obj i (line 124) - found Var i: int, 0, 1  on line 123
+INFO  23:49:58,778 - Searching for obj i (line 127) - found Var i: int, 0, 1  on line 126
+INFO  23:49:58,778 - Searching for obj n (line 127) - found Var n: int, 3, 1  on line 126
+INFO  23:49:58,778 - Searching for obj eol (line 128) - found Con eol: char, 10, 0  on line 127
+INFO  23:49:58,778 - Searching for obj eol (line 129) - found Con eol: char, 10, 0  on line 128
+INFO  23:49:58,778 - Searching for obj end (line 131) - found Meth end: notype, 0, 0 
+ on line 130
+INFO  23:49:58,779 - Searching for obj sleep (line 133) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 132
+INFO  23:49:58,779 - Searching for obj SLEEP_TIME (line 133) - found Con SLEEP_TIME: int, 7654321, 0  on line 132
+INFO  23:49:58,779 - Searching for obj eol (line 134) - found Con eol: char, 10, 0  on line 133
+INFO  23:49:58,779 - Searching for obj eol (line 145) - found Con eol: char, 10, 0  on line 144
+INFO  23:49:58,779 - Searching for obj sleep (line 147) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 146
+INFO  23:49:58,779 - Searching for obj SLEEP_TIME (line 147) - found Con SLEEP_TIME: int, 7654321, 0  on line 146
+INFO  23:49:58,779 - Searching for obj i (line 149) - found Var i: int, 0, 1  on line 148
+INFO  23:49:58,779 - Searching for obj i (line 152) - found Var i: int, 0, 1  on line 151
+INFO  23:49:58,779 - Searching for obj i (line 155) - found Var i: int, 0, 1  on line 154
+INFO  23:49:58,779 - Searching for obj i (line 156) - found Var i: int, 0, 1  on line 155
+INFO  23:49:58,779 - Searching for obj eol (line 157) - found Con eol: char, 10, 0  on line 156
+INFO  23:49:58,779 - Searching for obj i (line 161) - found Var i: int, 0, 1  on line 160
+INFO  23:49:58,779 - Searching for obj i (line 164) - found Var i: int, 0, 1  on line 163
+INFO  23:49:58,779 - Searching for obj eol (line 166) - found Con eol: char, 10, 0  on line 165
+INFO  23:49:58,779 - Searching for obj i (line 167) - found Var i: int, 0, 1  on line 166
+INFO  23:49:58,779 - Searching for obj i (line 171) - found Var i: int, 0, 1  on line 170
+INFO  23:49:58,779 - Searching for obj i (line 171) - found Var i: int, 0, 1  on line 170
+INFO  23:49:58,779 - Searching for obj i (line 174) - found Var i: int, 0, 1  on line 173
+INFO  23:49:58,779 - Searching for obj i (line 174) - found Var i: int, 0, 1  on line 173
+INFO  23:49:58,779 - Searching for obj i (line 175) - found Var i: int, 0, 1  on line 174
+INFO  23:49:58,779 - Searching for obj i (line 175) - found Var i: int, 0, 1  on line 174
+INFO  23:49:58,779 - Searching for obj i (line 178) - found Var i: int, 0, 1  on line 177
+INFO  23:49:58,780 - Searching for obj i (line 178) - found Var i: int, 0, 1  on line 177
+INFO  23:49:58,780 - Searching for obj i (line 180) - found Var i: int, 0, 1  on line 179
+INFO  23:49:58,780 - Searching for obj i (line 200) - found Var i: int, 0, 1  on line 199
+INFO  23:49:58,780 - Searching for obj eol (line 201) - found Con eol: char, 10, 0  on line 200
+INFO  23:49:58,780 - Searching for obj i (line 202) - found Var i: int, 0, 1  on line 201
+INFO  23:49:58,780 - Searching for obj n (line 202) - found Var n: int, 3, 1  on line 201
+INFO  23:49:58,780 - Searching for obj eol (line 204) - found Con eol: char, 10, 0  on line 203
+INFO  23:49:58,780 - Searching for obj eol (line 205) - found Con eol: char, 10, 0  on line 204
+INFO  23:49:58,780 - Searching for obj implication (line 207) - found Meth implication: notype, 0, 2 
+   Var a: int, 0, 1 
+   Var b: int, 1, 1 
+ on line 206
+INFO  23:49:58,780 - Searching for obj eol (line 208) - found Con eol: char, 10, 0  on line 207
+INFO  23:49:58,780 - Searching for obj implication (line 209) - found Meth implication: notype, 0, 2 
+   Var a: int, 0, 1 
+   Var b: int, 1, 1 
+ on line 208
+INFO  23:49:58,780 - Searching for obj eol (line 210) - found Con eol: char, 10, 0  on line 209
+INFO  23:49:58,780 - Searching for obj implication (line 211) - found Meth implication: notype, 0, 2 
+   Var a: int, 0, 1 
+   Var b: int, 1, 1 
+ on line 210
+INFO  23:49:58,780 - Searching for obj eol (line 212) - found Con eol: char, 10, 0  on line 211
+INFO  23:49:58,780 - Searching for obj implication (line 213) - found Meth implication: notype, 0, 2 
+   Var a: int, 0, 1 
+   Var b: int, 1, 1 
+ on line 212
+INFO  23:49:58,780 - Searching for obj eol (line 214) - found Con eol: char, 10, 0  on line 213
+INFO  23:49:58,780 - Searching for obj end (line 216) - found Meth end: notype, 0, 0 
+ on line 215
+INFO  23:49:58,780 - Searching for obj sleep (line 218) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 217
+INFO  23:49:58,780 - Searching for obj SLEEP_TIME (line 218) - found Con SLEEP_TIME: int, 7654321, 0  on line 217
+INFO  23:49:58,780 - Searching for obj eol (line 220) - found Con eol: char, 10, 0  on line 219
+INFO  23:49:58,781 - =========================   Counters   =========================
+INFO  23:49:58,782 - 0 classes found.
+INFO  23:49:58,783 - 6 global functions found.
+INFO  23:49:58,784 - 0 global variables found.
+INFO  23:49:58,784 - 1 global constants found.
+INFO  23:49:58,785 - 0 global array variables found.
+INFO  23:49:58,785 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  23:49:58,793 - Finished code generation
+INFO  23:49:58,794 - SUCCESS!

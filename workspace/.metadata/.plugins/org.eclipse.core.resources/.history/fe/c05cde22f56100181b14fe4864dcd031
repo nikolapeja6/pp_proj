@@ -1,0 +1,187 @@
+program Green2B
+
+const int SLEEP_TIME = 7654321;
+
+
+{
+	void hello(){
+		print('H');
+		print('e');
+		print('l');
+		print('l');
+		print('o');
+		print(' ');
+		print(':');
+		print(')');
+		print(eol);
+		print(eol);
+	}
+
+
+	void sleep(int time)int i;{
+		
+		i = 0;
+		do
+			i++;
+		while(i < time);
+	
+	}
+		
+		
+	void goToSleep(){
+		print('.');
+		sleep(SLEEP_TIME);
+		print('.');	
+		sleep(SLEEP_TIME);
+		print('.');		
+		sleep(SLEEP_TIME);
+	}
+
+	void end(){
+		print('T');
+		print('h');
+		print('e');
+		print(' ');
+		print('E');
+		print('n');
+		print('d');
+		print(' ');
+		print(':');
+		print(')');
+		
+	}
+
+	void main() int i,j,cnt; 
+	int n;
+	{
+	
+		hello();
+	
+		i = -1;
+		j = -1;
+		cnt = 0;
+		
+		read(n);
+		
+		do{
+		j = 0;
+			if(i != -1){
+				print(i);
+				do{
+					if(j == 0)
+						print(i*j, 8);
+					else
+						print(i*j, 5);
+						
+					if(i + j >= n)
+						break;
+					j++;
+					if(j > 10)
+						break;
+				}while(j <= n);
+			}
+			else{
+				print(' ',5);
+				do{
+					if(j == 0)
+						print(j, 8);
+					else
+						print(j, 5);
+					j++;
+				}while(j <= n);
+			}
+			goToSleep();
+			print(eol);
+			if(i == -1)
+				print(eol);
+			i++;
+			if(i > 10)
+				break;
+			
+		}while(i <= n);
+		print(eol);
+		print(eol);
+		
+		end();
+		
+		sleep(SLEEP_TIME*5);
+		print(eol);
+				
+		print('O');
+		print('r');
+		print(' ');
+		print('i');
+		print('s');
+		print(' ');
+		print('i');
+		print('t');
+		print('?');
+		print(eol);
+		
+		sleep(SLEEP_TIME*2);
+		
+		i = 0;
+		do{
+		
+			print(i);
+			print(':');
+			
+			if(i < 10){
+				print(eol);
+				continue;
+			}
+			
+			if(i == 0)
+				print('z');
+			else{
+				if(i % 2 == 0)
+					print(2);
+				else{
+					if(i % 3 != 0){
+						if(i %5 == 0)
+							print(5);
+						else{
+							if(i % 7 != 0)
+							{
+								if(i > 10)
+									break;
+								
+								print('p');
+								print('r');
+								print('i');
+								print('m');
+								print('e');
+							}
+							else 
+								print(7);
+						}
+					}
+					else{
+						print(3);
+					}
+				}
+			}
+			i++;
+			print(eol);
+		}while(i <= n);
+	
+		print(eol);
+		print(eol);
+	
+		end();
+		
+		sleep(SLEEP_TIME*5);
+		
+		print(eol);
+		
+		print('F');
+		print('o');
+		print('r');
+		print(' ');
+		print('r');
+		print('e');
+		print('a');
+		print('l');
+		
+	}
+}

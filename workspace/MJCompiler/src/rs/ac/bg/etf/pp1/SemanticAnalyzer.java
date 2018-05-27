@@ -12,7 +12,9 @@ import javax.naming.ldap.Rdn;
 import org.apache.log4j.Logger;
 import org.omg.PortableServer.RequestProcessingPolicyOperations;
 
+import com.sun.corba.se.spi.activation.Repository;
 import com.sun.java_cup.internal.runtime.Symbol;
+import com.sun.org.apache.bcel.internal.generic.CPInstruction;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java_cup.production;
@@ -309,7 +311,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = search(name, varDeclElementArray);
 		if (obj != Tab.noObj) {
-			report_error("Identifier " + name + " already used.", null);
+			report_error("Identifier " + name + " already used.", varDeclElementArray);
 			return;
 		}
 
@@ -337,7 +339,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = search(name, varDeclElementSingle);
 		if (obj != Tab.noObj) {
-			report_error("Identifier " + name + " already used.", null);
+			report_error("Identifier " + name + " already used.", varDeclElementSingle);
 			return;
 		}
 
@@ -372,7 +374,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj obj = search(name, constDeclElement1);
 		if (obj != Tab.noObj) {
-			report_error("Identifier " + name + " already used.", null);
+			report_error("Identifier " + name + " already used.", constDeclElement1);
 		}
 
 		if (!constDeclElement1.getConstant().obj.getType().assignableTo(currentDeclType)) {
@@ -394,9 +396,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type = (methodNameAndRetType).getReturnType().struct;
 
 		Obj o = search(name, methodNameAndRetType);
-		if(o != null && o != Tab.noObj){
+		
+		/*
+		if(o != null && o != Tab.noObj ){
 			report_error("Method "+name+" already declared.", methodNameAndRetType);
 		}
+		*/
 		
 		methodNameAndRetType.obj = Tab.insert(inClassDecl ? 42 : Obj.Meth, name, type);
 		Tab.openScope();
@@ -479,10 +484,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = formalPar.getI2();
 
 		Obj obj = search(name, formalPar);
-		if (obj != Tab.noObj) {
+		if (obj != Tab.noObj && obj.getFpPos() <= fpCnt && obj.getFpPos() != 0) {
 			
 			if(!inClassDecl ||  obj.getFpPos() !=0){
-			report_error("Identifier " + name + " already used.", null);
+			report_error("Identifier " + name + " already used.", formalPar);
 			return;
 			}
 		}
@@ -499,9 +504,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = formalPar.getI2();
 
 		Obj obj = search(name, formalPar);
-		if (obj != Tab.noObj) {
+		if (obj != Tab.noObj && obj.getFpPos() <= fpCnt && obj.getFpPos() != 0) {
 			if(!inClassDecl ||  obj.getFpPos() !=0){
-			report_error("Identifier " + name + " already used.", null);
+			report_error("Identifier " + name + " already used.", formalPar);
 			return;
 			}
 		}
@@ -539,7 +544,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		int cnt = apCnt.pop();
 		if (fun.getLevel() != cnt) {
-			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + cnt, null);
+			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + cnt, complexFunctionCall);
 		}
 
 		complexFunctionCall.obj = fun;
@@ -561,7 +566,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 
 		if (fp == null) {
-			report_error("No appropreate act par found.", null);
+			report_error("No appropreate act par found.", actPar);
 			return;
 		}
 		
@@ -588,11 +593,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		returnVoid.obj = Tab.noObj;
 		returnFound = true;
 		if (currentMethod.getType() != Tab.noType) {
-			report_error("Method must return type", null);
+			report_error("Method must return type", returnVoid);
 		}
 	}
 	
-	private static boolean AssignableTo(Struct lValue, Struct rValue ){
+	private boolean AssignableTo(Struct lValue, Struct rValue ){
+		if(lValue == null ||rValue == null){
+			report_error("AssignableTo called with one or more null args", null);
+			return false;
+		}
+		
 		if(lValue.getKind() != Struct.Class)
 			return rValue.assignableTo(lValue);
 		
@@ -614,7 +624,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		returnValue.obj = Tab.noObj;
 		returnFound = true;
 			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
-				report_error("The value of the return expression is not assignable to return type.", null);
+				report_error("The value of the return expression is not assignable to return type.", returnValue);
 			}
 	}
 
@@ -626,12 +636,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		if (argType != Tab.charType && argType != Tab.intType) {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
-					null);
+					printStatementComplex);
 			return;
 		}
 
 		if (!(printStatementComplex.getConstant() instanceof NumberConstant)) {
-			report_error("The second argument in the print statement must be a number literal", null);
+			report_error("The second argument in the print statement must be a number literal", printStatementComplex);
 		}
 	}
 
@@ -644,7 +654,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		if (argType != Tab.charType && argType != Tab.intType) {
 			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
-					null);
+					printStatement);
 			return;
 		}
 
@@ -655,13 +665,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		int kind = readStatement.getLValueDesignator().obj.getKind();
 		if (kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem) {
 			report_error("The argument of the read statement must be a variable, an element of an array or a field.",
-					null);
+					readStatement);
 			return;
 		}
 
 		Struct type = readStatement.getLValueDesignator().obj.getType();
 		if (type != Tab.intType && type != Tab.charType) {
-			report_error("The argument of the read statement must be of int or char type.", null);
+			report_error("The argument of the read statement must be of int or char type.", readStatement);
 			return;
 		}
 
@@ -679,7 +689,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		
 		if (designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem) {
-			report_error("Assignment can only be done for variables of class fields", null);
+			report_error("Assignment can only be done for variables of class fields", designatorStatementAssignment);
 			return;
 		}
 
@@ -691,7 +701,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		// dst = dst.getElemType();
 
 		if (!AssignableTo(dst, src)) {
-			report_error("Exprression is not assignable to desigantor", null);
+			report_error("Exprression is not assignable to desigantor", designatorStatementAssignment);
 			return;
 		}
 	}
@@ -701,7 +711,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj obj = designatorStatementFunctionCall.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
-			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			report_error("Identifier " + obj.getName() + " is not a method.", designatorStatementFunctionCall);
 			return;
 		}
 
@@ -714,7 +724,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		designatorStatementInc.obj = Tab.noObj;
 		Obj designator = designatorStatementInc.getLValueDesignator().obj;
 		if (designator.getType() != Tab.intType) {
-			report_error("Increments are allowed only for int types, but found other type.", null);
+			report_error("Increments are allowed only for int types, but found other type.", designatorStatementInc);
 			return;
 		}
 	}
@@ -723,7 +733,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		designatorStatementDec.obj = Tab.noObj;
 		Obj designator = designatorStatementDec.getLValueDesignator().obj;
 		if (designator.getType() != Tab.intType) {
-			report_error("Decrements are allowed only for int types, but found other type.", null);
+			report_error("Decrements are allowed only for int types, but found other type.", designatorStatementDec);
 		}
 	}
 
@@ -733,7 +743,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type2 = conditionMultiple.getCondTerm().obj.getType();
 
 		if (type1 != type2) {
-			report_error("type missmatch in conditionListMultiple.", null);
+			report_error("type missmatch in conditionListMultiple.", conditionMultiple);
 		}
 		conditionMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
 	}
@@ -749,7 +759,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type2 = conditionListMultiple.getConditionList().obj.getType();
 
 		if (type1 != type2) {
-			report_error("type missmatch in conditionListMultiple.", null);
+			report_error("type missmatch in conditionListMultiple.", conditionListMultiple);
 		}
 		conditionListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
 	}
@@ -770,7 +780,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type2 = condTermMultiple.getCondTermList().obj.getType();
 
 		if (type1 != type2) {
-			report_error("type missmatch in condTermMultiple.", null);
+			report_error("type missmatch in condTermMultiple.", condTermMultiple);
 		}
 		condTermMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
 	}
@@ -786,7 +796,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type2 = condTermListMultiple.getCondTermList().obj.getType();
 
 		if (type1 != type2) {
-			report_error("Type missmatch in CondTermListMultiple.", null);
+			report_error("Type missmatch in CondTermListMultiple.", condTermListMultiple);
 		}
 
 		condTermListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
@@ -808,7 +818,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type1 = condFactMultiple.getExpr().struct;
 
 		if (type1 != Tab.intType) {
-			report_error("Expression in cond fact must be of int or bool type.", null);
+			report_error("Expression in cond fact must be of int or bool type.", condFactMultiple);
 		}
 
 		condFactMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
@@ -831,7 +841,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type2 = condFactListMultiple.getCondFactList().obj.getType();
 
 		if (type1 != type2) {
-			report_error("Type missmatch in CondFactListMultiple", null);
+			report_error("Type missmatch in CondFactListMultiple", condFactListMultiple);
 		}
 
 		condFactListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
@@ -847,7 +857,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct type = condFactElement1.getExpr().struct;
 
 		if (type != Tab.intType) {
-			report_error("Type of expression in condition must be int or bool.", null);
+			report_error("Type of expression in condition must be int or bool.", condFactElement1);
 		}
 
 		condFactElement1.obj = new Obj(Obj.NO_VALUE, "", type);
@@ -862,7 +872,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		*/
 		if (expr.struct != Tab.intType) {
-			report_error("Expression with minus must be of int type", null);
+			report_error("Expression with minus must be of int type", expr);
 			return;
 		}
 
@@ -926,12 +936,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct s2 = obj2.getType();
 
 		if (s1 != s2) {
-			report_error("Term consists of multiple factors which are not all of the same type", null);
+			report_error("Term consists of multiple factors which are not all of the same type", termListMultiple);
 			return;
 		}
 
 		if (s1 != Tab.intType) {
-			report_error("Term consists of multiple factors where all factors are not int type", null);
+			report_error("Term consists of multiple factors where all factors are not int type", termListMultiple);
 			return;
 		}
 
@@ -957,7 +967,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
-			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			report_error("Identifier " + obj.getName() + " is not a method.", functtionCallFactor);
 			return;
 		}
 
@@ -971,13 +981,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj obj = functtionCallFactor.getMethodDesignator().obj;
 
 		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
-			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			report_error("Identifier " + obj.getName() + " is not a method.", functtionCallFactor);
 			return;
 		}
 
 		int cnt = apCnt.pop();
 		if (obj.getLevel() != cnt) {
-			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);
+			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, functtionCallFactor);
 		}
 		
 		currentClassObj = null;
@@ -1033,7 +1043,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		
 		if (obj.getKind() == Obj.Con) {
-			report_error("Lvalue cannot be a constant", null);
+			report_error("Lvalue cannot be a constant", ldesignator);
 		}
 
 		currentClassObj = null;
@@ -1153,13 +1163,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		obj = search(name,designatorSimple);
 		}
 		if (obj == null || obj == Tab.noObj) {
-			report_error("Identifier " + name + " was not defined.", null);
+			report_error("Identifier " + name + " was not defined.", designatorSimple);
 			return;
 		}
 
 		log.debug("designator simple at line "+designatorSimple.getLine() + ": "+designatorSimple.getI1());
 		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
-			report_error("Identifier " + name + " is not a data identifier.", null);
+			report_error("Identifier " + name + " is not a data identifier.", designatorSimple);
 			return;
 		}
 		
@@ -1229,17 +1239,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = obj.getName();
 
 		if (obj == Tab.noObj) {
-			report_error("Identifier " + name + " was not defined.", null);
+			report_error("Identifier " + name + " was not defined.", designatorArray);
 			return;
 		}
 
 		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
-			report_error("Identifier " + name + " is not a data identifier.", null);
+			report_error("Identifier " + name + " is not a data identifier.", designatorArray);
 			return;
 		}
 
 		if (obj.getType().getKind() != Struct.Array) {
-			report_error("Invalid operation. Tried indexing variable that is not an array.", null);
+			report_error("Invalid operation. Tried indexing variable that is not an array.", designatorArray);
 			return;
 		}
 
@@ -1263,12 +1273,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		 obj = search(arrayName1.getI1(), arrayName1);
 		}
 		if (obj == Tab.noObj) {
-			report_error("Undefined identifier " + arrayName1.getI1(), null);
+			report_error("Undefined identifier " + arrayName1.getI1(), arrayName1);
 			return;
 		}
 
 		if (obj.getType().getKind() != Struct.Array) {
-			report_error("Variable " + arrayName1.getI1() + " is not an array.", null);
+			report_error("Variable " + arrayName1.getI1() + " is not an array.", arrayName1);
 		}
 
 		arrayName1.obj = obj;
@@ -1285,14 +1295,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(MatchedBreak matchedBreak) {
 		matchedBreak.obj = Tab.noObj;
 		if (inWhile == 0) {
-			report_error("Break can only be used inside a loop.", null);
+			report_error("Break can only be used inside a loop.", matchedBreak);
 		}
 	}
 
 	public void visit(MatchedContinue matchedContinue) {
 		matchedContinue.obj = Tab.noObj;
 		if (inWhile == 0) {
-			report_error("Continue can only be used inside a loop.", null);
+			report_error("Continue can only be used inside a loop.", matchedContinue);
 		}
 	}
 

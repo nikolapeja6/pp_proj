@@ -1,0 +1,87 @@
+program Green1C
+
+
+
+
+class A{
+	int x;	
+	{
+		void doSomething(){
+			print('A');
+		}
+		
+		void setX(int x){this.x = x;}
+		
+		int getX(){doSomething(); return x;}
+	}
+}
+
+class B extends A{
+	{
+		void doSomething(){
+			print('B');
+		}
+	}
+}
+
+class C extends B{
+	{
+		void doSomething(){
+			print('C');
+		}
+	}
+}
+
+class Wrapper{
+	A a;
+	
+	{
+		void setA(A a){this.a = a; a.doSomething();}
+	}
+}
+
+
+{
+
+
+	void main()A a; Wrapper x; A array[]; int i;{
+		a = new A;
+		x = new Wrapper;
+		x.setA(a);
+		
+		a = new B;
+		x.setA(a);
+		
+		a = new C;
+		x.setA(a);
+	
+		print(eol);
+	
+		array = new A[3];
+		array[0] = new A;
+		array[1] = new B;
+		array[2] = new C;
+		
+		i= 2;
+		do{
+			array[i].doSomething();
+			array[i].setX(i);
+			i--;
+		}
+		while(i >= 0);
+		
+		print(eol);
+		
+		i= 0;
+		do{
+			print(array[i].getX());
+			print(eol);
+			i++;
+		}
+		while(i < 3);
+					
+	
+	}
+
+
+}

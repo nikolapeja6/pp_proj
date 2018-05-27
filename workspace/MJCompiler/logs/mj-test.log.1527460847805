@@ -1,0 +1,12 @@
+INFO  00:39:47,684 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\C\Green1.mj
+ERROR 00:39:47,736 - Syntax error on line 8
+ERROR 00:39:47,737 - Error in var declaration.
+ERROR 00:39:47,737 - Syntax error on line 40
+ERROR 00:39:47,738 - Fatal error, parsing cannot continue. Aborting. on line 58
+INFO  00:39:47,746 - Searching for obj int (line 6) - found Type int: int, -1, -1  on line 5
+INFO  00:39:47,746 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  00:39:47,746 - Searching for obj noObj (line 40) - found Var noObj: notype, -1, -1  on line 39
+ERROR 00:39:47,746 - A is not a type. on line 39
+INFO  00:39:47,746 - Searching for obj noObj (line 40) - found Var noObj: notype, -1, -1  on line 39
+ERROR 00:39:47,747 - No main method detected.
+ERROR 00:39:47,747 - Compilation was UNSUCCESSFUL!

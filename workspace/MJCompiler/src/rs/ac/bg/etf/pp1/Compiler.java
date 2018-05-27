@@ -110,7 +110,7 @@ public class Compiler {
 	        	Code.write(new FileOutputStream(objFile));
 	        	
 	        	log.info("Finished code generation");
-		        Tab.dump();
+	        	tsdump();
 		        log.debug(GlobalStuff.VirtualFunctions());
 	        	log.info("SUCCESS!");
 	        	

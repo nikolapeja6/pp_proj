@@ -1,0 +1,5 @@
+INFO  00:42:41,301 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\C\Green1.mj
+INFO  00:42:41,366 - Searching for obj noObj (line 5) - found Var noObj: notype, -1, -1  on line 4
+INFO  00:42:41,366 - Searching for obj A (line 6) - found Type A: Class [], 0, 0  on line 5
+INFO  00:42:41,367 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  00:42:41,367 - Searching for obj noObj (line 9) - found Var noObj: notype, -1, -1  on line 8

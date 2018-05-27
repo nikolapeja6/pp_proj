@@ -1,0 +1,23 @@
+INFO  00:13:06,802 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Red1.mj
+INFO  00:13:06,870 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  00:13:06,870 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  00:13:06,870 - Searching for obj char (line 8) - found Type char: char, -1, -1  on line 7
+INFO  00:13:06,870 - Searching for obj char (line 8) - found Type char: char, -1, -1  on line 7
+INFO  00:13:06,870 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  on line 7
+INFO  00:13:06,870 - Searching for obj x (line 10) - found Var x: int, 1, 0  on line 9
+ERROR 00:13:06,870 - The value of the return expression is not assignable to return type.
+INFO  00:13:06,872 - Searching for obj noObj (line 13) - found Var noObj: notype, -1, -1  on line 12
+INFO  00:13:06,872 - Searching for obj char (line 13) - found Type char: char, -1, -1  on line 12
+INFO  00:13:06,872 - Searching for obj noObj (line 13) - found Var noObj: notype, -1, -1  on line 12
+INFO  00:13:06,872 - Searching for obj c (line 14) - found Var c: char, 0, 1  on line 13
+INFO  00:13:06,872 - Searching for obj x (line 16) - found Var x: int, 1, 0  on line 15
+ERROR 00:13:06,872 - The value of the return expression is not assignable to return type.
+INFO  00:13:06,872 - Searching for obj noObj (line 19) - found Var noObj: notype, -1, -1  on line 18
+INFO  00:13:06,873 - Searching for obj c2 (line 21) - found Meth c2: notype, 0, 1 
+   Var c: char, 0, 1 
+ on line 20
+INFO  00:13:06,873 - Searching for obj x (line 21) - found Var x: int, 1, 0  on line 20
+ERROR 00:13:06,873 - ActPar is not assignable to formalPar on line 20
+ERROR 00:13:06,873 - Break can only be used inside a loop.
+ERROR 00:13:06,873 - Continue can only be used inside a loop.
+ERROR 00:13:06,874 - Compilation was UNSUCCESSFUL!

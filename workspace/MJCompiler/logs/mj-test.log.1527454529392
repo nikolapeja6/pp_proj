@@ -1,0 +1,15 @@
+INFO  22:55:20,502 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green2.mj
+ERROR 22:55:20,564 - Syntax error on line 88
+ERROR 22:55:20,565 - Fatal error, parsing cannot continue. Aborting. on line 93
+INFO  22:55:20,573 - Searching for obj noObj (line 88) - found Var noObj: notype, -1, -1  on line 87
+ERROR 22:55:20,573 - Identifier i was not defined. on line 87
+ERROR 22:55:20,573 - designator obj is null in rvaluedesignator1  on line 87
+ERROR 22:55:20,573 - obj is null
+INFO  22:55:20,573 - Searching for obj noObj (line 88) - found Var noObj: notype, -1, -1  on line 87
+ERROR 22:55:20,573 - Identifier n was not defined. on line 87
+ERROR 22:55:20,574 - designator obj is null in rvaluedesignator1  on line 87
+ERROR 22:55:20,574 - obj is null
+ERROR 22:55:20,574 - Type of expression in condition must be int or bool.
+ERROR 22:55:20,574 - Expression in cond fact must be of int or bool type.
+ERROR 22:55:20,574 - No main method detected.
+ERROR 22:55:20,575 - Compilation was UNSUCCESSFUL!

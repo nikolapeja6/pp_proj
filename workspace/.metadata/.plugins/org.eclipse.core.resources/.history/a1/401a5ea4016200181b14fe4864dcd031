@@ -1,0 +1,58 @@
+program Green1C
+
+
+
+
+class A{
+	
+	{
+		void doSomething(){
+			print('A');
+		}
+	}
+}
+
+class B extends A{
+	{
+		void doSomething(){
+			print('B');
+		}
+	}
+}
+
+class C extends B{
+	{
+		void doSomething(){
+			print('C');
+		}
+	}
+}
+
+class Wrapper{
+	A a;
+	
+	{
+		void setA(A a){this.a = a; a.doSomething();}
+	}
+}
+
+
+{
+
+
+	void main()A a; Wrapper x;{
+		a = new A;
+		x = new Wrapper;
+		x.setA(a);
+		
+		a = new B;
+		x.setA(a);
+		
+		a = new C;
+		x.setA(a);
+	
+	
+	}
+
+
+}

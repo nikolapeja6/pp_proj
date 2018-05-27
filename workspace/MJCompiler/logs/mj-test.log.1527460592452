@@ -1,0 +1,156 @@
+INFO  00:31:22,444 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green1.mj
+INFO  00:31:22,529 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  00:31:22,529 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  00:31:22,529 - Searching for obj int (line 6) - found Type int: int, -1, -1  on line 5
+INFO  00:31:22,529 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  00:31:22,529 - Searching for obj bool (line 7) - found Type bool: int, 0, 1  on line 6
+INFO  00:31:22,529 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  00:31:22,529 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  00:31:22,530 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  00:31:22,530 - Searching for obj int (line 11) - found Type int: int, -1, -1  on line 10
+INFO  00:31:22,530 - Searching for obj int (line 11) - found Type int: int, -1, -1  on line 10
+INFO  00:31:22,530 - Searching for obj noObj (line 11) - found Var noObj: notype, -1, -1  on line 10
+INFO  00:31:22,530 - Searching for obj f2 (line 12) - found Var f2: int, 3, 0  on line 11
+INFO  00:31:22,531 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  00:31:22,531 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  00:31:22,531 - Searching for obj noObj (line 17) - found Var noObj: notype, -1, -1  on line 16
+INFO  00:31:22,531 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  00:31:22,531 - Searching for obj noObj (line 17) - found Var noObj: notype, -1, -1  on line 16
+INFO  00:31:22,531 - Searching for obj f4 (line 19) - found Var f4: int, 4, 0  on line 18
+INFO  00:31:22,531 - Searching for obj res (line 20) - found Var res: int, 0, 1  on line 19
+INFO  00:31:22,531 - Searching for obj two (line 20) - found Meth two: int, 0, 0 
+ on line 19
+INFO  00:31:22,531 - Searching for obj two (line 20) - found Meth two: int, 0, 0 
+ on line 19
+INFO  00:31:22,531 - Searching for obj res (line 21) - found Var res: int, 0, 1  on line 20
+INFO  00:31:22,531 - Searching for obj noObj (line 24) - found Var noObj: notype, -1, -1  on line 23
+INFO  00:31:22,531 - Searching for obj f (line 25) - found Var f: int, 2, 0  on line 24
+INFO  00:31:22,532 - Searching for obj f2 (line 30) - found Var f2: int, 3, 0  on line 29
+INFO  00:31:22,532 - Searching for obj f4 (line 35) - found Var f4: int, 4, 0  on line 34
+INFO  00:31:22,532 - Searching for obj eol (line 41) - found Con eol: char, 10, 0  on line 40
+INFO  00:31:22,532 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  00:31:22,532 - Searching for obj bool (line 45) - found Type bool: int, 0, 1  on line 44
+INFO  00:31:22,532 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  00:31:22,532 - Searching for obj int (line 45) - found Type int: int, -1, -1  on line 44
+INFO  00:31:22,532 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  00:31:22,532 - Searching for obj i (line 46) - found Var i: int, 1, 1  on line 45
+INFO  00:31:22,532 - Searching for obj ret (line 48) - found Var ret: Arr of int, 0, 1  on line 47
+INFO  00:31:22,532 - Searching for obj i (line 48) - found Var i: int, 1, 1  on line 47
+INFO  00:31:22,532 - Searching for obj i (line 49) - found Var i: int, 1, 1  on line 48
+INFO  00:31:22,532 - Searching for obj i (line 50) - found Var i: int, 1, 1  on line 49
+INFO  00:31:22,532 - Searching for obj four (line 50) - found Meth four: int, 0, 0 
+   Var res: int, 0, 1 
+ on line 49
+INFO  00:31:22,533 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj bool (line 53) - found Type bool: int, 0, 1  on line 52
+INFO  00:31:22,533 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  00:31:22,533 - Searching for obj i (line 54) - found Var i: int, 1, 1  on line 53
+INFO  00:31:22,533 - Searching for obj res (line 55) - found Var res: int, 2, 1  on line 54
+INFO  00:31:22,533 - Searching for obj res (line 57) - found Var res: int, 2, 1  on line 56
+INFO  00:31:22,533 - Searching for obj res (line 57) - found Var res: int, 2, 1  on line 56
+INFO  00:31:22,533 - Searching for obj num (line 57) - found Var num: Arr of int, 0, 1  on line 56
+INFO  00:31:22,533 - Searching for obj i (line 57) - found Var i: int, 1, 1  on line 56
+INFO  00:31:22,533 - Searching for obj num (line 58) - found Var num: Arr of int, 0, 1  on line 57
+INFO  00:31:22,533 - Searching for obj i (line 58) - found Var i: int, 1, 1  on line 57
+INFO  00:31:22,533 - Searching for obj i (line 59) - found Var i: int, 1, 1  on line 58
+INFO  00:31:22,533 - Searching for obj i (line 60) - found Var i: int, 1, 1  on line 59
+INFO  00:31:22,533 - Searching for obj three (line 60) - found Con three: int, 3, 0  on line 59
+INFO  00:31:22,533 - Searching for obj res (line 62) - found Var res: int, 2, 1  on line 61
+INFO  00:31:22,533 - Searching for obj noObj (line 66) - found Var noObj: notype, -1, -1  on line 65
+INFO  00:31:22,534 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  00:31:22,534 - Searching for obj int (line 80) - found Type int: int, -1, -1  on line 79
+INFO  00:31:22,534 - Searching for obj x (line 80) - found Var x: int, 1, 0  on line 79
+INFO  00:31:22,534 - Searching for obj int (line 80) - found Type int: int, -1, -1  on line 79
+INFO  00:31:22,534 - Searching for obj noObj (line 80) - found Var noObj: notype, -1, -1  on line 79
+INFO  00:31:22,534 - Searching for obj int (line 81) - found Type int: int, -1, -1  on line 80
+INFO  00:31:22,534 - Searching for obj noObj (line 81) - found Var noObj: notype, -1, -1  on line 80
+INFO  00:31:22,534 - Searching for obj x (line 83) - found Var x: int, 0, 1  on line 82
+INFO  00:31:22,534 - Searching for obj y (line 84) - found Var y: int, 1, 1  on line 83
+INFO  00:31:22,534 - Searching for obj z (line 85) - found Var z: int, 2, 1  on line 84
+INFO  00:31:22,534 - Searching for obj x (line 85) - found Var x: int, 0, 1  on line 84
+INFO  00:31:22,534 - Searching for obj z (line 86) - found Var z: int, 2, 1  on line 85
+INFO  00:31:22,534 - Searching for obj eol (line 87) - found Con eol: char, 10, 0  on line 86
+INFO  00:31:22,534 - Searching for obj z (line 88) - found Var z: int, 2, 1  on line 87
+INFO  00:31:22,534 - Searching for obj rec (line 89) - found Meth rec: notype, 0, 2 
+   Var x: int, 0, 1 
+   Var y: int, 1, 1 
+   Var z: int, 2, 1 
+ on line 88
+INFO  00:31:22,534 - Searching for obj z (line 89) - found Var z: int, 2, 1  on line 88
+INFO  00:31:22,534 - Searching for obj y (line 89) - found Var y: int, 1, 1  on line 88
+INFO  00:31:22,534 - Searching for obj eol (line 94) - found Con eol: char, 10, 0  on line 93
+INFO  00:31:22,534 - Searching for obj x (line 96) - found Var x: int, 0, 1  on line 95
+INFO  00:31:22,534 - Searching for obj y (line 97) - found Var y: int, 1, 1  on line 96
+INFO  00:31:22,535 - Searching for obj z (line 98) - found Var z: int, 2, 1  on line 97
+INFO  00:31:22,535 - Searching for obj eol (line 99) - found Con eol: char, 10, 0  on line 98
+INFO  00:31:22,535 - Searching for obj noObj (line 102) - found Var noObj: notype, -1, -1  on line 101
+INFO  00:31:22,535 - Searching for obj bool (line 102) - found Type bool: int, 0, 1  on line 101
+INFO  00:31:22,535 - Searching for obj noObj (line 102) - found Var noObj: notype, -1, -1  on line 101
+INFO  00:31:22,535 - Searching for obj f (line 103) - found Var f: int, 2, 0  on line 102
+INFO  00:31:22,535 - Searching for obj f2 (line 104) - found Var f2: int, 3, 0  on line 103
+INFO  00:31:22,535 - Searching for obj f4 (line 105) - found Var f4: int, 4, 0  on line 104
+INFO  00:31:22,535 - Searching for obj out (line 108) - found Meth out: notype, 0, 0 
+ on line 107
+INFO  00:31:22,535 - Searching for obj two (line 111) - found Meth two: int, 0, 0 
+ on line 110
+INFO  00:31:22,535 - Searching for obj eol (line 112) - found Con eol: char, 10, 0  on line 111
+INFO  00:31:22,535 - Searching for obj out (line 115) - found Meth out: notype, 0, 0 
+ on line 114
+INFO  00:31:22,535 - Searching for obj f2 (line 117) - found Var f2: int, 3, 0  on line 116
+INFO  00:31:22,535 - Searching for obj four (line 120) - found Meth four: int, 0, 0 
+   Var res: int, 0, 1 
+ on line 119
+INFO  00:31:22,535 - Searching for obj eol (line 121) - found Con eol: char, 10, 0  on line 120
+INFO  00:31:22,535 - Searching for obj out (line 124) - found Meth out: notype, 0, 0 
+ on line 123
+INFO  00:31:22,535 - Searching for obj val (line 130) - found Var val: Arr of int, 0, 1  on line 129
+INFO  00:31:22,535 - Searching for obj bool (line 130) - found Type bool: int, 0, 1  on line 129
+INFO  00:31:22,535 - Searching for obj four (line 130) - found Meth four: int, 0, 0 
+   Var res: int, 0, 1 
+ on line 129
+INFO  00:31:22,535 - Searching for obj readNum (line 131) - found Meth readNum: notype, 0, 1 
+   Var ret: Arr of int, 0, 1 
+   Var i: int, 1, 1 
+ on line 130
+INFO  00:31:22,535 - Searching for obj val (line 131) - found Var val: Arr of int, 0, 1  on line 130
+INFO  00:31:22,535 - Searching for obj val (line 131) - found Var val: Arr of int, 0, 1  on line 130
+INFO  00:31:22,536 - Searching for obj x (line 132) - found Var x: int, 1, 0  on line 131
+INFO  00:31:22,536 - Searching for obj transform (line 132) - found Meth transform: int, 0, 1 
+   Var num: Arr of int, 0, 1 
+   Var i: int, 1, 1 
+   Var res: int, 2, 1 
+ on line 131
+INFO  00:31:22,536 - Searching for obj val (line 132) - found Var val: Arr of int, 0, 1  on line 131
+INFO  00:31:22,536 - Searching for obj val (line 132) - found Var val: Arr of int, 0, 1  on line 131
+INFO  00:31:22,536 - Searching for obj x (line 134) - found Var x: int, 1, 0  on line 133
+INFO  00:31:22,536 - Searching for obj eol (line 135) - found Con eol: char, 10, 0  on line 134
+INFO  00:31:22,536 - Searching for obj val (line 138) - found Var val: Arr of int, 0, 1  on line 137
+INFO  00:31:22,536 - Searching for obj val (line 139) - found Var val: Arr of int, 0, 1  on line 138
+INFO  00:31:22,536 - Searching for obj val (line 140) - found Var val: Arr of int, 0, 1  on line 139
+INFO  00:31:22,536 - Searching for obj val (line 141) - found Var val: Arr of int, 0, 1  on line 140
+INFO  00:31:22,536 - Searching for obj eol (line 142) - found Con eol: char, 10, 0  on line 141
+INFO  00:31:22,536 - Searching for obj x (line 144) - found Var x: int, 1, 0  on line 143
+INFO  00:31:22,536 - Searching for obj eol (line 149) - found Con eol: char, 10, 0  on line 148
+INFO  00:31:22,536 - Searching for obj eol (line 151) - found Con eol: char, 10, 0  on line 150
+INFO  00:31:22,536 - Searching for obj x (line 152) - found Var x: int, 1, 0  on line 151
+INFO  00:31:22,536 - Searching for obj rec (line 155) - found Meth rec: notype, 0, 2 
+   Var x: int, 0, 1 
+   Var y: int, 1, 1 
+   Var z: int, 2, 1 
+ on line 154
+INFO  00:31:22,536 - Searching for obj end (line 157) - found Meth end: notype, 0, 0 
+ on line 156
+INFO  00:31:22,537 - =========================   Counters   =========================
+INFO  00:31:22,538 - 0 classes found.
+INFO  00:31:22,538 - 8 global functions found.
+INFO  00:31:22,539 - 4 global variables found.
+INFO  00:31:22,539 - 1 global constants found.
+INFO  00:31:22,540 - 1 global array variables found.
+INFO  00:31:22,540 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  00:31:22,549 - Finished code generation
+INFO  00:31:22,549 - SUCCESS!

@@ -1,0 +1,92 @@
+program Green2B
+
+const int SLEEP_TIME = 7654321;
+
+
+{
+	void hello(){
+		print('H');
+		print('e');
+		print('l');
+		print('l');
+		print('o');
+		print(' ');
+		print(':');
+		print(')');
+		print(eol);
+		print(eol);
+	}
+
+
+	void sleep(int time)int i;{
+		
+		i = 0;
+		do
+			i++;
+		while(i < time);
+	
+	}
+		
+		
+	void goToSleep(){
+		print('.');
+		sleep(SLEEP_TIME);
+		print('.');	
+		sleep(SLEEP_TIME);
+		print('.');		
+		sleep(SLEEP_TIME);
+	}
+
+	void end(){
+		print('T');
+		print('h');
+		print('e');
+		print(' ');
+		print('E');
+		print('n');
+		print('d');
+		print(' ');
+		print(':');
+		print(')');
+		
+	}
+
+	void main() int i,j,cnt; 
+	int n;
+	{
+	
+		hello();
+	
+		i = -1;
+		j = -1;
+		cnt = 0;
+		
+		read(n);
+		
+		do{
+		j = 0;
+			if(i != -1){
+				print(i);
+				do{
+					print(i*j);
+					j++;
+				}while(j < n);
+			}
+			else{
+				print(' ',5);
+				do{
+					print(j);
+					j++;
+				}while(j < n);
+			}
+			
+			print(eol);
+			
+			i++;
+		}while(i < n)
+		print(eol);
+		print(eol);
+		
+		end();
+	}
+}

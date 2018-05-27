@@ -1,0 +1,35 @@
+INFO  22:45:13,745 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green2.mj
+INFO  22:45:13,812 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  22:45:13,812 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  22:45:13,812 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  on line 7
+INFO  22:45:13,812 - Searching for obj eol (line 17) - found Con eol: char, 10, 0  on line 16
+INFO  22:45:13,812 - Searching for obj eol (line 18) - found Con eol: char, 10, 0  on line 17
+INFO  22:45:13,813 - Searching for obj noObj (line 22) - found Var noObj: notype, -1, -1  on line 21
+INFO  22:45:13,813 - Searching for obj int (line 22) - found Type int: int, -1, -1  on line 21
+INFO  22:45:13,814 - Searching for obj noObj (line 22) - found Var noObj: notype, -1, -1  on line 21
+INFO  22:45:13,814 - Searching for obj int (line 22) - found Type int: int, -1, -1  on line 21
+INFO  22:45:13,814 - Searching for obj noObj (line 22) - found Var noObj: notype, -1, -1  on line 21
+INFO  22:45:13,814 - Searching for obj i (line 24) - found Var i: int, 1, 1  on line 23
+INFO  22:45:13,814 - Searching for obj i (line 26) - found Var i: int, 1, 1  on line 25
+INFO  22:45:13,814 - Searching for obj i (line 27) - found Var i: int, 1, 1  on line 26
+INFO  22:45:13,814 - Searching for obj time (line 27) - found Var time: int, 0, 1  on line 26
+INFO  22:45:13,814 - Searching for obj noObj (line 31) - found Var noObj: notype, -1, -1  on line 30
+INFO  22:45:13,814 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  22:45:13,814 - Searching for obj hello (line 47) - found Meth hello: notype, 0, 0 
+ on line 46
+INFO  22:45:13,815 - Searching for obj sleep (line 49) - found Meth sleep: notype, 0, 1 
+   Var time: int, 0, 1 
+   Var i: int, 1, 1 
+ on line 48
+INFO  22:45:13,815 - Searching for obj SLEEP_TIME (line 49) - found Con SLEEP_TIME: int, 654321, 0  on line 48
+INFO  22:45:13,815 - Searching for obj end (line 51) - found Meth end: notype, 0, 0 
+ on line 50
+INFO  22:45:13,815 - =========================   Counters   =========================
+INFO  22:45:13,816 - 0 classes found.
+INFO  22:45:13,816 - 4 global functions found.
+INFO  22:45:13,817 - 0 global variables found.
+INFO  22:45:13,817 - 1 global constants found.
+INFO  22:45:13,818 - 0 global array variables found.
+INFO  22:45:13,818 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  22:45:13,826 - Finished code generation
+INFO  22:45:13,826 - SUCCESS!
