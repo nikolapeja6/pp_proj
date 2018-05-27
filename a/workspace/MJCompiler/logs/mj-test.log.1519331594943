@@ -1,0 +1,213 @@
+INFO  21:27:58,670 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  21:27:58,700 - #40 program
+INFO  21:27:58,700 - #45 MJProgram
+INFO  21:27:58,700 - #45 int
+INFO  21:27:58,700 - #45 x
+INFO  21:27:58,700 - #13 ;
+INFO  21:27:58,700 - #34 {
+INFO  21:27:58,701 - #45 int
+INFO  21:27:58,701 - #45 main
+INFO  21:27:58,701 - #32 (
+INFO  21:27:58,702 - #33 )
+INFO  21:27:58,702 - #45 int
+INFO  21:27:58,702 - #45 y
+INFO  21:27:58,702 - #13 ;
+INFO  21:27:58,702 - #34 {
+INFO  21:27:58,702 - #41 print
+INFO  21:27:58,702 - #32 (
+INFO  21:27:58,702 - #9 1
+INFO  21:27:58,702 - #33 )
+INFO  21:27:58,703 - #13 ;
+INFO  21:27:58,703 - #41 print
+INFO  21:27:58,703 - #32 (
+INFO  21:27:58,703 - #10 a
+INFO  21:27:58,704 - #33 )
+INFO  21:27:58,704 - #13 ;
+INFO  21:27:58,704 - #45 y
+INFO  21:27:58,704 - #28 =
+INFO  21:27:58,704 - #9 5
+INFO  21:27:58,704 - #13 ;
+INFO  21:27:58,704 - #45 x
+INFO  21:27:58,704 - #28 =
+INFO  21:27:58,705 - #45 y
+INFO  21:27:58,705 - #15 +
+INFO  21:27:58,705 - #9 3
+INFO  21:27:58,705 - #13 ;
+INFO  21:27:58,706 - #41 print
+INFO  21:27:58,706 - #32 (
+INFO  21:27:58,706 - #45 x
+INFO  21:27:58,706 - #33 )
+INFO  21:27:58,706 - #13 ;
+INFO  21:27:58,706 - #45 y
+INFO  21:27:58,706 - #28 =
+INFO  21:27:58,706 - #32 (
+INFO  21:27:58,706 - #45 x
+INFO  21:27:58,706 - #33 )
+INFO  21:27:58,706 - #13 ;
+INFO  21:27:58,706 - #45 x
+INFO  21:27:58,706 - #29 ++
+INFO  21:27:58,706 - #13 ;
+INFO  21:27:58,707 - #41 print
+INFO  21:27:58,707 - #32 (
+INFO  21:27:58,707 - #45 x
+INFO  21:27:58,707 - #33 )
+INFO  21:27:58,707 - #13 ;
+INFO  21:27:58,707 - #45 x
+INFO  21:27:58,707 - #30 --
+INFO  21:27:58,707 - #13 ;
+INFO  21:27:58,707 - #41 print
+INFO  21:27:58,707 - #32 (
+INFO  21:27:58,707 - #32 (
+INFO  21:27:58,707 - #32 (
+INFO  21:27:58,707 - #45 x
+INFO  21:27:58,707 - #33 )
+INFO  21:27:58,707 - #33 )
+INFO  21:27:58,707 - #33 )
+INFO  21:27:58,707 - #13 ;
+INFO  21:27:58,707 - #45 x
+INFO  21:27:58,707 - #28 =
+INFO  21:27:58,708 - #45 x
+INFO  21:27:58,708 - #15 +
+INFO  21:27:58,708 - #32 (
+INFO  21:27:58,708 - #16 -
+INFO  21:27:58,708 - #9 2
+INFO  21:27:58,708 - #33 )
+INFO  21:27:58,708 - #13 ;
+INFO  21:27:58,708 - #41 print
+INFO  21:27:58,708 - #32 (
+INFO  21:27:58,708 - #45 x
+INFO  21:27:58,708 - #33 )
+INFO  21:27:58,708 - #13 ;
+INFO  21:27:58,708 - #45 x
+INFO  21:27:58,708 - #28 =
+INFO  21:27:58,708 - #45 y
+INFO  21:27:58,708 - #17 *
+INFO  21:27:58,708 - #9 2
+INFO  21:27:58,709 - #13 ;
+INFO  21:27:58,709 - #41 print
+INFO  21:27:58,709 - #32 (
+INFO  21:27:58,709 - #45 x
+INFO  21:27:58,709 - #33 )
+INFO  21:27:58,710 - #13 ;
+INFO  21:27:58,710 - #45 y
+INFO  21:27:58,710 - #28 =
+INFO  21:27:58,710 - #45 x
+INFO  21:27:58,710 - #18 /
+INFO  21:27:58,710 - #9 4
+INFO  21:27:58,710 - #13 ;
+INFO  21:27:58,710 - #41 print
+INFO  21:27:58,710 - #32 (
+INFO  21:27:58,710 - #45 y
+INFO  21:27:58,710 - #33 )
+INFO  21:27:58,710 - #13 ;
+INFO  21:27:58,710 - #45 x
+INFO  21:27:58,710 - #28 =
+INFO  21:27:58,710 - #45 y
+INFO  21:27:58,710 - #19 %
+INFO  21:27:58,710 - #9 3
+INFO  21:27:58,711 - #13 ;
+INFO  21:27:58,711 - #41 print
+INFO  21:27:58,711 - #32 (
+INFO  21:27:58,711 - #45 x
+INFO  21:27:58,711 - #33 )
+INFO  21:27:58,711 - #13 ;
+INFO  21:27:58,711 - #41 print
+INFO  21:27:58,711 - #32 (
+INFO  21:27:58,711 - #11 false
+INFO  21:27:58,711 - #33 )
+INFO  21:27:58,711 - #13 ;
+INFO  21:27:58,711 - #8 return
+INFO  21:27:58,712 - #9 0
+INFO  21:27:58,712 - #13 ;
+INFO  21:27:58,712 - #35 }
+INFO  21:27:58,712 - #35 }
+INFO  21:27:58,714 - ***Abstract tree****
+INFO  21:27:58,714 - #0
+DEBUG 21:27:58,723 - Variable with name x has the address of 0
+DEBUG 21:27:58,723 - Variable with name y has the address of 0
+DEBUG 21:27:58,723 - found constant with value 1of type 1
+DEBUG 21:27:58,723 - constant factor is type 1
+DEBUG 21:27:58,723 - term SingleFactorterm is type 1
+DEBUG 21:27:58,723 - exprWithNoMinus is type 1
+DEBUG 21:27:58,723 - print statement has arg of type 1
+DEBUG 21:27:58,723 - found constant with value *****of type 2
+DEBUG 21:27:58,724 - found constant with value 97of type 2
+DEBUG 21:27:58,724 - constant factor is type 2
+DEBUG 21:27:58,724 - term SingleFactorterm is type 2
+DEBUG 21:27:58,724 - exprWithNoMinus is type 2
+DEBUG 21:27:58,724 - print statement has arg of type 2
+DEBUG 21:27:58,724 - found constant with value 5of type 1
+DEBUG 21:27:58,724 - constant factor is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - found constant with value 3of type 1
+DEBUG 21:27:58,724 - constant factor is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - print statement has arg of type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - print statement has arg of type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,724 - exprWithNoMinus is type 1
+DEBUG 21:27:58,724 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - print statement has arg of type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - found constant with value 2of type 1
+DEBUG 21:27:58,725 - constant factor is type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - ExprWithMinus is type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - print statement has arg of type 1
+DEBUG 21:27:58,725 - found constant with value 2of type 1
+DEBUG 21:27:58,725 - constant factor is type 1
+DEBUG 21:27:58,725 - term element is type 1
+DEBUG 21:27:58,725 - term list single is type 1
+DEBUG 21:27:58,725 - term MultiFactorTerm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - print statement has arg of type 1
+DEBUG 21:27:58,725 - found constant with value 4of type 1
+DEBUG 21:27:58,725 - constant factor is type 1
+DEBUG 21:27:58,725 - term element is type 1
+DEBUG 21:27:58,725 - term list single is type 1
+DEBUG 21:27:58,725 - term MultiFactorTerm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - term SingleFactorterm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,725 - print statement has arg of type 1
+DEBUG 21:27:58,725 - found constant with value 3of type 1
+DEBUG 21:27:58,725 - constant factor is type 1
+DEBUG 21:27:58,725 - term element is type 1
+DEBUG 21:27:58,725 - term list single is type 1
+DEBUG 21:27:58,725 - term MultiFactorTerm is type 1
+DEBUG 21:27:58,725 - exprWithNoMinus is type 1
+DEBUG 21:27:58,726 - term SingleFactorterm is type 1
+DEBUG 21:27:58,726 - exprWithNoMinus is type 1
+DEBUG 21:27:58,726 - print statement has arg of type 1
+DEBUG 21:27:58,726 - found constant with value 0of type 1
+DEBUG 21:27:58,726 - constant factor is type 1
+DEBUG 21:27:58,726 - term SingleFactorterm is type 1
+DEBUG 21:27:58,726 - exprWithNoMinus is type 1
+DEBUG 21:27:58,726 - print statement has arg of type 1
+DEBUG 21:27:58,726 - found constant with value 0of type 1
+DEBUG 21:27:58,726 - constant factor is type 1
+DEBUG 21:27:58,726 - term SingleFactorterm is type 1
+DEBUG 21:27:58,726 - exprWithNoMinus is type 1
+INFO  21:27:58,726 - Print calls = 0
+INFO  21:27:58,727 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj
+INFO  21:27:58,734 - Parsiranje uspesno zavrseno!

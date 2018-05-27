@@ -1,0 +1,14 @@
+program MJProgram int x;
+{
+	int main() {
+		x = 5;
+		print(1);
+		print(x);
+		x++;
+		print(x);
+		print('a');
+		print(true);
+		print(false);
+		return 0;
+	}
+}

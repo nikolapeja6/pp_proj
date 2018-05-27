@@ -19,6 +19,7 @@ import java_cup.production;
 import javafx.geometry.Pos;
 import jdk.nashorn.internal.ir.WhileNode;
 import jdk.nashorn.internal.objects.Global;
+import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
@@ -35,6 +36,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class SemanticAnalyzer extends VisitorAdaptor {
 
 	boolean errorDetected = false;
+	boolean mainDetected = false;
 	int printCallCount = 0;
 	Obj currentMethod = null;
 	boolean returnFound = false;
@@ -375,7 +377,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		if (!constDeclElement1.getConstant().obj.getType().assignableTo(currentDeclType)) {
 			report_error("Value " + constDeclElement1.getConstant().obj.getAdr() + " not assignable to constant.",
-					null);
+					constDeclElement1);
 		}
 
 		obj = Tab.insert(Obj.Con, name, currentDeclType);
@@ -416,10 +418,26 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(MethodEnd1 methodEnd) {
 		scopeStack.peek().setLevel(fpCnt);
 
-		currentMethod = null;
+		String name = currentMethod.getName();
+		Struct type = currentMethod.getType();
 
 		Tab.chainLocalSymbols(scopeStack.pop());
 		Tab.closeScope();
+		
+		FormParamCounter fpCnt = new FormParamCounter();
+		methodEnd.getParent().traverseTopDown(fpCnt);
+		
+		
+		if("main".equals(name) && !inClassDecl && type == Tab.noType && fpCnt.count == 0){
+			mainDetected = true;
+		}
+		
+		if(!returnFound && type != Tab.noType){
+			report_error("No return statement found in method "+name+", but method has return type != VOID.", methodEnd);
+		}
+		
+		returnFound = false;
+		currentMethod = null;
 	}
 
 	public void visit(VoidReturnType returnType) {
@@ -433,7 +451,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	private void found(Obj obj, SyntaxNode node)
 	{
-		report_info("Searchinf for obj "+obj.getName()+" (line "+(node.getLine() +1)+") - found "+ObjToString(obj), node);
+		report_info("Searching for obj "+obj.getName()+" (line "+(node.getLine() +1)+") - found "+ObjToString(obj), node);
 	}
 	
 	private static String ObjToString(Obj obj){
@@ -563,6 +581,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(StatementReturnVoid returnVoid) {
 		returnVoid.obj = Tab.noObj;
+		returnFound = true;
 		if (currentMethod.getType() != Tab.noType) {
 			report_error("Method must return type", null);
 		}
@@ -588,6 +607,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(StatementReturnValue returnValue) {
 		returnValue.obj = Tab.noObj;
+		returnFound = true;
 			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
 				report_error("The value of the return expression is not assignable to return type.", null);
 			}
@@ -831,6 +851,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(ExprWithMinus expr) {
 		expr.struct = expr.getTerm().struct;
 
+		/*
+		if(expr.struct != expr.getOptionalExprList().obj.getType()){
+			report_error("Type missmatch.", expr);
+		}
+		*/
 		if (expr.struct != Tab.intType) {
 			report_error("Expression with minus must be of int type", null);
 			return;
@@ -841,6 +866,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ExprWithNoMinus expr) {
 		expr.struct = expr.getTerm().struct;
+		/*
+		if(expr.struct != expr.getOptionalExprList().obj.getType()){
+			report_error("Type missmatch.", expr);
+		}
+		*/
 		log.debug("exprWithNoMinus");
 	}
 	
@@ -863,7 +893,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(MultiFactorTerm term) {
 		term.struct = term.getFactor().obj.getType();
+		
+		if(term.struct != term.getTermList().obj.getType()){
+			report_error("Type missmatch.", term);
+		}
+		
 		log.debug("term MultiFactorTerm is type " + term.struct.getKind());
+	}
+	
+	public void visit(ExprElement1 expr){
+		expr.obj = new Obj(Obj.NO_VALUE, "", expr.getTerm().struct);
 	}
 
 	public void visit(TermListSingle termListSingle) {
@@ -1253,7 +1292,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	public boolean passed() {
-		return !errorDetected;
+		return !errorDetected && mainDetected;
 	}
 
 }

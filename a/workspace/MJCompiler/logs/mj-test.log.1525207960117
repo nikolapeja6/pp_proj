@@ -1,0 +1,67 @@
+INFO  22:32:52,079 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  22:32:52,136 - #40 program
+INFO  22:32:52,136 - #45 BBB
+INFO  22:32:52,136 - #38 class
+INFO  22:32:52,136 - #45 A
+INFO  22:32:52,137 - #34 {
+INFO  22:32:52,137 - #45 int
+INFO  22:32:52,137 - #45 b
+INFO  22:32:52,137 - #13 ;
+INFO  22:32:52,137 - #35 }
+INFO  22:32:52,138 - #34 {
+INFO  22:32:52,138 - #43 void
+INFO  22:32:52,139 - #45 main
+INFO  22:32:52,140 - #32 (
+INFO  22:32:52,140 - #33 )
+INFO  22:32:52,140 - #45 A
+INFO  22:32:52,140 - #45 a
+INFO  22:32:52,140 - #13 ;
+INFO  22:32:52,140 - #34 {
+INFO  22:32:52,140 - #45 a
+INFO  22:32:52,141 - #28 =
+INFO  22:32:52,141 - #31 new
+INFO  22:32:52,141 - #45 A
+INFO  22:32:52,142 - #13 ;
+INFO  22:32:52,143 - #45 a
+INFO  22:32:52,143 - #14 .
+INFO  22:32:52,143 - #45 b
+INFO  22:32:52,143 - #28 =
+INFO  22:32:52,144 - #9 5
+INFO  22:32:52,144 - #13 ;
+INFO  22:32:52,144 - #41 print
+INFO  22:32:52,144 - #32 (
+INFO  22:32:52,144 - #45 a
+INFO  22:32:52,144 - #14 .
+INFO  22:32:52,144 - #45 b
+INFO  22:32:52,144 - #33 )
+INFO  22:32:52,144 - #13 ;
+INFO  22:32:52,144 - #35 }
+INFO  22:32:52,145 - #35 }
+INFO  22:32:52,146 - ***Abstract tree****
+INFO  22:32:52,146 - #0
+DEBUG 22:32:52,154 - program name
+DEBUG 22:32:52,154 - ClassBegin
+DEBUG 22:32:52,154 - Variable with name b has the address of 1
+DEBUG 22:32:52,154 - class decl end
+DEBUG 22:32:52,154 - class decl 3
+DEBUG 22:32:52,154 - program begin
+DEBUG 22:32:52,154 - Variable with name a has the address of 0
+DEBUG 22:32:52,154 - designator simple at line 9: a
+DEBUG 22:32:52,155 - term SingleFactorterm is type 4
+DEBUG 22:32:52,155 - exprWithNoMinus is type 4
+DEBUG 22:32:52,155 - designator simple at line 10: a
+DEBUG 22:32:52,155 - designator simple at line 10: b
+DEBUG 22:32:52,155 - found constant with value 5of type 1
+DEBUG 22:32:52,155 - constant factor is type 1
+DEBUG 22:32:52,155 - term SingleFactorterm is type 1
+DEBUG 22:32:52,155 - exprWithNoMinus is type 1
+DEBUG 22:32:52,155 - designator simple at line 12: a
+DEBUG 22:32:52,155 - designator simple at line 12: b
+DEBUG 22:32:52,155 - term SingleFactorterm is type 1
+DEBUG 22:32:52,155 - exprWithNoMinus is type 1
+DEBUG 22:32:52,155 - print statement has arg of type 1
+INFO  22:32:52,155 - Print calls = 0
+INFO  22:32:52,157 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+DEBUG 22:32:52,160 - new called with level = 1
+DEBUG 22:32:52,160 - class is 4
+INFO  22:32:52,163 - Parsiranje uspesno zavrseno!

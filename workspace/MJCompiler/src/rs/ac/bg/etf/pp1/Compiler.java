@@ -53,14 +53,14 @@ public class Compiler {
 			Tab.insert(Obj.Type, "bool", Tab.intType);
 			SemanticAnalyzer semanticCheck = new SemanticAnalyzer();
 			prog.traverseBottomUp(semanticCheck);
-			
+						
 	        log.info("Print calls = " + semanticCheck.printCallCount);
 	        tsdump();
 	        
 	        log.debug(GlobalStuff.VirtualFunctions());
 	        	  	        
 	        // TODO
-	        if (/*!p.errorDetected &&*/ semanticCheck.passed()) {
+	        if (semanticCheck.passed()) {
 	        	
 	        	// Counters
 	        	GlobbalVarCounter globalVarCounter = new GlobbalVarCounter();
@@ -87,6 +87,9 @@ public class Compiler {
 	        	
 	        }
 	        else {
+	        	if(!semanticCheck.mainDetected){
+	        		log.error("No main method detected.");
+	        	}
 	        	log.error("Compilation was UNSUCCESSFUL!");
 	        }
 		}catch(Exception e){

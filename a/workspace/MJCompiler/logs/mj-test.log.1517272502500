@@ -1,0 +1,429 @@
+INFO  01:30:20,676 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\test301.mj
+INFO  01:30:20,679 - #41 program
+DEBUG 01:30:20,679 - type code of token is 41
+INFO  01:30:20,679 - #46 test301
+DEBUG 01:30:20,679 - type code of token is 46
+INFO  01:30:20,679 - #45 const
+DEBUG 01:30:20,679 - type code of token is 45
+INFO  01:30:20,679 - #46 int
+DEBUG 01:30:20,679 - type code of token is 46
+INFO  01:30:20,679 - #46 jedan
+DEBUG 01:30:20,679 - type code of token is 46
+INFO  01:30:20,680 - #29 =
+DEBUG 01:30:20,680 - type code of token is 29
+INFO  01:30:20,680 - #9 1
+DEBUG 01:30:20,680 - type code of token is 9
+INFO  01:30:20,680 - #14 ;
+DEBUG 01:30:20,680 - type code of token is 14
+INFO  01:30:20,680 - #45 const
+DEBUG 01:30:20,680 - type code of token is 45
+INFO  01:30:20,680 - #46 int
+DEBUG 01:30:20,680 - type code of token is 46
+INFO  01:30:20,680 - #46 pet
+DEBUG 01:30:20,680 - type code of token is 46
+INFO  01:30:20,680 - #29 =
+DEBUG 01:30:20,680 - type code of token is 29
+INFO  01:30:20,680 - #9 5
+DEBUG 01:30:20,680 - type code of token is 9
+INFO  01:30:20,680 - #14 ;
+DEBUG 01:30:20,680 - type code of token is 14
+INFO  01:30:20,681 - #46 int
+DEBUG 01:30:20,681 - type code of token is 46
+INFO  01:30:20,681 - #46 niz
+DEBUG 01:30:20,681 - type code of token is 46
+INFO  01:30:20,681 - #37 [
+DEBUG 01:30:20,681 - type code of token is 37
+INFO  01:30:20,681 - #38 ]
+DEBUG 01:30:20,681 - type code of token is 38
+INFO  01:30:20,681 - #14 ;
+DEBUG 01:30:20,681 - type code of token is 14
+INFO  01:30:20,681 - #46 char
+DEBUG 01:30:20,681 - type code of token is 46
+INFO  01:30:20,681 - #46 nizch
+DEBUG 01:30:20,681 - type code of token is 46
+INFO  01:30:20,681 - #37 [
+DEBUG 01:30:20,681 - type code of token is 37
+INFO  01:30:20,681 - #38 ]
+DEBUG 01:30:20,681 - type code of token is 38
+INFO  01:30:20,681 - #14 ;
+DEBUG 01:30:20,681 - type code of token is 14
+INFO  01:30:20,681 - #35 {
+DEBUG 01:30:20,681 - type code of token is 35
+INFO  01:30:20,681 - #44 void
+DEBUG 01:30:20,682 - type code of token is 44
+INFO  01:30:20,682 - #46 main
+DEBUG 01:30:20,682 - type code of token is 46
+INFO  01:30:20,682 - #33 (
+DEBUG 01:30:20,682 - type code of token is 33
+INFO  01:30:20,682 - #34 )
+DEBUG 01:30:20,682 - type code of token is 34
+INFO  01:30:20,682 - #46 int
+DEBUG 01:30:20,682 - type code of token is 46
+INFO  01:30:20,682 - #46 bodovi
+DEBUG 01:30:20,682 - type code of token is 46
+INFO  01:30:20,682 - #14 ;
+DEBUG 01:30:20,682 - type code of token is 14
+INFO  01:30:20,682 - #35 {
+DEBUG 01:30:20,682 - type code of token is 35
+INFO  01:30:20,682 - #46 bodovi
+DEBUG 01:30:20,682 - type code of token is 46
+INFO  01:30:20,682 - #29 =
+DEBUG 01:30:20,682 - type code of token is 29
+INFO  01:30:20,682 - #9 0
+DEBUG 01:30:20,682 - type code of token is 9
+INFO  01:30:20,682 - #14 ;
+DEBUG 01:30:20,682 - type code of token is 14
+INFO  01:30:20,682 - #46 bodovi
+DEBUG 01:30:20,682 - type code of token is 46
+INFO  01:30:20,682 - #30 ++
+DEBUG 01:30:20,682 - type code of token is 30
+INFO  01:30:20,682 - #14 ;
+DEBUG 01:30:20,683 - type code of token is 14
+INFO  01:30:20,683 - #46 bodovi
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #29 =
+DEBUG 01:30:20,683 - type code of token is 29
+INFO  01:30:20,683 - #46 bodovi
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #16 +
+DEBUG 01:30:20,683 - type code of token is 16
+INFO  01:30:20,683 - #46 jedan
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #14 ;
+DEBUG 01:30:20,683 - type code of token is 14
+INFO  01:30:20,683 - #46 bodovi
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #29 =
+DEBUG 01:30:20,683 - type code of token is 29
+INFO  01:30:20,683 - #46 bodovi
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #18 *
+DEBUG 01:30:20,683 - type code of token is 18
+INFO  01:30:20,683 - #46 pet
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #14 ;
+DEBUG 01:30:20,683 - type code of token is 14
+INFO  01:30:20,683 - #46 bodovi
+DEBUG 01:30:20,683 - type code of token is 46
+INFO  01:30:20,683 - #31 --
+DEBUG 01:30:20,683 - type code of token is 31
+INFO  01:30:20,683 - #14 ;
+DEBUG 01:30:20,683 - type code of token is 14
+INFO  01:30:20,683 - #42 print
+DEBUG 01:30:20,684 - type code of token is 42
+INFO  01:30:20,684 - #33 (
+DEBUG 01:30:20,684 - type code of token is 33
+INFO  01:30:20,684 - #46 bodovi
+DEBUG 01:30:20,684 - type code of token is 46
+INFO  01:30:20,684 - #34 )
+DEBUG 01:30:20,684 - type code of token is 34
+INFO  01:30:20,684 - #14 ;
+DEBUG 01:30:20,684 - type code of token is 14
+INFO  01:30:20,684 - #46 niz
+DEBUG 01:30:20,684 - type code of token is 46
+INFO  01:30:20,684 - #29 =
+DEBUG 01:30:20,684 - type code of token is 29
+INFO  01:30:20,684 - #32 new
+DEBUG 01:30:20,684 - type code of token is 32
+INFO  01:30:20,684 - #46 int
+DEBUG 01:30:20,684 - type code of token is 46
+INFO  01:30:20,684 - #37 [
+DEBUG 01:30:20,684 - type code of token is 37
+INFO  01:30:20,684 - #9 2
+DEBUG 01:30:20,684 - type code of token is 9
+INFO  01:30:20,684 - #38 ]
+DEBUG 01:30:20,684 - type code of token is 38
+INFO  01:30:20,684 - #14 ;
+DEBUG 01:30:20,684 - type code of token is 14
+INFO  01:30:20,684 - #46 niz
+DEBUG 01:30:20,684 - type code of token is 46
+INFO  01:30:20,684 - #37 [
+DEBUG 01:30:20,684 - type code of token is 37
+INFO  01:30:20,684 - #9 0
+DEBUG 01:30:20,684 - type code of token is 9
+INFO  01:30:20,684 - #38 ]
+DEBUG 01:30:20,684 - type code of token is 38
+INFO  01:30:20,684 - #29 =
+DEBUG 01:30:20,684 - type code of token is 29
+INFO  01:30:20,684 - #46 pet
+DEBUG 01:30:20,684 - type code of token is 46
+INFO  01:30:20,684 - #14 ;
+DEBUG 01:30:20,684 - type code of token is 14
+INFO  01:30:20,685 - #46 niz
+DEBUG 01:30:20,685 - type code of token is 46
+INFO  01:30:20,685 - #37 [
+DEBUG 01:30:20,685 - type code of token is 37
+INFO  01:30:20,685 - #9 1
+DEBUG 01:30:20,685 - type code of token is 9
+INFO  01:30:20,685 - #38 ]
+DEBUG 01:30:20,685 - type code of token is 38
+INFO  01:30:20,685 - #29 =
+DEBUG 01:30:20,685 - type code of token is 29
+INFO  01:30:20,685 - #9 10
+DEBUG 01:30:20,685 - type code of token is 9
+INFO  01:30:20,685 - #14 ;
+DEBUG 01:30:20,685 - type code of token is 14
+INFO  01:30:20,685 - #46 bodovi
+DEBUG 01:30:20,685 - type code of token is 46
+INFO  01:30:20,685 - #29 =
+DEBUG 01:30:20,685 - type code of token is 29
+INFO  01:30:20,685 - #46 niz
+DEBUG 01:30:20,685 - type code of token is 46
+INFO  01:30:20,685 - #37 [
+DEBUG 01:30:20,685 - type code of token is 37
+INFO  01:30:20,685 - #9 1
+DEBUG 01:30:20,685 - type code of token is 9
+INFO  01:30:20,685 - #38 ]
+DEBUG 01:30:20,685 - type code of token is 38
+INFO  01:30:20,685 - #19 /
+DEBUG 01:30:20,685 - type code of token is 19
+INFO  01:30:20,685 - #46 niz
+DEBUG 01:30:20,685 - type code of token is 46
+INFO  01:30:20,685 - #37 [
+DEBUG 01:30:20,685 - type code of token is 37
+INFO  01:30:20,686 - #9 0
+DEBUG 01:30:20,686 - type code of token is 9
+INFO  01:30:20,686 - #38 ]
+DEBUG 01:30:20,686 - type code of token is 38
+INFO  01:30:20,686 - #14 ;
+DEBUG 01:30:20,686 - type code of token is 14
+INFO  01:30:20,686 - #42 print
+DEBUG 01:30:20,686 - type code of token is 42
+INFO  01:30:20,686 - #33 (
+DEBUG 01:30:20,686 - type code of token is 33
+INFO  01:30:20,686 - #46 bodovi
+DEBUG 01:30:20,686 - type code of token is 46
+INFO  01:30:20,686 - #34 )
+DEBUG 01:30:20,686 - type code of token is 34
+INFO  01:30:20,686 - #14 ;
+DEBUG 01:30:20,686 - type code of token is 14
+INFO  01:30:20,686 - #42 print
+DEBUG 01:30:20,686 - type code of token is 42
+INFO  01:30:20,686 - #33 (
+DEBUG 01:30:20,686 - type code of token is 33
+INFO  01:30:20,686 - #46 niz
+DEBUG 01:30:20,686 - type code of token is 46
+INFO  01:30:20,686 - #37 [
+DEBUG 01:30:20,686 - type code of token is 37
+INFO  01:30:20,686 - #9 1
+DEBUG 01:30:20,686 - type code of token is 9
+INFO  01:30:20,686 - #38 ]
+DEBUG 01:30:20,686 - type code of token is 38
+INFO  01:30:20,686 - #34 )
+DEBUG 01:30:20,686 - type code of token is 34
+INFO  01:30:20,686 - #14 ;
+DEBUG 01:30:20,686 - type code of token is 14
+INFO  01:30:20,686 - #46 nizch
+DEBUG 01:30:20,687 - type code of token is 46
+INFO  01:30:20,687 - #29 =
+DEBUG 01:30:20,687 - type code of token is 29
+INFO  01:30:20,687 - #32 new
+DEBUG 01:30:20,687 - type code of token is 32
+INFO  01:30:20,687 - #46 char
+DEBUG 01:30:20,687 - type code of token is 46
+INFO  01:30:20,687 - #37 [
+DEBUG 01:30:20,687 - type code of token is 37
+INFO  01:30:20,687 - #9 3
+DEBUG 01:30:20,687 - type code of token is 9
+INFO  01:30:20,687 - #38 ]
+DEBUG 01:30:20,687 - type code of token is 38
+INFO  01:30:20,687 - #14 ;
+DEBUG 01:30:20,687 - type code of token is 14
+INFO  01:30:20,687 - #46 nizch
+DEBUG 01:30:20,687 - type code of token is 46
+INFO  01:30:20,687 - #37 [
+DEBUG 01:30:20,687 - type code of token is 37
+INFO  01:30:20,687 - #9 0
+DEBUG 01:30:20,687 - type code of token is 9
+INFO  01:30:20,687 - #38 ]
+DEBUG 01:30:20,687 - type code of token is 38
+INFO  01:30:20,687 - #29 =
+DEBUG 01:30:20,687 - type code of token is 29
+INFO  01:30:20,687 - #10 a
+DEBUG 01:30:20,687 - type code of token is 10
+INFO  01:30:20,687 - #14 ;
+DEBUG 01:30:20,688 - type code of token is 14
+INFO  01:30:20,688 - #46 nizch
+DEBUG 01:30:20,688 - type code of token is 46
+INFO  01:30:20,688 - #37 [
+DEBUG 01:30:20,688 - type code of token is 37
+INFO  01:30:20,688 - #46 jedan
+DEBUG 01:30:20,688 - type code of token is 46
+INFO  01:30:20,688 - #38 ]
+DEBUG 01:30:20,688 - type code of token is 38
+INFO  01:30:20,688 - #29 =
+DEBUG 01:30:20,688 - type code of token is 29
+INFO  01:30:20,688 - #10 b
+DEBUG 01:30:20,688 - type code of token is 10
+INFO  01:30:20,688 - #14 ;
+DEBUG 01:30:20,688 - type code of token is 14
+INFO  01:30:20,688 - #46 nizch
+DEBUG 01:30:20,688 - type code of token is 46
+INFO  01:30:20,688 - #37 [
+DEBUG 01:30:20,688 - type code of token is 37
+INFO  01:30:20,688 - #46 pet
+DEBUG 01:30:20,688 - type code of token is 46
+INFO  01:30:20,688 - #17 -
+DEBUG 01:30:20,688 - type code of token is 17
+INFO  01:30:20,688 - #9 3
+DEBUG 01:30:20,688 - type code of token is 9
+INFO  01:30:20,688 - #38 ]
+DEBUG 01:30:20,688 - type code of token is 38
+INFO  01:30:20,688 - #29 =
+DEBUG 01:30:20,688 - type code of token is 29
+ERROR 01:30:20,688 - Leksicka greska (') na 20karakteru 35 linije.
+INFO  01:30:20,688 - #46 cx
+DEBUG 01:30:20,688 - type code of token is 46
+ERROR 01:30:20,689 - Leksicka greska (') na 23karakteru 35 linije.
+INFO  01:30:20,689 - #14 ;
+DEBUG 01:30:20,689 - type code of token is 14
+INFO  01:30:20,689 - #42 print
+DEBUG 01:30:20,689 - type code of token is 42
+INFO  01:30:20,689 - #33 (
+DEBUG 01:30:20,689 - type code of token is 33
+INFO  01:30:20,689 - #46 nizch
+DEBUG 01:30:20,689 - type code of token is 46
+INFO  01:30:20,689 - #37 [
+DEBUG 01:30:20,689 - type code of token is 37
+INFO  01:30:20,689 - #9 2
+DEBUG 01:30:20,689 - type code of token is 9
+INFO  01:30:20,689 - #17 -
+DEBUG 01:30:20,689 - type code of token is 17
+INFO  01:30:20,689 - #9 1
+DEBUG 01:30:20,689 - type code of token is 9
+INFO  01:30:20,689 - #38 ]
+DEBUG 01:30:20,689 - type code of token is 38
+INFO  01:30:20,689 - #34 )
+DEBUG 01:30:20,689 - type code of token is 34
+INFO  01:30:20,689 - #14 ;
+DEBUG 01:30:20,689 - type code of token is 14
+INFO  01:30:20,689 - #42 print
+DEBUG 01:30:20,689 - type code of token is 42
+INFO  01:30:20,689 - #33 (
+DEBUG 01:30:20,689 - type code of token is 33
+INFO  01:30:20,689 - #46 nizch
+DEBUG 01:30:20,689 - type code of token is 46
+INFO  01:30:20,689 - #37 [
+DEBUG 01:30:20,689 - type code of token is 37
+INFO  01:30:20,689 - #46 jedan
+DEBUG 01:30:20,689 - type code of token is 46
+INFO  01:30:20,689 - #18 *
+DEBUG 01:30:20,689 - type code of token is 18
+INFO  01:30:20,689 - #9 2
+DEBUG 01:30:20,689 - type code of token is 9
+INFO  01:30:20,690 - #38 ]
+DEBUG 01:30:20,690 - type code of token is 38
+INFO  01:30:20,690 - #34 )
+DEBUG 01:30:20,690 - type code of token is 34
+INFO  01:30:20,690 - #14 ;
+DEBUG 01:30:20,690 - type code of token is 14
+INFO  01:30:20,690 - #46 bodovi
+DEBUG 01:30:20,690 - type code of token is 46
+INFO  01:30:20,690 - #29 =
+DEBUG 01:30:20,690 - type code of token is 29
+INFO  01:30:20,690 - #46 bodovi
+DEBUG 01:30:20,690 - type code of token is 46
+INFO  01:30:20,690 - #16 +
+DEBUG 01:30:20,690 - type code of token is 16
+INFO  01:30:20,690 - #33 (
+DEBUG 01:30:20,690 - type code of token is 33
+INFO  01:30:20,690 - #33 (
+DEBUG 01:30:20,690 - type code of token is 33
+INFO  01:30:20,690 - #46 pet
+DEBUG 01:30:20,690 - type code of token is 46
+INFO  01:30:20,690 - #18 *
+DEBUG 01:30:20,690 - type code of token is 18
+INFO  01:30:20,690 - #46 jedan
+DEBUG 01:30:20,690 - type code of token is 46
+INFO  01:30:20,690 - #17 -
+DEBUG 01:30:20,690 - type code of token is 17
+INFO  01:30:20,690 - #9 1
+DEBUG 01:30:20,690 - type code of token is 9
+INFO  01:30:20,690 - #34 )
+DEBUG 01:30:20,690 - type code of token is 34
+INFO  01:30:20,690 - #18 *
+DEBUG 01:30:20,690 - type code of token is 18
+INFO  01:30:20,690 - #9 2
+DEBUG 01:30:20,690 - type code of token is 9
+INFO  01:30:20,690 - #17 -
+DEBUG 01:30:20,690 - type code of token is 17
+INFO  01:30:20,690 - #33 (
+DEBUG 01:30:20,690 - type code of token is 33
+INFO  01:30:20,690 - #9 3
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #20 %
+DEBUG 01:30:20,691 - type code of token is 20
+INFO  01:30:20,691 - #9 2
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #16 +
+DEBUG 01:30:20,691 - type code of token is 16
+INFO  01:30:20,691 - #9 3
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #18 *
+DEBUG 01:30:20,691 - type code of token is 18
+INFO  01:30:20,691 - #9 2
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #17 -
+DEBUG 01:30:20,691 - type code of token is 17
+INFO  01:30:20,691 - #9 3
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #34 )
+DEBUG 01:30:20,691 - type code of token is 34
+INFO  01:30:20,691 - #17 -
+DEBUG 01:30:20,691 - type code of token is 17
+INFO  01:30:20,691 - #9 1
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #18 *
+DEBUG 01:30:20,691 - type code of token is 18
+INFO  01:30:20,691 - #9 0
+DEBUG 01:30:20,691 - type code of token is 9
+INFO  01:30:20,691 - #34 )
+DEBUG 01:30:20,691 - type code of token is 34
+INFO  01:30:20,691 - #14 ;
+DEBUG 01:30:20,691 - type code of token is 14
+INFO  01:30:20,691 - #42 print
+DEBUG 01:30:20,691 - type code of token is 42
+INFO  01:30:20,691 - #33 (
+DEBUG 01:30:20,691 - type code of token is 33
+INFO  01:30:20,691 - #46 bodovi
+DEBUG 01:30:20,691 - type code of token is 46
+INFO  01:30:20,691 - #34 )
+DEBUG 01:30:20,691 - type code of token is 34
+INFO  01:30:20,691 - #14 ;
+DEBUG 01:30:20,691 - type code of token is 14
+INFO  01:30:20,692 - #43 read
+DEBUG 01:30:20,692 - type code of token is 43
+INFO  01:30:20,692 - #33 (
+DEBUG 01:30:20,692 - type code of token is 33
+INFO  01:30:20,692 - #46 bodovi
+DEBUG 01:30:20,692 - type code of token is 46
+INFO  01:30:20,692 - #34 )
+DEBUG 01:30:20,692 - type code of token is 34
+INFO  01:30:20,692 - #14 ;
+DEBUG 01:30:20,692 - type code of token is 14
+INFO  01:30:20,692 - #46 bodovi
+DEBUG 01:30:20,692 - type code of token is 46
+INFO  01:30:20,692 - #29 =
+DEBUG 01:30:20,692 - type code of token is 29
+INFO  01:30:20,692 - #46 bodovi
+DEBUG 01:30:20,692 - type code of token is 46
+INFO  01:30:20,692 - #16 +
+DEBUG 01:30:20,692 - type code of token is 16
+INFO  01:30:20,692 - #9 1
+DEBUG 01:30:20,692 - type code of token is 9
+INFO  01:30:20,692 - #14 ;
+DEBUG 01:30:20,692 - type code of token is 14
+INFO  01:30:20,692 - #42 print
+DEBUG 01:30:20,692 - type code of token is 42
+INFO  01:30:20,692 - #33 (
+DEBUG 01:30:20,692 - type code of token is 33
+INFO  01:30:20,692 - #46 bodovi
+DEBUG 01:30:20,692 - type code of token is 46
+INFO  01:30:20,692 - #34 )
+DEBUG 01:30:20,692 - type code of token is 34
+INFO  01:30:20,692 - #14 ;
+DEBUG 01:30:20,692 - type code of token is 14
+INFO  01:30:20,692 - #36 }
+DEBUG 01:30:20,692 - type code of token is 36
+INFO  01:30:20,692 - #36 }
+DEBUG 01:30:20,692 - type code of token is 36

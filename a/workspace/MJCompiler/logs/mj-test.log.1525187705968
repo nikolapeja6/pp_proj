@@ -1,0 +1,45 @@
+INFO  17:12:15,111 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  17:12:15,170 - #40 program
+INFO  17:12:15,171 - #45 BBB
+INFO  17:12:15,171 - #38 class
+INFO  17:12:15,171 - #45 A
+INFO  17:12:15,171 - #34 {
+INFO  17:12:15,171 - #45 int
+INFO  17:12:15,171 - #45 b
+INFO  17:12:15,171 - #13 ;
+INFO  17:12:15,172 - #35 }
+INFO  17:12:15,172 - #45 A
+INFO  17:12:15,173 - #45 a
+INFO  17:12:15,173 - #13 ;
+INFO  17:12:15,173 - #34 {
+INFO  17:12:15,173 - #43 void
+INFO  17:12:15,174 - #45 main
+INFO  17:12:15,175 - #32 (
+INFO  17:12:15,175 - #33 )
+INFO  17:12:15,175 - #34 {
+INFO  17:12:15,175 - #45 a
+INFO  17:12:15,176 - #28 =
+INFO  17:12:15,176 - #31 new
+INFO  17:12:15,176 - #45 A
+INFO  17:12:15,177 - #13 ;
+INFO  17:12:15,178 - #45 a
+INFO  17:12:15,178 - #14 .
+INFO  17:12:15,178 - #45 b
+INFO  17:12:15,178 - #28 =
+INFO  17:12:15,179 - #9 5
+INFO  17:12:15,179 - #13 ;
+INFO  17:12:15,179 - #41 print
+INFO  17:12:15,179 - #32 (
+INFO  17:12:15,179 - #45 a
+INFO  17:12:15,179 - #14 .
+INFO  17:12:15,179 - #45 b
+INFO  17:12:15,179 - #33 )
+INFO  17:12:15,179 - #13 ;
+INFO  17:12:15,179 - #35 }
+INFO  17:12:15,180 - #35 }
+INFO  17:12:15,182 - ***Abstract tree****
+INFO  17:12:15,182 - #0
+DEBUG 17:12:15,208 - program name
+DEBUG 17:12:15,208 - ClassBegin
+DEBUG 17:12:15,208 - Variable with name b has the address of 1
+DEBUG 17:12:22,060 - class decl end

@@ -301,7 +301,7 @@ ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
 					|
 					(NewClassBegin) CLASS IDENT
 					|
-					(ErrorClass) error {:parser.log.error("Error in class declaration.");:}
+					(ErrorClass) error {:parser.log.error("Error in class declaration. Successfult recovery.");:}
 					;
 					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES;
@@ -450,14 +450,14 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN
 							|
 							(DesignatorStatementDec) LValueDesignator DEC
 							|
-							error {:parser.log.error("Error");:}
+							error {:parser.log.error("Error designator statement. Successful recovery.");:}
 							;
 
 Condition ::= 	(ConditionMultiple) CondTerm ConditionList
 				|
 				(ConditionSingle) CondTerm
 				|
-				error {:parser.log.error("Error");:}
+				error {:parser.log.error("Error condition. Successful recovery.");:}
 				;
 ConditionWhile ::= (ConditionMultipleWhile) CondTerm ConditionList
 				|

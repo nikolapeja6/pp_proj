@@ -1,5 +1,6 @@
 program AAA
 
+const int konst = '5';
 int a!;
 int if a, b;
 
@@ -15,8 +16,13 @@ class KK extends K asdasdasda as dasdasda asdadasdas dasdasd {}
 	int f(x x x){
 		return 1;
 	}
+	
+	int fun(int x, int y){
+		x = 3+5 + 'a';
 		
-	void main() 
+	}
+		
+	void main(int k) 
 	{
 		x = 5;
 		b = 4 3 2 1;

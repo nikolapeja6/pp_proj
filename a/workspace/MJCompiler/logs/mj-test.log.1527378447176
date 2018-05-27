@@ -1,0 +1,97 @@
+INFO  01:47:08,530 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+INFO  01:47:08,582 - #40 program
+INFO  01:47:08,583 - #45 AAA
+INFO  01:47:08,583 - #45 int
+INFO  01:47:08,583 - #45 a
+ERROR 01:47:08,583 - Lexical error on line 3(6): (!).
+INFO  01:47:08,583 - #13 ;
+INFO  01:47:08,583 - #45 int
+INFO  01:47:08,583 - #2 if
+ERROR 01:47:08,583 - Sintaksna greska na liniji 4
+INFO  01:47:08,584 - #45 a
+INFO  01:47:08,584 - #12 ,
+INFO  01:47:08,584 - #45 b
+INFO  01:47:08,584 - #13 ;
+INFO  01:47:08,584 - #38 class
+INFO  01:47:08,584 - #45 KK
+INFO  01:47:08,584 - #39 extends
+ERROR 01:47:08,584 - Error
+INFO  01:47:08,585 - #45 K
+INFO  01:47:08,585 - #45 asdasdasda
+ERROR 01:47:08,585 - Sintaksna greska na liniji 12
+INFO  01:47:08,585 - #45 as
+INFO  01:47:08,585 - #45 dasdasda
+INFO  01:47:08,585 - #45 asdadasdas
+INFO  01:47:08,585 - #45 dasdasd
+INFO  01:47:08,585 - #34 {
+INFO  01:47:08,585 - #35 }
+INFO  01:47:08,585 - #34 {
+INFO  01:47:08,585 - #45 int
+ERROR 01:47:08,585 - Error
+INFO  01:47:08,587 - #45 f
+INFO  01:47:08,587 - #32 (
+INFO  01:47:08,587 - #45 x
+INFO  01:47:08,587 - #45 x
+INFO  01:47:08,587 - #45 x
+ERROR 01:47:08,587 - Sintaksna greska na liniji 15
+INFO  01:47:08,587 - #33 )
+INFO  01:47:08,587 - #34 {
+INFO  01:47:08,587 - #8 return
+INFO  01:47:08,587 - #9 1
+ERROR 01:47:08,587 - Error
+INFO  01:47:08,588 - #13 ;
+INFO  01:47:08,589 - #35 }
+INFO  01:47:08,589 - #43 void
+INFO  01:47:08,590 - #45 main
+INFO  01:47:08,591 - #32 (
+INFO  01:47:08,591 - #33 )
+INFO  01:47:08,591 - #34 {
+INFO  01:47:08,591 - #45 x
+INFO  01:47:08,591 - #28 =
+INFO  01:47:08,591 - #9 5
+INFO  01:47:08,591 - #13 ;
+INFO  01:47:08,591 - #45 b
+INFO  01:47:08,591 - #28 =
+INFO  01:47:08,591 - #9 4
+INFO  01:47:08,591 - #9 3
+ERROR 01:47:08,591 - Sintaksna greska na liniji 22
+INFO  01:47:08,591 - #9 2
+INFO  01:47:08,591 - #9 1
+INFO  01:47:08,592 - #13 ;
+INFO  01:47:08,592 - #2 if
+INFO  01:47:08,592 - #32 (
+INFO  01:47:08,592 - #45 a
+ERROR 01:47:08,592 - Error
+INFO  01:47:08,592 - #45 a
+ERROR 01:47:08,592 - Sintaksna greska na liniji 24
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #45 a
+INFO  01:47:08,592 - #33 )
+INFO  01:47:08,592 - #34 {
+INFO  01:47:08,592 - #35 }
+INFO  01:47:08,593 - #45 b
+ERROR 01:47:08,593 - Error
+INFO  01:47:08,593 - #28 =
+INFO  01:47:08,593 - #9 5
+INFO  01:47:08,594 - #13 ;
+INFO  01:47:08,594 - #41 print
+INFO  01:47:08,594 - #32 (
+INFO  01:47:08,594 - #45 x
+INFO  01:47:08,594 - #33 )
+INFO  01:47:08,594 - #13 ;
+INFO  01:47:08,594 - #35 }
+INFO  01:47:08,594 - #35 }
+ERROR 01:47:08,604 - Identifier x was not defined.
+ERROR 01:47:08,604 - designator is null in designator statement assignment na liniji 21
+ERROR 01:47:08,604 - Identifier b was not defined.
+ERROR 01:47:08,605 - designator is null in designator statement assignment na liniji 26
+ERROR 01:47:08,605 - Identifier x was not defined.
+ERROR 01:47:08,605 - designator obj is null in rvaluedesignator1  na liniji 27
+ERROR 01:47:08,605 - obj is null
+ERROR 01:47:08,605 - Print function can only be called with 'int' or 'char' expression, is called with null
+INFO  01:47:08,605 - Print calls = 0
+ERROR 01:47:08,606 - Parsiranje NIJE uspesno zavrseno!

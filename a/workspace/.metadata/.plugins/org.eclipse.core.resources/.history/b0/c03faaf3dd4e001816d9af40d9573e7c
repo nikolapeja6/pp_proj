@@ -1,0 +1,71 @@
+// generated with ast extension for cup
+// version 0.8
+// 3/4/2018 16:7:5
+
+
+package rs.ac.bg.etf.pp1.ast;
+
+public class ClassMethodBegin1 extends ClassMethodBegin {
+
+    private DesignatorClassElementMultiple DesignatorClassElementMultiple;
+    private String I2;
+
+    public ClassMethodBegin1 (DesignatorClassElementMultiple DesignatorClassElementMultiple, String I2) {
+        this.DesignatorClassElementMultiple=DesignatorClassElementMultiple;
+        if(DesignatorClassElementMultiple!=null) DesignatorClassElementMultiple.setParent(this);
+        this.I2=I2;
+    }
+
+    public DesignatorClassElementMultiple getDesignatorClassElementMultiple() {
+        return DesignatorClassElementMultiple;
+    }
+
+    public void setDesignatorClassElementMultiple(DesignatorClassElementMultiple DesignatorClassElementMultiple) {
+        this.DesignatorClassElementMultiple=DesignatorClassElementMultiple;
+    }
+
+    public String getI2() {
+        return I2;
+    }
+
+    public void setI2(String I2) {
+        this.I2=I2;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+    public void childrenAccept(Visitor visitor) {
+        if(DesignatorClassElementMultiple!=null) DesignatorClassElementMultiple.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(DesignatorClassElementMultiple!=null) DesignatorClassElementMultiple.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(DesignatorClassElementMultiple!=null) DesignatorClassElementMultiple.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("ClassMethodBegin1(\n");
+
+        if(DesignatorClassElementMultiple!=null)
+            buffer.append(DesignatorClassElementMultiple.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(" "+tab+I2);
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [ClassMethodBegin1]");
+        return buffer.toString();
+    }
+}

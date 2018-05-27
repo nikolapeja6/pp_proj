@@ -1,0 +1,50 @@
+INFO  00:39:33,509 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  00:39:33,536 - #40 program
+INFO  00:39:33,536 - #45 MJProgram
+INFO  00:39:33,536 - #45 int
+INFO  00:39:33,536 - #45 x
+INFO  00:39:33,536 - #13 ;
+INFO  00:39:33,537 - #34 {
+INFO  00:39:33,537 - #45 int
+INFO  00:39:33,538 - #45 main
+INFO  00:39:33,538 - #32 (
+INFO  00:39:33,538 - #33 )
+INFO  00:39:33,538 - #34 {
+INFO  00:39:33,538 - #41 print
+INFO  00:39:33,538 - #32 (
+INFO  00:39:33,538 - #9 1
+INFO  00:39:33,538 - #33 )
+INFO  00:39:33,539 - #13 ;
+INFO  00:39:33,540 - #41 print
+INFO  00:39:33,540 - #32 (
+INFO  00:39:33,540 - #45 x
+INFO  00:39:33,540 - #33 )
+INFO  00:39:33,540 - #13 ;
+INFO  00:39:33,540 - #41 print
+INFO  00:39:33,541 - #32 (
+INFO  00:39:33,541 - #10 a
+INFO  00:39:33,541 - #33 )
+INFO  00:39:33,541 - #13 ;
+INFO  00:39:33,541 - #41 print
+INFO  00:39:33,541 - #32 (
+INFO  00:39:33,541 - #11 true
+INFO  00:39:33,541 - #33 )
+INFO  00:39:33,541 - #13 ;
+INFO  00:39:33,541 - #41 print
+INFO  00:39:33,541 - #32 (
+INFO  00:39:33,541 - #11 false
+INFO  00:39:33,542 - #33 )
+INFO  00:39:33,542 - #13 ;
+INFO  00:39:33,542 - #8 return
+INFO  00:39:33,542 - #9 0
+INFO  00:39:33,542 - #13 ;
+INFO  00:39:33,542 - #35 }
+INFO  00:39:33,542 - #35 }
+INFO  00:39:33,544 - ***Abstract tree****
+INFO  00:39:33,544 - #0
+DEBUG 00:39:33,550 - Variable with name x has the address of 0
+DEBUG 00:39:33,550 - found constant with value 1of type 1
+DEBUG 00:39:33,550 - constant factor is type 1
+DEBUG 00:39:33,550 - term SingleFactorterm is type 1
+DEBUG 00:39:33,550 - exprWithNoMinus is type 1
+DEBUG 00:39:33,550 - print statement has arg of type 1

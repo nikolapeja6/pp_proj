@@ -1,0 +1,429 @@
+INFO  01:24:01,663 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\test301.mj
+INFO  01:24:01,666 - #41 program
+ type = 41
+INFO  01:24:01,666 - #46 test301
+ type = 46
+INFO  01:24:01,666 - #45 const
+ type = 45
+INFO  01:24:01,666 - #46 int
+ type = 46
+INFO  01:24:01,666 - #46 jedan
+ type = 46
+INFO  01:24:01,666 - #29 =
+ type = 29
+INFO  01:24:01,666 - #9 1
+ type = 9
+INFO  01:24:01,666 - #14 ;
+ type = 14
+INFO  01:24:01,666 - #45 const
+ type = 45
+INFO  01:24:01,666 - #46 int
+ type = 46
+INFO  01:24:01,666 - #46 pet
+ type = 46
+INFO  01:24:01,666 - #29 =
+ type = 29
+INFO  01:24:01,666 - #9 5
+ type = 9
+INFO  01:24:01,666 - #14 ;
+ type = 14
+INFO  01:24:01,666 - #46 int
+ type = 46
+INFO  01:24:01,666 - #46 niz
+ type = 46
+INFO  01:24:01,667 - #37 [
+ type = 37
+INFO  01:24:01,667 - #38 ]
+ type = 38
+INFO  01:24:01,667 - #14 ;
+ type = 14
+INFO  01:24:01,667 - #46 char
+ type = 46
+INFO  01:24:01,667 - #46 nizch
+ type = 46
+INFO  01:24:01,667 - #37 [
+ type = 37
+INFO  01:24:01,667 - #38 ]
+ type = 38
+INFO  01:24:01,667 - #14 ;
+ type = 14
+INFO  01:24:01,667 - #35 {
+ type = 35
+INFO  01:24:01,667 - #44 void
+ type = 44
+INFO  01:24:01,667 - #46 main
+ type = 46
+INFO  01:24:01,667 - #33 (
+ type = 33
+INFO  01:24:01,667 - #34 )
+ type = 34
+INFO  01:24:01,667 - #46 int
+ type = 46
+INFO  01:24:01,667 - #46 bodovi
+ type = 46
+INFO  01:24:01,667 - #14 ;
+ type = 14
+INFO  01:24:01,667 - #35 {
+ type = 35
+INFO  01:24:01,667 - #46 bodovi
+ type = 46
+INFO  01:24:01,667 - #29 =
+ type = 29
+INFO  01:24:01,667 - #9 0
+ type = 9
+INFO  01:24:01,667 - #14 ;
+ type = 14
+INFO  01:24:01,667 - #46 bodovi
+ type = 46
+INFO  01:24:01,667 - #30 ++
+ type = 30
+INFO  01:24:01,667 - #14 ;
+ type = 14
+INFO  01:24:01,667 - #46 bodovi
+ type = 46
+INFO  01:24:01,667 - #29 =
+ type = 29
+INFO  01:24:01,667 - #46 bodovi
+ type = 46
+INFO  01:24:01,667 - #16 +
+ type = 16
+INFO  01:24:01,668 - #46 jedan
+ type = 46
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #46 bodovi
+ type = 46
+INFO  01:24:01,668 - #29 =
+ type = 29
+INFO  01:24:01,668 - #46 bodovi
+ type = 46
+INFO  01:24:01,668 - #18 *
+ type = 18
+INFO  01:24:01,668 - #46 pet
+ type = 46
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #46 bodovi
+ type = 46
+INFO  01:24:01,668 - #31 --
+ type = 31
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #42 print
+ type = 42
+INFO  01:24:01,668 - #33 (
+ type = 33
+INFO  01:24:01,668 - #46 bodovi
+ type = 46
+INFO  01:24:01,668 - #34 )
+ type = 34
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #46 niz
+ type = 46
+INFO  01:24:01,668 - #29 =
+ type = 29
+INFO  01:24:01,668 - #32 new
+ type = 32
+INFO  01:24:01,668 - #46 int
+ type = 46
+INFO  01:24:01,668 - #37 [
+ type = 37
+INFO  01:24:01,668 - #9 2
+ type = 9
+INFO  01:24:01,668 - #38 ]
+ type = 38
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #46 niz
+ type = 46
+INFO  01:24:01,668 - #37 [
+ type = 37
+INFO  01:24:01,668 - #9 0
+ type = 9
+INFO  01:24:01,668 - #38 ]
+ type = 38
+INFO  01:24:01,668 - #29 =
+ type = 29
+INFO  01:24:01,668 - #46 pet
+ type = 46
+INFO  01:24:01,668 - #14 ;
+ type = 14
+INFO  01:24:01,668 - #46 niz
+ type = 46
+INFO  01:24:01,668 - #37 [
+ type = 37
+INFO  01:24:01,668 - #9 1
+ type = 9
+INFO  01:24:01,669 - #38 ]
+ type = 38
+INFO  01:24:01,669 - #29 =
+ type = 29
+INFO  01:24:01,669 - #9 10
+ type = 9
+INFO  01:24:01,669 - #14 ;
+ type = 14
+INFO  01:24:01,669 - #46 bodovi
+ type = 46
+INFO  01:24:01,669 - #29 =
+ type = 29
+INFO  01:24:01,669 - #46 niz
+ type = 46
+INFO  01:24:01,669 - #37 [
+ type = 37
+INFO  01:24:01,669 - #9 1
+ type = 9
+INFO  01:24:01,669 - #38 ]
+ type = 38
+INFO  01:24:01,669 - #19 /
+ type = 19
+INFO  01:24:01,669 - #46 niz
+ type = 46
+INFO  01:24:01,669 - #37 [
+ type = 37
+INFO  01:24:01,669 - #9 0
+ type = 9
+INFO  01:24:01,669 - #38 ]
+ type = 38
+INFO  01:24:01,669 - #14 ;
+ type = 14
+INFO  01:24:01,669 - #42 print
+ type = 42
+INFO  01:24:01,669 - #33 (
+ type = 33
+INFO  01:24:01,669 - #46 bodovi
+ type = 46
+INFO  01:24:01,669 - #34 )
+ type = 34
+INFO  01:24:01,669 - #14 ;
+ type = 14
+INFO  01:24:01,669 - #42 print
+ type = 42
+INFO  01:24:01,669 - #33 (
+ type = 33
+INFO  01:24:01,669 - #46 niz
+ type = 46
+INFO  01:24:01,669 - #37 [
+ type = 37
+INFO  01:24:01,669 - #9 1
+ type = 9
+INFO  01:24:01,669 - #38 ]
+ type = 38
+INFO  01:24:01,669 - #34 )
+ type = 34
+INFO  01:24:01,669 - #14 ;
+ type = 14
+INFO  01:24:01,669 - #46 nizch
+ type = 46
+INFO  01:24:01,669 - #29 =
+ type = 29
+INFO  01:24:01,669 - #32 new
+ type = 32
+INFO  01:24:01,669 - #46 char
+ type = 46
+INFO  01:24:01,669 - #37 [
+ type = 37
+INFO  01:24:01,669 - #9 3
+ type = 9
+INFO  01:24:01,670 - #38 ]
+ type = 38
+INFO  01:24:01,670 - #14 ;
+ type = 14
+INFO  01:24:01,670 - #46 nizch
+ type = 46
+INFO  01:24:01,670 - #37 [
+ type = 37
+INFO  01:24:01,670 - #9 0
+ type = 9
+INFO  01:24:01,670 - #38 ]
+ type = 38
+INFO  01:24:01,670 - #29 =
+ type = 29
+INFO  01:24:01,670 - #10 a
+ type = 10
+INFO  01:24:01,670 - #14 ;
+ type = 14
+INFO  01:24:01,670 - #46 nizch
+ type = 46
+INFO  01:24:01,670 - #37 [
+ type = 37
+INFO  01:24:01,670 - #46 jedan
+ type = 46
+INFO  01:24:01,670 - #38 ]
+ type = 38
+INFO  01:24:01,670 - #29 =
+ type = 29
+INFO  01:24:01,670 - #10 b
+ type = 10
+INFO  01:24:01,670 - #14 ;
+ type = 14
+INFO  01:24:01,670 - #46 nizch
+ type = 46
+INFO  01:24:01,670 - #37 [
+ type = 37
+INFO  01:24:01,670 - #46 pet
+ type = 46
+INFO  01:24:01,670 - #17 -
+ type = 17
+INFO  01:24:01,670 - #9 3
+ type = 9
+INFO  01:24:01,670 - #38 ]
+ type = 38
+INFO  01:24:01,670 - #29 =
+ type = 29
+ERROR 01:24:01,670 - Leksicka greska (') na 20karakteru 35 linije.
+INFO  01:24:01,670 - #46 cx
+ type = 46
+ERROR 01:24:01,670 - Leksicka greska (') na 23karakteru 35 linije.
+INFO  01:24:01,670 - #14 ;
+ type = 14
+INFO  01:24:01,670 - #42 print
+ type = 42
+INFO  01:24:01,670 - #33 (
+ type = 33
+INFO  01:24:01,670 - #46 nizch
+ type = 46
+INFO  01:24:01,671 - #37 [
+ type = 37
+INFO  01:24:01,671 - #9 2
+ type = 9
+INFO  01:24:01,671 - #17 -
+ type = 17
+INFO  01:24:01,671 - #9 1
+ type = 9
+INFO  01:24:01,671 - #38 ]
+ type = 38
+INFO  01:24:01,671 - #34 )
+ type = 34
+INFO  01:24:01,671 - #14 ;
+ type = 14
+INFO  01:24:01,671 - #42 print
+ type = 42
+INFO  01:24:01,671 - #33 (
+ type = 33
+INFO  01:24:01,671 - #46 nizch
+ type = 46
+INFO  01:24:01,671 - #37 [
+ type = 37
+INFO  01:24:01,671 - #46 jedan
+ type = 46
+INFO  01:24:01,671 - #18 *
+ type = 18
+INFO  01:24:01,671 - #9 2
+ type = 9
+INFO  01:24:01,671 - #38 ]
+ type = 38
+INFO  01:24:01,671 - #34 )
+ type = 34
+INFO  01:24:01,671 - #14 ;
+ type = 14
+INFO  01:24:01,671 - #46 bodovi
+ type = 46
+INFO  01:24:01,671 - #29 =
+ type = 29
+INFO  01:24:01,671 - #46 bodovi
+ type = 46
+INFO  01:24:01,671 - #16 +
+ type = 16
+INFO  01:24:01,671 - #33 (
+ type = 33
+INFO  01:24:01,671 - #33 (
+ type = 33
+INFO  01:24:01,671 - #46 pet
+ type = 46
+INFO  01:24:01,671 - #18 *
+ type = 18
+INFO  01:24:01,671 - #46 jedan
+ type = 46
+INFO  01:24:01,671 - #17 -
+ type = 17
+INFO  01:24:01,671 - #9 1
+ type = 9
+INFO  01:24:01,671 - #34 )
+ type = 34
+INFO  01:24:01,671 - #18 *
+ type = 18
+INFO  01:24:01,671 - #9 2
+ type = 9
+INFO  01:24:01,671 - #17 -
+ type = 17
+INFO  01:24:01,671 - #33 (
+ type = 33
+INFO  01:24:01,671 - #9 3
+ type = 9
+INFO  01:24:01,671 - #20 %
+ type = 20
+INFO  01:24:01,671 - #9 2
+ type = 9
+INFO  01:24:01,671 - #16 +
+ type = 16
+INFO  01:24:01,671 - #9 3
+ type = 9
+INFO  01:24:01,672 - #18 *
+ type = 18
+INFO  01:24:01,672 - #9 2
+ type = 9
+INFO  01:24:01,672 - #17 -
+ type = 17
+INFO  01:24:01,672 - #9 3
+ type = 9
+INFO  01:24:01,672 - #34 )
+ type = 34
+INFO  01:24:01,672 - #17 -
+ type = 17
+INFO  01:24:01,672 - #9 1
+ type = 9
+INFO  01:24:01,672 - #18 *
+ type = 18
+INFO  01:24:01,672 - #9 0
+ type = 9
+INFO  01:24:01,672 - #34 )
+ type = 34
+INFO  01:24:01,672 - #14 ;
+ type = 14
+INFO  01:24:01,672 - #42 print
+ type = 42
+INFO  01:24:01,672 - #33 (
+ type = 33
+INFO  01:24:01,672 - #46 bodovi
+ type = 46
+INFO  01:24:01,672 - #34 )
+ type = 34
+INFO  01:24:01,672 - #14 ;
+ type = 14
+INFO  01:24:01,672 - #43 read
+ type = 43
+INFO  01:24:01,672 - #33 (
+ type = 33
+INFO  01:24:01,672 - #46 bodovi
+ type = 46
+INFO  01:24:01,672 - #34 )
+ type = 34
+INFO  01:24:01,672 - #14 ;
+ type = 14
+INFO  01:24:01,672 - #46 bodovi
+ type = 46
+INFO  01:24:01,672 - #29 =
+ type = 29
+INFO  01:24:01,672 - #46 bodovi
+ type = 46
+INFO  01:24:01,672 - #16 +
+ type = 16
+INFO  01:24:01,672 - #9 1
+ type = 9
+INFO  01:24:01,672 - #14 ;
+ type = 14
+INFO  01:24:01,672 - #42 print
+ type = 42
+INFO  01:24:01,672 - #33 (
+ type = 33
+INFO  01:24:01,672 - #46 bodovi
+ type = 46
+INFO  01:24:01,672 - #34 )
+ type = 34
+INFO  01:24:01,672 - #14 ;
+ type = 14
+INFO  01:24:01,672 - #36 }
+ type = 36
+INFO  01:24:01,672 - #36 }
+ type = 36

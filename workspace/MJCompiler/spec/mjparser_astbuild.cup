@@ -301,7 +301,7 @@ ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT:I1 EXTENDS Type:T2 {: RESULT=
 					|
 					(NewClassBegin) CLASS IDENT:I1 {: RESULT=new NewClassBegin(I1); RESULT.setLine(I1left); :}
 					|
-					(ErrorClass) error {:parser.log.error("Error in class declaration.");:} {: RESULT=new ErrorClass(); :}
+					(ErrorClass) error {:parser.log.error("Error in class declaration. Successfult recovery.");:} {: RESULT=new ErrorClass(); :}
 					;
 					
 ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES {: RESULT=new ClassDeclEnd1(); :};
@@ -450,14 +450,14 @@ DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator:L1 ASS
 							|
 							(DesignatorStatementDec) LValueDesignator:L1 DEC {: RESULT=new DesignatorStatementDec(L1); RESULT.setLine(L1left); :}
 							|
-							error {:parser.log.error("Error");:} {: RESULT=new DesignatorStatementDerived1(); :}
+							error {:parser.log.error("Error designator statement. Successful recovery.");:} {: RESULT=new DesignatorStatementDerived1(); :}
 							;
 
 Condition ::= 	(ConditionMultiple) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultiple(C1, C2); RESULT.setLine(C1left); :}
 				|
 				(ConditionSingle) CondTerm:C1 {: RESULT=new ConditionSingle(C1); RESULT.setLine(C1left); :}
 				|
-				error {:parser.log.error("Error");:} {: RESULT=new ConditionDerived1(); :}
+				error {:parser.log.error("Error condition. Successful recovery.");:} {: RESULT=new ConditionDerived1(); :}
 				;
 ConditionWhile ::= (ConditionMultipleWhile) CondTerm:C1 ConditionList:C2 {: RESULT=new ConditionMultipleWhile(C1, C2); RESULT.setLine(C1left); :}
 				|

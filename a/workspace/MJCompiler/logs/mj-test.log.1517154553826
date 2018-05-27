@@ -1,0 +1,91 @@
+INFO  16:47:03,655 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  16:47:03,663 - #41 program
+INFO  16:47:03,663 - #46 MJProgram
+INFO  16:47:03,663 - #46 int
+INFO  16:47:03,664 - #46 x
+INFO  16:47:03,664 - Type found int
+INFO  16:47:03,664 - #14 ;
+DEBUG 16:47:03,664 - vardeclelement found
+INFO  16:47:03,664 - #46 int
+DEBUG 16:47:03,664 - var decl found
+INFO  16:47:03,664 - #46 y
+INFO  16:47:03,664 - Type found int
+INFO  16:47:03,664 - #14 ;
+DEBUG 16:47:03,664 - vardeclelement found
+INFO  16:47:03,664 - #35 {
+DEBUG 16:47:03,664 - var decl found
+INFO  16:47:03,664 - #46 int
+INFO  16:47:03,664 - #46 k
+INFO  16:47:03,664 - Type found int
+INFO  16:47:03,664 - Return type found - null
+INFO  16:47:03,664 - #33 (
+INFO  16:47:03,664 - #34 )
+INFO  16:47:03,664 - #46 int
+INFO  16:47:03,665 - #46 c
+INFO  16:47:03,665 - Type found int
+INFO  16:47:03,665 - #14 ;
+DEBUG 16:47:03,665 - vardeclelement found
+INFO  16:47:03,665 - #35 {
+DEBUG 16:47:03,665 - var decl found
+DEBUG 16:47:03,665 - multiplevardecl found 
+INFO  16:47:03,665 - #46 c
+INFO  16:47:03,665 - #29 =
+INFO  16:47:03,665 - #9 1
+INFO  16:47:03,665 - #14 ;
+DEBUG 16:47:03,665 - expr ended
+INFO  16:47:03,665 - #8 return
+DEBUG 16:47:03,665 - statement ended
+INFO  16:47:03,665 - #46 c
+INFO  16:47:03,665 - #16 +
+INFO  16:47:03,665 - #9 2
+INFO  16:47:03,665 - #14 ;
+DEBUG 16:47:03,665 - expr ended
+INFO  16:47:03,665 - #36 }
+DEBUG 16:47:03,665 - statement ended
+INFO  16:47:03,665 - #46 int
+DEBUG 16:47:03,665 - end method 1
+INFO  16:47:03,665 - #46 main
+INFO  16:47:03,666 - Type found int
+INFO  16:47:03,666 - Return type found - null
+INFO  16:47:03,666 - #33 (
+INFO  16:47:03,666 - #34 )
+INFO  16:47:03,666 - #35 {
+INFO  16:47:03,666 - #46 y
+INFO  16:47:03,666 - #29 =
+INFO  16:47:03,666 - #9 2
+INFO  16:47:03,666 - #14 ;
+DEBUG 16:47:03,666 - expr ended
+INFO  16:47:03,666 - #46 x
+DEBUG 16:47:03,666 - statement ended
+INFO  16:47:03,666 - #29 =
+INFO  16:47:03,666 - #46 y
+INFO  16:47:03,666 - #16 +
+INFO  16:47:03,666 - #9 2
+INFO  16:47:03,666 - #14 ;
+DEBUG 16:47:03,666 - expr ended
+INFO  16:47:03,666 - #46 y
+DEBUG 16:47:03,666 - statement ended
+INFO  16:47:03,666 - #29 =
+INFO  16:47:03,666 - #46 k
+INFO  16:47:03,666 - #33 (
+INFO  16:47:03,666 - #34 )
+INFO  16:47:03,666 - #16 +
+INFO  16:47:03,666 - #9 3
+INFO  16:47:03,666 - #14 ;
+DEBUG 16:47:03,666 - expr ended
+INFO  16:47:03,667 - #42 print
+DEBUG 16:47:03,667 - statement ended
+INFO  16:47:03,667 - #33 (
+INFO  16:47:03,667 - #46 y
+INFO  16:47:03,667 - #34 )
+DEBUG 16:47:03,667 - expr ended
+INFO  16:47:03,667 - #14 ;
+INFO  16:47:03,667 - #8 return
+DEBUG 16:47:03,667 - statement ended
+INFO  16:47:03,667 - #9 0
+INFO  16:47:03,667 - #14 ;
+DEBUG 16:47:03,667 - expr ended
+INFO  16:47:03,667 - #36 }
+DEBUG 16:47:03,667 - statement ended
+INFO  16:47:03,667 - #36 }
+DEBUG 16:47:03,667 - end method 1

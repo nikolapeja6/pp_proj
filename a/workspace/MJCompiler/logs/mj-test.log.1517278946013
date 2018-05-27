@@ -1,0 +1,74 @@
+INFO  03:15:49,487 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  03:15:49,527 - #41 program
+INFO  03:15:49,527 - #46 MJProgram
+INFO  03:15:49,528 - #46 int
+INFO  03:15:49,528 - #46 x
+INFO  03:15:49,528 - #14 ;
+INFO  03:15:49,528 - #46 int
+INFO  03:15:49,528 - #46 y
+INFO  03:15:49,528 - #14 ;
+INFO  03:15:49,528 - #45 const
+INFO  03:15:49,528 - #46 int
+INFO  03:15:49,528 - #46 x
+INFO  03:15:49,528 - #29 =
+INFO  03:15:49,529 - #9 5
+INFO  03:15:49,529 - #9 4
+ERROR 03:15:49,529 - Sintaksna greska na liniji 3
+INFO  03:15:49,529 - #14 ;
+INFO  03:15:49,529 - #35 {
+INFO  03:15:49,529 - #46 int
+INFO  03:15:49,529 - #46 k
+INFO  03:15:49,529 - Uspesan oporavak od greske deklaracije promenljive.
+INFO  03:15:49,530 - #33 (
+INFO  03:15:49,530 - #34 )
+INFO  03:15:49,530 - #46 int
+INFO  03:15:49,530 - #46 c
+INFO  03:15:49,530 - #14 ;
+INFO  03:15:49,530 - #35 {
+INFO  03:15:49,530 - #46 c
+INFO  03:15:49,530 - #29 =
+INFO  03:15:49,530 - #9 1
+INFO  03:15:49,530 - #14 ;
+INFO  03:15:49,531 - #8 return
+INFO  03:15:49,531 - #46 c
+INFO  03:15:49,531 - #16 +
+INFO  03:15:49,531 - #9 2
+INFO  03:15:49,532 - #14 ;
+INFO  03:15:49,532 - #36 }
+INFO  03:15:49,532 - #46 int
+INFO  03:15:49,533 - #46 main
+INFO  03:15:49,533 - #33 (
+INFO  03:15:49,533 - #34 )
+INFO  03:15:49,533 - #35 {
+INFO  03:15:49,533 - #46 y
+INFO  03:15:49,533 - #29 =
+INFO  03:15:49,533 - #9 2
+INFO  03:15:49,533 - #14 ;
+INFO  03:15:49,533 - #46 x
+INFO  03:15:49,533 - #29 =
+INFO  03:15:49,533 - #46 y
+INFO  03:15:49,533 - #16 +
+INFO  03:15:49,533 - #9 2
+INFO  03:15:49,533 - #14 ;
+INFO  03:15:49,533 - #46 y
+INFO  03:15:49,533 - #29 =
+INFO  03:15:49,533 - #46 k
+INFO  03:15:49,533 - #33 (
+INFO  03:15:49,533 - #34 )
+INFO  03:15:49,534 - #16 +
+INFO  03:15:49,534 - #9 3
+INFO  03:15:49,534 - #14 ;
+INFO  03:15:49,534 - #42 print
+INFO  03:15:49,534 - #33 (
+INFO  03:15:49,534 - #46 y
+INFO  03:15:49,534 - #34 )
+INFO  03:15:49,534 - #14 ;
+INFO  03:15:49,534 - #8 return
+INFO  03:15:49,534 - #9 0
+INFO  03:15:49,534 - #14 ;
+INFO  03:15:49,534 - #36 }
+INFO  03:15:49,534 - #36 }
+INFO  03:15:49,534 - ***Abstract tree****
+INFO  03:15:49,534 - #0
+INFO  03:15:49,539 - Print calls = 0
+INFO  03:15:49,540 - Generating bytecode file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\out\program.obj

@@ -1,0 +1,50 @@
+INFO  00:26:27,788 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\f.mj
+INFO  00:26:27,839 - #40 program
+INFO  00:26:27,840 - #45 AAA
+INFO  00:26:27,840 - #34 {
+INFO  00:26:27,840 - #45 int
+INFO  00:26:27,840 - #45 sum
+INFO  00:26:27,841 - #32 (
+INFO  00:26:27,841 - #45 int
+INFO  00:26:27,841 - #45 a
+INFO  00:26:27,841 - #12 ,
+INFO  00:26:27,841 - #45 int
+INFO  00:26:27,841 - #45 b
+INFO  00:26:27,841 - #33 )
+INFO  00:26:27,841 - #34 {
+INFO  00:26:27,842 - #8 return
+INFO  00:26:27,842 - #45 a
+INFO  00:26:27,842 - #15 +
+INFO  00:26:27,842 - #45 b
+INFO  00:26:27,843 - #13 ;
+INFO  00:26:27,844 - #35 }
+INFO  00:26:27,844 - #43 void
+INFO  00:26:27,845 - #45 main
+INFO  00:26:27,846 - #32 (
+INFO  00:26:27,846 - #33 )
+INFO  00:26:27,846 - #45 int
+INFO  00:26:27,846 - #45 x
+INFO  00:26:27,846 - #12 ,
+INFO  00:26:27,846 - #45 y
+INFO  00:26:27,846 - #13 ;
+INFO  00:26:27,847 - #34 {
+INFO  00:26:27,847 - #45 x
+INFO  00:26:27,847 - #28 =
+INFO  00:26:27,847 - #9 1
+INFO  00:26:27,847 - #13 ;
+INFO  00:26:27,848 - #45 y
+INFO  00:26:27,848 - #28 =
+INFO  00:26:27,848 - #9 2
+INFO  00:26:27,848 - #13 ;
+INFO  00:26:27,848 - #41 print
+INFO  00:26:27,848 - #32 (
+INFO  00:26:27,849 - #45 sum
+INFO  00:26:27,849 - #32 (
+INFO  00:26:27,849 - #45 x
+ERROR 00:26:27,849 - Sintaksna greska na liniji 12
+ERROR 00:26:27,849 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 12
+INFO  00:26:27,853 - ***Abstract tree****
+INFO  00:26:27,853 - #8
+ERROR 00:26:27,857 - Identifier sum was not defined.
+INFO  00:26:27,857 - Print calls = 0
+ERROR 00:26:27,857 - Parsiranje NIJE uspesno zavrseno!

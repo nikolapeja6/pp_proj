@@ -1,0 +1,67 @@
+INFO  17:17:46,258 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  17:17:46,285 - #40 program
+INFO  17:17:46,285 - #45 MJProgram
+INFO  17:17:46,285 - #34 {
+INFO  17:17:46,285 - #45 int
+INFO  17:17:46,285 - #45 main
+INFO  17:17:46,286 - #32 (
+INFO  17:17:46,286 - #33 )
+INFO  17:17:46,286 - #34 {
+INFO  17:17:46,286 - #41 print
+INFO  17:17:46,286 - #32 (
+INFO  17:17:46,286 - #9 1
+INFO  17:17:46,286 - #33 )
+INFO  17:17:46,287 - #13 ;
+INFO  17:17:46,287 - #41 print
+INFO  17:17:46,287 - #32 (
+INFO  17:17:46,287 - #9 2
+INFO  17:17:46,287 - #33 )
+INFO  17:17:46,287 - #13 ;
+INFO  17:17:46,287 - #41 print
+INFO  17:17:46,288 - #32 (
+INFO  17:17:46,288 - #10 a
+INFO  17:17:46,288 - #33 )
+INFO  17:17:46,288 - #13 ;
+INFO  17:17:46,288 - #41 print
+INFO  17:17:46,288 - #32 (
+INFO  17:17:46,288 - #11 true
+INFO  17:17:46,288 - #33 )
+INFO  17:17:46,288 - #13 ;
+INFO  17:17:46,289 - #41 print
+INFO  17:17:46,289 - #32 (
+INFO  17:17:46,289 - #11 false
+INFO  17:17:46,289 - #33 )
+INFO  17:17:46,289 - #13 ;
+INFO  17:17:46,289 - #8 return
+INFO  17:17:46,289 - #9 0
+INFO  17:17:46,289 - #13 ;
+INFO  17:17:46,289 - #35 }
+INFO  17:17:46,289 - #35 }
+INFO  17:17:46,291 - ***Abstract tree****
+INFO  17:17:46,291 - #0
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+DEBUG 17:17:46,297 - print statement has arg of type 1
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+DEBUG 17:17:46,297 - print statement has arg of type 1
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+DEBUG 17:17:46,297 - print statement has arg of type 1
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+DEBUG 17:17:46,297 - print statement has arg of type 1
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+DEBUG 17:17:46,297 - print statement has arg of type 1
+DEBUG 17:17:46,297 - constant factor is type 1
+DEBUG 17:17:46,297 - term SingleFactorterm is type 1
+DEBUG 17:17:46,297 - exprWithNoMinus is type 1
+INFO  17:17:46,298 - Print calls = 0
+INFO  17:17:46,298 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj
+INFO  17:17:46,333 - Parsiranje uspesno zavrseno!

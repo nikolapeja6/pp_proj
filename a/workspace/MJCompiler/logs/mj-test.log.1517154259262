@@ -1,0 +1,121 @@
+INFO  16:43:34,498 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  16:43:34,502 - #41 program
+ type = 41
+INFO  16:43:34,502 - #46 MJProgram
+ type = 46
+INFO  16:43:34,502 - #46 int
+ type = 46
+INFO  16:43:34,502 - #46 x
+ type = 46
+INFO  16:43:34,502 - #14 ;
+ type = 14
+INFO  16:43:34,502 - #46 int
+ type = 46
+INFO  16:43:34,502 - #46 y
+ type = 46
+INFO  16:43:34,502 - #14 ;
+ type = 14
+INFO  16:43:34,502 - #35 {
+ type = 35
+INFO  16:43:34,502 - #46 int
+ type = 46
+INFO  16:43:34,502 - #46 k
+ type = 46
+INFO  16:43:34,502 - #33 (
+ type = 33
+INFO  16:43:34,502 - #34 )
+ type = 34
+INFO  16:43:34,502 - #46 int
+ type = 46
+INFO  16:43:34,502 - #46 c
+ type = 46
+INFO  16:43:34,502 - #14 ;
+ type = 14
+INFO  16:43:34,502 - #35 {
+ type = 35
+INFO  16:43:34,502 - #46 c
+ type = 46
+INFO  16:43:34,502 - #29 =
+ type = 29
+INFO  16:43:34,502 - #9 1
+ type = 9
+INFO  16:43:34,503 - #14 ;
+ type = 14
+INFO  16:43:34,503 - #8 return
+ type = 8
+INFO  16:43:34,503 - #46 c
+ type = 46
+INFO  16:43:34,503 - #16 +
+ type = 16
+INFO  16:43:34,503 - #9 2
+ type = 9
+INFO  16:43:34,503 - #14 ;
+ type = 14
+INFO  16:43:34,503 - #36 }
+ type = 36
+INFO  16:43:34,503 - #46 int
+ type = 46
+INFO  16:43:34,503 - #46 main
+ type = 46
+INFO  16:43:34,503 - #33 (
+ type = 33
+INFO  16:43:34,503 - #34 )
+ type = 34
+INFO  16:43:34,503 - #35 {
+ type = 35
+INFO  16:43:34,503 - #46 y
+ type = 46
+INFO  16:43:34,503 - #29 =
+ type = 29
+INFO  16:43:34,503 - #9 2
+ type = 9
+INFO  16:43:34,503 - #14 ;
+ type = 14
+INFO  16:43:34,503 - #46 x
+ type = 46
+INFO  16:43:34,503 - #29 =
+ type = 29
+INFO  16:43:34,503 - #46 y
+ type = 46
+INFO  16:43:34,503 - #16 +
+ type = 16
+INFO  16:43:34,503 - #9 2
+ type = 9
+INFO  16:43:34,503 - #14 ;
+ type = 14
+INFO  16:43:34,503 - #46 y
+ type = 46
+INFO  16:43:34,503 - #29 =
+ type = 29
+INFO  16:43:34,503 - #46 k
+ type = 46
+INFO  16:43:34,503 - #33 (
+ type = 33
+INFO  16:43:34,503 - #34 )
+ type = 34
+INFO  16:43:34,503 - #16 +
+ type = 16
+INFO  16:43:34,503 - #9 3
+ type = 9
+INFO  16:43:34,504 - #14 ;
+ type = 14
+INFO  16:43:34,504 - #42 print
+ type = 42
+INFO  16:43:34,504 - #33 (
+ type = 33
+INFO  16:43:34,504 - #46 y
+ type = 46
+INFO  16:43:34,504 - #34 )
+ type = 34
+INFO  16:43:34,504 - #14 ;
+ type = 14
+INFO  16:43:34,504 - #8 return
+ type = 8
+INFO  16:43:34,504 - #9 0
+ type = 9
+INFO  16:43:34,504 - #14 ;
+ type = 14
+INFO  16:43:34,504 - #36 }
+ type = 36
+INFO  16:43:34,504 - #36 }
+ type = 36

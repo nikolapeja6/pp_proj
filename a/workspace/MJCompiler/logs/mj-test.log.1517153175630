@@ -1,0 +1,45 @@
+INFO  15:54:31,961 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  15:54:31,969 - #41 program
+INFO  15:54:31,969 - #46 MJProgram
+INFO  15:54:31,969 - #46 int
+INFO  15:54:31,969 - #46 x
+INFO  15:54:31,969 - Type found int
+INFO  15:54:31,969 - #14 ;
+DEBUG 15:54:31,969 - vardeclelement found
+INFO  15:54:31,969 - #46 int
+DEBUG 15:54:31,969 - var decl found
+INFO  15:54:31,969 - #46 y
+INFO  15:54:31,969 - Type found int
+INFO  15:54:31,969 - #14 ;
+DEBUG 15:54:31,969 - vardeclelement found
+INFO  15:54:31,970 - #35 {
+DEBUG 15:54:31,970 - var decl found
+INFO  15:54:31,970 - #46 int
+INFO  15:54:31,970 - #46 k
+INFO  15:54:31,970 - Type found int
+INFO  15:54:31,970 - Return type found - null
+INFO  15:54:31,970 - #33 (
+INFO  15:54:31,970 - #34 )
+INFO  15:54:31,970 - #46 int
+INFO  15:54:31,970 - #46 c
+INFO  15:54:31,970 - Type found int
+INFO  15:54:31,970 - #14 ;
+DEBUG 15:54:31,970 - vardeclelement found
+INFO  15:54:31,970 - #35 {
+DEBUG 15:54:31,970 - var decl found
+DEBUG 15:54:31,970 - multiplevardecl found 
+INFO  15:54:31,970 - #46 c
+INFO  15:54:31,970 - #29 =
+INFO  15:54:31,970 - #9 1
+INFO  15:54:31,970 - #14 ;
+INFO  15:54:31,970 - #8 return
+INFO  15:54:31,970 - #46 c
+INFO  15:54:31,971 - #16 +
+INFO  15:54:31,971 - #9 2
+INFO  15:54:31,971 - #14 ;
+INFO  15:54:31,971 - #36 }
+DEBUG 15:54:31,971 - end method 1
+INFO  15:54:31,971 - #46 int
+ERROR 15:54:31,971 - 
+Sintaksna greska na liniji 10
+ERROR 15:54:31,971 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 10

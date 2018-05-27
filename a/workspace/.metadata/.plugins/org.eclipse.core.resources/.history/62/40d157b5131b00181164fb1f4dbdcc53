@@ -1,0 +1,55 @@
+program MJProgram 
+{
+	
+	void main() int i; int j;{	
+
+	i = 0;
+	j = 0;
+	
+	print('b');
+	
+	do
+	{
+		print(i,3);
+		print(':');
+		i++;
+		j =0;
+		do
+		{
+			print(j,1);
+			j = j+i;
+			if(j<10)
+			print(',');
+		}while(j<10);
+	}while(i<10);
+	
+	print('e', 5);
+	
+	
+	print(eol);
+	
+	i = 0;
+	do
+	{
+		j = 0;
+		do
+		{
+			print('(',1);
+			print(i,1);
+			print(',',1);
+			print(j,1);
+			print(')',1);
+			j++;
+			
+			if(i + j >5)
+				break;
+			
+		} while(j<10);
+		i++;
+		print(eol);
+	}
+	while(i<10);
+		
+	}
+}
+		
