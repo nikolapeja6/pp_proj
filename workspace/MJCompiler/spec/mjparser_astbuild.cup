@@ -334,7 +334,7 @@ VarDeclElement ::= 	(VarDeclElementArray) IDENT:I1 OPEN_CHEVRONS CLOSE_CHEVRONS 
 					|
 					(VarDeclElementSingle)IDENT:I1 {: RESULT=new VarDeclElementSingle(I1); RESULT.setLine(I1left); :}
 					|
-					error {:parser.log.error("Greska.");:} {: RESULT=new VarDeclElementDerived1(); :}
+					error {:parser.log.error("Error in variabble declaration. Successful recovery.");:} {: RESULT=new VarDeclElementDerived1(); :}
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl:M1 MethodDecl:M2 {: RESULT=new MultipleMethodDeclDerived1(M1, M2); RESULT.setLine(M1left); :}
@@ -375,7 +375,7 @@ FormParsElement ::= 	(FormParsElementArray) Type:T1 IDENT:I2 OPEN_CHEVRONS CLOSE
 						|
 						(FormParsElementSingle) Type:T1 IDENT:I2 {: RESULT=new FormParsElementSingle(T1, I2); RESULT.setLine(T1left); :} 
 						|
-						error {:parser.log.error("Error");:} {: RESULT=new FormParsElementDerived1(); :}
+						error {:parser.log.error("Error in formal parameter declaration. Successful recovery.");:} {: RESULT=new FormParsElementDerived1(); :}
 						;
 
 ActPars ::= ActPars:A1 COMMA ActParElement:A2 {: RESULT=new ActParsDerived1(A1, A2); RESULT.setLine(A1left); :}

@@ -72,7 +72,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		StringBuilder msg = new StringBuilder(message);
 		int line = (info == null) ? 0 : info.getLine();
 		if (line != 0)
-			msg.append(" na liniji ").append(line);
+			msg.append(" on line ").append(line);
 		log.error(msg.toString());
 	}
 
@@ -80,7 +80,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		StringBuilder msg = new StringBuilder(message);
 		int line = (info == null) ? 0 : info.getLine();
 		if (line != 0)
-			msg.append(" na liniji ").append(line);
+			msg.append(" on line ").append(line);
 		log.info(msg.toString());
 	}
 	
@@ -393,6 +393,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String name = (methodNameAndRetType).getName();
 		Struct type = (methodNameAndRetType).getReturnType().struct;
 
+		Obj o = search(name, methodNameAndRetType);
+		if(o != null && o != Tab.noObj){
+			report_error("Method "+name+" already declared.", methodNameAndRetType);
+		}
+		
 		methodNameAndRetType.obj = Tab.insert(inClassDecl ? 42 : Obj.Meth, name, type);
 		Tab.openScope();
 

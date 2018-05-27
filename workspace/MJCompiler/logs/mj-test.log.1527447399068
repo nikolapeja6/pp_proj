@@ -1,0 +1,110 @@
+INFO  20:55:49,151 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\A\Green1.mj
+ERROR 20:55:49,214 - Syntax error on line 122
+ERROR 20:55:49,215 - Error designator statement. Successful recovery.
+ERROR 20:55:49,215 - Syntax error on line 123
+ERROR 20:55:49,215 - Error designator statement. Successful recovery.
+INFO  20:55:49,248 - Searching for obj int (line 3) - found Type int: int, -1, -1  na liniji 2
+INFO  20:55:49,248 - Searching for obj noObj (line 3) - found Var noObj: notype, -1, -1  na liniji 2
+INFO  20:55:49,248 - Searching for obj noObj (line 3) - found Var noObj: notype, -1, -1  na liniji 2
+INFO  20:55:49,248 - Searching for obj char (line 4) - found Type char: char, -1, -1  na liniji 3
+INFO  20:55:49,249 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  na liniji 3
+INFO  20:55:49,249 - Searching for obj int (line 6) - found Type int: int, -1, -1  na liniji 5
+INFO  20:55:49,249 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  na liniji 5
+INFO  20:55:49,249 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  na liniji 5
+INFO  20:55:49,249 - Searching for obj char (line 7) - found Type char: char, -1, -1  na liniji 6
+INFO  20:55:49,249 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  na liniji 6
+INFO  20:55:49,249 - Searching for obj int (line 8) - found Type int: int, -1, -1  na liniji 7
+INFO  20:55:49,249 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  na liniji 7
+INFO  20:55:49,249 - Searching for obj char (line 9) - found Type char: char, -1, -1  na liniji 8
+INFO  20:55:49,249 - Searching for obj noObj (line 9) - found Var noObj: notype, -1, -1  na liniji 8
+INFO  20:55:49,249 - Searching for obj a1 (line 17) - found Var a1: Arr of int, 4, 0  na liniji 16
+INFO  20:55:49,249 - Searching for obj int (line 17) - found Type int: int, -1, -1  na liniji 16
+INFO  20:55:49,250 - Searching for obj a1 (line 18) - found Var a1: Arr of int, 4, 0  na liniji 17
+INFO  20:55:49,250 - Searching for obj a1 (line 19) - found Var a1: Arr of int, 4, 0  na liniji 18
+INFO  20:55:49,250 - Searching for obj a1 (line 19) - found Var a1: Arr of int, 4, 0  na liniji 18
+INFO  20:55:49,250 - Searching for obj a1 (line 21) - found Var a1: Arr of int, 4, 0  na liniji 20
+INFO  20:55:49,250 - Searching for obj a2 (line 23) - found Var a2: Arr of char, 5, 0  na liniji 22
+INFO  20:55:49,250 - Searching for obj a2 (line 26) - found Var a2: Arr of char, 5, 0  na liniji 25
+INFO  20:55:49,250 - Searching for obj char (line 26) - found Type char: char, -1, -1  na liniji 25
+INFO  20:55:49,250 - Searching for obj a2 (line 27) - found Var a2: Arr of char, 5, 0  na liniji 26
+INFO  20:55:49,250 - Searching for obj a2 (line 28) - found Var a2: Arr of char, 5, 0  na liniji 27
+INFO  20:55:49,250 - Searching for obj a2 (line 29) - found Var a2: Arr of char, 5, 0  na liniji 28
+INFO  20:55:49,250 - Searching for obj a2 (line 30) - found Var a2: Arr of char, 5, 0  na liniji 29
+INFO  20:55:49,250 - Searching for obj a2 (line 31) - found Var a2: Arr of char, 5, 0  na liniji 30
+INFO  20:55:49,250 - Searching for obj a2 (line 33) - found Var a2: Arr of char, 5, 0  na liniji 32
+INFO  20:55:49,250 - Searching for obj a2 (line 35) - found Var a2: Arr of char, 5, 0  na liniji 34
+INFO  20:55:49,250 - Searching for obj a2 (line 37) - found Var a2: Arr of char, 5, 0  na liniji 36
+INFO  20:55:49,250 - Searching for obj a2 (line 39) - found Var a2: Arr of char, 5, 0  na liniji 38
+INFO  20:55:49,251 - Searching for obj a2 (line 41) - found Var a2: Arr of char, 5, 0  na liniji 40
+INFO  20:55:49,251 - Searching for obj eol (line 42) - found Con eol: char, 10, 0  na liniji 41
+INFO  20:55:49,251 - Searching for obj int (line 48) - found Type int: int, -1, -1  na liniji 47
+INFO  20:55:49,251 - Searching for obj int (line 48) - found Type int: int, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj int (line 48) - found Type int: int, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj noObj (line 48) - found Var noObj: notype, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj int (line 48) - found Type int: int, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj noObj (line 48) - found Var noObj: notype, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj int (line 48) - found Type int: int, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj noObj (line 48) - found Var noObj: notype, -1, -1  na liniji 47
+INFO  20:55:49,252 - Searching for obj x (line 52) - found Var x: int, 0, 1  na liniji 51
+INFO  20:55:49,252 - Searching for obj y (line 58) - found Var y: int, 1, 1  na liniji 57
+INFO  20:55:49,252 - Searching for obj eol (line 60) - found Con eol: char, 10, 0  na liniji 59
+INFO  20:55:49,252 - Searching for obj rez (line 62) - found Var rez: int, 2, 1  na liniji 61
+INFO  20:55:49,252 - Searching for obj x (line 62) - found Var x: int, 0, 1  na liniji 61
+INFO  20:55:49,252 - Searching for obj y (line 62) - found Var y: int, 1, 1  na liniji 61
+INFO  20:55:49,252 - Searching for obj rez (line 63) - found Var rez: int, 2, 1  na liniji 62
+INFO  20:55:49,252 - Searching for obj rez (line 63) - found Var rez: int, 2, 1  na liniji 62
+INFO  20:55:49,252 - Searching for obj x (line 67) - found Var x: int, 0, 1  na liniji 66
+INFO  20:55:49,252 - Searching for obj y (line 73) - found Var y: int, 1, 1  na liniji 72
+INFO  20:55:49,252 - Searching for obj rez (line 78) - found Var rez: int, 2, 1  na liniji 77
+INFO  20:55:49,252 - Searching for obj rez (line 82) - found Var rez: int, 2, 1  na liniji 81
+INFO  20:55:49,253 - Searching for obj c1 (line 89) - found Con c1: int, 1, 0  na liniji 88
+INFO  20:55:49,253 - Searching for obj c2 (line 91) - found Con c2: int, 2, 0  na liniji 90
+INFO  20:55:49,253 - Searching for obj c3 (line 93) - found Con c3: char, 51, 0  na liniji 92
+INFO  20:55:49,253 - Searching for obj eol (line 94) - found Con eol: char, 10, 0  na liniji 93
+INFO  20:55:49,253 - Searching for obj v1 (line 98) - found Var v1: int, 1, 0  na liniji 97
+INFO  20:55:49,253 - Searching for obj c1 (line 98) - found Con c1: int, 1, 0  na liniji 97
+INFO  20:55:49,253 - Searching for obj v2 (line 99) - found Var v2: int, 2, 0  na liniji 98
+INFO  20:55:49,253 - Searching for obj c2 (line 99) - found Con c2: int, 2, 0  na liniji 98
+INFO  20:55:49,253 - Searching for obj v3 (line 100) - found Var v3: char, 3, 0  na liniji 99
+INFO  20:55:49,253 - Searching for obj c3 (line 100) - found Con c3: char, 51, 0  na liniji 99
+INFO  20:55:49,253 - Searching for obj v1 (line 102) - found Var v1: int, 1, 0  na liniji 101
+INFO  20:55:49,253 - Searching for obj v2 (line 104) - found Var v2: int, 2, 0  na liniji 103
+INFO  20:55:49,253 - Searching for obj v3 (line 106) - found Var v3: char, 3, 0  na liniji 105
+INFO  20:55:49,253 - Searching for obj eol (line 107) - found Con eol: char, 10, 0  na liniji 106
+INFO  20:55:49,253 - Searching for obj v1 (line 112) - found Var v1: int, 1, 0  na liniji 111
+INFO  20:55:49,253 - Searching for obj c1 (line 112) - found Con c1: int, 1, 0  na liniji 111
+INFO  20:55:49,253 - Searching for obj v2 (line 112) - found Var v2: int, 2, 0  na liniji 111
+INFO  20:55:49,253 - Searching for obj v2 (line 113) - found Var v2: int, 2, 0  na liniji 112
+INFO  20:55:49,253 - Searching for obj v1 (line 113) - found Var v1: int, 1, 0  na liniji 112
+INFO  20:55:49,253 - Searching for obj v1 (line 115) - found Var v1: int, 1, 0  na liniji 114
+INFO  20:55:49,253 - Searching for obj v2 (line 117) - found Var v2: int, 2, 0  na liniji 116
+INFO  20:55:49,253 - Searching for obj eol (line 118) - found Con eol: char, 10, 0  na liniji 117
+INFO  20:55:49,254 - Searching for obj v1 (line 126) - found Var v1: int, 1, 0  na liniji 125
+INFO  20:55:49,254 - Searching for obj v2 (line 128) - found Var v2: int, 2, 0  na liniji 127
+INFO  20:55:49,254 - Searching for obj eol (line 129) - found Con eol: char, 10, 0  na liniji 128
+INFO  20:55:49,254 - Searching for obj v1 (line 133) - found Var v1: int, 1, 0  na liniji 132
+INFO  20:55:49,254 - Searching for obj v2 (line 134) - found Var v2: int, 2, 0  na liniji 133
+INFO  20:55:49,254 - Searching for obj v3 (line 135) - found Var v3: char, 3, 0  na liniji 134
+INFO  20:55:49,254 - Searching for obj v1 (line 137) - found Var v1: int, 1, 0  na liniji 136
+INFO  20:55:49,254 - Searching for obj v2 (line 139) - found Var v2: int, 2, 0  na liniji 138
+INFO  20:55:49,254 - Searching for obj v3 (line 141) - found Var v3: char, 3, 0  na liniji 140
+INFO  20:55:49,254 - Searching for obj eol (line 142) - found Con eol: char, 10, 0  na liniji 141
+INFO  20:55:49,254 - Searching for obj f (line 146) - found Meth f: notype, 0, 0 
+ na liniji 145
+INFO  20:55:49,254 - Searching for obj v1 (line 152) - found Var v1: int, 1, 0  na liniji 151
+INFO  20:55:49,254 - Searching for obj doubleSum (line 156) - found Meth doubleSum: int, 0, 2 
+   Var x: int, 0, 1 
+   Var y: int, 1, 1 
+   Var rez: int, 2, 1 
+ na liniji 155
+INFO  20:55:49,254 - Searching for obj v1 (line 156) - found Var v1: int, 1, 0  na liniji 155
+INFO  20:55:49,255 - Searching for obj eol (line 157) - found Con eol: char, 10, 0  na liniji 156
+INFO  20:55:49,255 - =========================   Counters   =========================
+INFO  20:55:49,256 - 0 classes found.
+INFO  20:55:49,256 - 3 global functions found.
+INFO  20:55:49,257 - 5 global variables found.
+INFO  20:55:49,258 - 3 global constants found.
+INFO  20:55:49,258 - 2 global array variables found.
+INFO  20:55:49,259 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  20:55:49,263 - Finished code generation
+INFO  20:55:49,263 - Compilation was unsuccessful!

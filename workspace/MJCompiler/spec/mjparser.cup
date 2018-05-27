@@ -334,7 +334,7 @@ VarDeclElement ::= 	(VarDeclElementArray) IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
 					|
 					(VarDeclElementSingle)IDENT
 					|
-					error {:parser.log.error("Greska.");:}
+					error {:parser.log.error("Error in variabble declaration. Successful recovery.");:}
 					;
 
 MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
@@ -375,7 +375,7 @@ FormParsElement ::= 	(FormParsElementArray) Type IDENT OPEN_CHEVRONS CLOSE_CHEVR
 						|
 						(FormParsElementSingle) Type IDENT 
 						|
-						error {:parser.log.error("Error");:}
+						error {:parser.log.error("Error in formal parameter declaration. Successful recovery.");:}
 						;
 
 ActPars ::= ActPars COMMA ActParElement

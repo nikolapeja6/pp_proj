@@ -1,0 +1,27 @@
+program Green1A
+const int c1 = 1, c2 = 2;
+const char c3 = '3';
+
+int v1, v2;
+char v3;
+int[] a1;
+char[] a2;
+{
+
+	void main(){
+		
+		// print consts
+		print(c1,1);
+		print(',');
+		print(c2,1);
+		print(',');
+		print(c3);
+		print(eol);
+		
+		v1 = c1;
+		v2 = c2++;
+		
+		
+	}
+
+}

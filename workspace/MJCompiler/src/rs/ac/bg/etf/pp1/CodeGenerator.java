@@ -38,6 +38,8 @@ public class CodeGenerator extends VisitorAdaptor {
 	Logger log = Logger.getLogger(getClass());
 
 	
+	boolean firstArrayFlag = false;
+	
 	public int getMainPc() {
 		return mainPc;
 	}
@@ -349,14 +351,44 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(DesignatorStatementInc designatorStatementInc) {
+		
+		Designator des = designatorStatementInc.getLValueDesignator() instanceof LValueClassDesignator?
+				((LValueClassDesignator)designatorStatementInc.getLValueDesignator()).getDesignator():
+					((LValueDesignator1)designatorStatementInc.getLValueDesignator()).getDesignator();	
+		
+		if(des instanceof DesignatorArray){
+			Code.put(Code.dup2);
+			Code.put(Code.aload);
+		}
+		
+		firstArrayFlag = false;
+		
 		Code.put(Code.const_1);
-		Code.load(designatorStatementInc.getLValueDesignator().obj);
+		if(! (des instanceof DesignatorArray)){
+			Code.load(designatorStatementInc.getLValueDesignator().obj);
+
+		}
+		
 		Code.put(Code.add);
 		Code.store(designatorStatementInc.getLValueDesignator().obj);
 	}
 
 	public void visit(DesignatorStatementDec designatorStatementDec) {
-		Code.load(designatorStatementDec.getLValueDesignator().obj);
+		Designator des = designatorStatementDec.getLValueDesignator() instanceof LValueClassDesignator?
+				((LValueClassDesignator)designatorStatementDec.getLValueDesignator()).getDesignator():
+					((LValueDesignator1)designatorStatementDec.getLValueDesignator()).getDesignator();	
+		
+		if(des instanceof DesignatorArray){
+			Code.put(Code.dup2);
+			Code.put(Code.aload);
+		}
+		
+		firstArrayFlag = false;
+		
+		if(! (des instanceof DesignatorArray)){
+			Code.load(designatorStatementDec.getLValueDesignator().obj);
+
+		}
 		Code.put(Code.const_1);
 		Code.put(Code.sub);
 		Code.store(designatorStatementDec.getLValueDesignator().obj);
@@ -692,7 +724,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(lvDesignator1.obj.getAdr());
 		}
 		*/
-		System.out.println("LValueDesignotr without code gen");
+		log.debug("LValueDesignotr without code gen");
 		currentClassObj = null;
 		currentObjectReference = null;
 	}
@@ -736,6 +768,18 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	public void visit(ArrayName1 arrayName1) {
 		Code.load(arrayName1.obj);
+		/*
+		SyntaxNode node = arrayName1;
+		while(!firstArrayFlag && node != null){
+			if(node instanceof DesignatorStatementInc || node instanceof DesignatorStatementDec){
+				Code.put(Code.dup);
+				firstArrayFlag = true;
+				break;
+			}else{
+				node = node.getParent();
+			}
+		}
+		*/
 	}
 	
 	public void visit(MatchedBreak matchedBreak){

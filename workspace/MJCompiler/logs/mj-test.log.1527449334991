@@ -1,0 +1,39 @@
+INFO  21:27:30,560 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\A\Red1.mj
+ERROR 21:27:30,610 - Syntax error on line 4
+ERROR 21:27:30,611 - Error in variabble declaration. Successful recovery.
+ERROR 21:27:30,611 - Lexical error on line 7 (7): (!).
+ERROR 21:27:30,616 - Syntax error on line 18
+ERROR 21:27:30,616 - Error designator statement. Successful recovery.
+ERROR 21:27:30,617 - Syntax error on line 20
+ERROR 21:27:30,617 - Error condition. Successful recovery.
+ERROR 21:27:30,618 - Syntax error on line 26
+ERROR 21:27:30,618 - Error
+INFO  21:27:30,629 - Searching for obj int (line 3) - found Type int: int, -1, -1  na liniji 2
+INFO  21:27:30,629 - Searching for obj noObj (line 3) - found Var noObj: notype, -1, -1  na liniji 2
+INFO  21:27:30,629 - Searching for obj int (line 4) - found Type int: int, -1, -1  na liniji 3
+INFO  21:27:30,629 - Searching for obj a (line 4) - found Var a: int, 1, 0  na liniji 3
+ERROR 21:27:30,629 - Identifier a already used.
+INFO  21:27:30,630 - Searching for obj int (line 5) - found Type int: int, -1, -1  na liniji 4
+INFO  21:27:30,630 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  na liniji 5
+ERROR 21:27:30,630 - Type is not a type. na liniji 5
+INFO  21:27:30,630 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  na liniji 5
+INFO  21:27:30,630 - Searching for obj Green1A (line 7) - found Prog Green1A: notype, 0, 1 
+ na liniji 6
+ERROR 21:27:30,630 - Green1A is not a type. na liniji 6
+INFO  21:27:30,630 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  na liniji 6
+INFO  21:27:30,630 - Searching for obj int (line 8) - found Type int: int, -1, -1  na liniji 7
+INFO  21:27:30,630 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  na liniji 7
+INFO  21:27:30,630 - Searching for obj int (line 13) - found Type int: int, -1, -1  na liniji 12
+INFO  21:27:30,630 - Searching for obj int (line 13) - found Type int: int, -1, -1  na liniji 12
+INFO  21:27:30,630 - Searching for obj noObj (line 14) - found Var noObj: notype, -1, -1  na liniji 13
+ERROR 21:27:30,630 - Identifier prin was not defined.
+ERROR 21:27:30,631 - No appropreate act par found.
+ERROR 21:27:30,631 - Wrong number of parameters - expected -1 but found 0
+ERROR 21:27:30,631 - No return statement found in method main, but method has return type != VOID.
+INFO  21:27:30,632 - Searching for obj int (line 17) - found Type int: int, -1, -1  na liniji 16
+INFO  21:27:30,632 - Searching for obj noObj (line 17) - found Var noObj: notype, -1, -1  na liniji 16
+ERROR 21:27:30,632 - No return statement found in method main, but method has return type != VOID.
+INFO  21:27:30,632 - Searching for obj int (line 27) - found Type int: int, -1, -1  na liniji 26
+INFO  21:27:30,632 - Searching for obj int (line 27) - found Type int: int, -1, -1  na liniji 26
+ERROR 21:27:30,632 - No main method detected.
+ERROR 21:27:30,632 - Compilation was UNSUCCESSFUL!

@@ -46,8 +46,8 @@ public class Compiler {
 	        Symbol s = p.parse();  //pocetak parsiranja
 	        SyntaxNode prog = (SyntaxNode)(s.value);
      
-	        log.info("***Abstract tree***");
-	        log.info("\n"+s.value.toString());
+	        log.debug("***Abstract tree***");
+	        log.debug("\n"+s.value.toString());
 
 	        
 			Tab.init(); // Universe scope
@@ -112,7 +112,7 @@ public class Compiler {
 	        	log.info("Finished code generation");
 		        Tab.dump();
 		        log.debug(GlobalStuff.VirtualFunctions());
-	        	log.info("Compilation was unsuccessful!");
+	        	log.info("SUCCESS!");
 	        	
 	        }
 	        else {

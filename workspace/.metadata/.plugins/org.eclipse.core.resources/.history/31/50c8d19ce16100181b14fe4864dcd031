@@ -1,0 +1,162 @@
+program Green1A
+const int c1 = 1, c2 = 2;
+const char c3 = '3';
+
+int v1, v2;
+char v3;
+int a1[];
+char a2[];
+{
+
+	// void function
+	void f(){
+	
+		// arrays
+		// 1,2
+		a1 = new int[2];
+		a1[0] = 1;
+		a1[a1[0]] = 2;
+		
+		print(a1[0], 1);
+		print(',');
+		print(a2[1], 1);
+		print(',');
+		
+		a2 = new char[5];
+		a2[0] = 'h';
+		a2[1] = 'e';
+		a2[2] = 'l';
+		a2[3] = 'l';
+		a2[4] = 'o';
+		
+		print(a2[0]);
+		print(',');
+		print(a2[1]);
+		print(',');
+		print(a2[2]);
+		print(',');
+		print(a2[3]);
+		print(',');
+		print(a2[4]);
+		print(eol);
+	}
+	
+	// function with return value
+	// function with local variable
+	// function with arguments
+	int doubleSum(int x, int y) int rez;{
+		
+		print('x');
+		print('=');
+		print(x,1);
+		
+		print(';');
+		
+		print('y');
+		print('=');
+		print(y,1);
+		
+		print(eol);	
+	
+		rez = x + y;
+		rez = 2 * rez;
+		
+		print('x');
+		print('=');
+		print(x,1);
+		
+		print(';');
+		
+		print('y');
+		print('=');
+		print(y,1);
+		print(';');
+		
+		print('r');
+		print('=');
+		print(rez,2);
+		
+		print(';');
+		
+		return rez;
+	}
+
+	void main(){
+		
+		// print consts
+		// 1,2,3
+		print(c1,1);
+		print(',');
+		print(c2,1);
+		print(',');
+		print(c3);
+		print(eol);
+		
+		// var assign
+		// 1,2,3
+		v1 = c1;
+		v2 = c2;
+		v3 = c3;
+		
+		print(v1,1);
+		print(',');
+		print(v2,1);
+		print(',');
+		print(v3);
+		print(eol);
+		
+		
+		// arit operations
+		// 5,1
+		v1 = -(((c1 + 2 - 1)*(-5))/v2);
+		v2 = v1 % 2;
+		
+		print(v1,1);
+		print(',');
+		print(v2,1);
+		print(eol);
+		
+		
+		// inc, dec
+		// 0,1
+		v1 = v2;
+		v1--;
+		v2 = v1;
+		v2++;
+		
+		print(v1,1);
+		print(',');
+		print(v2,1);
+		print(eol);
+		
+		print('a');
+		
+		// reads
+		read(v1);
+		read(v2);
+		read(v3);
+		
+		print(v1,1);
+		print(',');
+		print(v2,1);
+		print(',');
+		print(v3);
+		print(eol);	
+		
+		// function call
+		// 1,2,hello
+		f();
+		
+		// function call with args and retunn value
+		// x=2;y=3;
+		// x=2;y=3;r=10
+		// ret=10
+		v1 = 3;
+		print('r');
+		print('e');
+		print('t');
+		print(doubleSum(2,v1));
+		print(eol);
+	}
+
+}

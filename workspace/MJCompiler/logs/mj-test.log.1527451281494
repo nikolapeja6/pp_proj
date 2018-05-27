@@ -1,0 +1,122 @@
+INFO  22:00:46,043 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\A\Green1.mj
+INFO  22:00:46,137 - Searching for obj int (line 3) - found Type int: int, -1, -1  on line 2
+INFO  22:00:46,137 - Searching for obj noObj (line 3) - found Var noObj: notype, -1, -1  on line 2
+INFO  22:00:46,137 - Searching for obj noObj (line 3) - found Var noObj: notype, -1, -1  on line 2
+INFO  22:00:46,137 - Searching for obj char (line 4) - found Type char: char, -1, -1  on line 3
+INFO  22:00:46,137 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  22:00:46,137 - Searching for obj int (line 6) - found Type int: int, -1, -1  on line 5
+INFO  22:00:46,137 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  22:00:46,138 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  22:00:46,138 - Searching for obj char (line 7) - found Type char: char, -1, -1  on line 6
+INFO  22:00:46,138 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  22:00:46,138 - Searching for obj int (line 8) - found Type int: int, -1, -1  on line 7
+INFO  22:00:46,138 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  on line 7
+INFO  22:00:46,138 - Searching for obj char (line 9) - found Type char: char, -1, -1  on line 8
+INFO  22:00:46,138 - Searching for obj noObj (line 9) - found Var noObj: notype, -1, -1  on line 8
+INFO  22:00:46,138 - Searching for obj noObj (line 13) - found Var noObj: notype, -1, -1  on line 12
+INFO  22:00:46,138 - Searching for obj a1 (line 17) - found Var a1: Arr of int, 4, 0  on line 16
+INFO  22:00:46,139 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  22:00:46,139 - Searching for obj a1 (line 18) - found Var a1: Arr of int, 4, 0  on line 17
+INFO  22:00:46,139 - Searching for obj a1 (line 19) - found Var a1: Arr of int, 4, 0  on line 18
+INFO  22:00:46,139 - Searching for obj a1 (line 19) - found Var a1: Arr of int, 4, 0  on line 18
+INFO  22:00:46,139 - Searching for obj a1 (line 21) - found Var a1: Arr of int, 4, 0  on line 20
+INFO  22:00:46,139 - Searching for obj a1 (line 23) - found Var a1: Arr of int, 4, 0  on line 22
+INFO  22:00:46,139 - Searching for obj a1 (line 25) - found Var a1: Arr of int, 4, 0  on line 24
+INFO  22:00:46,139 - Searching for obj a1 (line 25) - found Var a1: Arr of int, 4, 0  on line 24
+INFO  22:00:46,139 - Searching for obj a1 (line 26) - found Var a1: Arr of int, 4, 0  on line 25
+INFO  22:00:46,139 - Searching for obj a1 (line 26) - found Var a1: Arr of int, 4, 0  on line 25
+INFO  22:00:46,139 - Searching for obj a1 (line 28) - found Var a1: Arr of int, 4, 0  on line 27
+INFO  22:00:46,139 - Searching for obj a1 (line 28) - found Var a1: Arr of int, 4, 0  on line 27
+INFO  22:00:46,139 - Searching for obj a1 (line 29) - found Var a1: Arr of int, 4, 0  on line 28
+INFO  22:00:46,139 - Searching for obj a2 (line 31) - found Var a2: Arr of char, 5, 0  on line 30
+INFO  22:00:46,139 - Searching for obj char (line 31) - found Type char: char, -1, -1  on line 30
+INFO  22:00:46,139 - Searching for obj a2 (line 32) - found Var a2: Arr of char, 5, 0  on line 31
+INFO  22:00:46,139 - Searching for obj a2 (line 33) - found Var a2: Arr of char, 5, 0  on line 32
+INFO  22:00:46,140 - Searching for obj a2 (line 34) - found Var a2: Arr of char, 5, 0  on line 33
+INFO  22:00:46,140 - Searching for obj a2 (line 35) - found Var a2: Arr of char, 5, 0  on line 34
+INFO  22:00:46,140 - Searching for obj a2 (line 36) - found Var a2: Arr of char, 5, 0  on line 35
+INFO  22:00:46,140 - Searching for obj a2 (line 38) - found Var a2: Arr of char, 5, 0  on line 37
+INFO  22:00:46,140 - Searching for obj a2 (line 40) - found Var a2: Arr of char, 5, 0  on line 39
+INFO  22:00:46,140 - Searching for obj a2 (line 42) - found Var a2: Arr of char, 5, 0  on line 41
+INFO  22:00:46,140 - Searching for obj a2 (line 44) - found Var a2: Arr of char, 5, 0  on line 43
+INFO  22:00:46,140 - Searching for obj a2 (line 46) - found Var a2: Arr of char, 5, 0  on line 45
+INFO  22:00:46,140 - Searching for obj eol (line 47) - found Con eol: char, 10, 0  on line 46
+INFO  22:00:46,141 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:00:46,141 - Searching for obj x (line 57) - found Var x: int, 0, 1  on line 56
+INFO  22:00:46,141 - Searching for obj y (line 63) - found Var y: int, 1, 1  on line 62
+INFO  22:00:46,141 - Searching for obj eol (line 65) - found Con eol: char, 10, 0  on line 64
+INFO  22:00:46,141 - Searching for obj rez (line 67) - found Var rez: int, 2, 1  on line 66
+INFO  22:00:46,141 - Searching for obj x (line 67) - found Var x: int, 0, 1  on line 66
+INFO  22:00:46,141 - Searching for obj y (line 67) - found Var y: int, 1, 1  on line 66
+INFO  22:00:46,142 - Searching for obj rez (line 68) - found Var rez: int, 2, 1  on line 67
+INFO  22:00:46,142 - Searching for obj rez (line 68) - found Var rez: int, 2, 1  on line 67
+INFO  22:00:46,142 - Searching for obj x (line 72) - found Var x: int, 0, 1  on line 71
+INFO  22:00:46,142 - Searching for obj y (line 78) - found Var y: int, 1, 1  on line 77
+INFO  22:00:46,142 - Searching for obj rez (line 83) - found Var rez: int, 2, 1  on line 82
+INFO  22:00:46,142 - Searching for obj rez (line 87) - found Var rez: int, 2, 1  on line 86
+INFO  22:00:46,142 - Searching for obj noObj (line 90) - found Var noObj: notype, -1, -1  on line 89
+INFO  22:00:46,142 - Searching for obj c1 (line 94) - found Con c1: int, 1, 0  on line 93
+INFO  22:00:46,142 - Searching for obj c2 (line 96) - found Con c2: int, 2, 0  on line 95
+INFO  22:00:46,142 - Searching for obj c3 (line 98) - found Con c3: char, 51, 0  on line 97
+INFO  22:00:46,142 - Searching for obj eol (line 99) - found Con eol: char, 10, 0  on line 98
+INFO  22:00:46,142 - Searching for obj v1 (line 103) - found Var v1: int, 1, 0  on line 102
+INFO  22:00:46,142 - Searching for obj c1 (line 103) - found Con c1: int, 1, 0  on line 102
+INFO  22:00:46,142 - Searching for obj v2 (line 104) - found Var v2: int, 2, 0  on line 103
+INFO  22:00:46,142 - Searching for obj c2 (line 104) - found Con c2: int, 2, 0  on line 103
+INFO  22:00:46,142 - Searching for obj v3 (line 105) - found Var v3: char, 3, 0  on line 104
+INFO  22:00:46,142 - Searching for obj c3 (line 105) - found Con c3: char, 51, 0  on line 104
+INFO  22:00:46,142 - Searching for obj v1 (line 107) - found Var v1: int, 1, 0  on line 106
+INFO  22:00:46,142 - Searching for obj v2 (line 109) - found Var v2: int, 2, 0  on line 108
+INFO  22:00:46,142 - Searching for obj v3 (line 111) - found Var v3: char, 3, 0  on line 110
+INFO  22:00:46,142 - Searching for obj eol (line 112) - found Con eol: char, 10, 0  on line 111
+INFO  22:00:46,143 - Searching for obj v1 (line 117) - found Var v1: int, 1, 0  on line 116
+INFO  22:00:46,143 - Searching for obj c1 (line 117) - found Con c1: int, 1, 0  on line 116
+INFO  22:00:46,143 - Searching for obj v2 (line 117) - found Var v2: int, 2, 0  on line 116
+INFO  22:00:46,143 - Searching for obj v2 (line 118) - found Var v2: int, 2, 0  on line 117
+INFO  22:00:46,143 - Searching for obj v1 (line 118) - found Var v1: int, 1, 0  on line 117
+INFO  22:00:46,143 - Searching for obj v1 (line 120) - found Var v1: int, 1, 0  on line 119
+INFO  22:00:46,143 - Searching for obj v2 (line 122) - found Var v2: int, 2, 0  on line 121
+INFO  22:00:46,143 - Searching for obj eol (line 123) - found Con eol: char, 10, 0  on line 122
+INFO  22:00:46,143 - Searching for obj v1 (line 128) - found Var v1: int, 1, 0  on line 127
+INFO  22:00:46,143 - Searching for obj v2 (line 128) - found Var v2: int, 2, 0  on line 127
+INFO  22:00:46,143 - Searching for obj v1 (line 129) - found Var v1: int, 1, 0  on line 128
+INFO  22:00:46,143 - Searching for obj v2 (line 130) - found Var v2: int, 2, 0  on line 129
+INFO  22:00:46,143 - Searching for obj v1 (line 130) - found Var v1: int, 1, 0  on line 129
+INFO  22:00:46,143 - Searching for obj v2 (line 131) - found Var v2: int, 2, 0  on line 130
+INFO  22:00:46,143 - Searching for obj v1 (line 133) - found Var v1: int, 1, 0  on line 132
+INFO  22:00:46,143 - Searching for obj v2 (line 135) - found Var v2: int, 2, 0  on line 134
+INFO  22:00:46,143 - Searching for obj eol (line 136) - found Con eol: char, 10, 0  on line 135
+INFO  22:00:46,143 - Searching for obj v1 (line 139) - found Var v1: int, 1, 0  on line 138
+INFO  22:00:46,143 - Searching for obj v2 (line 140) - found Var v2: int, 2, 0  on line 139
+INFO  22:00:46,143 - Searching for obj v3 (line 141) - found Var v3: char, 3, 0  on line 140
+INFO  22:00:46,143 - Searching for obj v1 (line 143) - found Var v1: int, 1, 0  on line 142
+INFO  22:00:46,143 - Searching for obj v2 (line 145) - found Var v2: int, 2, 0  on line 144
+INFO  22:00:46,143 - Searching for obj v3 (line 147) - found Var v3: char, 3, 0  on line 146
+INFO  22:00:46,144 - Searching for obj eol (line 148) - found Con eol: char, 10, 0  on line 147
+INFO  22:00:46,144 - Searching for obj f (line 152) - found Meth f: notype, 0, 0 
+ on line 151
+INFO  22:00:46,144 - Searching for obj v1 (line 157) - found Var v1: int, 1, 0  on line 156
+INFO  22:00:46,144 - Searching for obj doubleSum (line 158) - found Meth doubleSum: int, 0, 2 
+   Var x: int, 0, 1 
+   Var y: int, 1, 1 
+   Var rez: int, 2, 1 
+ on line 157
+INFO  22:00:46,144 - Searching for obj v1 (line 158) - found Var v1: int, 1, 0  on line 157
+INFO  22:00:46,144 - Searching for obj eol (line 159) - found Con eol: char, 10, 0  on line 158
+INFO  22:00:46,145 - =========================   Counters   =========================
+INFO  22:00:46,145 - 0 classes found.
+INFO  22:00:46,146 - 3 global functions found.
+INFO  22:00:46,147 - 5 global variables found.
+INFO  22:00:46,147 - 3 global constants found.
+INFO  22:00:46,148 - 2 global array variables found.
+INFO  22:00:46,148 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  22:00:46,159 - Finished code generation
+INFO  22:00:46,159 - SUCCESS!
