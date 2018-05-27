@@ -81,7 +81,7 @@ public class CounterVisitor extends VisitorAdaptor {
 		}
 	}
 	
-	public static class GlobalFunctionsCounter extends CounterVisitor{
+	public class GlobalFunctionsCounter extends CounterVisitor{
 		
 		private boolean inClassDecl = false;
 		
@@ -104,13 +104,13 @@ public class CounterVisitor extends VisitorAdaptor {
 		}
 	}
 
-	public static class GlobalConstantCounter extends CounterVisitor{
+	public class GlobalConstantCounter extends CounterVisitor{
 		public void visit(ConstDeclElement1 node){
 			count++;
 		}
 	}
 	
-	public static class GlobalArrayVariablesCounter extends CounterVisitor{
+	public class GlobalArrayVariablesCounter extends CounterVisitor{
 		public void visit(VarDeclElementArray node){
 			count++;
 		}

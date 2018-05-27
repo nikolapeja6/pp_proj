@@ -10,7 +10,9 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 import java_cup.runtime.Symbol;
 import jdk.nashorn.internal.runtime.GlobalFunctions;
-import rs.ac.bg.etf.pp1.CounterVisitor.*;
+import rs.ac.bg.etf.pp1.CounterVisitor.ClassCounter;
+import rs.ac.bg.etf.pp1.CounterVisitor.GlobbalVarCounter;
+import rs.ac.bg.etf.pp1.CounterVisitor.PrintCounter;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 import rs.etf.pp1.mj.runtime.Code;
@@ -72,22 +74,12 @@ public class Compiler {
 				// Global functions in program.
 				GlobalFunctionsCounter globalFunctionCounter = new GlobalFunctionsCounter();
 				prog.traverseBottomUp(globalFunctionCounter);
-				log.info(globalFunctionCounter.count + " global functions found.");
+				log.info(globalFunctionCounter.count + " global functions found."));
 				
-				// Global variables.
-				GlobbalVarCounter globalVarCounter1 = new GlobbalVarCounter();
-				prog.traverseBottomUp(globalVarCounter1);
-				log.info(globalVarCounter1.count + " global variables found.");
-				
-				// Global constants.
-				GlobalConstantCounter globalConstantCounter = new GlobalConstantCounter();
-				prog.traverseBottomUp(globalConstantCounter);
-				log.info(globalConstantCounter.count + " global constants found.");
-				
-				// Global array variables.
-				GlobalArrayVariablesCounter globalArrayVariablesCounter = new GlobalArrayVariablesCounter();
-				prog.traverseBottomUp(globalArrayVariablesCounter);
-				log.info(globalArrayVariablesCounter.count + " global array variables found.");
+				// print
+				PrintCounter printCounter = new PrintCounter();
+				prog.traverseBottomUp(printCounter);
+		        log.info("Print calls = " + printCounter.count);
 		        
 		        
 

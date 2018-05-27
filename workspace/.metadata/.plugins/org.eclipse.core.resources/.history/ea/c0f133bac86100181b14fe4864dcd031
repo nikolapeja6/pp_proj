@@ -81,7 +81,7 @@ public class CounterVisitor extends VisitorAdaptor {
 		}
 	}
 	
-	public static class GlobalFunctionsCounter extends CounterVisitor{
+	public class GlobalFunctions extends CounterVisitor{
 		
 		private boolean inClassDecl = false;
 		
@@ -104,15 +104,11 @@ public class CounterVisitor extends VisitorAdaptor {
 		}
 	}
 
-	public static class GlobalConstantCounter extends CounterVisitor{
-		public void visit(ConstDeclElement1 node){
-			count++;
-		}
-	}
-	
-	public static class GlobalArrayVariablesCounter extends CounterVisitor{
-		public void visit(VarDeclElementArray node){
-			count++;
-		}
-	}
+	1 methods in the program
+    0 global variables
+    1 global constants
+    1 global arrays
+    3 local variables in main
+    13 statements in main
+    2 function calls in main
 }

@@ -110,7 +110,7 @@ public class CounterVisitor extends VisitorAdaptor {
 		}
 	}
 	
-	public static class GlobalArrayVariablesCounter extends CounterVisitor{
+	public class GlobalArrayVariablesCounter extends CounterVisitor{
 		public void visit(VarDeclElementArray node){
 			count++;
 		}
