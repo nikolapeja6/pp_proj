@@ -1,0 +1,22 @@
+program Red1B
+
+int x;
+
+{
+
+	char c1(){
+	
+		return x;
+	}
+	
+	void c2(char c){
+		print(c);
+	}
+	
+	void main(){
+	
+		c2(x);
+	
+	}
+
+}

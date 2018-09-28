@@ -1,0 +1,1373 @@
+INFO  02:27:02,681 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\test303.mj
+INFO  02:27:02,741 - #40 program
+INFO  02:27:02,741 - #45 test_303
+INFO  02:27:02,741 - #44 const
+INFO  02:27:02,741 - #45 int
+INFO  02:27:02,741 - #45 cinilac
+INFO  02:27:02,741 - #28 =
+INFO  02:27:02,741 - #9 4
+INFO  02:27:02,742 - #12 ,
+INFO  02:27:02,742 - #45 delilac
+INFO  02:27:02,742 - #28 =
+INFO  02:27:02,742 - #9 3
+INFO  02:27:02,742 - #13 ;
+INFO  02:27:02,742 - #38 class
+INFO  02:27:02,743 - #45 Predmet
+INFO  02:27:02,743 - #34 {
+INFO  02:27:02,743 - #45 int
+INFO  02:27:02,743 - #45 tezina
+INFO  02:27:02,743 - #13 ;
+INFO  02:27:02,743 - #45 char
+INFO  02:27:02,743 - #45 vrsta
+INFO  02:27:02,743 - #13 ;
+INFO  02:27:02,744 - #34 {
+INFO  02:27:02,744 - #43 void
+INFO  02:27:02,744 - #45 postaviTezinu
+INFO  02:27:02,745 - #32 (
+INFO  02:27:02,746 - #45 int
+INFO  02:27:02,746 - #45 tezina
+INFO  02:27:02,746 - #33 )
+INFO  02:27:02,746 - #34 {
+INFO  02:27:02,746 - #45 this
+INFO  02:27:02,747 - #14 .
+INFO  02:27:02,747 - #45 tezina
+INFO  02:27:02,747 - #28 =
+INFO  02:27:02,747 - #45 tezina
+INFO  02:27:02,747 - #13 ;
+INFO  02:27:02,748 - #35 }
+INFO  02:27:02,749 - #43 void
+INFO  02:27:02,750 - #45 ucitajTezinu
+INFO  02:27:02,750 - #32 (
+INFO  02:27:02,750 - #33 )
+INFO  02:27:02,750 - #34 {
+INFO  02:27:02,750 - #42 read
+INFO  02:27:02,750 - #32 (
+INFO  02:27:02,750 - #45 tezina
+INFO  02:27:02,750 - #33 )
+INFO  02:27:02,750 - #13 ;
+INFO  02:27:02,750 - #35 }
+INFO  02:27:02,750 - #45 int
+INFO  02:27:02,751 - #45 zapremina
+INFO  02:27:02,751 - #32 (
+INFO  02:27:02,751 - #33 )
+INFO  02:27:02,751 - #34 {
+INFO  02:27:02,751 - #8 return
+INFO  02:27:02,751 - #9 0
+INFO  02:27:02,751 - #13 ;
+INFO  02:27:02,751 - #35 }
+INFO  02:27:02,751 - #45 int
+INFO  02:27:02,751 - #45 Q
+INFO  02:27:02,751 - #32 (
+INFO  02:27:02,751 - #33 )
+INFO  02:27:02,752 - #34 {
+INFO  02:27:02,752 - #8 return
+INFO  02:27:02,752 - #45 zapremina
+INFO  02:27:02,752 - #32 (
+INFO  02:27:02,752 - #33 )
+INFO  02:27:02,752 - #17 *
+INFO  02:27:02,752 - #45 tezina
+INFO  02:27:02,753 - #13 ;
+INFO  02:27:02,753 - #35 }
+INFO  02:27:02,753 - #43 void
+INFO  02:27:02,753 - #45 postaviVrstu
+INFO  02:27:02,753 - #32 (
+INFO  02:27:02,753 - #45 char
+INFO  02:27:02,753 - #45 vrsta
+INFO  02:27:02,753 - #33 )
+INFO  02:27:02,753 - #34 {
+INFO  02:27:02,753 - #45 this
+INFO  02:27:02,753 - #14 .
+INFO  02:27:02,753 - #45 vrsta
+INFO  02:27:02,753 - #28 =
+INFO  02:27:02,753 - #45 vrsta
+INFO  02:27:02,753 - #13 ;
+INFO  02:27:02,753 - #35 }
+INFO  02:27:02,754 - #35 }
+INFO  02:27:02,754 - #35 }
+INFO  02:27:02,754 - #38 class
+INFO  02:27:02,755 - #45 Sfera
+INFO  02:27:02,755 - #39 extends
+INFO  02:27:02,755 - #45 Predmet
+INFO  02:27:02,755 - #34 {
+INFO  02:27:02,755 - #45 int
+INFO  02:27:02,755 - #45 r
+INFO  02:27:02,755 - #13 ;
+INFO  02:27:02,755 - #34 {
+INFO  02:27:02,755 - #43 void
+INFO  02:27:02,755 - #45 postaviTezinu
+INFO  02:27:02,755 - #32 (
+INFO  02:27:02,755 - #45 int
+INFO  02:27:02,755 - #45 tezina
+INFO  02:27:02,755 - #33 )
+INFO  02:27:02,755 - #34 {
+INFO  02:27:02,755 - #45 this
+INFO  02:27:02,755 - #14 .
+INFO  02:27:02,755 - #45 tezina
+INFO  02:27:02,755 - #28 =
+INFO  02:27:02,755 - #45 tezina
+INFO  02:27:02,755 - #13 ;
+INFO  02:27:02,755 - #45 vrsta
+INFO  02:27:02,756 - #28 =
+INFO  02:27:02,756 - #10 s
+INFO  02:27:02,756 - #13 ;
+INFO  02:27:02,756 - #35 }
+INFO  02:27:02,756 - #43 void
+INFO  02:27:02,756 - #45 postaviPoluprecnik
+INFO  02:27:02,756 - #32 (
+INFO  02:27:02,756 - #45 int
+INFO  02:27:02,756 - #45 r
+INFO  02:27:02,756 - #33 )
+INFO  02:27:02,756 - #34 {
+INFO  02:27:02,756 - #45 this
+INFO  02:27:02,756 - #14 .
+INFO  02:27:02,756 - #45 r
+INFO  02:27:02,756 - #28 =
+INFO  02:27:02,756 - #45 r
+INFO  02:27:02,756 - #13 ;
+INFO  02:27:02,756 - #45 this
+INFO  02:27:02,756 - #14 .
+INFO  02:27:02,757 - #45 postaviVrstu
+INFO  02:27:02,757 - #32 (
+INFO  02:27:02,757 - #10 s
+INFO  02:27:02,757 - #33 )
+INFO  02:27:02,757 - #13 ;
+INFO  02:27:02,757 - #41 print
+INFO  02:27:02,757 - #32 (
+INFO  02:27:02,757 - #10 x
+INFO  02:27:02,757 - #33 )
+INFO  02:27:02,757 - #13 ;
+INFO  02:27:02,757 - #41 print
+INFO  02:27:02,757 - #32 (
+INFO  02:27:02,758 - #45 r
+INFO  02:27:02,758 - #12 ,
+INFO  02:27:02,758 - #9 3
+INFO  02:27:02,758 - #33 )
+INFO  02:27:02,758 - #13 ;
+INFO  02:27:02,758 - #41 print
+INFO  02:27:02,758 - #32 (
+INFO  02:27:02,758 - #10 :
+INFO  02:27:02,758 - #33 )
+INFO  02:27:02,758 - #13 ;
+INFO  02:27:02,758 - #41 print
+INFO  02:27:02,758 - #32 (
+INFO  02:27:02,758 - #45 this
+INFO  02:27:02,758 - #14 .
+INFO  02:27:02,758 - #45 r
+INFO  02:27:02,758 - #12 ,
+INFO  02:27:02,758 - #9 3
+INFO  02:27:02,758 - #33 )
+INFO  02:27:02,758 - #13 ;
+INFO  02:27:02,758 - #35 }
+INFO  02:27:02,758 - #45 int
+INFO  02:27:02,759 - #45 zapremina
+INFO  02:27:02,759 - #32 (
+INFO  02:27:02,759 - #33 )
+INFO  02:27:02,759 - #45 int
+INFO  02:27:02,759 - #45 z
+INFO  02:27:02,759 - #13 ;
+INFO  02:27:02,759 - #34 {
+INFO  02:27:02,759 - #45 z
+INFO  02:27:02,759 - #28 =
+INFO  02:27:02,759 - #45 cinilac
+INFO  02:27:02,759 - #13 ;
+INFO  02:27:02,759 - #8 return
+INFO  02:27:02,759 - #45 z
+INFO  02:27:02,759 - #17 *
+INFO  02:27:02,759 - #32 (
+INFO  02:27:02,759 - #45 r
+INFO  02:27:02,759 - #18 /
+INFO  02:27:02,759 - #45 delilac
+INFO  02:27:02,760 - #33 )
+INFO  02:27:02,760 - #13 ;
+INFO  02:27:02,760 - #35 }
+INFO  02:27:02,760 - #35 }
+INFO  02:27:02,760 - #35 }
+INFO  02:27:02,760 - #38 class
+INFO  02:27:02,760 - #45 Kvadar
+INFO  02:27:02,760 - #39 extends
+INFO  02:27:02,760 - #45 Predmet
+INFO  02:27:02,760 - #34 {
+INFO  02:27:02,760 - #45 int
+INFO  02:27:02,760 - #45 a
+INFO  02:27:02,760 - #12 ,
+INFO  02:27:02,760 - #45 b
+INFO  02:27:02,760 - #12 ,
+INFO  02:27:02,760 - #45 c
+INFO  02:27:02,760 - #13 ;
+INFO  02:27:02,760 - #34 {
+INFO  02:27:02,760 - #43 void
+INFO  02:27:02,760 - #45 postaviTezinu
+INFO  02:27:02,760 - #32 (
+INFO  02:27:02,760 - #45 int
+INFO  02:27:02,760 - #45 tezina
+INFO  02:27:02,761 - #33 )
+INFO  02:27:02,761 - #34 {
+INFO  02:27:02,761 - #45 this
+INFO  02:27:02,761 - #14 .
+INFO  02:27:02,761 - #45 tezina
+INFO  02:27:02,761 - #28 =
+INFO  02:27:02,761 - #45 tezina
+INFO  02:27:02,761 - #13 ;
+INFO  02:27:02,761 - #45 vrsta
+INFO  02:27:02,761 - #28 =
+INFO  02:27:02,761 - #10 k
+INFO  02:27:02,761 - #13 ;
+INFO  02:27:02,761 - #35 }
+INFO  02:27:02,761 - #43 void
+INFO  02:27:02,761 - #45 postaviStranice
+INFO  02:27:02,761 - #32 (
+INFO  02:27:02,761 - #45 int
+INFO  02:27:02,761 - #45 a
+INFO  02:27:02,761 - #12 ,
+INFO  02:27:02,761 - #45 int
+INFO  02:27:02,761 - #45 b
+INFO  02:27:02,761 - #12 ,
+INFO  02:27:02,762 - #45 int
+INFO  02:27:02,762 - #45 c
+INFO  02:27:02,762 - #33 )
+INFO  02:27:02,762 - #34 {
+INFO  02:27:02,762 - #45 this
+INFO  02:27:02,762 - #14 .
+INFO  02:27:02,762 - #45 a
+INFO  02:27:02,762 - #28 =
+INFO  02:27:02,762 - #45 a
+INFO  02:27:02,762 - #13 ;
+INFO  02:27:02,762 - #45 this
+INFO  02:27:02,762 - #14 .
+INFO  02:27:02,762 - #45 b
+INFO  02:27:02,762 - #28 =
+INFO  02:27:02,762 - #45 b
+INFO  02:27:02,762 - #13 ;
+INFO  02:27:02,762 - #45 this
+INFO  02:27:02,762 - #14 .
+INFO  02:27:02,762 - #45 c
+INFO  02:27:02,762 - #28 =
+INFO  02:27:02,762 - #45 c
+INFO  02:27:02,762 - #13 ;
+INFO  02:27:02,762 - #45 vrsta
+INFO  02:27:02,762 - #28 =
+INFO  02:27:02,762 - #10 k
+INFO  02:27:02,763 - #13 ;
+INFO  02:27:02,763 - #35 }
+INFO  02:27:02,763 - #45 int
+INFO  02:27:02,763 - #45 zapremina
+INFO  02:27:02,763 - #32 (
+INFO  02:27:02,763 - #33 )
+INFO  02:27:02,763 - #45 int
+INFO  02:27:02,763 - #45 z
+INFO  02:27:02,763 - #13 ;
+INFO  02:27:02,763 - #34 {
+INFO  02:27:02,763 - #45 z
+INFO  02:27:02,763 - #28 =
+INFO  02:27:02,763 - #45 a
+INFO  02:27:02,763 - #17 *
+INFO  02:27:02,763 - #45 b
+INFO  02:27:02,763 - #17 *
+INFO  02:27:02,763 - #45 c
+INFO  02:27:02,763 - #13 ;
+INFO  02:27:02,763 - #8 return
+INFO  02:27:02,763 - #45 z
+INFO  02:27:02,763 - #13 ;
+INFO  02:27:02,763 - #35 }
+INFO  02:27:02,764 - #35 }
+INFO  02:27:02,764 - #35 }
+INFO  02:27:02,764 - #45 int
+INFO  02:27:02,764 - #45 zapreminaK
+INFO  02:27:02,764 - #12 ,
+INFO  02:27:02,764 - #45 zapreminaS
+INFO  02:27:02,764 - #13 ;
+INFO  02:27:02,764 - #45 int
+INFO  02:27:02,764 - #45 tezinaK
+INFO  02:27:02,764 - #12 ,
+INFO  02:27:02,764 - #45 tezinaS
+INFO  02:27:02,764 - #13 ;
+INFO  02:27:02,764 - #34 {
+INFO  02:27:02,764 - #43 void
+INFO  02:27:02,765 - #45 ispis
+INFO  02:27:02,765 - #32 (
+INFO  02:27:02,765 - #45 Predmet
+INFO  02:27:02,765 - #45 p
+INFO  02:27:02,765 - #33 )
+INFO  02:27:02,765 - #34 {
+INFO  02:27:02,765 - #41 print
+INFO  02:27:02,765 - #32 (
+INFO  02:27:02,765 - #45 p
+INFO  02:27:02,765 - #14 .
+INFO  02:27:02,765 - #45 vrsta
+INFO  02:27:02,766 - #33 )
+INFO  02:27:02,766 - #13 ;
+INFO  02:27:02,766 - #41 print
+INFO  02:27:02,766 - #32 (
+INFO  02:27:02,766 - #45 p
+INFO  02:27:02,766 - #14 .
+INFO  02:27:02,766 - #45 tezina
+INFO  02:27:02,766 - #33 )
+INFO  02:27:02,766 - #13 ;
+INFO  02:27:02,766 - #41 print
+INFO  02:27:02,766 - #32 (
+INFO  02:27:02,766 - #45 eol
+INFO  02:27:02,766 - #33 )
+INFO  02:27:02,766 - #13 ;
+INFO  02:27:02,766 - #35 }
+INFO  02:27:02,766 - #43 void
+INFO  02:27:02,766 - #45 main
+INFO  02:27:02,766 - #32 (
+INFO  02:27:02,766 - #33 )
+INFO  02:27:02,766 - #45 Predmet
+INFO  02:27:02,766 - #45 predmeti
+INFO  02:27:02,766 - #36 [
+INFO  02:27:02,766 - #37 ]
+INFO  02:27:02,766 - #13 ;
+INFO  02:27:02,766 - #45 int
+INFO  02:27:02,766 - #45 i
+INFO  02:27:02,766 - #13 ;
+INFO  02:27:02,766 - #45 Sfera
+INFO  02:27:02,766 - #45 s1
+INFO  02:27:02,767 - #12 ,
+INFO  02:27:02,767 - #45 s2
+INFO  02:27:02,767 - #12 ,
+INFO  02:27:02,767 - #45 s3
+INFO  02:27:02,767 - #13 ;
+INFO  02:27:02,767 - #45 Kvadar
+INFO  02:27:02,767 - #45 k1
+INFO  02:27:02,767 - #12 ,
+INFO  02:27:02,767 - #45 k2
+INFO  02:27:02,767 - #12 ,
+INFO  02:27:02,767 - #45 k3
+INFO  02:27:02,767 - #13 ;
+INFO  02:27:02,767 - #45 int
+INFO  02:27:02,767 - #45 t
+INFO  02:27:02,767 - #13 ;
+INFO  02:27:02,767 - #34 {
+INFO  02:27:02,767 - #45 predmeti
+INFO  02:27:02,767 - #28 =
+INFO  02:27:02,767 - #31 new
+INFO  02:27:02,767 - #45 Predmet
+INFO  02:27:02,767 - #36 [
+INFO  02:27:02,767 - #9 6
+INFO  02:27:02,767 - #37 ]
+INFO  02:27:02,767 - #13 ;
+INFO  02:27:02,767 - #45 s1
+INFO  02:27:02,767 - #28 =
+INFO  02:27:02,767 - #31 new
+INFO  02:27:02,767 - #45 Sfera
+INFO  02:27:02,767 - #13 ;
+INFO  02:27:02,768 - #45 s2
+INFO  02:27:02,768 - #28 =
+INFO  02:27:02,768 - #31 new
+INFO  02:27:02,768 - #45 Sfera
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 s3
+INFO  02:27:02,768 - #28 =
+INFO  02:27:02,768 - #31 new
+INFO  02:27:02,768 - #45 Sfera
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 k1
+INFO  02:27:02,768 - #28 =
+INFO  02:27:02,768 - #31 new
+INFO  02:27:02,768 - #45 Kvadar
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 k2
+INFO  02:27:02,768 - #28 =
+INFO  02:27:02,768 - #31 new
+INFO  02:27:02,768 - #45 Kvadar
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 k3
+INFO  02:27:02,768 - #28 =
+INFO  02:27:02,768 - #31 new
+INFO  02:27:02,768 - #45 Kvadar
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 s1
+INFO  02:27:02,768 - #14 .
+INFO  02:27:02,768 - #45 postaviPoluprecnik
+INFO  02:27:02,768 - #32 (
+INFO  02:27:02,768 - #9 1
+INFO  02:27:02,768 - #33 )
+INFO  02:27:02,768 - #13 ;
+INFO  02:27:02,768 - #45 s2
+INFO  02:27:02,768 - #14 .
+INFO  02:27:02,769 - #45 postaviPoluprecnik
+INFO  02:27:02,769 - #32 (
+INFO  02:27:02,769 - #9 2
+INFO  02:27:02,769 - #33 )
+INFO  02:27:02,769 - #13 ;
+INFO  02:27:02,769 - #45 s3
+INFO  02:27:02,769 - #14 .
+INFO  02:27:02,769 - #45 postaviPoluprecnik
+INFO  02:27:02,769 - #32 (
+INFO  02:27:02,769 - #9 3
+INFO  02:27:02,769 - #33 )
+INFO  02:27:02,769 - #13 ;
+INFO  02:27:02,769 - #45 k1
+INFO  02:27:02,769 - #14 .
+INFO  02:27:02,769 - #45 postaviStranice
+INFO  02:27:02,769 - #32 (
+INFO  02:27:02,769 - #9 1
+INFO  02:27:02,769 - #12 ,
+INFO  02:27:02,769 - #9 2
+INFO  02:27:02,769 - #12 ,
+INFO  02:27:02,769 - #9 3
+INFO  02:27:02,769 - #33 )
+INFO  02:27:02,769 - #13 ;
+INFO  02:27:02,769 - #45 k2
+INFO  02:27:02,769 - #14 .
+INFO  02:27:02,769 - #45 postaviStranice
+INFO  02:27:02,769 - #32 (
+INFO  02:27:02,769 - #9 2
+INFO  02:27:02,769 - #12 ,
+INFO  02:27:02,769 - #9 3
+INFO  02:27:02,769 - #12 ,
+INFO  02:27:02,769 - #9 4
+INFO  02:27:02,769 - #33 )
+INFO  02:27:02,770 - #13 ;
+INFO  02:27:02,770 - #45 k3
+INFO  02:27:02,770 - #14 .
+INFO  02:27:02,770 - #45 postaviStranice
+INFO  02:27:02,770 - #32 (
+INFO  02:27:02,770 - #9 3
+INFO  02:27:02,770 - #12 ,
+INFO  02:27:02,770 - #9 4
+INFO  02:27:02,770 - #12 ,
+INFO  02:27:02,770 - #9 5
+INFO  02:27:02,770 - #33 )
+INFO  02:27:02,770 - #13 ;
+INFO  02:27:02,770 - #41 print
+INFO  02:27:02,770 - #32 (
+INFO  02:27:02,770 - #45 s1
+INFO  02:27:02,770 - #14 .
+INFO  02:27:02,770 - #45 zapremina
+INFO  02:27:02,770 - #32 (
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #13 ;
+INFO  02:27:02,771 - #41 print
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #45 s2
+INFO  02:27:02,771 - #14 .
+INFO  02:27:02,771 - #45 zapremina
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #13 ;
+INFO  02:27:02,771 - #41 print
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #45 s3
+INFO  02:27:02,771 - #14 .
+INFO  02:27:02,771 - #45 zapremina
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #13 ;
+INFO  02:27:02,771 - #41 print
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #45 k1
+INFO  02:27:02,771 - #14 .
+INFO  02:27:02,771 - #45 zapremina
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #33 )
+INFO  02:27:02,771 - #13 ;
+INFO  02:27:02,771 - #41 print
+INFO  02:27:02,771 - #32 (
+INFO  02:27:02,771 - #45 k2
+INFO  02:27:02,771 - #14 .
+INFO  02:27:02,771 - #45 zapremina
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,772 - #41 print
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #45 k3
+INFO  02:27:02,772 - #14 .
+INFO  02:27:02,772 - #45 zapremina
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,772 - #41 print
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #45 eol
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,772 - #41 print
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #45 s1
+INFO  02:27:02,772 - #14 .
+INFO  02:27:02,772 - #45 r
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,772 - #41 print
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #45 s2
+INFO  02:27:02,772 - #14 .
+INFO  02:27:02,772 - #45 r
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,772 - #41 print
+INFO  02:27:02,772 - #32 (
+INFO  02:27:02,772 - #45 s3
+INFO  02:27:02,772 - #14 .
+INFO  02:27:02,772 - #45 r
+INFO  02:27:02,772 - #33 )
+INFO  02:27:02,772 - #13 ;
+INFO  02:27:02,773 - #45 predmeti
+INFO  02:27:02,773 - #36 [
+INFO  02:27:02,773 - #9 0
+INFO  02:27:02,773 - #37 ]
+INFO  02:27:02,773 - #28 =
+INFO  02:27:02,773 - #45 s1
+INFO  02:27:02,773 - #13 ;
+INFO  02:27:02,773 - #45 predmeti
+INFO  02:27:02,773 - #36 [
+INFO  02:27:02,773 - #9 2
+INFO  02:27:02,773 - #37 ]
+INFO  02:27:02,773 - #28 =
+INFO  02:27:02,773 - #45 s2
+INFO  02:27:02,773 - #13 ;
+INFO  02:27:02,773 - #45 predmeti
+INFO  02:27:02,773 - #36 [
+INFO  02:27:02,773 - #9 4
+INFO  02:27:02,773 - #37 ]
+INFO  02:27:02,773 - #28 =
+INFO  02:27:02,773 - #45 s3
+INFO  02:27:02,773 - #13 ;
+INFO  02:27:02,773 - #45 predmeti
+INFO  02:27:02,774 - #36 [
+INFO  02:27:02,774 - #9 1
+INFO  02:27:02,774 - #37 ]
+INFO  02:27:02,774 - #28 =
+INFO  02:27:02,774 - #45 k1
+INFO  02:27:02,774 - #13 ;
+INFO  02:27:02,774 - #45 predmeti
+INFO  02:27:02,774 - #36 [
+INFO  02:27:02,774 - #9 3
+INFO  02:27:02,774 - #37 ]
+INFO  02:27:02,774 - #28 =
+INFO  02:27:02,774 - #45 k2
+INFO  02:27:02,774 - #13 ;
+INFO  02:27:02,774 - #45 predmeti
+INFO  02:27:02,774 - #36 [
+INFO  02:27:02,774 - #9 5
+INFO  02:27:02,774 - #37 ]
+INFO  02:27:02,774 - #28 =
+INFO  02:27:02,774 - #45 k3
+INFO  02:27:02,774 - #13 ;
+INFO  02:27:02,774 - #42 read
+INFO  02:27:02,774 - #32 (
+INFO  02:27:02,774 - #45 t
+INFO  02:27:02,774 - #33 )
+INFO  02:27:02,774 - #13 ;
+INFO  02:27:02,774 - #45 i
+INFO  02:27:02,774 - #28 =
+INFO  02:27:02,774 - #9 0
+INFO  02:27:02,774 - #13 ;
+INFO  02:27:02,774 - #5 do
+INFO  02:27:02,774 - #34 {
+INFO  02:27:02,775 - #45 predmeti
+INFO  02:27:02,775 - #36 [
+INFO  02:27:02,775 - #45 i
+INFO  02:27:02,775 - #37 ]
+INFO  02:27:02,775 - #14 .
+INFO  02:27:02,775 - #45 postaviTezinu
+INFO  02:27:02,775 - #32 (
+INFO  02:27:02,775 - #45 t
+INFO  02:27:02,775 - #33 )
+INFO  02:27:02,775 - #13 ;
+INFO  02:27:02,775 - #45 i
+INFO  02:27:02,775 - #29 ++
+INFO  02:27:02,775 - #13 ;
+INFO  02:27:02,775 - #35 }
+INFO  02:27:02,775 - #6 while
+INFO  02:27:02,776 - #32 (
+INFO  02:27:02,776 - #45 i
+INFO  02:27:02,776 - #23 <
+INFO  02:27:02,776 - #9 6
+INFO  02:27:02,776 - #33 )
+INFO  02:27:02,777 - #13 ;
+INFO  02:27:02,777 - #45 i
+INFO  02:27:02,777 - #28 =
+INFO  02:27:02,777 - #9 0
+INFO  02:27:02,777 - #13 ;
+INFO  02:27:02,777 - #45 zapreminaS
+INFO  02:27:02,777 - #28 =
+INFO  02:27:02,777 - #9 0
+INFO  02:27:02,777 - #13 ;
+INFO  02:27:02,777 - #45 tezinaS
+INFO  02:27:02,777 - #28 =
+INFO  02:27:02,777 - #9 0
+INFO  02:27:02,777 - #13 ;
+INFO  02:27:02,777 - #5 do
+INFO  02:27:02,777 - #34 {
+INFO  02:27:02,777 - #45 i
+INFO  02:27:02,778 - #29 ++
+INFO  02:27:02,778 - #13 ;
+INFO  02:27:02,778 - #2 if
+INFO  02:27:02,778 - #32 (
+INFO  02:27:02,778 - #45 i
+INFO  02:27:02,778 - #19 %
+INFO  02:27:02,778 - #9 2
+INFO  02:27:02,778 - #20 ==
+INFO  02:27:02,778 - #9 0
+INFO  02:27:02,779 - #33 )
+INFO  02:27:02,779 - #7 continue
+INFO  02:27:02,779 - #13 ;
+INFO  02:27:02,779 - #45 zapreminaS
+INFO  02:27:02,779 - #28 =
+INFO  02:27:02,779 - #45 zapreminaS
+INFO  02:27:02,779 - #15 +
+INFO  02:27:02,779 - #45 predmeti
+INFO  02:27:02,780 - #36 [
+INFO  02:27:02,780 - #45 i
+INFO  02:27:02,780 - #16 -
+INFO  02:27:02,780 - #9 1
+INFO  02:27:02,780 - #37 ]
+INFO  02:27:02,781 - #14 .
+INFO  02:27:02,781 - #45 zapremina
+INFO  02:27:02,781 - #32 (
+INFO  02:27:02,781 - #33 )
+INFO  02:27:02,781 - #13 ;
+INFO  02:27:02,781 - #45 tezinaS
+INFO  02:27:02,781 - #28 =
+INFO  02:27:02,781 - #45 tezinaS
+INFO  02:27:02,781 - #15 +
+INFO  02:27:02,781 - #45 predmeti
+INFO  02:27:02,781 - #36 [
+INFO  02:27:02,781 - #45 i
+INFO  02:27:02,781 - #16 -
+INFO  02:27:02,781 - #9 1
+INFO  02:27:02,781 - #37 ]
+INFO  02:27:02,781 - #14 .
+INFO  02:27:02,781 - #45 Q
+INFO  02:27:02,781 - #32 (
+INFO  02:27:02,781 - #33 )
+INFO  02:27:02,781 - #13 ;
+INFO  02:27:02,781 - #45 ispis
+INFO  02:27:02,781 - #32 (
+INFO  02:27:02,781 - #45 predmeti
+INFO  02:27:02,781 - #36 [
+INFO  02:27:02,781 - #45 i
+INFO  02:27:02,781 - #16 -
+INFO  02:27:02,781 - #9 1
+INFO  02:27:02,781 - #37 ]
+INFO  02:27:02,781 - #33 )
+INFO  02:27:02,781 - #13 ;
+INFO  02:27:02,782 - #35 }
+INFO  02:27:02,782 - #6 while
+INFO  02:27:02,782 - #32 (
+INFO  02:27:02,782 - #45 i
+INFO  02:27:02,782 - #23 <
+INFO  02:27:02,782 - #9 6
+INFO  02:27:02,782 - #33 )
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #45 i
+INFO  02:27:02,782 - #28 =
+INFO  02:27:02,782 - #9 0
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #45 zapreminaK
+INFO  02:27:02,782 - #28 =
+INFO  02:27:02,782 - #9 0
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #45 tezinaK
+INFO  02:27:02,782 - #28 =
+INFO  02:27:02,782 - #9 0
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #5 do
+INFO  02:27:02,782 - #34 {
+INFO  02:27:02,782 - #45 i
+INFO  02:27:02,782 - #29 ++
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #2 if
+INFO  02:27:02,782 - #32 (
+INFO  02:27:02,782 - #45 i
+INFO  02:27:02,782 - #19 %
+INFO  02:27:02,782 - #9 2
+INFO  02:27:02,782 - #20 ==
+INFO  02:27:02,782 - #9 1
+INFO  02:27:02,782 - #33 )
+INFO  02:27:02,782 - #7 continue
+INFO  02:27:02,782 - #13 ;
+INFO  02:27:02,782 - #45 zapreminaK
+INFO  02:27:02,782 - #28 =
+INFO  02:27:02,785 - #45 zapreminaK
+INFO  02:27:02,785 - #15 +
+INFO  02:27:02,785 - #45 predmeti
+INFO  02:27:02,785 - #36 [
+INFO  02:27:02,785 - #45 i
+INFO  02:27:02,785 - #16 -
+INFO  02:27:02,785 - #9 1
+INFO  02:27:02,785 - #37 ]
+INFO  02:27:02,785 - #14 .
+INFO  02:27:02,785 - #45 zapremina
+INFO  02:27:02,785 - #32 (
+INFO  02:27:02,786 - #33 )
+INFO  02:27:02,786 - #13 ;
+INFO  02:27:02,786 - #45 tezinaK
+INFO  02:27:02,786 - #28 =
+INFO  02:27:02,786 - #45 tezinaK
+INFO  02:27:02,786 - #15 +
+INFO  02:27:02,786 - #45 predmeti
+INFO  02:27:02,786 - #36 [
+INFO  02:27:02,786 - #45 i
+INFO  02:27:02,786 - #16 -
+INFO  02:27:02,786 - #9 1
+INFO  02:27:02,786 - #37 ]
+INFO  02:27:02,786 - #14 .
+INFO  02:27:02,786 - #45 Q
+INFO  02:27:02,786 - #32 (
+INFO  02:27:02,786 - #33 )
+INFO  02:27:02,786 - #13 ;
+INFO  02:27:02,786 - #45 ispis
+INFO  02:27:02,786 - #32 (
+INFO  02:27:02,786 - #45 predmeti
+INFO  02:27:02,786 - #36 [
+INFO  02:27:02,786 - #45 i
+INFO  02:27:02,786 - #16 -
+INFO  02:27:02,786 - #9 1
+INFO  02:27:02,786 - #37 ]
+INFO  02:27:02,786 - #33 )
+INFO  02:27:02,786 - #13 ;
+INFO  02:27:02,786 - #35 }
+INFO  02:27:02,786 - #6 while
+INFO  02:27:02,786 - #32 (
+INFO  02:27:02,786 - #45 i
+INFO  02:27:02,786 - #23 <
+INFO  02:27:02,786 - #9 6
+INFO  02:27:02,786 - #33 )
+INFO  02:27:02,786 - #13 ;
+INFO  02:27:02,786 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 zapreminaS
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,787 - #13 ;
+INFO  02:27:02,787 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 eol
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,787 - #13 ;
+INFO  02:27:02,787 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 zapreminaK
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,787 - #13 ;
+INFO  02:27:02,787 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 eol
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,787 - #13 ;
+INFO  02:27:02,787 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 tezinaS
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,787 - #13 ;
+INFO  02:27:02,787 - #41 print
+INFO  02:27:02,787 - #32 (
+INFO  02:27:02,787 - #45 eol
+INFO  02:27:02,787 - #33 )
+INFO  02:27:02,788 - #13 ;
+INFO  02:27:02,788 - #41 print
+INFO  02:27:02,788 - #32 (
+INFO  02:27:02,788 - #45 tezinaK
+INFO  02:27:02,788 - #33 )
+INFO  02:27:02,788 - #13 ;
+INFO  02:27:02,788 - #41 print
+INFO  02:27:02,788 - #32 (
+INFO  02:27:02,788 - #45 eol
+INFO  02:27:02,788 - #33 )
+INFO  02:27:02,788 - #13 ;
+INFO  02:27:02,788 - #35 }
+INFO  02:27:02,788 - #35 }
+INFO  02:27:02,789 - ***Abstract tree****
+INFO  02:27:02,789 - #0
+DEBUG 02:27:02,798 - program name
+DEBUG 02:27:02,798 - found constant with value 4of type 1
+DEBUG 02:27:02,798 - found constant with value 3of type 1
+DEBUG 02:27:02,798 - ClassBegin
+DEBUG 02:27:02,799 - Variable with name tezina has the address of 1
+DEBUG 02:27:02,799 - Variable with name vrsta has the address of 2
+DEBUG 02:27:02,800 - designator simple at line 12: this
+DEBUG 02:27:02,800 - designator simple at line 12: tezina
+DEBUG 02:27:02,800 - designator simple at line 12: tezina
+DEBUG 02:27:02,800 - term SingleFactorterm is type 1
+DEBUG 02:27:02,800 - exprWithNoMinus
+DEBUG 02:27:02,800 - designator simple at line 13: tezina
+DEBUG 02:27:02,800 - found constant with value 0of type 1
+DEBUG 02:27:02,800 - constant factor is type 1
+DEBUG 02:27:02,800 - term SingleFactorterm is type 1
+DEBUG 02:27:02,800 - exprWithNoMinus
+DEBUG 02:27:02,800 - designator simple at line 15: zapremina
+DEBUG 02:27:02,800 - designator simple at line 15: tezina
+DEBUG 02:27:02,800 - term element is type 1
+DEBUG 02:27:02,800 - term list single is type 1
+DEBUG 02:27:02,800 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,800 - exprWithNoMinus
+DEBUG 02:27:02,800 - designator simple at line 16: this
+DEBUG 02:27:02,800 - designator simple at line 16: vrsta
+DEBUG 02:27:02,800 - designator simple at line 16: vrsta
+DEBUG 02:27:02,800 - term SingleFactorterm is type 2
+DEBUG 02:27:02,800 - exprWithNoMinus
+DEBUG 02:27:02,800 - class decl end
+DEBUG 02:27:02,801 - class decl 1
+DEBUG 02:27:02,801 - derived ClassBegin
+DEBUG 02:27:02,801 - Variable with name r has the address of 3
+DEBUG 02:27:02,801 - designator simple at line 24: this
+DEBUG 02:27:02,801 - designator simple at line 24: tezina
+DEBUG 02:27:02,801 - designator simple at line 24: tezina
+DEBUG 02:27:02,801 - term SingleFactorterm is type 1
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - designator simple at line 24: vrsta
+DEBUG 02:27:02,801 - found constant with value *****of type 2
+DEBUG 02:27:02,801 - found constant with value 115of type 2
+DEBUG 02:27:02,801 - constant factor is type 2
+DEBUG 02:27:02,801 - term SingleFactorterm is type 2
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - designator simple at line 26: this
+DEBUG 02:27:02,801 - designator simple at line 26: r
+DEBUG 02:27:02,801 - designator simple at line 26: r
+DEBUG 02:27:02,801 - term SingleFactorterm is type 1
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - designator simple at line 27: this
+DEBUG 02:27:02,801 - designator simple at line 27: postaviVrstu
+DEBUG 02:27:02,801 - found constant with value *****of type 2
+DEBUG 02:27:02,801 - found constant with value 115of type 2
+DEBUG 02:27:02,801 - constant factor is type 2
+DEBUG 02:27:02,801 - term SingleFactorterm is type 2
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - found constant with value *****of type 2
+DEBUG 02:27:02,801 - found constant with value 120of type 2
+DEBUG 02:27:02,801 - constant factor is type 2
+DEBUG 02:27:02,801 - term SingleFactorterm is type 2
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - print statement has arg of type 2
+DEBUG 02:27:02,801 - designator simple at line 29: r
+DEBUG 02:27:02,801 - term SingleFactorterm is type 1
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - found constant with value 3of type 1
+DEBUG 02:27:02,801 - print statement has arg of type 1
+DEBUG 02:27:02,801 - found constant with value *****of type 2
+DEBUG 02:27:02,801 - found constant with value 58of type 2
+DEBUG 02:27:02,801 - constant factor is type 2
+DEBUG 02:27:02,801 - term SingleFactorterm is type 2
+DEBUG 02:27:02,801 - exprWithNoMinus
+DEBUG 02:27:02,801 - print statement has arg of type 2
+DEBUG 02:27:02,801 - designator simple at line 31: this
+DEBUG 02:27:02,802 - designator simple at line 31: r
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - found constant with value 3of type 1
+DEBUG 02:27:02,802 - print statement has arg of type 1
+DEBUG 02:27:02,802 - Variable with name z has the address of 0
+DEBUG 02:27:02,802 - designator simple at line 36: z
+DEBUG 02:27:02,802 - designator simple at line 36: cinilac
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 37: z
+DEBUG 02:27:02,802 - designator simple at line 37: r
+DEBUG 02:27:02,802 - designator simple at line 37: delilac
+DEBUG 02:27:02,802 - term element is type 1
+DEBUG 02:27:02,802 - term list single is type 1
+DEBUG 02:27:02,802 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - term element is type 1
+DEBUG 02:27:02,802 - term list single is type 1
+DEBUG 02:27:02,802 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - class decl end
+DEBUG 02:27:02,802 - class decl 1
+DEBUG 02:27:02,802 - derived ClassBegin
+DEBUG 02:27:02,802 - Variable with name a has the address of 3
+DEBUG 02:27:02,802 - Variable with name b has the address of 4
+DEBUG 02:27:02,802 - Variable with name c has the address of 5
+DEBUG 02:27:02,802 - designator simple at line 47: this
+DEBUG 02:27:02,802 - designator simple at line 47: tezina
+DEBUG 02:27:02,802 - designator simple at line 47: tezina
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 47: vrsta
+DEBUG 02:27:02,802 - found constant with value *****of type 2
+DEBUG 02:27:02,802 - found constant with value 107of type 2
+DEBUG 02:27:02,802 - constant factor is type 2
+DEBUG 02:27:02,802 - term SingleFactorterm is type 2
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 48: this
+DEBUG 02:27:02,802 - designator simple at line 48: a
+DEBUG 02:27:02,802 - designator simple at line 48: a
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 48: this
+DEBUG 02:27:02,802 - designator simple at line 48: b
+DEBUG 02:27:02,802 - designator simple at line 48: b
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 48: this
+DEBUG 02:27:02,802 - designator simple at line 48: c
+DEBUG 02:27:02,802 - designator simple at line 48: c
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 48: vrsta
+DEBUG 02:27:02,802 - found constant with value *****of type 2
+DEBUG 02:27:02,802 - found constant with value 107of type 2
+DEBUG 02:27:02,802 - constant factor is type 2
+DEBUG 02:27:02,802 - term SingleFactorterm is type 2
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - Variable with name z has the address of 0
+DEBUG 02:27:02,802 - designator simple at line 52: z
+DEBUG 02:27:02,802 - designator simple at line 52: a
+DEBUG 02:27:02,802 - designator simple at line 52: b
+DEBUG 02:27:02,802 - term element is type 1
+DEBUG 02:27:02,802 - term list single is type 1
+DEBUG 02:27:02,802 - designator simple at line 52: c
+DEBUG 02:27:02,802 - term element is type 1
+DEBUG 02:27:02,802 - term list multiple is type 1
+DEBUG 02:27:02,802 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - designator simple at line 53: z
+DEBUG 02:27:02,802 - term SingleFactorterm is type 1
+DEBUG 02:27:02,802 - exprWithNoMinus
+DEBUG 02:27:02,802 - class decl end
+DEBUG 02:27:02,803 - class decl 1
+DEBUG 02:27:02,803 - Variable with name zapreminaK has the address of 1
+DEBUG 02:27:02,803 - Variable with name zapreminaS has the address of 2
+DEBUG 02:27:02,803 - Variable with name tezinaK has the address of 3
+DEBUG 02:27:02,803 - Variable with name tezinaS has the address of 4
+DEBUG 02:27:02,803 - program begin
+DEBUG 02:27:02,803 - designator simple at line 64: p
+DEBUG 02:27:02,803 - designator simple at line 64: vrsta
+DEBUG 02:27:02,803 - term SingleFactorterm is type 2
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - print statement has arg of type 2
+DEBUG 02:27:02,803 - designator simple at line 65: p
+DEBUG 02:27:02,803 - designator simple at line 65: tezina
+DEBUG 02:27:02,803 - term SingleFactorterm is type 1
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - print statement has arg of type 1
+DEBUG 02:27:02,803 - designator simple at line 66: eol
+DEBUG 02:27:02,803 - term SingleFactorterm is type 2
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - print statement has arg of type 2
+DEBUG 02:27:02,803 - Variable with name i has the address of 1
+DEBUG 02:27:02,803 - Variable with name s1 has the address of 2
+DEBUG 02:27:02,803 - Variable with name s2 has the address of 3
+DEBUG 02:27:02,803 - Variable with name s3 has the address of 4
+DEBUG 02:27:02,803 - Variable with name k1 has the address of 5
+DEBUG 02:27:02,803 - Variable with name k2 has the address of 6
+DEBUG 02:27:02,803 - Variable with name k3 has the address of 7
+DEBUG 02:27:02,803 - Variable with name t has the address of 8
+DEBUG 02:27:02,803 - designator simple at line 73: predmeti
+DEBUG 02:27:02,803 - found constant with value 6of type 1
+DEBUG 02:27:02,803 - constant factor is type 1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 1
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - term SingleFactorterm is type 3
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 74: s1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 75: s2
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 76: s3
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 78: k1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 79: k2
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 80: k3
+DEBUG 02:27:02,803 - term SingleFactorterm is type 4
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 82: s1
+DEBUG 02:27:02,803 - designator simple at line 82: postaviPoluprecnik
+DEBUG 02:27:02,803 - found constant with value 1of type 1
+DEBUG 02:27:02,803 - constant factor is type 1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 1
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 83: s2
+DEBUG 02:27:02,803 - designator simple at line 83: postaviPoluprecnik
+DEBUG 02:27:02,803 - found constant with value 2of type 1
+DEBUG 02:27:02,803 - constant factor is type 1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 1
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 84: s3
+DEBUG 02:27:02,803 - designator simple at line 84: postaviPoluprecnik
+DEBUG 02:27:02,803 - found constant with value 3of type 1
+DEBUG 02:27:02,803 - constant factor is type 1
+DEBUG 02:27:02,803 - term SingleFactorterm is type 1
+DEBUG 02:27:02,803 - exprWithNoMinus
+DEBUG 02:27:02,803 - designator simple at line 86: k1
+DEBUG 02:27:02,803 - designator simple at line 86: postaviStranice
+DEBUG 02:27:02,803 - found constant with value 1of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 2of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 3of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - designator simple at line 87: k2
+DEBUG 02:27:02,804 - designator simple at line 87: postaviStranice
+DEBUG 02:27:02,804 - found constant with value 2of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 3of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 4of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - designator simple at line 88: k3
+DEBUG 02:27:02,804 - designator simple at line 88: postaviStranice
+DEBUG 02:27:02,804 - found constant with value 3of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 4of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - found constant with value 5of type 1
+DEBUG 02:27:02,804 - constant factor is type 1
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - designator simple at line 90: s1
+DEBUG 02:27:02,804 - designator simple at line 90: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 91: s2
+DEBUG 02:27:02,804 - designator simple at line 91: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 92: s3
+DEBUG 02:27:02,804 - designator simple at line 92: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 93: k1
+DEBUG 02:27:02,804 - designator simple at line 93: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 94: k2
+DEBUG 02:27:02,804 - designator simple at line 94: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 95: k3
+DEBUG 02:27:02,804 - designator simple at line 95: zapremina
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 97: eol
+DEBUG 02:27:02,804 - term SingleFactorterm is type 2
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 2
+DEBUG 02:27:02,804 - designator simple at line 99: s1
+DEBUG 02:27:02,804 - designator simple at line 99: r
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 100: s2
+DEBUG 02:27:02,804 - designator simple at line 100: r
+DEBUG 02:27:02,804 - term SingleFactorterm is type 1
+DEBUG 02:27:02,804 - exprWithNoMinus
+DEBUG 02:27:02,804 - print statement has arg of type 1
+DEBUG 02:27:02,804 - designator simple at line 101: s3
+DEBUG 02:27:02,804 - designator simple at line 101: r
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - print statement has arg of type 1
+DEBUG 02:27:02,805 - found constant with value 0of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 103: s1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - found constant with value 2of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 104: s2
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - found constant with value 4of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 105: s3
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - found constant with value 1of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 106: k1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - found constant with value 3of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 107: k2
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - found constant with value 5of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 108: k3
+DEBUG 02:27:02,805 - term SingleFactorterm is type 4
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 110: t
+DEBUG 02:27:02,805 - designator simple at line 111: i
+DEBUG 02:27:02,805 - found constant with value 0of type 1
+DEBUG 02:27:02,805 - constant factor is type 1
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 114: i
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 114: postaviTezinu
+DEBUG 02:27:02,805 - designator simple at line 114: t
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,805 - exprWithNoMinus
+DEBUG 02:27:02,805 - designator simple at line 115: i
+DEBUG 02:27:02,805 - designator simple at line 116: i
+DEBUG 02:27:02,805 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - found constant with value 6of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 119: i
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 120: zapreminaS
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 121: tezinaS
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 124: i
+DEBUG 02:27:02,806 - designator simple at line 125: i
+DEBUG 02:27:02,806 - found constant with value 2of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term element is type 1
+DEBUG 02:27:02,806 - term list single is type 1
+DEBUG 02:27:02,806 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 126: zapreminaS
+DEBUG 02:27:02,806 - designator simple at line 126: zapreminaS
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - designator simple at line 126: i
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - found constant with value 1of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 126: zapremina
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 127: tezinaS
+DEBUG 02:27:02,806 - designator simple at line 127: tezinaS
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - designator simple at line 127: i
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - found constant with value 1of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 127: Q
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 128: ispis
+DEBUG 02:27:02,806 - designator simple at line 128: i
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - found constant with value 1of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - term SingleFactorterm is type 4
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 129: i
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - found constant with value 6of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 131: i
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 132: zapreminaK
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,806 - constant factor is type 1
+DEBUG 02:27:02,806 - term SingleFactorterm is type 1
+DEBUG 02:27:02,806 - exprWithNoMinus
+DEBUG 02:27:02,806 - designator simple at line 132: tezinaK
+DEBUG 02:27:02,806 - found constant with value 0of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 135: i
+DEBUG 02:27:02,807 - designator simple at line 136: i
+DEBUG 02:27:02,807 - found constant with value 2of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term element is type 1
+DEBUG 02:27:02,807 - term list single is type 1
+DEBUG 02:27:02,807 - term MultiFactorTerm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - found constant with value 1of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 137: zapreminaK
+DEBUG 02:27:02,807 - designator simple at line 137: zapreminaK
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - designator simple at line 137: i
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - found constant with value 1of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 137: zapremina
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 138: tezinaK
+DEBUG 02:27:02,807 - designator simple at line 138: tezinaK
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - designator simple at line 138: i
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - found constant with value 1of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 138: Q
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 139: ispis
+DEBUG 02:27:02,807 - designator simple at line 139: i
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - found constant with value 1of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - term SingleFactorterm is type 4
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 140: i
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - found constant with value 6of type 1
+DEBUG 02:27:02,807 - constant factor is type 1
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - designator simple at line 142: zapreminaS
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 1
+DEBUG 02:27:02,807 - designator simple at line 142: eol
+DEBUG 02:27:02,807 - term SingleFactorterm is type 2
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 2
+DEBUG 02:27:02,807 - designator simple at line 143: zapreminaK
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 1
+DEBUG 02:27:02,807 - designator simple at line 143: eol
+DEBUG 02:27:02,807 - term SingleFactorterm is type 2
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 2
+DEBUG 02:27:02,807 - designator simple at line 144: tezinaS
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 1
+DEBUG 02:27:02,807 - designator simple at line 144: eol
+DEBUG 02:27:02,807 - term SingleFactorterm is type 2
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 2
+DEBUG 02:27:02,807 - designator simple at line 145: tezinaK
+DEBUG 02:27:02,807 - term SingleFactorterm is type 1
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 1
+DEBUG 02:27:02,807 - designator simple at line 145: eol
+DEBUG 02:27:02,807 - term SingleFactorterm is type 2
+DEBUG 02:27:02,807 - exprWithNoMinus
+DEBUG 02:27:02,807 - print statement has arg of type 2
+INFO  02:27:02,807 - Print calls = 0
+DEBUG 02:27:02,808 - Predmet
+	postaviTezinu(0); ucitajTezinu(0); zapremina(0); Q(0); postaviVrstu(0); 
+Sfera
+	ucitajTezinu(0); Q(0); postaviVrstu(0); postaviTezinu(0); postaviPoluprecnik(0); zapremina(0); 
+Kvadar
+	ucitajTezinu(0); Q(0); postaviVrstu(0); postaviTezinu(0); postaviStranice(0); zapremina(0); 
+
+INFO  02:27:02,810 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+DEBUG 02:27:02,814 - class methoad call zapremina
+DEBUG 02:27:02,814 - updating vTableAddress by Predmet class. OldValue =  5
+DEBUG 02:27:02,814 - ^new value = 63
+DEBUG 02:27:02,814 - class methoad call postaviVrstu
+DEBUG 02:27:02,814 - updating vTableAddress by Sfera class. OldValue =  63
+DEBUG 02:27:02,815 - ^new value = 141
+DEBUG 02:27:02,815 - updating vTableAddress by Kvadar class. OldValue =  141
+DEBUG 02:27:02,815 - ^new value = 216
+DEBUG 02:27:02,815 - new called with level = 3
+DEBUG 02:27:02,815 - class is 4
+DEBUG 02:27:02,815 - new called with level = 3
+DEBUG 02:27:02,815 - class is 4
+DEBUG 02:27:02,815 - new called with level = 3
+DEBUG 02:27:02,815 - class is 4
+DEBUG 02:27:02,815 - new called with level = 5
+DEBUG 02:27:02,815 - class is 4
+DEBUG 02:27:02,815 - new called with level = 5
+DEBUG 02:27:02,815 - class is 4
+DEBUG 02:27:02,816 - new called with level = 5
+DEBUG 02:27:02,816 - class is 4
+DEBUG 02:27:02,816 - class methoad call postaviPoluprecnik
+DEBUG 02:27:02,816 - class methoad call postaviPoluprecnik
+DEBUG 02:27:02,816 - class methoad call postaviPoluprecnik
+DEBUG 02:27:02,816 - class methoad call postaviStranice
+DEBUG 02:27:02,816 - class methoad call postaviStranice
+DEBUG 02:27:02,816 - class methoad call postaviStranice
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call zapremina
+DEBUG 02:27:02,816 - class methoad call postaviTezinu
+DEBUG 02:27:02,817 - class methoad call zapremina
+DEBUG 02:27:02,817 - class methoad call Q
+DEBUG 02:27:02,817 - class methoad call zapremina
+DEBUG 02:27:02,817 - class methoad call Q
+INFO  02:27:02,819 - Finished code generation
+DEBUG 02:27:02,819 - Predmet
+	postaviTezinu(0); ucitajTezinu(10); zapremina(20); Q(28); postaviVrstu(92); 
+Sfera
+	ucitajTezinu(10); Q(28); postaviVrstu(92); postaviTezinu(102); postaviPoluprecnik(121); zapremina(228); 
+Kvadar
+	ucitajTezinu(10); Q(28); postaviVrstu(92); postaviTezinu(245); postaviStranice(264); zapremina(293); 
+
+INFO  02:27:02,819 - Parsiranje uspesno zavrseno!

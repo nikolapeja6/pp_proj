@@ -1,0 +1,74 @@
+INFO  17:21:04,874 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  17:21:04,902 - #40 program
+INFO  17:21:04,902 - #45 MJProgram
+INFO  17:21:04,902 - #34 {
+INFO  17:21:04,902 - #45 int
+INFO  17:21:04,902 - #45 main
+INFO  17:21:04,902 - #32 (
+INFO  17:21:04,902 - #33 )
+INFO  17:21:04,903 - #34 {
+INFO  17:21:04,903 - #41 print
+INFO  17:21:04,903 - #32 (
+INFO  17:21:04,903 - #9 1
+INFO  17:21:04,903 - #33 )
+INFO  17:21:04,904 - #13 ;
+INFO  17:21:04,904 - #41 print
+INFO  17:21:04,904 - #32 (
+INFO  17:21:04,904 - #9 2
+INFO  17:21:04,904 - #33 )
+INFO  17:21:04,904 - #13 ;
+INFO  17:21:04,904 - #41 print
+INFO  17:21:04,905 - #32 (
+INFO  17:21:04,905 - #10 a
+INFO  17:21:04,905 - #33 )
+INFO  17:21:04,905 - #13 ;
+INFO  17:21:04,905 - #41 print
+INFO  17:21:04,905 - #32 (
+INFO  17:21:04,905 - #11 true
+INFO  17:21:04,905 - #33 )
+INFO  17:21:04,906 - #13 ;
+INFO  17:21:04,906 - #41 print
+INFO  17:21:04,906 - #32 (
+INFO  17:21:04,906 - #11 false
+INFO  17:21:04,906 - #33 )
+INFO  17:21:04,906 - #13 ;
+INFO  17:21:04,906 - #8 return
+INFO  17:21:04,906 - #9 0
+INFO  17:21:04,906 - #13 ;
+INFO  17:21:04,906 - #35 }
+INFO  17:21:04,906 - #35 }
+INFO  17:21:04,908 - ***Abstract tree****
+INFO  17:21:04,908 - #0
+DEBUG 17:21:04,914 - found constant with value 1of type 1
+DEBUG 17:21:04,914 - constant factor is type 1
+DEBUG 17:21:04,914 - term SingleFactorterm is type 1
+DEBUG 17:21:04,914 - exprWithNoMinus is type 1
+DEBUG 17:21:04,914 - print statement has arg of type 1
+DEBUG 17:21:04,914 - found constant with value 2of type 1
+DEBUG 17:21:04,914 - constant factor is type 1
+DEBUG 17:21:04,914 - term SingleFactorterm is type 1
+DEBUG 17:21:04,914 - exprWithNoMinus is type 1
+DEBUG 17:21:04,914 - print statement has arg of type 1
+DEBUG 17:21:04,914 - found constant with value 2of type 1
+DEBUG 17:21:04,914 - found constant with value 97of type 1
+DEBUG 17:21:04,914 - constant factor is type 1
+DEBUG 17:21:04,914 - term SingleFactorterm is type 1
+DEBUG 17:21:04,914 - exprWithNoMinus is type 1
+DEBUG 17:21:04,914 - print statement has arg of type 1
+DEBUG 17:21:04,914 - found constant with value 1of type 1
+DEBUG 17:21:04,914 - constant factor is type 1
+DEBUG 17:21:04,914 - term SingleFactorterm is type 1
+DEBUG 17:21:04,914 - exprWithNoMinus is type 1
+DEBUG 17:21:04,914 - print statement has arg of type 1
+DEBUG 17:21:04,914 - found constant with value 0of type 1
+DEBUG 17:21:04,915 - constant factor is type 1
+DEBUG 17:21:04,915 - term SingleFactorterm is type 1
+DEBUG 17:21:04,915 - exprWithNoMinus is type 1
+DEBUG 17:21:04,915 - print statement has arg of type 1
+DEBUG 17:21:04,915 - found constant with value 0of type 1
+DEBUG 17:21:04,915 - constant factor is type 1
+DEBUG 17:21:04,915 - term SingleFactorterm is type 1
+DEBUG 17:21:04,915 - exprWithNoMinus is type 1
+INFO  17:21:04,915 - Print calls = 0
+INFO  17:21:04,915 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj
+INFO  17:21:04,919 - Parsiranje uspesno zavrseno!

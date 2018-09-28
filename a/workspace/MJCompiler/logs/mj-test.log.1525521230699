@@ -1,0 +1,20 @@
+INFO  13:53:27,360 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class2.mj
+INFO  13:53:27,416 - #40 program
+INFO  13:53:27,416 - #45 BBB
+INFO  13:53:27,416 - #38 class
+INFO  13:53:27,416 - #45 A
+INFO  13:53:27,416 - #34 {
+INFO  13:53:27,417 - #45 int
+INFO  13:53:27,417 - #45 a
+INFO  13:53:27,417 - #13 ;
+INFO  13:53:27,417 - #45 int
+INFO  13:53:27,418 - #45 op
+INFO  13:53:27,418 - #32 (
+ERROR 13:53:27,418 - Sintaksna greska na liniji 6
+ERROR 13:53:27,418 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
+INFO  13:53:27,422 - ***Abstract tree****
+INFO  13:53:27,422 - #18
+INFO  13:53:27,427 - Print calls = 0
+DEBUG 13:53:27,428 - 
+INFO  13:53:27,430 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  13:53:27,434 - Parsiranje uspesno zavrseno!

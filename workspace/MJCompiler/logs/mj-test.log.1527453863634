@@ -1,0 +1,28 @@
+INFO  22:44:03,745 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green2.mj
+INFO  22:44:03,816 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  22:44:03,816 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  22:44:03,816 - Searching for obj noObj (line 8) - found Var noObj: notype, -1, -1  on line 7
+INFO  22:44:03,817 - Searching for obj noObj (line 20) - found Var noObj: notype, -1, -1  on line 19
+INFO  22:44:03,817 - Searching for obj int (line 20) - found Type int: int, -1, -1  on line 19
+INFO  22:44:03,818 - Searching for obj noObj (line 20) - found Var noObj: notype, -1, -1  on line 19
+INFO  22:44:03,818 - Searching for obj int (line 20) - found Type int: int, -1, -1  on line 19
+INFO  22:44:03,818 - Searching for obj noObj (line 20) - found Var noObj: notype, -1, -1  on line 19
+INFO  22:44:03,818 - Searching for obj i (line 22) - found Var i: int, 1, 1  on line 21
+INFO  22:44:03,819 - Searching for obj i (line 24) - found Var i: int, 1, 1  on line 23
+INFO  22:44:03,819 - Searching for obj i (line 25) - found Var i: int, 1, 1  on line 24
+INFO  22:44:03,819 - Searching for obj time (line 25) - found Var time: int, 0, 1  on line 24
+INFO  22:44:03,819 - Searching for obj noObj (line 29) - found Var noObj: notype, -1, -1  on line 28
+INFO  22:44:03,819 - Searching for obj noObj (line 43) - found Var noObj: notype, -1, -1  on line 42
+INFO  22:44:03,819 - Searching for obj hello (line 45) - found Meth hello: notype, 0, 0 
+ on line 44
+INFO  22:44:03,819 - Searching for obj end (line 48) - found Meth end: notype, 0, 0 
+ on line 47
+INFO  22:44:03,820 - =========================   Counters   =========================
+INFO  22:44:03,820 - 0 classes found.
+INFO  22:44:03,821 - 4 global functions found.
+INFO  22:44:03,822 - 0 global variables found.
+INFO  22:44:03,822 - 1 global constants found.
+INFO  22:44:03,823 - 0 global array variables found.
+INFO  22:44:03,823 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  22:44:03,832 - Finished code generation
+INFO  22:44:03,832 - SUCCESS!

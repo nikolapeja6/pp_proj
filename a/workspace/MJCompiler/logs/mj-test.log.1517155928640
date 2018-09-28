@@ -1,0 +1,431 @@
+INFO  17:11:29,630 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\test301.mj
+INFO  17:11:29,633 - #41 program
+ type = 41
+INFO  17:11:29,633 - #46 test301
+ type = 46
+INFO  17:11:29,633 - #45 const
+ type = 45
+INFO  17:11:29,633 - #46 int
+ type = 46
+INFO  17:11:29,633 - #46 jedan
+ type = 46
+INFO  17:11:29,633 - #29 =
+ type = 29
+INFO  17:11:29,633 - #9 1
+ type = 9
+INFO  17:11:29,633 - #14 ;
+ type = 14
+INFO  17:11:29,633 - #45 const
+ type = 45
+INFO  17:11:29,633 - #46 int
+ type = 46
+INFO  17:11:29,633 - #46 pet
+ type = 46
+INFO  17:11:29,633 - #29 =
+ type = 29
+INFO  17:11:29,633 - #9 5
+ type = 9
+INFO  17:11:29,634 - #14 ;
+ type = 14
+INFO  17:11:29,634 - #46 int
+ type = 46
+INFO  17:11:29,634 - #46 niz
+ type = 46
+INFO  17:11:29,634 - #37 [
+ type = 37
+INFO  17:11:29,634 - #38 ]
+ type = 38
+INFO  17:11:29,634 - #14 ;
+ type = 14
+INFO  17:11:29,634 - #46 char
+ type = 46
+INFO  17:11:29,634 - #46 nizch
+ type = 46
+INFO  17:11:29,634 - #37 [
+ type = 37
+INFO  17:11:29,634 - #38 ]
+ type = 38
+INFO  17:11:29,634 - #14 ;
+ type = 14
+INFO  17:11:29,634 - #35 {
+ type = 35
+INFO  17:11:29,634 - #44 void
+ type = 44
+INFO  17:11:29,634 - #46 main
+ type = 46
+INFO  17:11:29,634 - #33 (
+ type = 33
+INFO  17:11:29,634 - #34 )
+ type = 34
+INFO  17:11:29,634 - #46 int
+ type = 46
+INFO  17:11:29,634 - #46 bodovi
+ type = 46
+INFO  17:11:29,634 - #14 ;
+ type = 14
+INFO  17:11:29,634 - #35 {
+ type = 35
+INFO  17:11:29,634 - #46 bodovi
+ type = 46
+INFO  17:11:29,634 - #29 =
+ type = 29
+INFO  17:11:29,634 - #9 0
+ type = 9
+INFO  17:11:29,634 - #14 ;
+ type = 14
+INFO  17:11:29,634 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #30 ++
+ type = 30
+INFO  17:11:29,635 - #14 ;
+ type = 14
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #29 =
+ type = 29
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #16 +
+ type = 16
+INFO  17:11:29,635 - #46 jedan
+ type = 46
+INFO  17:11:29,635 - #14 ;
+ type = 14
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #29 =
+ type = 29
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #18 *
+ type = 18
+INFO  17:11:29,635 - #46 pet
+ type = 46
+INFO  17:11:29,635 - #14 ;
+ type = 14
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #31 --
+ type = 31
+INFO  17:11:29,635 - #14 ;
+ type = 14
+INFO  17:11:29,635 - #42 print
+ type = 42
+INFO  17:11:29,635 - #33 (
+ type = 33
+INFO  17:11:29,635 - #46 bodovi
+ type = 46
+INFO  17:11:29,635 - #34 )
+ type = 34
+INFO  17:11:29,635 - #14 ;
+ type = 14
+INFO  17:11:29,635 - #46 niz
+ type = 46
+INFO  17:11:29,635 - #29 =
+ type = 29
+INFO  17:11:29,635 - #32 new
+ type = 32
+INFO  17:11:29,635 - #46 int
+ type = 46
+INFO  17:11:29,635 - #37 [
+ type = 37
+INFO  17:11:29,636 - #9 2
+ type = 9
+INFO  17:11:29,636 - #38 ]
+ type = 38
+INFO  17:11:29,636 - #14 ;
+ type = 14
+INFO  17:11:29,636 - #46 niz
+ type = 46
+INFO  17:11:29,636 - #37 [
+ type = 37
+INFO  17:11:29,636 - #9 0
+ type = 9
+INFO  17:11:29,636 - #38 ]
+ type = 38
+INFO  17:11:29,636 - #29 =
+ type = 29
+INFO  17:11:29,636 - #46 pet
+ type = 46
+INFO  17:11:29,636 - #14 ;
+ type = 14
+INFO  17:11:29,636 - #46 niz
+ type = 46
+INFO  17:11:29,636 - #37 [
+ type = 37
+INFO  17:11:29,636 - #9 1
+ type = 9
+INFO  17:11:29,636 - #38 ]
+ type = 38
+INFO  17:11:29,636 - #29 =
+ type = 29
+INFO  17:11:29,636 - #9 10
+ type = 9
+INFO  17:11:29,636 - #14 ;
+ type = 14
+INFO  17:11:29,636 - #46 bodovi
+ type = 46
+INFO  17:11:29,636 - #29 =
+ type = 29
+INFO  17:11:29,636 - #46 niz
+ type = 46
+INFO  17:11:29,636 - #37 [
+ type = 37
+INFO  17:11:29,636 - #9 1
+ type = 9
+INFO  17:11:29,636 - #38 ]
+ type = 38
+INFO  17:11:29,636 - #19 /
+ type = 19
+INFO  17:11:29,636 - #46 niz
+ type = 46
+INFO  17:11:29,636 - #37 [
+ type = 37
+INFO  17:11:29,636 - #9 0
+ type = 9
+INFO  17:11:29,636 - #38 ]
+ type = 38
+INFO  17:11:29,636 - #14 ;
+ type = 14
+INFO  17:11:29,636 - #42 print
+ type = 42
+INFO  17:11:29,637 - #33 (
+ type = 33
+INFO  17:11:29,637 - #46 bodovi
+ type = 46
+INFO  17:11:29,637 - #34 )
+ type = 34
+INFO  17:11:29,637 - #14 ;
+ type = 14
+INFO  17:11:29,637 - #42 print
+ type = 42
+INFO  17:11:29,637 - #33 (
+ type = 33
+INFO  17:11:29,637 - #46 niz
+ type = 46
+INFO  17:11:29,637 - #37 [
+ type = 37
+INFO  17:11:29,637 - #9 1
+ type = 9
+INFO  17:11:29,637 - #38 ]
+ type = 38
+INFO  17:11:29,637 - #34 )
+ type = 34
+INFO  17:11:29,637 - #14 ;
+ type = 14
+INFO  17:11:29,637 - #46 nizch
+ type = 46
+INFO  17:11:29,637 - #29 =
+ type = 29
+INFO  17:11:29,637 - #32 new
+ type = 32
+INFO  17:11:29,637 - #46 char
+ type = 46
+INFO  17:11:29,637 - #37 [
+ type = 37
+INFO  17:11:29,637 - #9 3
+ type = 9
+INFO  17:11:29,637 - #38 ]
+ type = 38
+INFO  17:11:29,637 - #14 ;
+ type = 14
+INFO  17:11:29,637 - #46 nizch
+ type = 46
+INFO  17:11:29,637 - #37 [
+ type = 37
+INFO  17:11:29,637 - #9 0
+ type = 9
+INFO  17:11:29,637 - #38 ]
+ type = 38
+INFO  17:11:29,637 - #29 =
+ type = 29
+INFO  17:11:29,637 - #10 a
+ type = 10
+INFO  17:11:29,637 - #14 ;
+ type = 14
+INFO  17:11:29,637 - #46 nizch
+ type = 46
+INFO  17:11:29,637 - #37 [
+ type = 37
+INFO  17:11:29,637 - #46 jedan
+ type = 46
+INFO  17:11:29,637 - #38 ]
+ type = 38
+INFO  17:11:29,637 - #29 =
+ type = 29
+ERROR 17:11:29,638 - Leksicka greska (') u liniji 34
+INFO  17:11:29,638 - #46 b
+ type = 46
+ERROR 17:11:29,638 - Leksicka greska (') u liniji 34
+INFO  17:11:29,638 - #14 ;
+ type = 14
+INFO  17:11:29,638 - #46 nizch
+ type = 46
+INFO  17:11:29,638 - #37 [
+ type = 37
+INFO  17:11:29,638 - #46 pet
+ type = 46
+INFO  17:11:29,638 - #17 -
+ type = 17
+INFO  17:11:29,638 - #9 3
+ type = 9
+INFO  17:11:29,638 - #38 ]
+ type = 38
+INFO  17:11:29,638 - #29 =
+ type = 29
+ERROR 17:11:29,638 - Leksicka greska (') u liniji 35
+INFO  17:11:29,638 - #46 c
+ type = 46
+ERROR 17:11:29,638 - Leksicka greska (') u liniji 35
+INFO  17:11:29,638 - #14 ;
+ type = 14
+INFO  17:11:29,638 - #42 print
+ type = 42
+INFO  17:11:29,638 - #33 (
+ type = 33
+INFO  17:11:29,638 - #46 nizch
+ type = 46
+INFO  17:11:29,638 - #37 [
+ type = 37
+INFO  17:11:29,638 - #9 2
+ type = 9
+INFO  17:11:29,638 - #17 -
+ type = 17
+INFO  17:11:29,638 - #9 1
+ type = 9
+INFO  17:11:29,638 - #38 ]
+ type = 38
+INFO  17:11:29,638 - #34 )
+ type = 34
+INFO  17:11:29,638 - #14 ;
+ type = 14
+INFO  17:11:29,638 - #42 print
+ type = 42
+INFO  17:11:29,638 - #33 (
+ type = 33
+INFO  17:11:29,638 - #46 nizch
+ type = 46
+INFO  17:11:29,638 - #37 [
+ type = 37
+INFO  17:11:29,638 - #46 jedan
+ type = 46
+INFO  17:11:29,638 - #18 *
+ type = 18
+INFO  17:11:29,638 - #9 2
+ type = 9
+INFO  17:11:29,638 - #38 ]
+ type = 38
+INFO  17:11:29,638 - #34 )
+ type = 34
+INFO  17:11:29,639 - #14 ;
+ type = 14
+INFO  17:11:29,639 - #46 bodovi
+ type = 46
+INFO  17:11:29,639 - #29 =
+ type = 29
+INFO  17:11:29,639 - #46 bodovi
+ type = 46
+INFO  17:11:29,639 - #16 +
+ type = 16
+INFO  17:11:29,639 - #33 (
+ type = 33
+INFO  17:11:29,639 - #33 (
+ type = 33
+INFO  17:11:29,639 - #46 pet
+ type = 46
+INFO  17:11:29,639 - #18 *
+ type = 18
+INFO  17:11:29,639 - #46 jedan
+ type = 46
+INFO  17:11:29,639 - #17 -
+ type = 17
+INFO  17:11:29,639 - #9 1
+ type = 9
+INFO  17:11:29,639 - #34 )
+ type = 34
+INFO  17:11:29,639 - #18 *
+ type = 18
+INFO  17:11:29,639 - #9 2
+ type = 9
+INFO  17:11:29,639 - #17 -
+ type = 17
+INFO  17:11:29,639 - #33 (
+ type = 33
+INFO  17:11:29,639 - #9 3
+ type = 9
+INFO  17:11:29,639 - #20 %
+ type = 20
+INFO  17:11:29,639 - #9 2
+ type = 9
+INFO  17:11:29,639 - #16 +
+ type = 16
+INFO  17:11:29,639 - #9 3
+ type = 9
+INFO  17:11:29,639 - #18 *
+ type = 18
+INFO  17:11:29,639 - #9 2
+ type = 9
+INFO  17:11:29,639 - #17 -
+ type = 17
+INFO  17:11:29,639 - #9 3
+ type = 9
+INFO  17:11:29,639 - #34 )
+ type = 34
+INFO  17:11:29,639 - #17 -
+ type = 17
+INFO  17:11:29,639 - #9 1
+ type = 9
+INFO  17:11:29,639 - #18 *
+ type = 18
+INFO  17:11:29,639 - #9 0
+ type = 9
+INFO  17:11:29,639 - #34 )
+ type = 34
+INFO  17:11:29,639 - #14 ;
+ type = 14
+INFO  17:11:29,639 - #42 print
+ type = 42
+INFO  17:11:29,639 - #33 (
+ type = 33
+INFO  17:11:29,639 - #46 bodovi
+ type = 46
+INFO  17:11:29,639 - #34 )
+ type = 34
+INFO  17:11:29,639 - #14 ;
+ type = 14
+INFO  17:11:29,639 - #43 read
+ type = 43
+INFO  17:11:29,640 - #33 (
+ type = 33
+INFO  17:11:29,640 - #46 bodovi
+ type = 46
+INFO  17:11:29,640 - #34 )
+ type = 34
+INFO  17:11:29,640 - #14 ;
+ type = 14
+INFO  17:11:29,640 - #46 bodovi
+ type = 46
+INFO  17:11:29,640 - #29 =
+ type = 29
+INFO  17:11:29,640 - #46 bodovi
+ type = 46
+INFO  17:11:29,640 - #16 +
+ type = 16
+INFO  17:11:29,640 - #9 1
+ type = 9
+INFO  17:11:29,640 - #14 ;
+ type = 14
+INFO  17:11:29,640 - #42 print
+ type = 42
+INFO  17:11:29,640 - #33 (
+ type = 33
+INFO  17:11:29,640 - #46 bodovi
+ type = 46
+INFO  17:11:29,640 - #34 )
+ type = 34
+INFO  17:11:29,640 - #14 ;
+ type = 14
+INFO  17:11:29,640 - #36 }
+ type = 36
+INFO  17:11:29,640 - #36 }
+ type = 36

@@ -1,0 +1,84 @@
+INFO  00:42:34,472 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  00:42:34,528 - #40 program
+INFO  00:42:34,528 - #45 BBB
+INFO  00:42:34,528 - #38 class
+INFO  00:42:34,528 - #45 A
+INFO  00:42:34,528 - #34 {
+INFO  00:42:34,528 - #45 int
+INFO  00:42:34,528 - #45 b
+INFO  00:42:34,529 - #13 ;
+INFO  00:42:34,529 - #35 }
+INFO  00:42:34,529 - #38 class
+INFO  00:42:34,530 - #45 B
+INFO  00:42:34,530 - #34 {
+INFO  00:42:34,530 - #45 A
+INFO  00:42:34,530 - #45 a
+INFO  00:42:34,530 - #13 ;
+INFO  00:42:34,530 - #45 int
+INFO  00:42:34,530 - #45 x
+INFO  00:42:34,531 - #13 ;
+INFO  00:42:34,531 - #35 }
+INFO  00:42:34,531 - #38 class
+INFO  00:42:34,531 - #45 C
+INFO  00:42:34,531 - #34 {
+INFO  00:42:34,531 - #45 B
+INFO  00:42:34,531 - #45 b
+INFO  00:42:34,531 - #13 ;
+INFO  00:42:34,531 - #35 }
+INFO  00:42:34,531 - #34 {
+INFO  00:42:34,531 - #43 void
+INFO  00:42:34,532 - #45 main
+INFO  00:42:34,533 - #32 (
+INFO  00:42:34,533 - #33 )
+INFO  00:42:34,533 - #45 C
+INFO  00:42:34,533 - #45 c
+INFO  00:42:34,533 - #13 ;
+INFO  00:42:34,533 - #34 {
+INFO  00:42:34,533 - #45 c
+INFO  00:42:34,534 - #28 =
+INFO  00:42:34,534 - #31 new
+INFO  00:42:34,534 - #45 C
+INFO  00:42:34,534 - #13 ;
+INFO  00:42:34,535 - #45 c
+INFO  00:42:34,535 - #14 .
+INFO  00:42:34,536 - #45 b
+INFO  00:42:34,536 - #28 =
+INFO  00:42:34,536 - #31 new
+INFO  00:42:34,536 - #45 B
+INFO  00:42:34,536 - #13 ;
+INFO  00:42:34,536 - #45 c
+INFO  00:42:34,536 - #14 .
+INFO  00:42:34,536 - #45 b
+INFO  00:42:34,536 - #14 .
+INFO  00:42:34,536 - #45 a
+INFO  00:42:34,536 - #28 =
+INFO  00:42:34,536 - #31 new
+INFO  00:42:34,536 - #45 A
+INFO  00:42:34,536 - #13 ;
+INFO  00:42:34,536 - #45 c
+INFO  00:42:34,536 - #14 .
+INFO  00:42:34,537 - #45 b
+INFO  00:42:34,537 - #14 .
+INFO  00:42:34,537 - #45 a
+INFO  00:42:34,537 - #14 .
+INFO  00:42:34,537 - #45 b
+INFO  00:42:34,537 - #28 =
+INFO  00:42:34,537 - #9 5
+INFO  00:42:34,537 - #13 ;
+INFO  00:42:34,537 - #45 c
+INFO  00:42:34,537 - #14 .
+INFO  00:42:34,537 - #45 b
+INFO  00:42:34,537 - #14 .
+INFO  00:42:34,537 - #45 x
+INFO  00:42:34,537 - #28 =
+INFO  00:42:34,537 - #9 5
+INFO  00:42:34,537 - #41 print
+ERROR 00:42:34,537 - Sintaksna greska na liniji 27
+ERROR 00:42:34,538 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 27
+INFO  00:42:34,541 - ***Abstract tree****
+INFO  00:42:34,541 - #41
+ERROR 00:42:34,545 - Identifier c was not defined.
+ERROR 00:42:34,545 - Identifier b was not defined.
+ERROR 00:42:34,545 - Identifier x was not defined.
+INFO  00:42:34,545 - Print calls = 0
+ERROR 00:42:34,546 - Parsiranje NIJE uspesno zavrseno!

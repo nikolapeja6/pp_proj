@@ -1,0 +1,131 @@
+INFO  00:46:34,627 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\C\Green1.mj
+INFO  00:46:34,694 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  00:46:34,695 - Searching for obj noObj (line 10) - found Var noObj: notype, -1, -1  on line 9
+INFO  00:46:34,696 - Searching for obj A (line 16) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 15
+INFO  00:46:34,697 - Searching for obj A (line 16) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 15
+INFO  00:46:34,697 - Searching for obj noObj (line 16) - found Var noObj: notype, -1, -1  on line 15
+INFO  00:46:34,697 - Searching for obj doSomething (line 18) - found doSomething: notype, 0, 1  on line 17
+ERROR 00:46:34,697 - Method doSomething already declared. on line 17
+INFO  00:46:34,697 - Searching for obj noObj (line 20) - found Var noObj: notype, -1, -1  on line 19
+ERROR 00:46:34,697 - Identifier a was not defined. on line 19
+INFO  00:46:34,698 - Searching for obj doSomething (line 20) - found doSomething: notype, 0, 1 Var this: , 0, 1 
+ on line 19
+INFO  00:46:34,698 - Searching for obj B (line 25) - found Type B: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+Var this: , 0, 1 ], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+Var this: , 0, 1 
+ on line 24
+INFO  00:46:34,698 - Searching for obj B (line 25) - found Type B: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+Var this: , 0, 1 ], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+Var this: , 0, 1 
+ on line 24
+INFO  00:46:34,698 - Searching for obj noObj (line 25) - found Var noObj: notype, -1, -1  on line 24
+INFO  00:46:34,698 - Searching for obj doSomething (line 27) - found doSomething: notype, 0, 1  on line 26
+ERROR 00:46:34,698 - Method doSomething already declared. on line 26
+INFO  00:46:34,698 - Searching for obj noObj (line 29) - found Var noObj: notype, -1, -1  on line 28
+ERROR 00:46:34,698 - Identifier a was not defined. on line 28
+INFO  00:46:34,698 - Searching for obj doSomething (line 29) - found doSomething: notype, 0, 1 Var this: , 0, 1 
+ on line 28
+INFO  00:46:34,698 - Searching for obj noObj (line 34) - found Var noObj: notype, -1, -1  on line 33
+INFO  00:46:34,698 - Searching for obj A (line 35) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 34
+INFO  00:46:34,698 - Searching for obj noObj (line 35) - found Var noObj: notype, -1, -1  on line 34
+INFO  00:46:34,699 - Searching for obj noObj (line 38) - found Var noObj: notype, -1, -1  on line 37
+INFO  00:46:34,699 - Searching for obj A (line 38) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 37
+INFO  00:46:34,699 - Searching for obj a (line 38) - found Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1  on line 37
+INFO  00:46:34,699 - Searching for obj this (line 38) - found Var this: , 0, 1  on line 37
+INFO  00:46:34,699 - Searching for obj a (line 38) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1  on line 37
+INFO  00:46:34,699 - Searching for obj a (line 38) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1  on line 37
+INFO  00:46:34,699 - Searching for obj noObj (line 38) - found Var noObj: notype, -1, -1  on line 37
+ERROR 00:46:34,699 - Identifier dpSomethig was not defined. on line 37
+INFO  00:46:34,699 - Searching for obj noObj (line 46) - found Var noObj: notype, -1, -1  on line 45
+INFO  00:46:34,699 - Searching for obj A (line 46) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 45
+INFO  00:46:34,699 - Searching for obj noObj (line 46) - found Var noObj: notype, -1, -1  on line 45
+INFO  00:46:34,699 - Searching for obj Wrapper (line 46) - found Type Wrapper: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 0, 2 Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+
+ on line 45
+INFO  00:46:34,700 - Searching for obj noObj (line 46) - found Var noObj: notype, -1, -1  on line 45
+INFO  00:46:34,700 - Searching for obj a (line 47) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 46
+INFO  00:46:34,700 - Searching for obj A (line 47) - found Type A: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+ on line 46
+INFO  00:46:34,700 - Searching for obj x (line 48) - found Var x: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 1, 1  on line 47
+INFO  00:46:34,700 - Searching for obj Wrapper (line 48) - found Type Wrapper: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 0, 2 Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+
+ on line 47
+INFO  00:46:34,700 - Searching for obj x (line 49) - found Var x: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 1, 1  on line 48
+INFO  00:46:34,700 - Searching for obj a (line 49) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 48
+INFO  00:46:34,700 - Searching for obj a (line 51) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 50
+INFO  00:46:34,700 - Searching for obj B (line 51) - found Type B: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+Var this: , 0, 1 ], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+Var this: , 0, 1 
+ on line 50
+INFO  00:46:34,700 - Searching for obj x (line 52) - found Var x: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 1, 1  on line 51
+INFO  00:46:34,700 - Searching for obj a (line 52) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 51
+INFO  00:46:34,700 - Searching for obj a (line 54) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 53
+INFO  00:46:34,701 - Searching for obj C (line 54) - found Type C: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+Var this: , 0, 1 ], 0, 1 doSomething: notype, 0, 1 Var this: , 0, 1 
+
+Var this: , 0, 1 
+ on line 53
+INFO  00:46:34,701 - Searching for obj x (line 55) - found Var x: Class [Fld a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 setA: notype, 0, 2 Var this: , 0, 1 
+Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 1, 1 
+], 1, 1  on line 54
+INFO  00:46:34,701 - Searching for obj a (line 55) - found Var a: Class [doSomething: notype, 0, 1 Var this: , 0, 1 
+], 0, 1  on line 54
+ERROR 00:46:34,701 - Compilation was UNSUCCESSFUL!

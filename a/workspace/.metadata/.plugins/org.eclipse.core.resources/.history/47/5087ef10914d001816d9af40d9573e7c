@@ -1,0 +1,38 @@
+program BBB
+
+	class A {
+		int b;
+	}
+	
+	class B{
+		A a;
+		int x;
+	}
+	
+	class C{
+		B b;
+	}
+{
+	void main() C c;
+	{
+		c = new C;
+		
+		c.b = new B;
+		
+		c.b.a = new A;
+		
+		c.b.a.b = 5;
+		c.b.x = 2;
+		
+		print(c.b.a.b);
+		
+		c.b.a.b = c.b.a.b * c.b.a.b * c.b.x;
+		
+		print(c.b.a.b);
+		
+		//a = new A;
+		//a.b = 5;
+		
+		//print(a.b);
+	}
+}

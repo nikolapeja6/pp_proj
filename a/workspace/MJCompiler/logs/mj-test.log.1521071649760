@@ -1,0 +1,44 @@
+INFO  00:39:33,676 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  00:39:33,727 - #40 program
+INFO  00:39:33,728 - #45 BBB
+INFO  00:39:33,728 - #38 class
+INFO  00:39:33,728 - #45 A
+INFO  00:39:33,728 - #34 {
+INFO  00:39:33,728 - #45 int
+INFO  00:39:33,728 - #45 x
+INFO  00:39:33,728 - #13 ;
+INFO  00:39:33,728 - #35 }
+INFO  00:39:33,729 - #34 {
+INFO  00:39:33,729 - #43 void
+INFO  00:39:33,730 - #45 main
+INFO  00:39:33,731 - #32 (
+INFO  00:39:33,731 - #33 )
+INFO  00:39:33,731 - #45 A
+INFO  00:39:33,731 - #45 a
+INFO  00:39:33,731 - #13 ;
+INFO  00:39:33,731 - #34 {
+INFO  00:39:33,731 - #45 a
+INFO  00:39:33,732 - #28 =
+INFO  00:39:33,732 - #31 new
+INFO  00:39:33,732 - #45 A
+INFO  00:39:33,733 - #13 ;
+INFO  00:39:33,734 - #45 a
+INFO  00:39:33,734 - #14 .
+INFO  00:39:33,734 - #45 x
+INFO  00:39:33,734 - #28 =
+INFO  00:39:33,735 - #9 5
+INFO  00:39:33,735 - #13 ;
+INFO  00:39:33,735 - #41 print
+INFO  00:39:33,735 - #32 (
+INFO  00:39:33,735 - #45 a
+INFO  00:39:33,735 - #14 .
+INFO  00:39:33,735 - #45 x
+INFO  00:39:33,735 - #33 )
+INFO  00:39:33,735 - #13 ;
+INFO  00:39:33,735 - #35 }
+INFO  00:39:33,736 - #35 }
+INFO  00:39:33,737 - ***Abstract tree****
+INFO  00:39:33,737 - #0
+ERROR 00:39:33,745 - A is not a type. na liniji 6
+DEBUG 00:39:33,745 - Variable with name a has the address of 0
+ERROR 00:39:33,745 - A is not a type. na liniji 8

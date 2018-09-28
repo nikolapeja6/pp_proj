@@ -1,0 +1,121 @@
+INFO  02:40:03,674 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\f.mj
+INFO  02:40:03,733 - #40 program
+INFO  02:40:03,733 - #45 AAA
+INFO  02:40:03,733 - #34 {
+INFO  02:40:03,733 - #45 int
+INFO  02:40:03,734 - #45 sum
+INFO  02:40:03,735 - #32 (
+INFO  02:40:03,735 - #45 int
+INFO  02:40:03,735 - #45 a
+INFO  02:40:03,735 - #12 ,
+INFO  02:40:03,735 - #45 int
+INFO  02:40:03,735 - #45 b
+INFO  02:40:03,735 - #33 )
+INFO  02:40:03,735 - #34 {
+INFO  02:40:03,736 - #8 return
+INFO  02:40:03,736 - #45 a
+INFO  02:40:03,736 - #15 +
+INFO  02:40:03,736 - #45 b
+INFO  02:40:03,737 - #13 ;
+INFO  02:40:03,738 - #35 }
+INFO  02:40:03,738 - #43 void
+INFO  02:40:03,739 - #45 main
+INFO  02:40:03,740 - #32 (
+INFO  02:40:03,741 - #33 )
+INFO  02:40:03,741 - #45 int
+INFO  02:40:03,741 - #45 x
+INFO  02:40:03,741 - #12 ,
+INFO  02:40:03,741 - #45 y
+INFO  02:40:03,741 - #13 ;
+INFO  02:40:03,741 - #34 {
+INFO  02:40:03,742 - #45 x
+INFO  02:40:03,742 - #28 =
+INFO  02:40:03,742 - #9 1
+INFO  02:40:03,742 - #13 ;
+INFO  02:40:03,743 - #45 y
+INFO  02:40:03,743 - #28 =
+INFO  02:40:03,743 - #9 2
+INFO  02:40:03,743 - #13 ;
+INFO  02:40:03,743 - #41 print
+INFO  02:40:03,743 - #32 (
+INFO  02:40:03,743 - #45 sum
+INFO  02:40:03,743 - #32 (
+INFO  02:40:03,743 - #45 x
+INFO  02:40:03,743 - #12 ,
+INFO  02:40:03,744 - #45 y
+INFO  02:40:03,744 - #33 )
+INFO  02:40:03,744 - #33 )
+INFO  02:40:03,744 - #13 ;
+INFO  02:40:03,744 - #41 print
+INFO  02:40:03,744 - #32 (
+INFO  02:40:03,744 - #45 eol
+INFO  02:40:03,744 - #33 )
+INFO  02:40:03,744 - #13 ;
+INFO  02:40:03,744 - #45 x
+INFO  02:40:03,744 - #28 =
+INFO  02:40:03,744 - #45 sum
+INFO  02:40:03,744 - #32 (
+INFO  02:40:03,744 - #45 x
+INFO  02:40:03,744 - #12 ,
+INFO  02:40:03,745 - #45 y
+INFO  02:40:03,745 - #33 )
+INFO  02:40:03,745 - #13 ;
+INFO  02:40:03,745 - #45 y
+INFO  02:40:03,745 - #28 =
+INFO  02:40:03,745 - #45 sum
+INFO  02:40:03,745 - #32 (
+INFO  02:40:03,745 - #45 x
+INFO  02:40:03,745 - #12 ,
+INFO  02:40:03,745 - #45 x
+INFO  02:40:03,745 - #33 )
+INFO  02:40:03,745 - #13 ;
+INFO  02:40:03,745 - #41 print
+INFO  02:40:03,745 - #32 (
+INFO  02:40:03,745 - #10 x
+INFO  02:40:03,745 - #33 )
+INFO  02:40:03,745 - #13 ;
+INFO  02:40:03,745 - #41 print
+INFO  02:40:03,745 - #32 (
+INFO  02:40:03,745 - #45 x
+INFO  02:40:03,746 - #33 )
+INFO  02:40:03,746 - #13 ;
+INFO  02:40:03,746 - #41 print
+INFO  02:40:03,746 - #32 (
+INFO  02:40:03,746 - #45 eol
+INFO  02:40:03,746 - #33 )
+INFO  02:40:03,746 - #13 ;
+INFO  02:40:03,746 - #41 print
+INFO  02:40:03,746 - #32 (
+INFO  02:40:03,746 - #10 y
+INFO  02:40:03,746 - #33 )
+INFO  02:40:03,746 - #13 ;
+INFO  02:40:03,746 - #41 print
+INFO  02:40:03,746 - #32 (
+INFO  02:40:03,746 - #45 y
+INFO  02:40:03,746 - #33 )
+INFO  02:40:03,746 - #13 ;
+INFO  02:40:03,746 - #41 print
+INFO  02:40:03,746 - #32 (
+INFO  02:40:03,746 - #45 eol
+INFO  02:40:03,746 - #33 )
+INFO  02:40:03,746 - #13 ;
+INFO  02:40:03,746 - #35 }
+INFO  02:40:03,746 - #35 }
+INFO  02:40:03,748 - ***Abstract tree****
+INFO  02:40:03,748 - #0
+DEBUG 02:40:03,768 - term SingleFactorterm is type 1
+DEBUG 02:40:03,768 - term SingleFactorterm is type 1
+DEBUG 02:40:03,768 - exprWithNoMinus is type 1
+DEBUG 02:40:03,769 - Variable with name x has the address of 0
+DEBUG 02:40:03,769 - Variable with name y has the address of 1
+DEBUG 02:40:03,769 - found constant with value 1of type 1
+DEBUG 02:40:03,769 - constant factor is type 1
+DEBUG 02:40:03,769 - term SingleFactorterm is type 1
+DEBUG 02:40:03,769 - exprWithNoMinus is type 1
+DEBUG 02:40:03,769 - found constant with value 2of type 1
+DEBUG 02:40:03,769 - constant factor is type 1
+DEBUG 02:40:03,769 - term SingleFactorterm is type 1
+DEBUG 02:40:03,769 - exprWithNoMinus is type 1
+DEBUG 02:40:03,769 - term SingleFactorterm is type 1
+DEBUG 02:40:03,769 - exprWithNoMinus is type 1
+ERROR 02:40:03,770 - No appropreate act par found.

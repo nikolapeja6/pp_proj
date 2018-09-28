@@ -1,0 +1,103 @@
+INFO  02:45:00,832 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\correction.mj
+INFO  02:45:00,878 - #40 program
+INFO  02:45:00,878 - #45 MJProgram
+INFO  02:45:00,878 - #45 int
+INFO  02:45:00,879 - #45 jedan
+INFO  02:45:00,879 - #13 ;
+INFO  02:45:00,880 - #45 int
+INFO  02:45:00,880 - #45 pet
+INFO  02:45:00,880 - #13 ;
+INFO  02:45:00,880 - #45 char
+INFO  02:45:00,880 - #45 nizch
+INFO  02:45:00,881 - #36 [
+INFO  02:45:00,881 - #37 ]
+INFO  02:45:00,881 - #13 ;
+INFO  02:45:00,881 - #34 {
+INFO  02:45:00,881 - #43 void
+INFO  02:45:00,882 - #45 main
+INFO  02:45:00,882 - #32 (
+INFO  02:45:00,883 - #33 )
+INFO  02:45:00,883 - #34 {
+INFO  02:45:00,883 - #45 jedan
+INFO  02:45:00,883 - #28 =
+INFO  02:45:00,883 - #9 1
+INFO  02:45:00,883 - #13 ;
+INFO  02:45:00,885 - #45 pet
+INFO  02:45:00,885 - #28 =
+INFO  02:45:00,885 - #9 5
+INFO  02:45:00,885 - #13 ;
+INFO  02:45:00,885 - #45 nizch
+INFO  02:45:00,885 - #28 =
+INFO  02:45:00,885 - #31 new
+INFO  02:45:00,885 - #45 char
+INFO  02:45:00,886 - #36 [
+INFO  02:45:00,886 - #9 3
+INFO  02:45:00,886 - #37 ]
+INFO  02:45:00,886 - #13 ;
+INFO  02:45:00,886 - #45 nizch
+INFO  02:45:00,886 - #36 [
+INFO  02:45:00,886 - #9 0
+INFO  02:45:00,886 - #37 ]
+INFO  02:45:00,886 - #28 =
+INFO  02:45:00,886 - #10 a
+INFO  02:45:00,886 - #13 ;
+INFO  02:45:00,887 - #45 nizch
+INFO  02:45:00,887 - #36 [
+INFO  02:45:00,887 - #45 jedan
+INFO  02:45:00,887 - #37 ]
+INFO  02:45:00,887 - #28 =
+INFO  02:45:00,887 - #10 b
+INFO  02:45:00,887 - #13 ;
+INFO  02:45:00,887 - #45 nizch
+INFO  02:45:00,887 - #36 [
+INFO  02:45:00,887 - #45 pet
+INFO  02:45:00,887 - #16 -
+INFO  02:45:00,887 - #9 3
+INFO  02:45:00,888 - #37 ]
+INFO  02:45:00,888 - #28 =
+INFO  02:45:00,889 - #10 c
+INFO  02:45:00,889 - #13 ;
+INFO  02:45:00,889 - #41 print
+INFO  02:45:00,889 - #32 (
+INFO  02:45:00,889 - #45 nizch
+INFO  02:45:00,889 - #36 [
+INFO  02:45:00,889 - #9 2
+INFO  02:45:00,889 - #16 -
+INFO  02:45:00,889 - #9 1
+INFO  02:45:00,889 - #37 ]
+INFO  02:45:00,889 - #33 )
+INFO  02:45:00,889 - #13 ;
+INFO  02:45:00,890 - #41 print
+INFO  02:45:00,890 - #32 (
+INFO  02:45:00,890 - #45 nizch
+INFO  02:45:00,890 - #36 [
+INFO  02:45:00,890 - #45 jedan
+INFO  02:45:00,890 - #17 *
+INFO  02:45:00,890 - #9 2
+INFO  02:45:00,891 - #37 ]
+INFO  02:45:00,891 - #33 )
+INFO  02:45:00,892 - #13 ;
+INFO  02:45:00,892 - #35 }
+INFO  02:45:00,892 - #35 }
+INFO  02:45:00,893 - ***Abstract tree****
+INFO  02:45:00,894 - #0
+DEBUG 02:45:04,879 - Variable with name jedan has the address of 0
+DEBUG 02:45:04,879 - Variable with name pet has the address of 1
+DEBUG 02:45:10,158 - found constant with value 1of type 1
+DEBUG 02:45:10,158 - constant factor is type 1
+DEBUG 02:45:10,158 - term SingleFactorterm is type 1
+DEBUG 02:45:10,159 - exprWithNoMinus is type 1
+DEBUG 02:45:10,159 - found constant with value 5of type 1
+DEBUG 02:45:10,159 - constant factor is type 1
+DEBUG 02:45:10,159 - term SingleFactorterm is type 1
+DEBUG 02:45:10,159 - exprWithNoMinus is type 1
+DEBUG 02:45:10,159 - found constant with value 3of type 1
+DEBUG 02:45:10,159 - constant factor is type 1
+DEBUG 02:45:10,159 - term SingleFactorterm is type 1
+DEBUG 02:45:10,159 - exprWithNoMinus is type 1
+DEBUG 02:45:10,159 - term SingleFactorterm is type 3
+DEBUG 02:45:10,159 - exprWithNoMinus is type 3
+DEBUG 02:45:10,159 - found constant with value 0of type 1
+DEBUG 02:45:10,159 - constant factor is type 1
+DEBUG 02:45:10,159 - term SingleFactorterm is type 1
+DEBUG 02:45:10,159 - exprWithNoMinus is type 1

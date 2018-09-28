@@ -1,0 +1,99 @@
+INFO  02:24:05,294 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  02:24:05,339 - #40 program
+INFO  02:24:05,340 - #45 MJProgram
+INFO  02:24:05,340 - #45 int
+INFO  02:24:05,340 - #45 x
+INFO  02:24:05,340 - #13 ;
+INFO  02:24:05,340 - #45 int
+INFO  02:24:05,340 - #45 y
+INFO  02:24:05,341 - #13 ;
+INFO  02:24:05,341 - #34 {
+INFO  02:24:05,341 - #45 int
+INFO  02:24:05,341 - #45 k
+INFO  02:24:05,342 - #32 (
+INFO  02:24:05,342 - #33 )
+INFO  02:24:05,342 - #45 int
+INFO  02:24:05,342 - #45 c
+INFO  02:24:05,342 - #13 ;
+INFO  02:24:05,342 - #34 {
+INFO  02:24:05,342 - #45 c
+INFO  02:24:05,342 - #28 =
+INFO  02:24:05,342 - #9 1
+INFO  02:24:05,342 - #13 ;
+INFO  02:24:05,343 - #8 return
+INFO  02:24:05,344 - #45 c
+INFO  02:24:05,344 - #15 +
+INFO  02:24:05,344 - #9 2
+INFO  02:24:05,345 - #13 ;
+INFO  02:24:05,345 - #35 }
+INFO  02:24:05,346 - #45 int
+INFO  02:24:05,347 - #45 main
+INFO  02:24:05,347 - #32 (
+INFO  02:24:05,347 - #33 )
+INFO  02:24:05,347 - #34 {
+INFO  02:24:05,347 - #45 y
+INFO  02:24:05,347 - #28 =
+INFO  02:24:05,347 - #9 2
+INFO  02:24:05,347 - #13 ;
+INFO  02:24:05,347 - #45 x
+INFO  02:24:05,347 - #28 =
+INFO  02:24:05,347 - #45 y
+INFO  02:24:05,347 - #15 +
+INFO  02:24:05,347 - #9 2
+INFO  02:24:05,347 - #13 ;
+INFO  02:24:05,347 - #45 y
+INFO  02:24:05,348 - #28 =
+INFO  02:24:05,348 - #45 k
+INFO  02:24:05,348 - #32 (
+INFO  02:24:05,348 - #33 )
+INFO  02:24:05,348 - #15 +
+INFO  02:24:05,348 - #9 3
+INFO  02:24:05,348 - #13 ;
+INFO  02:24:05,348 - #41 print
+INFO  02:24:05,348 - #32 (
+INFO  02:24:05,348 - #45 y
+INFO  02:24:05,348 - #33 )
+INFO  02:24:05,348 - #13 ;
+INFO  02:24:05,349 - #8 return
+INFO  02:24:05,349 - #9 0
+INFO  02:24:05,349 - #13 ;
+INFO  02:24:05,349 - #35 }
+INFO  02:24:05,349 - #35 }
+INFO  02:24:05,350 - ***Abstract tree****
+INFO  02:24:05,350 - #0
+DEBUG 02:24:05,357 - Variable with name x has the address of 0
+DEBUG 02:24:05,357 - Variable with name y has the address of 1
+DEBUG 02:24:05,357 - Variable with name c has the address of 2
+DEBUG 02:24:05,357 - found constant with value 1of type 1
+DEBUG 02:24:05,357 - constant factor is type 1
+DEBUG 02:24:05,357 - term SingleFactorterm is type 1
+DEBUG 02:24:05,357 - exprWithNoMinus is type 1
+DEBUG 02:24:05,357 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - found constant with value 2of type 1
+DEBUG 02:24:05,358 - constant factor is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+DEBUG 02:24:05,358 - found constant with value 2of type 1
+DEBUG 02:24:05,358 - constant factor is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - found constant with value 2of type 1
+DEBUG 02:24:05,358 - constant factor is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - found constant with value 3of type 1
+DEBUG 02:24:05,358 - constant factor is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+DEBUG 02:24:05,358 - print statement has arg of type 1
+DEBUG 02:24:05,358 - found constant with value 0of type 1
+DEBUG 02:24:05,358 - constant factor is type 1
+DEBUG 02:24:05,358 - term SingleFactorterm is type 1
+DEBUG 02:24:05,358 - exprWithNoMinus is type 1
+INFO  02:24:05,358 - Print calls = 0
+INFO  02:24:05,360 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  02:24:05,365 - Parsiranje uspesno zavrseno!

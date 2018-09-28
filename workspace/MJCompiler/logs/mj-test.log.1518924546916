@@ -1,0 +1,28 @@
+INFO  04:25:36,894 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  04:25:36,931 - #40 program
+INFO  04:25:36,931 - #45 MJProgram
+INFO  04:25:36,931 - #34 {
+INFO  04:25:36,931 - #45 int
+INFO  04:25:36,931 - #45 main
+INFO  04:25:36,932 - #32 (
+INFO  04:25:36,932 - #33 )
+INFO  04:25:36,932 - #34 {
+INFO  04:25:36,932 - #41 print
+INFO  04:25:36,932 - #32 (
+INFO  04:25:36,932 - #9 1
+INFO  04:25:36,932 - #33 )
+INFO  04:25:36,933 - #13 ;
+INFO  04:25:36,933 - #41 print
+INFO  04:25:36,933 - #32 (
+INFO  04:25:36,933 - #9 2
+INFO  04:25:36,934 - #33 )
+INFO  04:25:36,934 - #13 ;
+INFO  04:25:36,934 - #8 return
+INFO  04:25:36,934 - #9 0
+INFO  04:25:36,934 - #13 ;
+INFO  04:25:36,934 - #35 }
+INFO  04:25:36,935 - #35 }
+DEBUG 04:25:36,936 - aaa
+INFO  04:25:53,450 - Print calls = 0
+INFO  04:25:53,451 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj
+INFO  04:25:53,465 - Parsiranje uspesno zavrseno!

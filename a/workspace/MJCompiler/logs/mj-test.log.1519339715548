@@ -1,0 +1,204 @@
+INFO  23:47:04,182 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  23:47:04,221 - #40 program
+INFO  23:47:04,221 - #45 MJProgram
+INFO  23:47:04,221 - #45 int
+INFO  23:47:04,222 - #45 x
+INFO  23:47:04,222 - #13 ;
+INFO  23:47:04,222 - #45 int
+INFO  23:47:04,222 - #45 z
+INFO  23:47:04,223 - #36 [
+INFO  23:47:04,223 - #37 ]
+INFO  23:47:04,223 - #13 ;
+INFO  23:47:04,223 - #34 {
+INFO  23:47:04,223 - #45 int
+INFO  23:47:04,224 - #45 main
+INFO  23:47:04,224 - #32 (
+INFO  23:47:04,224 - #33 )
+INFO  23:47:04,224 - #45 int
+INFO  23:47:04,225 - #45 y
+INFO  23:47:04,225 - #13 ;
+INFO  23:47:04,225 - #34 {
+INFO  23:47:04,225 - #41 print
+INFO  23:47:04,225 - #32 (
+INFO  23:47:04,225 - #9 1
+INFO  23:47:04,225 - #12 ,
+INFO  23:47:04,226 - #9 1
+INFO  23:47:04,226 - #33 )
+INFO  23:47:04,226 - #13 ;
+INFO  23:47:04,226 - #41 print
+INFO  23:47:04,227 - #32 (
+INFO  23:47:04,227 - #10 a
+INFO  23:47:04,227 - #12 ,
+INFO  23:47:04,227 - #9 1
+INFO  23:47:04,227 - #33 )
+INFO  23:47:04,227 - #13 ;
+INFO  23:47:04,227 - #45 z
+INFO  23:47:04,227 - #28 =
+INFO  23:47:04,227 - #31 new
+INFO  23:47:04,227 - #45 int
+INFO  23:47:04,227 - #36 [
+INFO  23:47:04,227 - #9 5
+INFO  23:47:04,227 - #37 ]
+INFO  23:47:04,228 - #13 ;
+INFO  23:47:04,228 - #45 z
+INFO  23:47:04,228 - #36 [
+INFO  23:47:04,228 - #9 0
+INFO  23:47:04,228 - #37 ]
+INFO  23:47:04,228 - #28 =
+INFO  23:47:04,228 - #9 0
+INFO  23:47:04,228 - #13 ;
+INFO  23:47:04,228 - #41 print
+INFO  23:47:04,228 - #32 (
+INFO  23:47:04,228 - #45 z
+INFO  23:47:04,228 - #36 [
+INFO  23:47:04,228 - #9 0
+INFO  23:47:04,229 - #37 ]
+INFO  23:47:04,229 - #33 )
+INFO  23:47:04,229 - #13 ;
+INFO  23:47:04,229 - #45 y
+INFO  23:47:04,229 - #28 =
+INFO  23:47:04,229 - #9 5
+INFO  23:47:04,229 - #13 ;
+INFO  23:47:04,229 - #45 x
+INFO  23:47:04,229 - #28 =
+INFO  23:47:04,229 - #45 y
+INFO  23:47:04,229 - #15 +
+INFO  23:47:04,229 - #9 3
+INFO  23:47:04,230 - #13 ;
+INFO  23:47:04,230 - #41 print
+INFO  23:47:04,230 - #32 (
+INFO  23:47:04,230 - #45 x
+INFO  23:47:04,231 - #33 )
+INFO  23:47:04,231 - #13 ;
+INFO  23:47:04,231 - #45 y
+INFO  23:47:04,231 - #28 =
+INFO  23:47:04,231 - #32 (
+INFO  23:47:04,231 - #45 x
+INFO  23:47:04,231 - #33 )
+INFO  23:47:04,231 - #13 ;
+INFO  23:47:04,231 - #45 x
+INFO  23:47:04,231 - #29 ++
+INFO  23:47:04,231 - #13 ;
+INFO  23:47:04,231 - #41 print
+INFO  23:47:04,232 - #32 (
+INFO  23:47:04,232 - #45 x
+INFO  23:47:04,232 - #33 )
+INFO  23:47:04,232 - #13 ;
+INFO  23:47:04,232 - #45 x
+INFO  23:47:04,232 - #30 --
+INFO  23:47:04,232 - #13 ;
+INFO  23:47:04,232 - #41 print
+INFO  23:47:04,232 - #32 (
+INFO  23:47:04,232 - #32 (
+INFO  23:47:04,232 - #32 (
+INFO  23:47:04,232 - #45 x
+INFO  23:47:04,232 - #33 )
+INFO  23:47:04,232 - #33 )
+INFO  23:47:04,232 - #33 )
+INFO  23:47:04,232 - #13 ;
+INFO  23:47:04,233 - #45 x
+INFO  23:47:04,233 - #28 =
+INFO  23:47:04,233 - #45 x
+INFO  23:47:04,233 - #15 +
+INFO  23:47:04,233 - #32 (
+INFO  23:47:04,233 - #16 -
+INFO  23:47:04,233 - #9 2
+INFO  23:47:04,233 - #33 )
+INFO  23:47:04,233 - #13 ;
+INFO  23:47:04,233 - #41 print
+INFO  23:47:04,233 - #32 (
+INFO  23:47:04,233 - #45 x
+INFO  23:47:04,233 - #33 )
+INFO  23:47:04,233 - #13 ;
+INFO  23:47:04,233 - #45 x
+INFO  23:47:04,233 - #28 =
+INFO  23:47:04,233 - #45 y
+INFO  23:47:04,233 - #17 *
+INFO  23:47:04,233 - #9 2
+INFO  23:47:04,234 - #13 ;
+INFO  23:47:04,235 - #41 print
+INFO  23:47:04,235 - #32 (
+INFO  23:47:04,235 - #45 x
+INFO  23:47:04,235 - #33 )
+INFO  23:47:04,235 - #13 ;
+INFO  23:47:04,235 - #45 y
+INFO  23:47:04,235 - #28 =
+INFO  23:47:04,235 - #45 x
+INFO  23:47:04,235 - #18 /
+INFO  23:47:04,235 - #9 4
+INFO  23:47:04,235 - #13 ;
+INFO  23:47:04,236 - #41 print
+INFO  23:47:04,236 - #32 (
+INFO  23:47:04,236 - #45 y
+INFO  23:47:04,236 - #33 )
+INFO  23:47:04,236 - #13 ;
+INFO  23:47:04,236 - #45 x
+INFO  23:47:04,236 - #28 =
+INFO  23:47:04,236 - #45 y
+INFO  23:47:04,236 - #19 %
+INFO  23:47:04,236 - #9 3
+INFO  23:47:04,236 - #13 ;
+INFO  23:47:04,236 - #41 print
+INFO  23:47:04,236 - #32 (
+INFO  23:47:04,236 - #45 x
+INFO  23:47:04,237 - #33 )
+INFO  23:47:04,237 - #13 ;
+INFO  23:47:04,237 - #42 read
+INFO  23:47:04,237 - #32 (
+INFO  23:47:04,237 - #45 x
+INFO  23:47:04,237 - #33 )
+INFO  23:47:04,237 - #13 ;
+INFO  23:47:04,237 - #45 x
+INFO  23:47:04,237 - #28 =
+INFO  23:47:04,237 - #45 x
+INFO  23:47:04,237 - #17 *
+INFO  23:47:04,237 - #45 y
+INFO  23:47:04,237 - #13 ;
+INFO  23:47:04,237 - #41 print
+INFO  23:47:04,237 - #32 (
+INFO  23:47:04,237 - #45 x
+INFO  23:47:04,237 - #33 )
+INFO  23:47:04,237 - #13 ;
+INFO  23:47:04,237 - #41 print
+INFO  23:47:04,237 - #32 (
+INFO  23:47:04,237 - #11 false
+INFO  23:47:04,237 - #12 ,
+INFO  23:47:04,237 - #9 20
+INFO  23:47:04,238 - #33 )
+INFO  23:47:04,238 - #13 ;
+INFO  23:47:04,238 - #8 return
+INFO  23:47:04,238 - #9 0
+INFO  23:47:04,238 - #13 ;
+INFO  23:47:04,238 - #35 }
+INFO  23:47:04,238 - #35 }
+INFO  23:47:04,241 - ***Abstract tree****
+INFO  23:47:04,241 - #0
+DEBUG 23:47:04,265 - Variable with name x has the address of 0
+DEBUG 23:47:04,265 - Variable with name y has the address of 0
+DEBUG 23:47:04,265 - found constant with value 1of type 1
+DEBUG 23:47:04,265 - constant factor is type 1
+DEBUG 23:47:04,265 - term SingleFactorterm is type 1
+DEBUG 23:47:04,265 - exprWithNoMinus is type 1
+DEBUG 23:47:04,265 - found constant with value 1of type 1
+DEBUG 23:47:04,265 - print statement has arg of type 1
+DEBUG 23:47:04,266 - found constant with value *****of type 2
+DEBUG 23:47:04,266 - found constant with value 97of type 2
+DEBUG 23:47:04,266 - constant factor is type 2
+DEBUG 23:47:04,266 - term SingleFactorterm is type 2
+DEBUG 23:47:04,266 - exprWithNoMinus is type 2
+DEBUG 23:47:04,266 - found constant with value 1of type 1
+DEBUG 23:47:04,266 - print statement has arg of type 2
+DEBUG 23:47:04,266 - found constant with value 5of type 1
+DEBUG 23:47:04,266 - constant factor is type 1
+DEBUG 23:47:04,266 - term SingleFactorterm is type 1
+DEBUG 23:47:04,266 - exprWithNoMinus is type 1
+DEBUG 23:47:04,266 - term SingleFactorterm is type 3
+DEBUG 23:47:04,266 - exprWithNoMinus is type 3
+DEBUG 23:47:10,075 - found constant with value 0of type 1
+DEBUG 23:47:10,075 - constant factor is type 1
+DEBUG 23:47:10,075 - term SingleFactorterm is type 1
+DEBUG 23:47:10,075 - exprWithNoMinus is type 1
+DEBUG 23:47:10,075 - found constant with value 0of type 1
+DEBUG 23:47:10,075 - constant factor is type 1
+DEBUG 23:47:10,075 - term SingleFactorterm is type 1
+DEBUG 23:47:10,075 - exprWithNoMinus is type 1

@@ -1,0 +1,78 @@
+INFO  22:29:59,953 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green1.mj
+INFO  22:30:00,032 - Searching for obj int (line 4) - found Type int: int, -1, -1  on line 3
+INFO  22:30:00,032 - Searching for obj noObj (line 4) - found Var noObj: notype, -1, -1  on line 3
+INFO  22:30:00,032 - Searching for obj int (line 6) - found Type int: int, -1, -1  on line 5
+INFO  22:30:00,032 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+INFO  22:30:00,032 - Searching for obj bool (line 7) - found Type bool: int, 0, 1  on line 6
+INFO  22:30:00,032 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  22:30:00,033 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  22:30:00,033 - Searching for obj noObj (line 7) - found Var noObj: notype, -1, -1  on line 6
+INFO  22:30:00,033 - Searching for obj int (line 11) - found Type int: int, -1, -1  on line 10
+INFO  22:30:00,033 - Searching for obj int (line 11) - found Type int: int, -1, -1  on line 10
+INFO  22:30:00,033 - Searching for obj noObj (line 11) - found Var noObj: notype, -1, -1  on line 10
+INFO  22:30:00,033 - Searching for obj f2 (line 12) - found Var f2: int, 3, 0  on line 11
+INFO  22:30:00,034 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  22:30:00,034 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  22:30:00,034 - Searching for obj noObj (line 17) - found Var noObj: notype, -1, -1  on line 16
+INFO  22:30:00,035 - Searching for obj int (line 17) - found Type int: int, -1, -1  on line 16
+INFO  22:30:00,035 - Searching for obj noObj (line 17) - found Var noObj: notype, -1, -1  on line 16
+INFO  22:30:00,035 - Searching for obj f4 (line 19) - found Var f4: int, 4, 0  on line 18
+INFO  22:30:00,035 - Searching for obj res (line 20) - found Var res: int, 0, 1  on line 19
+INFO  22:30:00,035 - Searching for obj two (line 20) - found Meth two: int, 0, 0 
+ on line 19
+INFO  22:30:00,035 - Searching for obj two (line 20) - found Meth two: int, 0, 0 
+ on line 19
+INFO  22:30:00,035 - Searching for obj res (line 21) - found Var res: int, 0, 1  on line 20
+INFO  22:30:00,035 - Searching for obj noObj (line 24) - found Var noObj: notype, -1, -1  on line 23
+INFO  22:30:00,035 - Searching for obj f (line 25) - found Var f: int, 2, 0  on line 24
+INFO  22:30:00,035 - Searching for obj f2 (line 30) - found Var f2: int, 3, 0  on line 29
+INFO  22:30:00,035 - Searching for obj f4 (line 35) - found Var f4: int, 4, 0  on line 34
+INFO  22:30:00,035 - Searching for obj eol (line 41) - found Con eol: char, 10, 0  on line 40
+INFO  22:30:00,035 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  22:30:00,035 - Searching for obj bool (line 45) - found Type bool: int, 0, 1  on line 44
+INFO  22:30:00,035 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  22:30:00,035 - Searching for obj int (line 45) - found Type int: int, -1, -1  on line 44
+INFO  22:30:00,036 - Searching for obj noObj (line 45) - found Var noObj: notype, -1, -1  on line 44
+INFO  22:30:00,036 - Searching for obj i (line 46) - found Var i: int, 1, 1  on line 45
+INFO  22:30:00,036 - Searching for obj ret (line 48) - found Var ret: Arr of int, 0, 1  on line 47
+INFO  22:30:00,036 - Searching for obj i (line 48) - found Var i: int, 1, 1  on line 47
+INFO  22:30:00,036 - Searching for obj i (line 49) - found Var i: int, 1, 1  on line 48
+INFO  22:30:00,036 - Searching for obj i (line 50) - found Var i: int, 1, 1  on line 49
+INFO  22:30:00,036 - Searching for obj four (line 50) - found Meth four: int, 0, 0 
+   Var res: int, 0, 1 
+ on line 49
+INFO  22:30:00,036 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj bool (line 53) - found Type bool: int, 0, 1  on line 52
+INFO  22:30:00,036 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj int (line 53) - found Type int: int, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj noObj (line 53) - found Var noObj: notype, -1, -1  on line 52
+INFO  22:30:00,036 - Searching for obj noObj (line 54) - found Var noObj: notype, -1, -1  on line 53
+ERROR 22:30:00,036 - Identifier i was not defined.
+ERROR 22:30:00,037 - designator is null in designator statement assignment on line 53
+INFO  22:30:00,037 - Searching for obj res (line 55) - found Var res: int, 1, 1  on line 54
+INFO  22:30:00,037 - Searching for obj res (line 57) - found Var res: int, 1, 1  on line 56
+INFO  22:30:00,037 - Searching for obj res (line 57) - found Var res: int, 1, 1  on line 56
+INFO  22:30:00,037 - Searching for obj num (line 57) - found Var num: Arr of int, 0, 1  on line 56
+INFO  22:30:00,037 - Searching for obj noObj (line 57) - found Var noObj: notype, -1, -1  on line 56
+ERROR 22:30:00,037 - Identifier i was not defined.
+ERROR 22:30:00,037 - designator obj is null in rvaluedesignator1  on line 56
+ERROR 22:30:00,037 - obj is null
+INFO  22:30:00,037 - Searching for obj num (line 58) - found Var num: Arr of int, 0, 1  on line 57
+INFO  22:30:00,037 - Searching for obj noObj (line 58) - found Var noObj: notype, -1, -1  on line 57
+ERROR 22:30:00,037 - Identifier i was not defined.
+ERROR 22:30:00,037 - designator obj is null in rvaluedesignator1  on line 57
+ERROR 22:30:00,037 - obj is null
+INFO  22:30:00,037 - Searching for obj noObj (line 59) - found Var noObj: notype, -1, -1  on line 58
+ERROR 22:30:00,037 - Identifier i was not defined.
+ERROR 22:30:00,037 - Decrements are allowed only for int types, but found other type.
+INFO  22:30:00,037 - Searching for obj noObj (line 60) - found Var noObj: notype, -1, -1  on line 59
+ERROR 22:30:00,037 - Identifier i was not defined.
+ERROR 22:30:00,037 - designator obj is null in rvaluedesignator1  on line 59
+ERROR 22:30:00,037 - obj is null
+ERROR 22:30:00,037 - Expression in cond fact must be of int or bool type.
+INFO  22:30:00,037 - Searching for obj noObj (line 62) - found Var noObj: notype, -1, -1  on line 61
+ERROR 22:30:00,037 - Identifier ret was not defined.
+ERROR 22:30:00,037 - designator obj is null in rvaluedesignator1  on line 61
+ERROR 22:30:00,037 - obj is null

@@ -1,0 +1,38 @@
+program AAA{
+
+	int sum(int a, int b){
+		
+		print('a');
+		print(a);
+		print(eol);
+		
+		print('b');
+		print(b);
+		print(eol);
+		print(eol);
+		
+		return a+b;
+	}
+	
+	void main() int x,y;
+	{
+		x = 1;
+		y = 2;
+		
+		print(sum(x,y));
+		print(eol);
+		
+		x = sum(x,y);
+		y = sum(x,x);
+		
+		print('x');
+		print(x);
+		print(eol);
+		
+		print('y');
+		print(y);
+		print(eol);
+		
+	}
+
+}

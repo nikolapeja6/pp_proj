@@ -1,0 +1,9 @@
+INFO  22:27:26,940 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\B\Green1.mj
+ERROR 22:27:26,996 - Syntax error on line 44
+ERROR 22:27:26,997 - Error in var declaration.
+ERROR 22:27:26,997 - Syntax error on line 45
+ERROR 22:27:26,997 - Error in var declaration.
+ERROR 22:27:26,997 - Syntax error on line 56
+ERROR 22:27:26,998 - Error in var declaration.
+ERROR 22:27:26,998 - Syntax error on line 68
+ERROR 22:27:26,998 - Fatal error, parsing cannot continue. Aborting. on line 108

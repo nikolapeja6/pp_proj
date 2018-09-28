@@ -1,0 +1,31 @@
+INFO  20:54:32,942 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+INFO  20:54:32,992 - #40 program
+INFO  20:54:32,992 - #45 AAA
+INFO  20:54:32,992 - #45 int
+INFO  20:54:32,992 - #45 x
+INFO  20:54:32,993 - #45 a
+ERROR 20:54:32,993 - Sintaksna greska na liniji 3
+INFO  20:54:32,993 - #13 ;
+INFO  20:54:32,993 - #34 {
+INFO  20:54:32,993 - #43 void
+INFO  20:54:32,993 - #45 main
+ERROR 20:54:32,993 - Greska.
+INFO  20:54:32,995 - #32 (
+INFO  20:54:32,995 - #33 )
+INFO  20:54:32,995 - #34 {
+INFO  20:54:32,995 - #45 x
+INFO  20:54:32,996 - #28 =
+INFO  20:54:32,996 - #9 5
+INFO  20:54:32,996 - #13 ;
+INFO  20:54:32,997 - #41 print
+INFO  20:54:32,997 - #32 (
+INFO  20:54:32,997 - #45 x
+INFO  20:54:32,997 - #33 )
+INFO  20:54:32,998 - #13 ;
+INFO  20:54:32,998 - #35 }
+INFO  20:54:32,998 - #35 }
+INFO  20:54:33,000 - ***Abstract tree****
+INFO  20:54:33,000 - #0
+DEBUG 20:54:33,007 - program name
+DEBUG 20:54:33,007 - program begin
+ERROR 20:54:33,007 - Identifier x was not defined.

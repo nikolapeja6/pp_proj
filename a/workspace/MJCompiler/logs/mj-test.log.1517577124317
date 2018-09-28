@@ -1,0 +1,23 @@
+INFO  14:11:50,468 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  14:11:50,514 - #40 program
+INFO  14:11:50,514 - #45 MJProgram
+INFO  14:11:50,514 - #45 int
+INFO  14:11:50,514 - #45 x
+INFO  14:11:50,514 - #13 ;
+INFO  14:11:50,514 - #45 int
+INFO  14:11:50,515 - #45 y
+INFO  14:11:50,515 - #13 ;
+INFO  14:11:50,515 - #34 {
+INFO  14:11:50,515 - #45 int
+INFO  14:11:50,515 - #45 k
+INFO  14:11:50,515 - #32 (
+INFO  14:11:50,515 - #33 )
+INFO  14:11:50,515 - #45 int
+INFO  14:11:50,515 - #45 c
+INFO  14:11:50,515 - #13 ;
+INFO  14:11:50,515 - #34 {
+INFO  14:11:50,515 - #45 c
+INFO  14:11:50,516 - #28 =
+INFO  14:11:50,516 - #9 1
+INFO  14:11:50,516 - #13 ;
+DEBUG 14:11:50,516 - found term

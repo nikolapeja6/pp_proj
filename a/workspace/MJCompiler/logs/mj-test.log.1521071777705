@@ -1,0 +1,46 @@
+INFO  00:55:28,468 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  00:55:28,523 - #40 program
+INFO  00:55:28,523 - #45 BBB
+INFO  00:55:28,523 - #38 class
+INFO  00:55:28,524 - #45 A
+INFO  00:55:28,524 - #34 {
+INFO  00:55:28,524 - #45 int
+INFO  00:55:28,524 - #45 x
+INFO  00:55:28,524 - #13 ;
+INFO  00:55:28,524 - #35 }
+INFO  00:55:28,524 - #34 {
+INFO  00:55:28,525 - #43 void
+INFO  00:55:28,526 - #45 main
+INFO  00:55:28,527 - #32 (
+INFO  00:55:28,527 - #33 )
+INFO  00:55:28,527 - #45 A
+INFO  00:55:28,527 - #45 a
+INFO  00:55:28,527 - #13 ;
+INFO  00:55:28,527 - #34 {
+INFO  00:55:28,527 - #45 a
+INFO  00:55:28,528 - #28 =
+INFO  00:55:28,528 - #31 new
+INFO  00:55:28,528 - #45 A
+INFO  00:55:28,529 - #13 ;
+INFO  00:55:28,530 - #45 a
+INFO  00:55:28,530 - #14 .
+INFO  00:55:28,530 - #45 x
+INFO  00:55:28,530 - #28 =
+INFO  00:55:28,530 - #9 5
+INFO  00:55:28,530 - #13 ;
+INFO  00:55:28,531 - #41 print
+INFO  00:55:28,531 - #32 (
+INFO  00:55:28,531 - #45 a
+INFO  00:55:28,531 - #14 .
+INFO  00:55:28,531 - #45 x
+INFO  00:55:28,531 - #33 )
+INFO  00:55:28,531 - #13 ;
+INFO  00:55:28,531 - #35 }
+INFO  00:55:28,531 - #35 }
+INFO  00:55:28,533 - ***Abstract tree****
+INFO  00:55:28,533 - #0
+DEBUG 00:55:28,541 - multiple decl
+DEBUG 00:55:28,541 - program begin
+ERROR 00:55:28,541 - A is not a type. na liniji 6
+DEBUG 00:55:28,541 - Variable with name a has the address of 0
+ERROR 00:55:28,542 - A is not a type. na liniji 8

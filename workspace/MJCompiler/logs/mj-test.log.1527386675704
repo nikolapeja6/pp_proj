@@ -1,0 +1,298 @@
+INFO  04:03:46,951 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  04:03:47,006 - ***Abstract tree***
+INFO  04:03:47,007 - 
+Program2(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  MultipleDeclDerived2(
+    MultipleDeclDerived6(
+      VarDecl1(
+        Type1(
+         int
+        ) [Type1]
+        VarDeclListDerived2(
+          VarDeclElementSingle(
+           x
+          ) [VarDeclElementSingle]
+        ) [VarDeclListDerived2]
+      ) [VarDecl1]
+    ) [MultipleDeclDerived6]
+    VarDecl1(
+      Type1(
+       int
+      ) [Type1]
+      VarDeclListDerived2(
+        VarDeclElementSingle(
+         y
+        ) [VarDeclElementSingle]
+      ) [VarDeclListDerived2]
+    ) [VarDecl1]
+  ) [MultipleDeclDerived2]
+  ProgramBegin1(
+  ) [ProgramBegin1]
+  MultipleMethodDeclDerived1(
+    MultipleMethodDeclDerived2(
+      MethodDeclDerived2(
+        MethodNameAndRetType1(
+          TypeReturnType(
+            Type1(
+             int
+            ) [Type1]
+          ) [TypeReturnType]
+         k
+        ) [MethodNameAndRetType1]
+        MultipleVarDeclDerived2(
+          VarDecl1(
+            Type1(
+             int
+            ) [Type1]
+            VarDeclListDerived2(
+              VarDeclElementSingle(
+               c
+              ) [VarDeclElementSingle]
+            ) [VarDeclListDerived2]
+          ) [VarDecl1]
+        ) [MultipleVarDeclDerived2]
+        MethodBegin1(
+        ) [MethodBegin1]
+        MultipleStatementsDerived1(
+          MultipleStatementsDerived2(
+            StatementDerived1(
+              MatchedDerived1(
+                DesignatorStatementAssignment(
+                  LValueDesignator1(
+                    DesignatorSimple(
+                     c
+                    ) [DesignatorSimple]
+                  ) [LValueDesignator1]
+                  ExprWithNoMinus(
+                    SingleFactorTerm(
+                      ConstantFactor(
+                        NumberConstant(
+                         1
+                        ) [NumberConstant]
+                      ) [ConstantFactor]
+                    ) [SingleFactorTerm]
+                    OptionalExprListDerived2(
+                    ) [OptionalExprListDerived2]
+                  ) [ExprWithNoMinus]
+                ) [DesignatorStatementAssignment]
+              ) [MatchedDerived1]
+            ) [StatementDerived1]
+          ) [MultipleStatementsDerived2]
+          StatementDerived1(
+            StatementReturnValue(
+              ExprWithNoMinus(
+                SingleFactorTerm(
+                  VariableFactor(
+                    RValueDesignator1(
+                      DesignatorSimple(
+                       c
+                      ) [DesignatorSimple]
+                    ) [RValueDesignator1]
+                  ) [VariableFactor]
+                ) [SingleFactorTerm]
+                OptionalExprListDerived1(
+                  ExprListDerived2(
+                    ExprElement1(
+                      AddopPlus(
+                      ) [AddopPlus]
+                      SingleFactorTerm(
+                        ConstantFactor(
+                          NumberConstant(
+                           2
+                          ) [NumberConstant]
+                        ) [ConstantFactor]
+                      ) [SingleFactorTerm]
+                    ) [ExprElement1]
+                  ) [ExprListDerived2]
+                ) [OptionalExprListDerived1]
+              ) [ExprWithNoMinus]
+            ) [StatementReturnValue]
+          ) [StatementDerived1]
+        ) [MultipleStatementsDerived1]
+        MethodEnd1(
+        ) [MethodEnd1]
+      ) [MethodDeclDerived2]
+    ) [MultipleMethodDeclDerived2]
+    MethodDeclDerived1(
+      MethodNameAndRetType1(
+        TypeReturnType(
+          Type1(
+           int
+          ) [Type1]
+        ) [TypeReturnType]
+       main
+      ) [MethodNameAndRetType1]
+      MethodBegin1(
+      ) [MethodBegin1]
+      MultipleStatementsDerived1(
+        MultipleStatementsDerived1(
+          MultipleStatementsDerived1(
+            MultipleStatementsDerived1(
+              MultipleStatementsDerived2(
+                StatementDerived1(
+                  MatchedDerived1(
+                    DesignatorStatementAssignment(
+                      LValueDesignator1(
+                        DesignatorSimple(
+                         y
+                        ) [DesignatorSimple]
+                      ) [LValueDesignator1]
+                      ExprWithNoMinus(
+                        SingleFactorTerm(
+                          ConstantFactor(
+                            NumberConstant(
+                             2
+                            ) [NumberConstant]
+                          ) [ConstantFactor]
+                        ) [SingleFactorTerm]
+                        OptionalExprListDerived2(
+                        ) [OptionalExprListDerived2]
+                      ) [ExprWithNoMinus]
+                    ) [DesignatorStatementAssignment]
+                  ) [MatchedDerived1]
+                ) [StatementDerived1]
+              ) [MultipleStatementsDerived2]
+              StatementDerived1(
+                MatchedDerived1(
+                  DesignatorStatementAssignment(
+                    LValueDesignator1(
+                      DesignatorSimple(
+                       x
+                      ) [DesignatorSimple]
+                    ) [LValueDesignator1]
+                    ExprWithNoMinus(
+                      SingleFactorTerm(
+                        VariableFactor(
+                          RValueDesignator1(
+                            DesignatorSimple(
+                             y
+                            ) [DesignatorSimple]
+                          ) [RValueDesignator1]
+                        ) [VariableFactor]
+                      ) [SingleFactorTerm]
+                      OptionalExprListDerived1(
+                        ExprListDerived2(
+                          ExprElement1(
+                            AddopPlus(
+                            ) [AddopPlus]
+                            SingleFactorTerm(
+                              ConstantFactor(
+                                NumberConstant(
+                                 2
+                                ) [NumberConstant]
+                              ) [ConstantFactor]
+                            ) [SingleFactorTerm]
+                          ) [ExprElement1]
+                        ) [ExprListDerived2]
+                      ) [OptionalExprListDerived1]
+                    ) [ExprWithNoMinus]
+                  ) [DesignatorStatementAssignment]
+                ) [MatchedDerived1]
+              ) [StatementDerived1]
+            ) [MultipleStatementsDerived1]
+            StatementDerived1(
+              MatchedDerived1(
+                DesignatorStatementAssignment(
+                  LValueDesignator1(
+                    DesignatorSimple(
+                     y
+                    ) [DesignatorSimple]
+                  ) [LValueDesignator1]
+                  ExprWithNoMinus(
+                    SingleFactorTerm(
+                      FuncttionCallFactor(
+                        MethodDesignator1(
+                          DesignatorSimple(
+                           k
+                          ) [DesignatorSimple]
+                        ) [MethodDesignator1]
+                      ) [FuncttionCallFactor]
+                    ) [SingleFactorTerm]
+                    OptionalExprListDerived1(
+                      ExprListDerived2(
+                        ExprElement1(
+                          AddopPlus(
+                          ) [AddopPlus]
+                          SingleFactorTerm(
+                            ConstantFactor(
+                              NumberConstant(
+                               3
+                              ) [NumberConstant]
+                            ) [ConstantFactor]
+                          ) [SingleFactorTerm]
+                        ) [ExprElement1]
+                      ) [ExprListDerived2]
+                    ) [OptionalExprListDerived1]
+                  ) [ExprWithNoMinus]
+                ) [DesignatorStatementAssignment]
+              ) [MatchedDerived1]
+            ) [StatementDerived1]
+          ) [MultipleStatementsDerived1]
+          StatementDerived1(
+            PrintStatement(
+              ExprWithNoMinus(
+                SingleFactorTerm(
+                  VariableFactor(
+                    RValueDesignator1(
+                      DesignatorSimple(
+                       y
+                      ) [DesignatorSimple]
+                    ) [RValueDesignator1]
+                  ) [VariableFactor]
+                ) [SingleFactorTerm]
+                OptionalExprListDerived2(
+                ) [OptionalExprListDerived2]
+              ) [ExprWithNoMinus]
+            ) [PrintStatement]
+          ) [StatementDerived1]
+        ) [MultipleStatementsDerived1]
+        StatementDerived1(
+          StatementReturnValue(
+            ExprWithNoMinus(
+              SingleFactorTerm(
+                ConstantFactor(
+                  NumberConstant(
+                   0
+                  ) [NumberConstant]
+                ) [ConstantFactor]
+              ) [SingleFactorTerm]
+              OptionalExprListDerived2(
+              ) [OptionalExprListDerived2]
+            ) [ExprWithNoMinus]
+          ) [StatementReturnValue]
+        ) [StatementDerived1]
+      ) [MultipleStatementsDerived1]
+      MethodEnd1(
+      ) [MethodEnd1]
+    ) [MethodDeclDerived1]
+  ) [MultipleMethodDeclDerived1]
+  ProgramEnd1(
+  ) [ProgramEnd1]
+) [Program2]
+INFO  04:03:47,016 - Searchinf for obj int (line 3) - found Type int: int, -1, -1  na liniji 2
+INFO  04:03:47,016 - Searchinf for obj noObj (line 3) - found Var noObj: notype, -1, -1  na liniji 2
+INFO  04:03:47,016 - Searchinf for obj int (line 3) - found Type int: int, -1, -1  na liniji 2
+INFO  04:03:47,016 - Searchinf for obj noObj (line 3) - found Var noObj: notype, -1, -1  na liniji 2
+INFO  04:03:47,016 - Searchinf for obj int (line 6) - found Type int: int, -1, -1  na liniji 5
+INFO  04:03:47,016 - Searchinf for obj int (line 6) - found Type int: int, -1, -1  na liniji 5
+INFO  04:03:47,016 - Searchinf for obj int (line 6) - found Type int: int, -1, -1  na liniji 5
+INFO  04:03:47,016 - Searchinf for obj noObj (line 6) - found Var noObj: notype, -1, -1  na liniji 5
+INFO  04:03:47,016 - Searchinf for obj c (line 7) - found Var c: int, 0, 1  na liniji 6
+INFO  04:03:47,016 - Searchinf for obj c (line 8) - found Var c: int, 0, 1  na liniji 7
+INFO  04:03:47,016 - Searchinf for obj int (line 11) - found Type int: int, -1, -1  na liniji 10
+INFO  04:03:47,016 - Searchinf for obj int (line 11) - found Type int: int, -1, -1  na liniji 10
+INFO  04:03:47,016 - Searchinf for obj y (line 12) - found Var y: int, 2, 0  na liniji 11
+INFO  04:03:47,016 - Searchinf for obj x (line 13) - found Var x: int, 1, 0  na liniji 12
+INFO  04:03:47,016 - Searchinf for obj y (line 13) - found Var y: int, 2, 0  na liniji 12
+INFO  04:03:47,017 - Searchinf for obj y (line 14) - found Var y: int, 2, 0  na liniji 13
+INFO  04:03:47,017 - Searchinf for obj k (line 14) - found Meth k: int, 0, 0 
+   Var c: int, 0, 1 
+ na liniji 13
+INFO  04:03:47,017 - Searchinf for obj y (line 15) - found Var y: int, 2, 0  na liniji 14
+INFO  04:03:47,017 - Print calls = 0
+INFO  04:03:47,018 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.obj
+INFO  04:03:47,025 - Finished code generation
+INFO  04:03:47,025 - Compilation was unsuccessful!

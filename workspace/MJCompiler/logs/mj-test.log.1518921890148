@@ -1,0 +1,27 @@
+INFO  03:43:19,197 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  03:43:19,224 - #40 program
+INFO  03:43:19,224 - #45 MJProgram
+INFO  03:43:19,224 - #34 {
+INFO  03:43:19,224 - #45 int
+INFO  03:43:19,224 - #45 main
+INFO  03:43:19,225 - #32 (
+INFO  03:43:19,225 - #33 )
+INFO  03:43:19,225 - #34 {
+INFO  03:43:19,225 - #41 print
+INFO  03:43:19,225 - #32 (
+INFO  03:43:19,225 - #9 1
+INFO  03:43:19,225 - #33 )
+INFO  03:43:19,230 - #13 ;
+INFO  03:43:19,230 - #41 print
+INFO  03:43:19,230 - #32 (
+INFO  03:43:19,230 - #9 2
+INFO  03:43:19,230 - #33 )
+INFO  03:43:19,230 - #13 ;
+INFO  03:43:19,230 - #8 return
+INFO  03:43:19,230 - #9 0
+INFO  03:43:19,230 - #13 ;
+INFO  03:43:19,231 - #35 }
+INFO  03:43:19,231 - #35 }
+DEBUG 03:43:19,233 - aaa
+INFO  03:43:19,238 - Print calls = 0
+INFO  03:43:19,239 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\simple.obj

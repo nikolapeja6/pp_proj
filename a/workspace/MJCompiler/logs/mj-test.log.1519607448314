@@ -1,0 +1,197 @@
+INFO  02:10:31,953 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\branches.mj
+INFO  02:10:31,994 - #40 program
+INFO  02:10:31,994 - #45 MJProgram
+INFO  02:10:31,994 - #34 {
+INFO  02:10:31,995 - #45 int
+INFO  02:10:31,995 - #45 main
+INFO  02:10:31,995 - #32 (
+INFO  02:10:31,996 - #33 )
+INFO  02:10:31,996 - #45 int
+INFO  02:10:31,996 - #45 i
+INFO  02:10:31,996 - #13 ;
+INFO  02:10:31,996 - #34 {
+INFO  02:10:31,997 - #45 i
+INFO  02:10:31,997 - #28 =
+INFO  02:10:31,997 - #9 10
+INFO  02:10:31,997 - #13 ;
+INFO  02:10:31,998 - #5 do
+INFO  02:10:31,998 - #34 {
+INFO  02:10:31,999 - #41 print
+INFO  02:10:31,999 - #32 (
+INFO  02:10:31,999 - #45 i
+INFO  02:10:32,000 - #12 ,
+INFO  02:10:32,000 - #9 3
+INFO  02:10:32,000 - #33 )
+INFO  02:10:32,000 - #13 ;
+INFO  02:10:32,000 - #41 print
+INFO  02:10:32,000 - #32 (
+INFO  02:10:32,000 - #10 :
+INFO  02:10:32,000 - #12 ,
+INFO  02:10:32,001 - #9 1
+INFO  02:10:32,001 - #33 )
+INFO  02:10:32,001 - #13 ;
+INFO  02:10:32,001 - #2 if
+INFO  02:10:32,001 - #32 (
+INFO  02:10:32,001 - #45 i
+INFO  02:10:32,001 - #19 %
+INFO  02:10:32,001 - #9 2
+INFO  02:10:32,002 - #20 ==
+INFO  02:10:32,002 - #9 0
+INFO  02:10:32,003 - #33 )
+INFO  02:10:32,003 - #41 print
+INFO  02:10:32,003 - #32 (
+INFO  02:10:32,004 - #9 2
+INFO  02:10:32,004 - #12 ,
+INFO  02:10:32,004 - #9 1
+INFO  02:10:32,004 - #33 )
+INFO  02:10:32,004 - #13 ;
+INFO  02:10:32,004 - #2 if
+INFO  02:10:32,004 - #32 (
+INFO  02:10:32,004 - #45 i
+INFO  02:10:32,004 - #19 %
+INFO  02:10:32,004 - #9 3
+INFO  02:10:32,004 - #20 ==
+INFO  02:10:32,004 - #9 0
+INFO  02:10:32,004 - #33 )
+INFO  02:10:32,004 - #41 print
+INFO  02:10:32,004 - #32 (
+INFO  02:10:32,004 - #9 3
+INFO  02:10:32,004 - #12 ,
+INFO  02:10:32,004 - #9 1
+INFO  02:10:32,004 - #33 )
+INFO  02:10:32,004 - #13 ;
+INFO  02:10:32,005 - #2 if
+INFO  02:10:32,005 - #32 (
+INFO  02:10:32,005 - #45 i
+INFO  02:10:32,005 - #19 %
+INFO  02:10:32,005 - #9 5
+INFO  02:10:32,005 - #20 ==
+INFO  02:10:32,005 - #9 0
+INFO  02:10:32,005 - #33 )
+INFO  02:10:32,005 - #41 print
+INFO  02:10:32,005 - #32 (
+INFO  02:10:32,005 - #9 5
+INFO  02:10:32,005 - #12 ,
+INFO  02:10:32,005 - #9 1
+INFO  02:10:32,005 - #33 )
+INFO  02:10:32,005 - #13 ;
+INFO  02:10:32,005 - #2 if
+INFO  02:10:32,006 - #32 (
+INFO  02:10:32,006 - #45 i
+INFO  02:10:32,006 - #19 %
+INFO  02:10:32,006 - #9 7
+INFO  02:10:32,006 - #20 ==
+INFO  02:10:32,006 - #9 0
+INFO  02:10:32,006 - #33 )
+INFO  02:10:32,006 - #41 print
+INFO  02:10:32,006 - #32 (
+INFO  02:10:32,006 - #9 7
+INFO  02:10:32,006 - #12 ,
+INFO  02:10:32,006 - #9 1
+INFO  02:10:32,006 - #33 )
+INFO  02:10:32,006 - #13 ;
+INFO  02:10:32,006 - #45 i
+INFO  02:10:32,006 - #29 ++
+INFO  02:10:32,006 - #13 ;
+INFO  02:10:32,006 - #35 }
+INFO  02:10:32,006 - #6 while
+INFO  02:10:32,006 - #32 (
+INFO  02:10:32,006 - #45 i
+INFO  02:10:32,007 - #33 )
+INFO  02:10:32,007 - #13 ;
+INFO  02:10:32,007 - #8 return
+INFO  02:10:32,007 - #9 0
+INFO  02:10:32,007 - #13 ;
+INFO  02:10:32,007 - #35 }
+INFO  02:10:32,007 - #35 }
+INFO  02:10:32,009 - ***Abstract tree****
+INFO  02:10:32,009 - #0
+DEBUG 02:10:32,015 - Variable with name i has the address of 0
+DEBUG 02:10:32,015 - found constant with value 10of type 1
+DEBUG 02:10:32,016 - constant factor is type 1
+DEBUG 02:10:32,016 - term SingleFactorterm is type 1
+DEBUG 02:10:32,016 - exprWithNoMinus is type 1
+DEBUG 02:10:32,016 - term SingleFactorterm is type 1
+DEBUG 02:10:32,016 - exprWithNoMinus is type 1
+DEBUG 02:10:32,016 - found constant with value 3of type 1
+DEBUG 02:10:32,016 - print statement has arg of type 1
+DEBUG 02:10:32,016 - found constant with value *****of type 2
+DEBUG 02:10:32,016 - found constant with value 58of type 2
+DEBUG 02:10:32,016 - constant factor is type 2
+DEBUG 02:10:32,016 - term SingleFactorterm is type 2
+DEBUG 02:10:32,016 - exprWithNoMinus is type 2
+DEBUG 02:10:32,016 - found constant with value 1of type 1
+DEBUG 02:10:32,016 - print statement has arg of type 2
+DEBUG 02:10:32,016 - found constant with value 2of type 1
+DEBUG 02:10:32,016 - constant factor is type 1
+DEBUG 02:10:32,016 - term element is type 1
+DEBUG 02:10:32,016 - term list single is type 1
+DEBUG 02:10:32,016 - term MultiFactorTerm is type 1
+DEBUG 02:10:32,016 - exprWithNoMinus is type 1
+DEBUG 02:10:32,016 - found constant with value 0of type 1
+DEBUG 02:10:32,016 - constant factor is type 1
+DEBUG 02:10:32,016 - term SingleFactorterm is type 1
+DEBUG 02:10:32,016 - exprWithNoMinus is type 1
+DEBUG 02:10:32,016 - found constant with value 2of type 1
+DEBUG 02:10:32,016 - constant factor is type 1
+DEBUG 02:10:32,016 - term SingleFactorterm is type 1
+DEBUG 02:10:32,016 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 1of type 1
+DEBUG 02:10:32,017 - print statement has arg of type 1
+DEBUG 02:10:32,017 - found constant with value 3of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term element is type 1
+DEBUG 02:10:32,017 - term list single is type 1
+DEBUG 02:10:32,017 - term MultiFactorTerm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 0of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term SingleFactorterm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 3of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term SingleFactorterm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 1of type 1
+DEBUG 02:10:32,017 - print statement has arg of type 1
+DEBUG 02:10:32,017 - found constant with value 5of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term element is type 1
+DEBUG 02:10:32,017 - term list single is type 1
+DEBUG 02:10:32,017 - term MultiFactorTerm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 0of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term SingleFactorterm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 5of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term SingleFactorterm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 1of type 1
+DEBUG 02:10:32,017 - print statement has arg of type 1
+DEBUG 02:10:32,017 - found constant with value 7of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,017 - term element is type 1
+DEBUG 02:10:32,017 - term list single is type 1
+DEBUG 02:10:32,017 - term MultiFactorTerm is type 1
+DEBUG 02:10:32,017 - exprWithNoMinus is type 1
+DEBUG 02:10:32,017 - found constant with value 0of type 1
+DEBUG 02:10:32,017 - constant factor is type 1
+DEBUG 02:10:32,018 - term SingleFactorterm is type 1
+DEBUG 02:10:32,018 - exprWithNoMinus is type 1
+DEBUG 02:10:32,018 - found constant with value 7of type 1
+DEBUG 02:10:32,018 - constant factor is type 1
+DEBUG 02:10:32,018 - term SingleFactorterm is type 1
+DEBUG 02:10:32,018 - exprWithNoMinus is type 1
+DEBUG 02:10:32,018 - found constant with value 1of type 1
+DEBUG 02:10:32,018 - print statement has arg of type 1
+DEBUG 02:10:32,018 - term SingleFactorterm is type 1
+DEBUG 02:10:32,018 - exprWithNoMinus is type 1
+DEBUG 02:10:32,018 - found constant with value 0of type 1
+DEBUG 02:10:32,018 - constant factor is type 1
+DEBUG 02:10:32,018 - term SingleFactorterm is type 1
+DEBUG 02:10:32,018 - exprWithNoMinus is type 1
+INFO  02:10:32,018 - Print calls = 0
+INFO  02:10:32,020 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\branches.obj
+INFO  02:10:32,027 - Parsiranje uspesno zavrseno!

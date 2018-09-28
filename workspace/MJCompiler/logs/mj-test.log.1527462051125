@@ -1,0 +1,7 @@
+INFO  01:00:37,876 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\C\Green1.mj
+ERROR 01:00:37,939 - Syntax error on line 65
+ERROR 01:00:37,939 - Fatal error, parsing cannot continue. Aborting. on line 71
+INFO  01:00:37,949 - Searching for obj noObj (line 65) - found Var noObj: notype, -1, -1  on line 64
+ERROR 01:00:37,950 - Identifier i was not defined. on line 64
+ERROR 01:00:37,950 - No main method detected.
+ERROR 01:00:37,950 - Compilation was UNSUCCESSFUL!

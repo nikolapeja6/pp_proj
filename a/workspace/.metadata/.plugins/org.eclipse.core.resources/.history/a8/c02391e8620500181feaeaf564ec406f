@@ -1,0 +1,78 @@
+// generated with ast extension for cup
+// version 0.8
+// 30/0/2018 3:9:24
+
+
+package rs.ac.bg.etf.pp1.ast;
+
+public class ClassBodyDeclDerived1 extends ClassBodyDecl {
+
+    private OptionalMultipleVarDecl OptionalMultipleVarDecl;
+    private OptionalMultipleMethodDecl OptionalMultipleMethodDecl;
+
+    public ClassBodyDeclDerived1 (OptionalMultipleVarDecl OptionalMultipleVarDecl, OptionalMultipleMethodDecl OptionalMultipleMethodDecl) {
+        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.setParent(this);
+        this.OptionalMultipleMethodDecl=OptionalMultipleMethodDecl;
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.setParent(this);
+    }
+
+    public OptionalMultipleVarDecl getOptionalMultipleVarDecl() {
+        return OptionalMultipleVarDecl;
+    }
+
+    public void setOptionalMultipleVarDecl(OptionalMultipleVarDecl OptionalMultipleVarDecl) {
+        this.OptionalMultipleVarDecl=OptionalMultipleVarDecl;
+    }
+
+    public OptionalMultipleMethodDecl getOptionalMultipleMethodDecl() {
+        return OptionalMultipleMethodDecl;
+    }
+
+    public void setOptionalMultipleMethodDecl(OptionalMultipleMethodDecl OptionalMultipleMethodDecl) {
+        this.OptionalMultipleMethodDecl=OptionalMultipleMethodDecl;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+    public void childrenAccept(Visitor visitor) {
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.accept(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseTopDown(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(OptionalMultipleVarDecl!=null) OptionalMultipleVarDecl.traverseBottomUp(visitor);
+        if(OptionalMultipleMethodDecl!=null) OptionalMultipleMethodDecl.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("ClassBodyDeclDerived1(\n");
+
+        if(OptionalMultipleVarDecl!=null)
+            buffer.append(OptionalMultipleVarDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(OptionalMultipleMethodDecl!=null)
+            buffer.append(OptionalMultipleMethodDecl.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [ClassBodyDeclDerived1]");
+        return buffer.toString();
+    }
+}

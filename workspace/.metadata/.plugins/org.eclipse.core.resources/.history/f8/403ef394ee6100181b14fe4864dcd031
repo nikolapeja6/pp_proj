@@ -1,0 +1,50 @@
+program Green2B
+
+const int SLEEP_TIME = 987654321;
+
+
+{
+	void hello(){
+		print('H');
+		print('e');
+		print('l');
+		print('l');
+		print('o');
+		print(' ');
+		print(':');
+		print(')');
+		
+	}
+
+
+	void sleep(int time)int i;{
+		
+		i = 0;
+		do
+			i++;
+		while(i < time);
+	
+	}
+		
+	void end(){
+		print('T');
+		print('h');
+		print('e');
+		print(' ');
+		print('E');
+		print('n');
+		print('d');
+		print(' ');
+		print(':');
+		print(')');
+		
+	}
+
+	void main(){
+	
+	
+	
+	
+	
+	}
+}

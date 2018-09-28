@@ -1,0 +1,81 @@
+INFO  16:46:12,366 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  16:46:12,374 - #41 program
+INFO  16:46:12,374 - #46 MJProgram
+INFO  16:46:12,374 - #46 int
+INFO  16:46:12,374 - #46 x
+INFO  16:46:12,374 - Type found int
+INFO  16:46:12,374 - #14 ;
+DEBUG 16:46:12,374 - vardeclelement found
+INFO  16:46:12,375 - #46 int
+DEBUG 16:46:12,375 - var decl found
+INFO  16:46:12,375 - #46 y
+INFO  16:46:12,375 - Type found int
+INFO  16:46:12,375 - #14 ;
+DEBUG 16:46:12,375 - vardeclelement found
+INFO  16:46:12,375 - #35 {
+DEBUG 16:46:12,375 - var decl found
+INFO  16:46:12,375 - #46 int
+INFO  16:46:12,375 - #46 k
+INFO  16:46:12,375 - Type found int
+INFO  16:46:12,375 - Return type found - null
+INFO  16:46:12,375 - #33 (
+INFO  16:46:12,375 - #34 )
+INFO  16:46:12,375 - #46 int
+INFO  16:46:12,375 - #46 c
+INFO  16:46:12,375 - Type found int
+INFO  16:46:12,375 - #14 ;
+DEBUG 16:46:12,375 - vardeclelement found
+INFO  16:46:12,376 - #35 {
+DEBUG 16:46:12,376 - var decl found
+DEBUG 16:46:12,376 - multiplevardecl found 
+INFO  16:46:12,376 - #46 c
+INFO  16:46:12,376 - #29 =
+INFO  16:46:12,376 - #9 1
+INFO  16:46:12,376 - #14 ;
+DEBUG 16:46:12,376 - expr ended
+INFO  16:46:12,376 - #8 return
+DEBUG 16:46:12,376 - statement ended
+INFO  16:46:12,376 - #46 c
+INFO  16:46:12,376 - #16 +
+INFO  16:46:12,376 - #9 2
+INFO  16:46:12,376 - #14 ;
+DEBUG 16:46:12,376 - expr ended
+INFO  16:46:12,376 - #36 }
+DEBUG 16:46:12,376 - statement ended
+INFO  16:46:12,376 - #46 int
+DEBUG 16:46:12,376 - end method 1
+INFO  16:46:12,376 - #46 main
+INFO  16:46:12,376 - Type found int
+INFO  16:46:12,376 - Return type found - null
+INFO  16:46:12,376 - #33 (
+INFO  16:46:12,376 - #34 )
+INFO  16:46:12,376 - #35 {
+INFO  16:46:12,376 - #46 y
+INFO  16:46:12,377 - #29 =
+INFO  16:46:12,377 - #9 2
+INFO  16:46:12,377 - #14 ;
+DEBUG 16:46:12,377 - expr ended
+INFO  16:46:12,377 - #46 x
+DEBUG 16:46:12,377 - statement ended
+INFO  16:46:12,377 - #29 =
+INFO  16:46:12,377 - #46 y
+INFO  16:46:12,377 - #16 +
+INFO  16:46:12,377 - #9 2
+INFO  16:46:12,377 - #14 ;
+DEBUG 16:46:12,377 - expr ended
+INFO  16:46:12,377 - #46 y
+DEBUG 16:46:12,377 - statement ended
+INFO  16:46:12,377 - #29 =
+INFO  16:46:12,377 - #46 k
+INFO  16:46:12,377 - #33 (
+INFO  16:46:12,377 - #34 )
+INFO  16:46:12,377 - #16 +
+INFO  16:46:12,377 - #9 3
+INFO  16:46:12,377 - #14 ;
+DEBUG 16:46:12,377 - expr ended
+INFO  16:46:12,377 - #42 print
+DEBUG 16:46:12,377 - statement ended
+INFO  16:46:12,378 - #33 (
+ERROR 16:46:12,378 - 
+Sintaksna greska na liniji 14
+ERROR 16:46:12,378 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 14

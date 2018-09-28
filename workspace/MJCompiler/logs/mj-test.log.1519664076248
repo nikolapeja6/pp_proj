@@ -1,0 +1,355 @@
+INFO  17:53:55,137 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\correction.mj
+INFO  17:53:55,182 - #40 program
+INFO  17:53:55,182 - #45 MJProgram
+INFO  17:53:55,182 - #34 {
+INFO  17:53:55,182 - #43 void
+INFO  17:53:55,183 - #45 main
+INFO  17:53:55,183 - #32 (
+INFO  17:53:55,183 - #33 )
+INFO  17:53:55,184 - #45 int
+INFO  17:53:55,184 - #45 i
+INFO  17:53:55,184 - #13 ;
+INFO  17:53:55,184 - #45 int
+INFO  17:53:55,184 - #45 j
+INFO  17:53:55,184 - #13 ;
+INFO  17:53:55,184 - #34 {
+INFO  17:53:55,185 - #45 i
+INFO  17:53:55,185 - #28 =
+INFO  17:53:55,185 - #9 0
+INFO  17:53:55,185 - #13 ;
+INFO  17:53:55,186 - #45 j
+INFO  17:53:55,186 - #28 =
+INFO  17:53:55,186 - #9 0
+INFO  17:53:55,186 - #13 ;
+INFO  17:53:55,187 - #41 print
+INFO  17:53:55,187 - #32 (
+INFO  17:53:55,187 - #10 b
+INFO  17:53:55,187 - #33 )
+INFO  17:53:55,187 - #13 ;
+INFO  17:53:55,187 - #5 do
+INFO  17:53:55,187 - #34 {
+INFO  17:53:55,188 - #41 print
+INFO  17:53:55,188 - #32 (
+INFO  17:53:55,188 - #45 i
+INFO  17:53:55,188 - #12 ,
+INFO  17:53:55,188 - #9 3
+INFO  17:53:55,188 - #33 )
+INFO  17:53:55,189 - #13 ;
+INFO  17:53:55,189 - #41 print
+INFO  17:53:55,189 - #32 (
+INFO  17:53:55,189 - #10 :
+INFO  17:53:55,189 - #33 )
+INFO  17:53:55,189 - #13 ;
+INFO  17:53:55,189 - #45 i
+INFO  17:53:55,189 - #29 ++
+INFO  17:53:55,189 - #13 ;
+INFO  17:53:55,189 - #45 j
+INFO  17:53:55,189 - #28 =
+INFO  17:53:55,189 - #9 0
+INFO  17:53:55,189 - #13 ;
+INFO  17:53:55,189 - #5 do
+INFO  17:53:55,189 - #34 {
+INFO  17:53:55,189 - #41 print
+INFO  17:53:55,189 - #32 (
+INFO  17:53:55,189 - #45 j
+INFO  17:53:55,189 - #12 ,
+INFO  17:53:55,189 - #9 1
+INFO  17:53:55,189 - #33 )
+INFO  17:53:55,190 - #13 ;
+INFO  17:53:55,190 - #45 j
+INFO  17:53:55,190 - #28 =
+INFO  17:53:55,190 - #45 j
+INFO  17:53:55,190 - #15 +
+INFO  17:53:55,190 - #45 i
+INFO  17:53:55,190 - #13 ;
+INFO  17:53:55,191 - #2 if
+INFO  17:53:55,191 - #32 (
+INFO  17:53:55,191 - #45 j
+INFO  17:53:55,191 - #23 <
+INFO  17:53:55,191 - #9 10
+INFO  17:53:55,191 - #33 )
+INFO  17:53:55,192 - #41 print
+INFO  17:53:55,192 - #32 (
+INFO  17:53:55,192 - #10 ,
+INFO  17:53:55,192 - #33 )
+INFO  17:53:55,192 - #13 ;
+INFO  17:53:55,192 - #35 }
+INFO  17:53:55,193 - #6 while
+INFO  17:53:55,193 - #32 (
+INFO  17:53:55,193 - #45 j
+INFO  17:53:55,193 - #23 <
+INFO  17:53:55,193 - #9 10
+INFO  17:53:55,193 - #33 )
+INFO  17:53:55,193 - #13 ;
+INFO  17:53:55,193 - #35 }
+INFO  17:53:55,193 - #6 while
+INFO  17:53:55,194 - #32 (
+INFO  17:53:55,194 - #45 i
+INFO  17:53:55,194 - #23 <
+INFO  17:53:55,194 - #9 10
+INFO  17:53:55,194 - #33 )
+INFO  17:53:55,194 - #13 ;
+INFO  17:53:55,194 - #41 print
+INFO  17:53:55,194 - #32 (
+INFO  17:53:55,194 - #10 e
+INFO  17:53:55,194 - #12 ,
+INFO  17:53:55,194 - #9 5
+INFO  17:53:55,194 - #33 )
+INFO  17:53:55,194 - #13 ;
+INFO  17:53:55,194 - #41 print
+INFO  17:53:55,194 - #32 (
+INFO  17:53:55,194 - #45 eol
+INFO  17:53:55,194 - #33 )
+INFO  17:53:55,195 - #13 ;
+INFO  17:53:55,195 - #45 i
+INFO  17:53:55,195 - #28 =
+INFO  17:53:55,195 - #9 0
+INFO  17:53:55,195 - #13 ;
+INFO  17:53:55,195 - #5 do
+INFO  17:53:55,195 - #34 {
+INFO  17:53:55,195 - #2 if
+INFO  17:53:55,195 - #32 (
+INFO  17:53:55,195 - #45 i
+INFO  17:53:55,195 - #19 %
+INFO  17:53:55,195 - #9 3
+INFO  17:53:55,196 - #20 ==
+INFO  17:53:55,196 - #9 0
+INFO  17:53:55,196 - #33 )
+INFO  17:53:55,197 - #7 continue
+INFO  17:53:55,197 - #13 ;
+INFO  17:53:55,197 - #45 j
+INFO  17:53:55,197 - #28 =
+INFO  17:53:55,197 - #9 0
+INFO  17:53:55,197 - #13 ;
+INFO  17:53:55,197 - #5 do
+INFO  17:53:55,197 - #34 {
+INFO  17:53:55,197 - #41 print
+INFO  17:53:55,197 - #32 (
+INFO  17:53:55,197 - #10 (
+INFO  17:53:55,197 - #12 ,
+INFO  17:53:55,197 - #9 1
+INFO  17:53:55,197 - #33 )
+INFO  17:53:55,197 - #13 ;
+INFO  17:53:55,197 - #41 print
+INFO  17:53:55,197 - #32 (
+INFO  17:53:55,197 - #45 i
+INFO  17:53:55,197 - #12 ,
+INFO  17:53:55,198 - #9 1
+INFO  17:53:55,198 - #33 )
+INFO  17:53:55,198 - #13 ;
+INFO  17:53:55,198 - #41 print
+INFO  17:53:55,198 - #32 (
+INFO  17:53:55,198 - #10 ,
+INFO  17:53:55,198 - #12 ,
+INFO  17:53:55,198 - #9 1
+INFO  17:53:55,198 - #33 )
+INFO  17:53:55,198 - #13 ;
+INFO  17:53:55,198 - #41 print
+INFO  17:53:55,198 - #32 (
+INFO  17:53:55,198 - #45 j
+INFO  17:53:55,198 - #12 ,
+INFO  17:53:55,198 - #9 1
+INFO  17:53:55,198 - #33 )
+INFO  17:53:55,198 - #13 ;
+INFO  17:53:55,198 - #41 print
+INFO  17:53:55,198 - #32 (
+INFO  17:53:55,198 - #10 )
+INFO  17:53:55,198 - #12 ,
+INFO  17:53:55,198 - #9 1
+INFO  17:53:55,198 - #33 )
+INFO  17:53:55,198 - #13 ;
+INFO  17:53:55,198 - #45 j
+INFO  17:53:55,198 - #29 ++
+INFO  17:53:55,198 - #13 ;
+INFO  17:53:55,198 - #2 if
+INFO  17:53:55,199 - #32 (
+INFO  17:53:55,199 - #45 i
+INFO  17:53:55,199 - #15 +
+INFO  17:53:55,199 - #45 j
+INFO  17:53:55,199 - #22 >
+INFO  17:53:55,199 - #9 9
+INFO  17:53:55,199 - #33 )
+INFO  17:53:55,199 - #4 break
+INFO  17:53:55,199 - #13 ;
+INFO  17:53:55,199 - #35 }
+INFO  17:53:55,199 - #6 while
+INFO  17:53:55,200 - #32 (
+INFO  17:53:55,200 - #45 j
+INFO  17:53:55,200 - #23 <
+INFO  17:53:55,200 - #9 10
+INFO  17:53:55,200 - #33 )
+INFO  17:53:55,200 - #13 ;
+INFO  17:53:55,200 - #45 i
+INFO  17:53:55,200 - #29 ++
+INFO  17:53:55,200 - #13 ;
+INFO  17:53:55,200 - #41 print
+INFO  17:53:55,200 - #32 (
+INFO  17:53:55,200 - #10 *
+INFO  17:53:55,200 - #33 )
+INFO  17:53:55,200 - #13 ;
+INFO  17:53:55,200 - #41 print
+INFO  17:53:55,200 - #32 (
+INFO  17:53:55,200 - #45 eol
+INFO  17:53:55,200 - #33 )
+INFO  17:53:55,200 - #13 ;
+INFO  17:53:55,200 - #35 }
+INFO  17:53:55,200 - #6 while
+INFO  17:53:55,200 - #32 (
+INFO  17:53:55,200 - #45 i
+INFO  17:53:55,200 - #23 <
+INFO  17:53:55,200 - #9 10
+INFO  17:53:55,200 - #33 )
+INFO  17:53:55,200 - #13 ;
+INFO  17:53:55,201 - #35 }
+INFO  17:53:55,201 - #35 }
+INFO  17:53:55,202 - ***Abstract tree****
+INFO  17:53:55,202 - #0
+DEBUG 17:53:55,209 - Variable with name i has the address of 0
+DEBUG 17:53:55,209 - Variable with name j has the address of 1
+DEBUG 17:53:55,209 - found constant with value 0of type 1
+DEBUG 17:53:55,209 - constant factor is type 1
+DEBUG 17:53:55,209 - term SingleFactorterm is type 1
+DEBUG 17:53:55,209 - exprWithNoMinus is type 1
+DEBUG 17:53:55,209 - found constant with value 0of type 1
+DEBUG 17:53:55,209 - constant factor is type 1
+DEBUG 17:53:55,209 - term SingleFactorterm is type 1
+DEBUG 17:53:55,209 - exprWithNoMinus is type 1
+DEBUG 17:53:55,209 - found constant with value *****of type 2
+DEBUG 17:53:55,209 - found constant with value 98of type 2
+DEBUG 17:53:55,209 - constant factor is type 2
+DEBUG 17:53:55,209 - term SingleFactorterm is type 2
+DEBUG 17:53:55,209 - exprWithNoMinus is type 2
+DEBUG 17:53:55,209 - print statement has arg of type 2
+DEBUG 17:53:55,209 - term SingleFactorterm is type 1
+DEBUG 17:53:55,209 - exprWithNoMinus is type 1
+DEBUG 17:53:55,209 - found constant with value 3of type 1
+DEBUG 17:53:55,210 - print statement has arg of type 1
+DEBUG 17:53:55,210 - found constant with value *****of type 2
+DEBUG 17:53:55,210 - found constant with value 58of type 2
+DEBUG 17:53:55,210 - constant factor is type 2
+DEBUG 17:53:55,210 - term SingleFactorterm is type 2
+DEBUG 17:53:55,210 - exprWithNoMinus is type 2
+DEBUG 17:53:55,210 - print statement has arg of type 2
+DEBUG 17:53:55,210 - found constant with value 0of type 1
+DEBUG 17:53:55,210 - constant factor is type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - exprWithNoMinus is type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - exprWithNoMinus is type 1
+DEBUG 17:53:55,210 - found constant with value 1of type 1
+DEBUG 17:53:55,210 - print statement has arg of type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - exprWithNoMinus is type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - exprWithNoMinus is type 1
+DEBUG 17:53:55,210 - found constant with value 10of type 1
+DEBUG 17:53:55,210 - constant factor is type 1
+DEBUG 17:53:55,210 - term SingleFactorterm is type 1
+DEBUG 17:53:55,210 - exprWithNoMinus is type 1
+DEBUG 17:53:55,210 - found constant with value *****of type 2
+DEBUG 17:53:55,210 - found constant with value 44of type 2
+DEBUG 17:53:55,210 - constant factor is type 2
+DEBUG 17:53:55,210 - term SingleFactorterm is type 2
+DEBUG 17:53:55,210 - exprWithNoMinus is type 2
+DEBUG 17:53:55,210 - print statement has arg of type 2
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value 10of type 1
+DEBUG 17:53:55,211 - constant factor is type 1
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value 10of type 1
+DEBUG 17:53:55,211 - constant factor is type 1
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value *****of type 2
+DEBUG 17:53:55,211 - found constant with value 101of type 2
+DEBUG 17:53:55,211 - constant factor is type 2
+DEBUG 17:53:55,211 - term SingleFactorterm is type 2
+DEBUG 17:53:55,211 - exprWithNoMinus is type 2
+DEBUG 17:53:55,211 - found constant with value 5of type 1
+DEBUG 17:53:55,211 - print statement has arg of type 2
+DEBUG 17:53:55,211 - term SingleFactorterm is type 2
+DEBUG 17:53:55,211 - exprWithNoMinus is type 2
+DEBUG 17:53:55,211 - print statement has arg of type 2
+DEBUG 17:53:55,211 - found constant with value 0of type 1
+DEBUG 17:53:55,211 - constant factor is type 1
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value 3of type 1
+DEBUG 17:53:55,211 - constant factor is type 1
+DEBUG 17:53:55,211 - term element is type 1
+DEBUG 17:53:55,211 - term list single is type 1
+DEBUG 17:53:55,211 - term MultiFactorTerm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value 0of type 1
+DEBUG 17:53:55,211 - constant factor is type 1
+DEBUG 17:53:55,211 - term SingleFactorterm is type 1
+DEBUG 17:53:55,211 - exprWithNoMinus is type 1
+DEBUG 17:53:55,211 - found constant with value 0of type 1
+DEBUG 17:53:55,212 - constant factor is type 1
+DEBUG 17:53:55,212 - term SingleFactorterm is type 1
+DEBUG 17:53:55,212 - exprWithNoMinus is type 1
+DEBUG 17:53:55,212 - found constant with value *****of type 2
+DEBUG 17:53:55,212 - found constant with value 40of type 2
+DEBUG 17:53:55,212 - constant factor is type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 2
+DEBUG 17:53:55,212 - exprWithNoMinus is type 2
+DEBUG 17:53:55,212 - found constant with value 1of type 1
+DEBUG 17:53:55,212 - print statement has arg of type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 1
+DEBUG 17:53:55,212 - exprWithNoMinus is type 1
+DEBUG 17:53:55,212 - found constant with value 1of type 1
+DEBUG 17:53:55,212 - print statement has arg of type 1
+DEBUG 17:53:55,212 - found constant with value *****of type 2
+DEBUG 17:53:55,212 - found constant with value 44of type 2
+DEBUG 17:53:55,212 - constant factor is type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 2
+DEBUG 17:53:55,212 - exprWithNoMinus is type 2
+DEBUG 17:53:55,212 - found constant with value 1of type 1
+DEBUG 17:53:55,212 - print statement has arg of type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 1
+DEBUG 17:53:55,212 - exprWithNoMinus is type 1
+DEBUG 17:53:55,212 - found constant with value 1of type 1
+DEBUG 17:53:55,212 - print statement has arg of type 1
+DEBUG 17:53:55,212 - found constant with value *****of type 2
+DEBUG 17:53:55,212 - found constant with value 41of type 2
+DEBUG 17:53:55,212 - constant factor is type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 2
+DEBUG 17:53:55,212 - exprWithNoMinus is type 2
+DEBUG 17:53:55,212 - found constant with value 1of type 1
+DEBUG 17:53:55,212 - print statement has arg of type 2
+DEBUG 17:53:55,212 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+DEBUG 17:53:55,213 - found constant with value 9of type 1
+DEBUG 17:53:55,213 - constant factor is type 1
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+DEBUG 17:53:55,213 - found constant with value 10of type 1
+DEBUG 17:53:55,213 - constant factor is type 1
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+DEBUG 17:53:55,213 - found constant with value *****of type 2
+DEBUG 17:53:55,213 - found constant with value 42of type 2
+DEBUG 17:53:55,213 - constant factor is type 2
+DEBUG 17:53:55,213 - term SingleFactorterm is type 2
+DEBUG 17:53:55,213 - exprWithNoMinus is type 2
+DEBUG 17:53:55,213 - print statement has arg of type 2
+DEBUG 17:53:55,213 - term SingleFactorterm is type 2
+DEBUG 17:53:55,213 - exprWithNoMinus is type 2
+DEBUG 17:53:55,213 - print statement has arg of type 2
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+DEBUG 17:53:55,213 - found constant with value 10of type 1
+DEBUG 17:53:55,213 - constant factor is type 1
+DEBUG 17:53:55,213 - term SingleFactorterm is type 1
+DEBUG 17:53:55,213 - exprWithNoMinus is type 1
+INFO  17:53:55,213 - Print calls = 0
+INFO  17:53:55,215 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  17:53:55,223 - Parsiranje uspesno zavrseno!

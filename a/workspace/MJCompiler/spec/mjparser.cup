@@ -1,0 +1,615 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import java.io.*;
+import org.apache.log4j.*;
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+		
+	Logger log = Logger.getLogger(getClass());
+	
+	boolean syntaxErrorFound = false;
+	
+	public void report_fatal_error(String message, Object info) throws java.lang.Exception
+	{
+		done_parsing();
+		report_error(message, info);
+		Tab.dump();
+	}
+	
+	public void syntax_error(Symbol cur_token)
+	{
+		report_error("Syntax error", cur_token);
+		syntaxErrorFound = true;
+	}
+	
+	public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception
+	{
+		report_fatal_error("Fatal error, parsing cannot continue. Aborting.", cur_token);
+	}
+	
+	public void report_error(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" on line ").append(((Symbol)info).left);
+		}
+		log.error(msg.toString());
+	}
+	
+	public void report_info(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" on line ").append(((Symbol)info).left);
+		}
+		log.info(msg.toString());
+	}
+	
+	public void report_debug(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" on line ").append(((Symbol)info).left);
+		}
+		log.debug(msg.toString());
+	}
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if(s != null && s.value != null)
+		log.debug(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+
+
+/**
+ *  TERMINALS: 
+ *  
+ *  CONTROL FLOW
+ *  LITERALS
+ *  PUNCTUATION
+ *  OPERATORS
+ *  	ARITHMETIC
+ *  	COMPARISON
+ *  	LOGIC
+ *  	ASSIGNMENT
+ *  	SIDE-EFFECT
+ *  	ALLOCATION
+ *  PARENTHESES
+ *  CLASS REALATED
+ *  OTHER
+ *  
+ */
+
+/** CONTROL FLOW TERMINALS */
+terminal IF, ELSE, BREAK, DO, WHILE, CONTINUE, RETURN;
+
+
+/** LITERALS */
+terminal Integer NUMBER;
+terminal String CHAR;
+terminal String BOOL;
+
+
+/** PUNCTUATION */
+terminal COMMA, SEMICOLON, DOT;
+
+
+/** OPERATORS */
+
+/** ARITHMETIC OPERATORS */
+terminal PLUS, MINUS, MULTUPLY, DIV, MOD;
+
+
+
+/** COMPARISON OPERATORS */
+terminal EQUAL, NOT_EQUAL, GREATER, LESS, GREATER_OR_EQUEL, LESS_OR_EQUEL;
+
+/** LOGIC OPERATORS */
+terminal AND, OR;
+
+/** ASSIGNMENT */
+terminal ASSIGN;
+
+/** SIDE-EFFECT */
+terminal INC, DEC;
+
+/** ALLOCATION */
+terminal NEW;
+
+/** END OF OPERATORS */
+
+
+/** PARENTHESES */
+terminal	OPEN_PARENTHESES, 	CLOSE_PARENTHESES,
+			OPEN_BRACES, 		CLOSE_BRACES,
+			OPEN_CHEVRONS, 		CLOSE_CHEVRONS;
+
+
+/** CLASS RELATED */
+terminal CLASS, EXTENDS;
+
+
+/** OTHER */
+terminal PROG, PRINT, READ, VOID, CONST;
+terminal String IDENT;
+
+/**
+ * END OF TERMINALS
+ */
+
+
+
+
+/** NON TERMINALS */
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj Program;
+non terminal rs.etf.pp1.symboltable.concepts.Obj VarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Statement;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorStatement;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Factor;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Condition;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTerm;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFact;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActPars; 
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormPars; 
+
+
+
+non terminal Mulop;
+non terminal Addop;
+non terminal Relop;
+
+
+non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
+non terminal rs.etf.pp1.symboltable.concepts.Struct VoidType;
+non terminal rs.etf.pp1.symboltable.concepts.Struct ReturnType;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
+
+
+
+/** END OF NON TERMINALS */
+
+
+/** HELPER NON TERMINALS */
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+non terminal ProgramBegin;
+non terminal ProgramEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodNameAndRetType;
+non terminal MethodEnd;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodBegin;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj Constant;
+
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleStatements;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleMethodDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleVarDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj MultipleDecl;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj TermList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj TermElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj OptionalExprList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ExprList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ExprElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj VarDeclElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj LValueDesignator;
+non terminal rs.etf.pp1.symboltable.concepts.Obj RValueDesignator;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayName;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj Matched;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Unmatched;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConditionElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondTermElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj CondFactElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ConstDeclElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormParsElement;
+
+non terminal MatchedThen;
+
+non terminal DoWhileBegin;
+non terminal ConditionWhile;
+non terminal StatementWhile;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ActParElement;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj MethodDesignator;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclBegin;
+non terminal ClassDeclEnd;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElement;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementMultiple;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElemenListFirst;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassElementList;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DesignatorClassBegin;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ArrayFieldName;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassMethodBegin;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj OptionalThis;
+/** END HELPER NON TERMINALS */
+
+
+/* TODO optional method decl*/
+Program ::= (Program2) PROG ProgramName MultipleDecl ProgramBegin MultipleMethodDecl ProgramEnd
+			|
+			(Program1) PROG ProgramName ProgramBegin MultipleMethodDecl ProgramEnd
+			;
+			
+ProgramName ::= (ProgName) IDENT:name;
+
+ProgramBegin ::= (ProgramBegin1) OPEN_BRACES;
+ProgramEnd ::= (ProgramEnd1) CLOSE_BRACES;
+
+
+MultipleDecl ::= 	MultipleDecl ConstDecl
+					|
+					MultipleDecl VarDecl
+					|
+					MultipleDecl ClassDecl
+					|
+					ClassDecl
+					| 
+					ConstDecl
+					|
+					VarDecl
+					;
+					
+					
+ClassDecl ::= 	(ClassDecl1) ClassDeclBegin OPEN_BRACES MultipleVarDecl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				|
+				(ClassDecl2) ClassDeclBegin OPEN_BRACES OPEN_BRACES MultipleMethodDecl CLOSE_BRACES ClassDeclEnd
+				|
+				(ClassDecl3) ClassDeclBegin OPEN_BRACES MultipleVarDecl ClassDeclEnd
+				|
+				(ClassDecl4) ClassDeclBegin OPEN_BRACES ClassDeclEnd
+				;
+
+
+								
+ClassDeclBegin ::= (DerivedClassBegin) CLASS IDENT EXTENDS Type
+					|
+					(NewClassBegin) CLASS IDENT
+					|
+					(ErrorClass) error {:parser.log.error("Error in class declaration.", error);:}
+					;
+					
+ClassDeclEnd ::= (ClassDeclEnd1) CLOSE_BRACES;
+					
+ConstDecl ::= (ConstDecl1) CONST Type ConstDeclList SEMICOLON;
+
+ConstDeclList ::= 	ConstDeclList COMMA ConstDeclElement
+					|
+					ConstDeclElement
+					;
+					
+ConstDeclElement ::= (ConstDeclElement1)IDENT ASSIGN Constant;
+
+MultipleVarDecl ::= MultipleVarDecl VarDecl	
+					|
+					VarDecl
+					;
+					
+VarDecl ::= (VarDecl1) Type VarDeclList SEMICOLON
+			|
+			error {:parser.log.error("Error in var declaration.", error);:}SEMICOLON
+			;
+
+VarDeclList ::= VarDeclList COMMA VarDeclElement
+				|
+				VarDeclElement
+				;
+			
+VarDeclElement ::= 	(VarDeclElementArray) IDENT OPEN_CHEVRONS CLOSE_CHEVRONS 
+					|
+					(VarDeclElementSingle)IDENT
+					|
+					error {:parser.log.error("Greska.");:}
+					;
+
+MultipleMethodDecl ::= 	MultipleMethodDecl MethodDecl
+						|
+						MethodDecl
+						;
+						
+
+/* TODO optional multiple statements */					
+MethodDecl ::= 	MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MethodBegin MultipleStatements MethodEnd
+				|
+				MethodNameAndRetType OPEN_PARENTHESES CLOSE_PARENTHESES MultipleVarDecl MethodBegin MultipleStatements MethodEnd
+				|
+				MethodNameAndRetType OPEN_PARENTHESES FormPars CLOSE_PARENTHESES MethodBegin MultipleStatements MethodEnd
+				|
+				MethodNameAndRetType OPEN_PARENTHESES FormPars CLOSE_PARENTHESES MultipleVarDecl MethodBegin MultipleStatements MethodEnd
+				
+				;
+				
+MethodNameAndRetType ::= (MethodNameAndRetType1) ReturnType:type IDENT:name;
+
+MethodBegin ::= (MethodBegin1) OPEN_BRACES;
+MethodEnd ::= (MethodEnd1) CLOSE_BRACES;
+
+ReturnType ::= 	(VoidReturnType) VoidType
+				|
+				(TypeReturnType) Type
+				;
+
+VoidType ::= VOID;	
+
+FormPars ::= 	FormPars COMMA FormParsElement
+				|
+				FormParsElement
+				;
+
+FormParsElement ::= 	(FormParsElementArray) Type IDENT OPEN_CHEVRONS CLOSE_CHEVRONS
+						|
+						(FormParsElementSingle) Type IDENT 
+						|
+						error {:parser.log.error("Error");:}
+						;
+
+ActPars ::= ActPars COMMA ActParElement
+			|
+			ActParElement
+			;
+			
+ActParElement ::= (ActParElement1)Expr;
+		
+
+Type ::= (Type1) IDENT;
+
+MultipleStatements ::= 	MultipleStatements Statement
+						|
+						Statement
+						;
+
+
+Statement ::= 	Matched 
+				|
+				Unmatched
+				;
+
+Matched ::= 	DesignatorStatement SEMICOLON
+				|
+				(StatementReturnVoid) RETURN SEMICOLON 
+				|
+				(StatementReturnValue) RETURN Expr SEMICOLON
+				|
+				(PrintStatementComplex) PRINT OPEN_PARENTHESES Expr:expr COMMA Constant:constant CLOSE_PARENTHESES SEMICOLON
+				|
+				(PrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
+				|
+				(ReadStatement) READ OPEN_PARENTHESES LValueDesignator CLOSE_PARENTHESES SEMICOLON
+				|
+				(MatchedIf)	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Matched
+				|
+				(MatchdWhile) DoWhileBegin StatementWhile WHILE OPEN_PARENTHESES ConditionWhile CLOSE_PARENTHESES SEMICOLON
+				|
+				(MatchedBreak) BREAK SEMICOLON
+				|
+				(MatchedContinue) CONTINUE SEMICOLON
+				|
+				OPEN_BRACES CLOSE_BRACES
+				|
+				OPEN_BRACES MultipleStatements CLOSE_BRACES
+				;
+				
+				
+DoWhileBegin ::= (DoWhileBegin1) DO;
+
+StatementWhile ::= (StatementWhile1) Statement;
+				
+Unmatched ::=	(UnmatchedIf)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				|
+				(UnmatchedIfElse)IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES MatchedThen ELSE Unmatched
+				;			
+
+
+MatchedThen ::= (MatchedThen1) Matched;
+
+
+DesignatorStatement ::= 	(DesignatorStatementAssignment) LValueDesignator ASSIGN Expr
+							|
+							(RValueDesignatorStatement) RValueDesignator
+							|
+							(DesignatorStatementFunctionCallComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+							|
+							(DesignatorStatementFunctionCall) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
+							|							
+							(DesignatorStatementInc)LValueDesignator INC
+							|
+							(DesignatorStatementDec) LValueDesignator DEC
+							|
+							error {:parser.log.error("Error");:}
+							;
+
+Condition ::= 	(ConditionMultiple) CondTerm ConditionList
+				|
+				(ConditionSingle) CondTerm
+				|
+				error {:parser.log.error("Error");:}
+				;
+ConditionWhile ::= (ConditionMultipleWhile) CondTerm ConditionList
+				|
+				(ConditionSingleWhile) CondTerm
+				;
+
+ConditionList ::= 	(ConditionListMultiple) ConditionList ConditionElement
+					|
+					(ConditionListSingle) ConditionElement
+					;
+					
+/*TODO generate code*/					
+ConditionElement ::= (ConditionElement1) OR CondTerm
+					;
+
+CondTerm ::= 	(CondTermMultiple) CondFact CondTermList
+				|
+				(CondTermSingle) CondFact
+				;
+
+CondTermList ::= 	(CondTermListMultiple) CondTermList CondTermElement
+					|
+					(CondTermListSingle) CondTermElement
+					;
+					
+/*TODO generate code*/					
+CondTermElement ::= (CondTermElement1) AND CondFact
+					;
+
+CondFact ::= 	(CondFactMultiple) Expr CondFactList
+				|
+				(CondFactSingle) Expr
+				;
+
+CondFactList ::= 	(CondFactListMultiple) CondFactList CondFactElement
+					|
+					(CondFactListSingle) CondFactElement
+					;
+					
+/*TODO generate code*/					
+CondFactElement ::= (CondFactElement1) Relop Expr;
+
+Expr ::=	(ExprWithMinus) MINUS Term:term OptionalExprList
+			|
+			(ExprWithNoMinus)Term:term OptionalExprList
+			;
+			
+OptionalExprList ::= 	ExprList:list
+						|
+						/* empty */
+						;
+			
+ExprList ::= 	ExprList ExprElement
+				|
+				ExprElement
+				;
+
+ExprElement ::= (ExprElement1) Addop Term;
+
+Term ::= 	(MultiFactorTerm) Factor:factor TermList
+			| 
+			(SingleFactorTerm) Factor:factor
+			;
+			
+TermList ::=	(TermListMultiple) TermList TermElement
+				|
+				(TermListSingle) TermElement
+				;
+				
+TermElement ::= (TermElement1) Mulop Factor;
+
+			/* TODO */
+Factor ::= 	(VariableFactor)RValueDesignator:desigantor
+			|
+			(FuncttionCallFactorComplex) MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+			|
+			/* TODO */
+			(FuncttionCallFactor) MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
+			|
+			(ConstantFactor) Constant:constant
+			|
+			(FactorParenExpr) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
+			|
+			(FactorNewArray) NEW Type OPEN_CHEVRONS Expr CLOSE_CHEVRONS 
+			|
+			(FactorNewObject) NEW Type
+			;
+			
+Constant ::= (NumberConstant) NUMBER:number
+			|
+			(CharConstant) CHAR:ch
+			|
+			(BoolConstant) BOOL:bl
+			;
+
+LValueDesignator ::= 						/* TODO */
+						(LValueClassDesignator) DesignatorClassElementMultiple DOT Designator
+						|
+						(LValueDesignator1) Designator
+						;
+RValueDesignator ::= 						/* TODO */
+					(RValueMethodCall1) DesignatorClassElementMultiple DOT MethodDesignator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+					|
+					(RValueMethodCall2) DesignatorClassElementMultiple DOT MethodDesignator OPEN_PARENTHESES CLOSE_PARENTHESES
+					|
+					(RValueClassDesignator) DesignatorClassElementMultiple DOT Designator
+					|
+					(RValueDesignator1) Designator
+					;
+					
+MethodDesignator ::= (MethodDesignator1)  Designator;
+
+	
+	
+DesignatorClassElementMultiple ::=  (DesignatorClassElementMultipleMultiple)DesignatorClassElementMultiple DOT DesignatorClassElement 
+									|
+									(DesignatorClassElementMultipleSingle)DesignatorClassElement
+									;
+									
+DesignatorClassElement ::= (DesignatorClassElement1)Designator;
+									
+Designator ::= 	(DesignatorArray) ArrayName OPEN_CHEVRONS Expr CLOSE_CHEVRONS
+				|
+				(DesignatorSimple)IDENT
+				;
+									
+			
+ArrayName ::= (ArrayName1) IDENT ;
+
+
+Relop ::= 	(RelopEq) EQUAL
+			|
+			(RelopNEq) NOT_EQUAL
+			|
+			(RelopGr)GREATER
+			|
+			(RelopLs)LESS
+			|
+			(RelopGEq)GREATER_OR_EQUEL
+			|
+			(RelopLEq)LESS_OR_EQUEL
+			;
+			
+Addop ::= 	(AddopPlus)PLUS
+			|
+			(AddopMinus)MINUS
+			;
+			
+Mulop ::= 	(MulopMultiply)MULTUPLY
+			|
+			(MulopDiv)DIV
+			|
+			(MulopMod)MOD
+			;
+

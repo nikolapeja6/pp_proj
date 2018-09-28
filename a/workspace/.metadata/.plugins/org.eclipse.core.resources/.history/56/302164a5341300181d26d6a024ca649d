@@ -1,0 +1,78 @@
+// generated with ast extension for cup
+// version 0.8
+// 31/0/2018 17:23:0
+
+
+package rs.ac.bg.etf.pp1.ast;
+
+public class FormalParsDerived3 extends FormalPars {
+
+    private FormalPar FormalPar;
+    private FormalPars FormalPars;
+
+    public FormalParsDerived3 (FormalPar FormalPar, FormalPars FormalPars) {
+        this.FormalPar=FormalPar;
+        if(FormalPar!=null) FormalPar.setParent(this);
+        this.FormalPars=FormalPars;
+        if(FormalPars!=null) FormalPars.setParent(this);
+    }
+
+    public FormalPar getFormalPar() {
+        return FormalPar;
+    }
+
+    public void setFormalPar(FormalPar FormalPar) {
+        this.FormalPar=FormalPar;
+    }
+
+    public FormalPars getFormalPars() {
+        return FormalPars;
+    }
+
+    public void setFormalPars(FormalPars FormalPars) {
+        this.FormalPars=FormalPars;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+    public void childrenAccept(Visitor visitor) {
+        if(FormalPar!=null) FormalPar.accept(visitor);
+        if(FormalPars!=null) FormalPars.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(FormalPar!=null) FormalPar.traverseTopDown(visitor);
+        if(FormalPars!=null) FormalPars.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(FormalPar!=null) FormalPar.traverseBottomUp(visitor);
+        if(FormalPars!=null) FormalPars.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("FormalParsDerived3(\n");
+
+        if(FormalPar!=null)
+            buffer.append(FormalPar.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(FormalPars!=null)
+            buffer.append(FormalPars.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [FormalParsDerived3]");
+        return buffer.toString();
+    }
+}

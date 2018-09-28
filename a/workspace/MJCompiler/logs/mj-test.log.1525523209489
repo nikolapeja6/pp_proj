@@ -1,0 +1,157 @@
+INFO  14:21:06,805 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class2.mj
+INFO  14:21:06,864 - #40 program
+INFO  14:21:06,864 - #45 BBB
+INFO  14:21:06,864 - #38 class
+INFO  14:21:06,864 - #45 A
+INFO  14:21:06,864 - #34 {
+INFO  14:21:06,864 - #45 int
+INFO  14:21:06,864 - #45 a
+INFO  14:21:06,865 - #13 ;
+INFO  14:21:06,865 - #34 {
+INFO  14:21:06,865 - #45 int
+INFO  14:21:06,866 - #45 op
+INFO  14:21:06,866 - #32 (
+INFO  14:21:06,866 - #33 )
+INFO  14:21:06,866 - #34 {
+INFO  14:21:06,866 - #8 return
+INFO  14:21:06,867 - #45 a
+INFO  14:21:06,867 - #17 *
+INFO  14:21:06,867 - #45 a
+INFO  14:21:06,868 - #13 ;
+INFO  14:21:06,869 - #35 }
+INFO  14:21:06,869 - #35 }
+INFO  14:21:06,870 - #35 }
+INFO  14:21:06,871 - #38 class
+INFO  14:21:06,872 - #45 B
+INFO  14:21:06,872 - #39 extends
+INFO  14:21:06,872 - #45 A
+INFO  14:21:06,872 - #34 {
+INFO  14:21:06,872 - #35 }
+INFO  14:21:06,872 - #38 class
+INFO  14:21:06,872 - #45 C
+INFO  14:21:06,872 - #39 extends
+INFO  14:21:06,872 - #45 B
+INFO  14:21:06,872 - #34 {
+INFO  14:21:06,872 - #34 {
+INFO  14:21:06,872 - #45 int
+INFO  14:21:06,872 - #45 op
+INFO  14:21:06,872 - #32 (
+INFO  14:21:06,872 - #33 )
+INFO  14:21:06,873 - #34 {
+INFO  14:21:06,873 - #8 return
+INFO  14:21:06,873 - #45 a
+INFO  14:21:06,873 - #15 +
+INFO  14:21:06,873 - #45 a
+INFO  14:21:06,873 - #13 ;
+INFO  14:21:06,874 - #35 }
+INFO  14:21:06,874 - #35 }
+INFO  14:21:06,874 - #35 }
+INFO  14:21:06,874 - #34 {
+INFO  14:21:06,874 - #43 void
+INFO  14:21:06,875 - #45 main
+INFO  14:21:06,875 - #32 (
+INFO  14:21:06,876 - #33 )
+INFO  14:21:06,876 - #45 A
+INFO  14:21:06,876 - #45 a
+INFO  14:21:06,876 - #13 ;
+INFO  14:21:06,876 - #34 {
+INFO  14:21:06,876 - #45 a
+INFO  14:21:06,876 - #28 =
+INFO  14:21:06,876 - #31 new
+INFO  14:21:06,876 - #45 A
+INFO  14:21:06,876 - #13 ;
+INFO  14:21:06,876 - #41 print
+INFO  14:21:06,877 - #32 (
+INFO  14:21:06,877 - #45 a
+INFO  14:21:06,877 - #14 .
+INFO  14:21:06,877 - #45 op
+INFO  14:21:06,877 - #32 (
+INFO  14:21:06,877 - #33 )
+INFO  14:21:06,877 - #33 )
+INFO  14:21:06,877 - #13 ;
+INFO  14:21:06,877 - #41 print
+INFO  14:21:06,878 - #32 (
+INFO  14:21:06,878 - #45 eol
+INFO  14:21:06,878 - #33 )
+INFO  14:21:06,878 - #13 ;
+INFO  14:21:06,878 - #45 a
+INFO  14:21:06,878 - #28 =
+INFO  14:21:06,878 - #31 new
+INFO  14:21:06,878 - #45 B
+INFO  14:21:06,878 - #13 ;
+INFO  14:21:06,878 - #41 print
+INFO  14:21:06,878 - #32 (
+INFO  14:21:06,878 - #45 a
+INFO  14:21:06,878 - #14 .
+INFO  14:21:06,878 - #45 op
+INFO  14:21:06,878 - #32 (
+INFO  14:21:06,878 - #33 )
+INFO  14:21:06,878 - #33 )
+INFO  14:21:06,878 - #13 ;
+INFO  14:21:06,878 - #41 print
+INFO  14:21:06,878 - #32 (
+INFO  14:21:06,879 - #45 eol
+INFO  14:21:06,879 - #33 )
+INFO  14:21:06,879 - #13 ;
+INFO  14:21:06,879 - #45 a
+INFO  14:21:06,879 - #28 =
+INFO  14:21:06,879 - #31 new
+INFO  14:21:06,879 - #45 C
+INFO  14:21:06,879 - #13 ;
+INFO  14:21:06,879 - #41 print
+INFO  14:21:06,879 - #32 (
+INFO  14:21:06,879 - #45 a
+INFO  14:21:06,879 - #14 .
+INFO  14:21:06,879 - #45 op
+INFO  14:21:06,879 - #32 (
+INFO  14:21:06,879 - #33 )
+INFO  14:21:06,879 - #33 )
+INFO  14:21:06,879 - #13 ;
+INFO  14:21:06,879 - #41 print
+INFO  14:21:06,879 - #32 (
+INFO  14:21:06,879 - #45 eol
+INFO  14:21:06,879 - #33 )
+INFO  14:21:06,879 - #13 ;
+INFO  14:21:06,879 - #35 }
+INFO  14:21:06,879 - #35 }
+INFO  14:21:06,881 - ***Abstract tree****
+INFO  14:21:06,881 - #0
+DEBUG 14:21:06,903 - program name
+DEBUG 14:21:06,903 - ClassBegin
+DEBUG 14:21:06,904 - Variable with name a has the address of 1
+DEBUG 14:21:06,905 - designator simple at line 7: a
+DEBUG 14:21:06,905 - designator simple at line 7: a
+DEBUG 14:21:06,905 - term element is type 1
+DEBUG 14:21:06,905 - term list single is type 1
+DEBUG 14:21:06,905 - term MultiFactorTerm is type 1
+DEBUG 14:21:06,905 - exprWithNoMinus is type 1
+DEBUG 14:22:31,995 - class decl end
+DEBUG 14:22:31,996 - class decl 1
+DEBUG 14:22:31,996 - derived ClassBegin
+DEBUG 14:22:31,996 - class decl end
+DEBUG 14:22:31,996 - class decl 4
+DEBUG 14:22:31,996 - derived ClassBegin
+DEBUG 14:22:31,996 - designator simple at line 19: a
+DEBUG 14:22:31,996 - term SingleFactorterm is type 1
+DEBUG 14:22:31,996 - designator simple at line 19: a
+DEBUG 14:22:31,996 - term SingleFactorterm is type 1
+DEBUG 14:22:31,996 - exprWithNoMinus is type 1
+DEBUG 14:22:32,731 - class decl end
+DEBUG 14:22:32,731 - class decl 2
+DEBUG 14:22:32,731 - program begin
+DEBUG 14:22:32,731 - Variable with name a has the address of 0
+DEBUG 14:22:32,731 - designator simple at line 26: a
+DEBUG 14:22:32,731 - term SingleFactorterm is type 4
+DEBUG 14:22:32,732 - exprWithNoMinus is type 4
+DEBUG 14:22:35,109 - designator simple at line 28: a
+DEBUG 14:22:35,109 - designator simple at line 28: op
+DEBUG 14:22:35,109 - term SingleFactorterm is type 1
+DEBUG 14:22:35,109 - exprWithNoMinus is type 1
+DEBUG 14:22:35,109 - print statement has arg of type 1
+DEBUG 14:22:35,109 - designator simple at line 29: eol
+DEBUG 14:22:35,109 - term SingleFactorterm is type 2
+DEBUG 14:22:35,109 - exprWithNoMinus is type 2
+DEBUG 14:22:35,109 - print statement has arg of type 2
+DEBUG 14:22:35,109 - designator simple at line 31: a
+DEBUG 14:22:35,109 - term SingleFactorterm is type 4
+DEBUG 14:22:35,109 - exprWithNoMinus is type 4

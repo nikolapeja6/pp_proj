@@ -1,0 +1,179 @@
+INFO  22:56:14,580 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  22:56:14,609 - #40 program
+INFO  22:56:14,609 - #45 MJProgram
+INFO  22:56:14,609 - #45 int
+INFO  22:56:14,609 - #45 x
+INFO  22:56:14,609 - #13 ;
+INFO  22:56:14,610 - #45 int
+INFO  22:56:14,610 - #45 z
+INFO  22:56:14,610 - #36 [
+INFO  22:56:14,610 - #37 ]
+INFO  22:56:14,610 - #13 ;
+INFO  22:56:14,610 - #34 {
+INFO  22:56:14,610 - #45 int
+INFO  22:56:14,611 - #45 main
+INFO  22:56:14,611 - #32 (
+INFO  22:56:14,611 - #33 )
+INFO  22:56:14,611 - #45 int
+INFO  22:56:14,611 - #45 y
+INFO  22:56:14,612 - #13 ;
+INFO  22:56:14,612 - #34 {
+INFO  22:56:14,612 - #41 print
+INFO  22:56:14,612 - #32 (
+INFO  22:56:14,612 - #9 1
+INFO  22:56:14,612 - #12 ,
+INFO  22:56:14,613 - #9 1
+INFO  22:56:14,613 - #33 )
+INFO  22:56:14,613 - #13 ;
+INFO  22:56:14,613 - #41 print
+INFO  22:56:14,614 - #32 (
+INFO  22:56:14,614 - #10 a
+INFO  22:56:14,614 - #12 ,
+INFO  22:56:14,614 - #9 1
+INFO  22:56:14,614 - #33 )
+INFO  22:56:14,614 - #13 ;
+INFO  22:56:14,614 - #45 z
+INFO  22:56:14,614 - #28 =
+INFO  22:56:14,614 - #31 new
+INFO  22:56:14,614 - #45 int
+INFO  22:56:14,614 - #36 [
+INFO  22:56:14,614 - #9 5
+INFO  22:56:14,615 - #37 ]
+INFO  22:56:14,615 - #13 ;
+INFO  22:56:14,615 - #45 y
+INFO  22:56:14,615 - #28 =
+INFO  22:56:14,615 - #9 5
+INFO  22:56:14,615 - #13 ;
+INFO  22:56:14,615 - #45 x
+INFO  22:56:14,615 - #28 =
+INFO  22:56:14,615 - #45 y
+INFO  22:56:14,615 - #15 +
+INFO  22:56:14,615 - #9 3
+INFO  22:56:14,616 - #13 ;
+INFO  22:56:14,616 - #41 print
+INFO  22:56:14,616 - #32 (
+INFO  22:56:14,616 - #45 x
+INFO  22:56:14,616 - #33 )
+INFO  22:56:14,617 - #13 ;
+INFO  22:56:14,617 - #45 y
+INFO  22:56:14,617 - #28 =
+INFO  22:56:14,617 - #32 (
+INFO  22:56:14,617 - #45 x
+INFO  22:56:14,617 - #33 )
+INFO  22:56:14,617 - #13 ;
+INFO  22:56:14,617 - #45 x
+INFO  22:56:14,617 - #29 ++
+INFO  22:56:14,617 - #13 ;
+INFO  22:56:14,617 - #41 print
+INFO  22:56:14,617 - #32 (
+INFO  22:56:14,617 - #45 x
+INFO  22:56:14,617 - #33 )
+INFO  22:56:14,617 - #13 ;
+INFO  22:56:14,617 - #45 x
+INFO  22:56:14,617 - #30 --
+INFO  22:56:14,617 - #13 ;
+INFO  22:56:14,617 - #41 print
+INFO  22:56:14,617 - #32 (
+INFO  22:56:14,618 - #32 (
+INFO  22:56:14,618 - #32 (
+INFO  22:56:14,618 - #45 x
+INFO  22:56:14,618 - #33 )
+INFO  22:56:14,618 - #33 )
+INFO  22:56:14,618 - #33 )
+INFO  22:56:14,618 - #13 ;
+INFO  22:56:14,618 - #45 x
+INFO  22:56:14,618 - #28 =
+INFO  22:56:14,618 - #45 x
+INFO  22:56:14,618 - #15 +
+INFO  22:56:14,618 - #32 (
+INFO  22:56:14,618 - #16 -
+INFO  22:56:14,618 - #9 2
+INFO  22:56:14,618 - #33 )
+INFO  22:56:14,618 - #13 ;
+INFO  22:56:14,618 - #41 print
+INFO  22:56:14,618 - #32 (
+INFO  22:56:14,618 - #45 x
+INFO  22:56:14,618 - #33 )
+INFO  22:56:14,618 - #13 ;
+INFO  22:56:14,618 - #45 x
+INFO  22:56:14,618 - #28 =
+INFO  22:56:14,618 - #45 y
+INFO  22:56:14,619 - #17 *
+INFO  22:56:14,619 - #9 2
+INFO  22:56:14,619 - #13 ;
+INFO  22:56:14,620 - #41 print
+INFO  22:56:14,620 - #32 (
+INFO  22:56:14,620 - #45 x
+INFO  22:56:14,620 - #33 )
+INFO  22:56:14,620 - #13 ;
+INFO  22:56:14,620 - #45 y
+INFO  22:56:14,620 - #28 =
+INFO  22:56:14,620 - #45 x
+INFO  22:56:14,620 - #18 /
+INFO  22:56:14,620 - #9 4
+INFO  22:56:14,620 - #13 ;
+INFO  22:56:14,621 - #41 print
+INFO  22:56:14,621 - #32 (
+INFO  22:56:14,621 - #45 y
+INFO  22:56:14,621 - #33 )
+INFO  22:56:14,621 - #13 ;
+INFO  22:56:14,621 - #45 x
+INFO  22:56:14,621 - #28 =
+INFO  22:56:14,621 - #45 y
+INFO  22:56:14,621 - #19 %
+INFO  22:56:14,621 - #9 3
+INFO  22:56:14,621 - #13 ;
+INFO  22:56:14,621 - #41 print
+INFO  22:56:14,621 - #32 (
+INFO  22:56:14,621 - #45 x
+INFO  22:56:14,621 - #33 )
+INFO  22:56:14,621 - #13 ;
+INFO  22:56:14,621 - #42 read
+INFO  22:56:14,621 - #32 (
+INFO  22:56:14,622 - #45 x
+INFO  22:56:14,622 - #33 )
+INFO  22:56:14,622 - #13 ;
+INFO  22:56:14,622 - #45 x
+INFO  22:56:14,622 - #28 =
+INFO  22:56:14,622 - #45 x
+INFO  22:56:14,622 - #17 *
+INFO  22:56:14,622 - #45 y
+INFO  22:56:14,622 - #13 ;
+INFO  22:56:14,622 - #41 print
+INFO  22:56:14,622 - #32 (
+INFO  22:56:14,622 - #45 x
+INFO  22:56:14,622 - #33 )
+INFO  22:56:14,622 - #13 ;
+INFO  22:56:14,622 - #41 print
+INFO  22:56:14,622 - #32 (
+INFO  22:56:14,622 - #11 false
+INFO  22:56:14,622 - #12 ,
+INFO  22:56:14,622 - #9 20
+INFO  22:56:14,622 - #33 )
+INFO  22:56:14,622 - #13 ;
+INFO  22:56:14,623 - #8 return
+INFO  22:56:14,623 - #9 0
+INFO  22:56:14,623 - #13 ;
+INFO  22:56:14,623 - #35 }
+INFO  22:56:14,623 - #35 }
+INFO  22:56:14,624 - ***Abstract tree****
+INFO  22:56:14,625 - #0
+DEBUG 22:56:14,632 - Variable with name x has the address of 0
+DEBUG 22:56:14,633 - Variable with name y has the address of 0
+DEBUG 22:56:14,633 - found constant with value 1of type 1
+DEBUG 22:56:14,633 - constant factor is type 1
+DEBUG 22:56:14,633 - term SingleFactorterm is type 1
+DEBUG 22:56:14,633 - exprWithNoMinus is type 1
+DEBUG 22:56:14,633 - found constant with value 1of type 1
+DEBUG 22:56:14,633 - print statement has arg of type 1
+DEBUG 22:56:14,633 - found constant with value *****of type 2
+DEBUG 22:56:14,633 - found constant with value 97of type 2
+DEBUG 22:56:14,633 - constant factor is type 2
+DEBUG 22:56:14,633 - term SingleFactorterm is type 2
+DEBUG 22:56:14,633 - exprWithNoMinus is type 2
+DEBUG 22:56:14,633 - found constant with value 1of type 1
+DEBUG 22:56:14,633 - print statement has arg of type 2
+DEBUG 22:56:14,633 - found constant with value 5of type 1
+DEBUG 22:56:14,633 - constant factor is type 1
+DEBUG 22:56:14,633 - term SingleFactorterm is type 1
+DEBUG 22:56:14,633 - exprWithNoMinus is type 1

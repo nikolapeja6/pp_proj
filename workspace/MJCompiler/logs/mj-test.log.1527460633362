@@ -1,0 +1,12 @@
+INFO  00:36:32,454 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\C\Green1.mj
+ERROR 00:36:32,505 - Syntax error on line 6
+ERROR 00:36:32,507 - Error in variabble declaration. Successful recovery.
+ERROR 00:36:32,507 - Syntax error on line 34
+ERROR 00:36:32,508 - Fatal error, parsing cannot continue. Aborting. on line 52
+INFO  00:36:32,517 - Searching for obj noObj (line 6) - found Var noObj: notype, -1, -1  on line 5
+ERROR 00:36:32,517 - A is not a type. on line 5
+INFO  00:36:32,517 - Searching for obj noObj (line 34) - found Var noObj: notype, -1, -1  on line 33
+ERROR 00:36:32,517 - A is not a type. on line 33
+INFO  00:36:32,518 - Searching for obj noObj (line 34) - found Var noObj: notype, -1, -1  on line 33
+ERROR 00:36:32,519 - No main method detected.
+ERROR 00:36:32,519 - Compilation was UNSUCCESSFUL!

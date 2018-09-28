@@ -1,0 +1,181 @@
+INFO  01:22:26,277 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\recursion.mj
+INFO  01:22:26,325 - #40 program
+INFO  01:22:26,325 - #45 MJProgram
+INFO  01:22:26,325 - #34 {
+INFO  01:22:26,325 - #43 void
+INFO  01:22:26,326 - #45 rec
+INFO  01:22:26,326 - #32 (
+INFO  01:22:26,326 - #45 int
+INFO  01:22:26,327 - #45 x
+INFO  01:22:26,327 - #12 ,
+INFO  01:22:26,327 - #45 int
+INFO  01:22:26,327 - #45 y
+INFO  01:22:26,327 - #33 )
+INFO  01:22:26,327 - #45 int
+INFO  01:22:26,328 - #45 z
+INFO  01:22:26,328 - #13 ;
+INFO  01:22:26,328 - #34 {
+INFO  01:22:26,328 - #41 print
+INFO  01:22:26,329 - #32 (
+INFO  01:22:26,329 - #45 x
+INFO  01:22:26,329 - #12 ,
+INFO  01:22:26,330 - #9 1
+INFO  01:22:26,330 - #33 )
+INFO  01:22:26,330 - #13 ;
+INFO  01:22:26,330 - #41 print
+INFO  01:22:26,331 - #32 (
+INFO  01:22:26,331 - #45 y
+INFO  01:22:26,331 - #12 ,
+INFO  01:22:26,331 - #9 1
+INFO  01:22:26,331 - #33 )
+INFO  01:22:26,331 - #13 ;
+INFO  01:22:26,331 - #45 z
+INFO  01:22:26,331 - #28 =
+INFO  01:22:26,331 - #45 x
+INFO  01:22:26,331 - #16 -
+INFO  01:22:26,331 - #9 1
+INFO  01:22:26,332 - #13 ;
+INFO  01:22:26,332 - #41 print
+INFO  01:22:26,332 - #32 (
+INFO  01:22:26,333 - #45 z
+INFO  01:22:26,333 - #12 ,
+INFO  01:22:26,333 - #9 1
+INFO  01:22:26,333 - #33 )
+INFO  01:22:26,333 - #13 ;
+INFO  01:22:26,333 - #41 print
+INFO  01:22:26,333 - #32 (
+INFO  01:22:26,333 - #45 eol
+INFO  01:22:26,333 - #33 )
+INFO  01:22:26,333 - #13 ;
+INFO  01:22:26,333 - #2 if
+INFO  01:22:26,333 - #32 (
+INFO  01:22:26,333 - #45 z
+INFO  01:22:26,333 - #22 >
+INFO  01:22:26,333 - #9 0
+INFO  01:22:26,334 - #33 )
+INFO  01:22:26,334 - #45 rec
+INFO  01:22:26,334 - #32 (
+INFO  01:22:26,334 - #45 z
+INFO  01:22:26,334 - #12 ,
+INFO  01:22:26,335 - #45 y
+INFO  01:22:26,335 - #33 )
+INFO  01:22:26,335 - #13 ;
+INFO  01:22:26,335 - #41 print
+INFO  01:22:26,335 - #32 (
+INFO  01:22:26,335 - #45 x
+INFO  01:22:26,335 - #12 ,
+INFO  01:22:26,335 - #9 1
+INFO  01:22:26,335 - #33 )
+INFO  01:22:26,336 - #13 ;
+INFO  01:22:26,336 - #41 print
+INFO  01:22:26,336 - #32 (
+INFO  01:22:26,336 - #45 y
+INFO  01:22:26,336 - #12 ,
+INFO  01:22:26,336 - #9 1
+INFO  01:22:26,336 - #33 )
+INFO  01:22:26,336 - #13 ;
+INFO  01:22:26,336 - #41 print
+INFO  01:22:26,336 - #32 (
+INFO  01:22:26,336 - #45 z
+INFO  01:22:26,336 - #12 ,
+INFO  01:22:26,336 - #9 1
+INFO  01:22:26,336 - #33 )
+INFO  01:22:26,336 - #13 ;
+INFO  01:22:26,336 - #41 print
+INFO  01:22:26,336 - #32 (
+INFO  01:22:26,336 - #45 eol
+INFO  01:22:26,336 - #33 )
+INFO  01:22:26,336 - #13 ;
+INFO  01:22:26,336 - #35 }
+INFO  01:22:26,336 - #45 int
+INFO  01:22:26,337 - #45 main
+INFO  01:22:26,337 - #32 (
+INFO  01:22:26,337 - #33 )
+INFO  01:22:26,337 - #34 {
+INFO  01:22:26,337 - #45 rec
+INFO  01:22:26,337 - #32 (
+INFO  01:22:26,337 - #9 5
+INFO  01:22:26,337 - #12 ,
+INFO  01:22:26,337 - #9 3
+INFO  01:22:26,338 - #33 )
+INFO  01:22:26,338 - #13 ;
+INFO  01:22:26,338 - #35 }
+INFO  01:22:26,338 - #35 }
+INFO  01:22:26,339 - ***Abstract tree****
+INFO  01:22:26,339 - #0
+DEBUG 01:22:26,346 - program name
+DEBUG 01:22:26,346 - program begin
+DEBUG 01:22:26,346 - Variable with name z has the address of 2
+DEBUG 01:22:26,346 - designator simple at line 6: x
+DEBUG 01:22:26,346 - term SingleFactorterm is type 1
+DEBUG 01:22:26,346 - exprWithNoMinus
+DEBUG 01:22:26,346 - found constant with value 1of type 1
+DEBUG 01:22:26,347 - print statement has arg of type 1
+DEBUG 01:22:26,347 - designator simple at line 7: y
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,347 - found constant with value 1of type 1
+DEBUG 01:22:26,347 - print statement has arg of type 1
+DEBUG 01:22:26,347 - designator simple at line 8: z
+DEBUG 01:22:26,347 - designator simple at line 8: x
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - found constant with value 1of type 1
+DEBUG 01:22:26,347 - constant factor is type 1
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,347 - designator simple at line 9: z
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,347 - found constant with value 1of type 1
+DEBUG 01:22:26,347 - print statement has arg of type 1
+DEBUG 01:22:26,347 - designator simple at line 10: eol
+DEBUG 01:22:26,347 - term SingleFactorterm is type 2
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,347 - print statement has arg of type 2
+DEBUG 01:22:26,347 - designator simple at line 11: z
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,347 - found constant with value 0of type 1
+DEBUG 01:22:26,347 - constant factor is type 1
+DEBUG 01:22:26,347 - term SingleFactorterm is type 1
+DEBUG 01:22:26,347 - exprWithNoMinus
+DEBUG 01:22:26,348 - designator simple at line 12: rec
+DEBUG 01:22:26,348 - designator simple at line 12: z
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+ERROR 01:22:26,348 - No appropreate act par found.
+DEBUG 01:22:26,348 - designator simple at line 12: y
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+ERROR 01:22:26,348 - No appropreate act par found.
+DEBUG 01:22:26,348 - designator simple at line 13: x
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+DEBUG 01:22:26,348 - found constant with value 1of type 1
+DEBUG 01:22:26,348 - print statement has arg of type 1
+DEBUG 01:22:26,348 - designator simple at line 14: y
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+DEBUG 01:22:26,348 - found constant with value 1of type 1
+DEBUG 01:22:26,348 - print statement has arg of type 1
+DEBUG 01:22:26,348 - designator simple at line 15: z
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+DEBUG 01:22:26,348 - found constant with value 1of type 1
+DEBUG 01:22:26,348 - print statement has arg of type 1
+DEBUG 01:22:26,348 - designator simple at line 16: eol
+DEBUG 01:22:26,348 - term SingleFactorterm is type 2
+DEBUG 01:22:26,348 - exprWithNoMinus
+DEBUG 01:22:26,348 - print statement has arg of type 2
+DEBUG 01:22:26,348 - designator simple at line 20: rec
+DEBUG 01:22:26,348 - found constant with value 5of type 1
+DEBUG 01:22:26,348 - constant factor is type 1
+DEBUG 01:22:26,348 - term SingleFactorterm is type 1
+DEBUG 01:22:26,348 - exprWithNoMinus
+DEBUG 01:22:26,349 - found constant with value 3of type 1
+DEBUG 01:22:26,349 - constant factor is type 1
+DEBUG 01:22:26,349 - term SingleFactorterm is type 1
+DEBUG 01:22:26,349 - exprWithNoMinus
+INFO  01:22:26,349 - Print calls = 0
+DEBUG 01:22:26,350 - 
+ERROR 01:22:26,350 - Parsiranje NIJE uspesno zavrseno!

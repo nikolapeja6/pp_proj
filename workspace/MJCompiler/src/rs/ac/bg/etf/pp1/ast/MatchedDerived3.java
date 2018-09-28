@@ -1,36 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 2/1/2018 14:8:1
+// 27/4/2018 21:28:50
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MatchedDerived3 extends Matched {
 
-    private Matched Matched;
-    private Matched Matched1;
+    private MultipleStatements MultipleStatements;
 
-    public MatchedDerived3 (Matched Matched, Matched Matched1) {
-        this.Matched=Matched;
-        if(Matched!=null) Matched.setParent(this);
-        this.Matched1=Matched1;
-        if(Matched1!=null) Matched1.setParent(this);
+    public MatchedDerived3 (MultipleStatements MultipleStatements) {
+        this.MultipleStatements=MultipleStatements;
+        if(MultipleStatements!=null) MultipleStatements.setParent(this);
     }
 
-    public Matched getMatched() {
-        return Matched;
+    public MultipleStatements getMultipleStatements() {
+        return MultipleStatements;
     }
 
-    public void setMatched(Matched Matched) {
-        this.Matched=Matched;
-    }
-
-    public Matched getMatched1() {
-        return Matched1;
-    }
-
-    public void setMatched1(Matched Matched1) {
-        this.Matched1=Matched1;
+    public void setMultipleStatements(MultipleStatements MultipleStatements) {
+        this.MultipleStatements=MultipleStatements;
     }
 
     public void accept(Visitor visitor) {
@@ -38,19 +27,16 @@ public class MatchedDerived3 extends Matched {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Matched!=null) Matched.accept(visitor);
-        if(Matched1!=null) Matched1.accept(visitor);
+        if(MultipleStatements!=null) MultipleStatements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Matched!=null) Matched.traverseTopDown(visitor);
-        if(Matched1!=null) Matched1.traverseTopDown(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Matched!=null) Matched.traverseBottomUp(visitor);
-        if(Matched1!=null) Matched1.traverseBottomUp(visitor);
+        if(MultipleStatements!=null) MultipleStatements.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +45,8 @@ public class MatchedDerived3 extends Matched {
         buffer.append(tab);
         buffer.append("MatchedDerived3(\n");
 
-        if(Matched!=null)
-            buffer.append(Matched.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Matched1!=null)
-            buffer.append(Matched1.toString("  "+tab));
+        if(MultipleStatements!=null)
+            buffer.append(MultipleStatements.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

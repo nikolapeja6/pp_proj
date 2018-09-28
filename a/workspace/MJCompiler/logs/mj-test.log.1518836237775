@@ -1,0 +1,25 @@
+INFO  03:54:35,730 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  03:54:35,750 - #40 program
+INFO  03:54:35,750 - #45 MJProgram
+INFO  03:54:35,750 - #45 int
+INFO  03:54:35,751 - #45 x
+INFO  03:54:35,751 - #13 ;
+INFO  03:54:35,751 - #45 int
+INFO  03:54:35,751 - #45 y
+INFO  03:54:35,752 - #13 ;
+INFO  03:54:35,752 - #34 {
+INFO  03:54:35,752 - #45 int
+INFO  03:54:35,752 - #45 k
+INFO  03:54:35,752 - #32 (
+INFO  03:54:35,752 - #33 )
+INFO  03:54:35,752 - #45 int
+INFO  03:54:35,752 - #45 c
+INFO  03:54:35,752 - #13 ;
+INFO  03:54:35,752 - #34 {
+INFO  03:54:35,753 - #45 c
+INFO  03:54:35,753 - #28 =
+ERROR 03:54:35,753 - Sintaksna greska na liniji 6
+ERROR 03:54:35,753 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
+DEBUG 03:54:35,759 - aaa
+INFO  03:54:35,761 - Print calls = 0
+INFO  03:54:35,762 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj

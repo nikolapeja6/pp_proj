@@ -6,7 +6,7 @@ path
 C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\lib
 
 to find out options of flex
-java -jer JFlex.jar -h
+java -jar JFlex.jar -h
 
 command
 java -jar JFlex.jar -d ..\src\rs\ac\bg\etf\pp1 ..\spec\mjlexer.flex
@@ -19,9 +19,16 @@ CUP
 
 path
 C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\lib
+F:\GitHub\pp_proj\workspace\MJCompiler\lib
 
 to find out options of flex
 java -jar cup_v10k.jar -h
 
 command
-java -jar cup_v10k.jar -destdir ..\src\rs\ac\bg\etf\pp1 -parser MJParser ..\spec\mjparser.cup
+java -jar cup_v10k.jar -destdir ..\src\rs\ac\bg\etf\pp1 -parser MJParser -ast rs.ac.bg.etf.pp1.ast -buildtree ..\spec\mjparser.cup
+
+
+
+
+decompile
+java -cp mj-runtime.jar rs.etf.pp1.mj.runtime.disasm ..\out\simple.obj

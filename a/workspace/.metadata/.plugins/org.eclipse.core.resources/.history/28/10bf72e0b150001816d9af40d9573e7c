@@ -1,0 +1,43 @@
+program BBB
+
+	class A {
+		{
+		int op(int a){
+			return a*a;
+		}
+		}
+	}
+	
+	class B extends A{
+
+	}
+	
+	class C extends B{
+		{
+		int op(int a){
+			return a+a;
+		}
+		}
+	}
+{
+	void main()   A a;
+	{
+		a = new A;
+		
+		print(a.op(5));
+		print(eol);
+		
+		a = new B;
+		print(a.op(5));
+		print(eol);
+		
+		a = new C;
+		print(a.op(5));
+		print(eol);
+		
+		a = new A;
+		print(a.op(5));
+		print(eol);
+		
+	}
+}

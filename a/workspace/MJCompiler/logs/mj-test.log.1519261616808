@@ -1,0 +1,84 @@
+INFO  02:05:41,361 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\simple.mj
+INFO  02:05:41,392 - #40 program
+INFO  02:05:41,392 - #45 MJProgram
+INFO  02:05:41,392 - #45 int
+INFO  02:05:41,392 - #45 x
+INFO  02:05:41,392 - #13 ;
+INFO  02:05:41,393 - #34 {
+INFO  02:05:41,393 - #45 int
+INFO  02:05:41,394 - #45 main
+INFO  02:05:41,394 - #32 (
+INFO  02:05:41,394 - #33 )
+INFO  02:05:41,394 - #34 {
+INFO  02:05:41,394 - #45 x
+INFO  02:05:41,394 - #28 =
+INFO  02:05:41,395 - #9 5
+INFO  02:05:41,395 - #13 ;
+INFO  02:05:41,396 - #41 print
+INFO  02:05:41,396 - #32 (
+INFO  02:05:41,396 - #9 1
+INFO  02:05:41,396 - #33 )
+INFO  02:05:41,396 - #13 ;
+INFO  02:05:41,397 - #41 print
+INFO  02:05:41,397 - #32 (
+INFO  02:05:41,397 - #45 x
+INFO  02:05:41,397 - #33 )
+INFO  02:05:41,397 - #13 ;
+INFO  02:05:41,398 - #41 print
+INFO  02:05:41,398 - #32 (
+INFO  02:05:41,398 - #10 a
+INFO  02:05:41,398 - #33 )
+INFO  02:05:41,398 - #13 ;
+INFO  02:05:41,398 - #41 print
+INFO  02:05:41,398 - #32 (
+INFO  02:05:41,398 - #11 true
+INFO  02:05:41,398 - #33 )
+INFO  02:05:41,398 - #13 ;
+INFO  02:05:41,398 - #41 print
+INFO  02:05:41,398 - #32 (
+INFO  02:05:41,398 - #11 false
+INFO  02:05:41,398 - #33 )
+INFO  02:05:41,398 - #13 ;
+INFO  02:05:41,398 - #8 return
+INFO  02:05:41,398 - #9 0
+INFO  02:05:41,398 - #13 ;
+INFO  02:05:41,399 - #35 }
+INFO  02:05:41,399 - #35 }
+INFO  02:05:41,401 - ***Abstract tree****
+INFO  02:05:41,401 - #0
+DEBUG 02:05:46,571 - Variable with name x has the address of 0
+DEBUG 02:05:47,527 - found constant with value 5of type 1
+DEBUG 02:05:47,527 - constant factor is type 1
+DEBUG 02:05:47,527 - term SingleFactorterm is type 1
+DEBUG 02:05:47,527 - exprWithNoMinus is type 1
+ERROR 02:05:51,489 - Exprression is not assignable to desigantor
+DEBUG 02:05:51,489 - found constant with value 1of type 1
+DEBUG 02:05:51,489 - constant factor is type 1
+DEBUG 02:05:51,489 - term SingleFactorterm is type 1
+DEBUG 02:05:51,489 - exprWithNoMinus is type 1
+DEBUG 02:05:51,489 - print statement has arg of type 1
+DEBUG 02:05:51,489 - term SingleFactorterm is type 1
+DEBUG 02:05:51,489 - exprWithNoMinus is type 1
+DEBUG 02:05:51,489 - print statement has arg of type 1
+DEBUG 02:05:51,489 - found constant with value *****of type 2
+DEBUG 02:05:51,489 - found constant with value 97of type 2
+DEBUG 02:05:51,489 - constant factor is type 2
+DEBUG 02:05:51,489 - term SingleFactorterm is type 2
+DEBUG 02:05:51,489 - exprWithNoMinus is type 2
+DEBUG 02:05:51,489 - print statement has arg of type 2
+DEBUG 02:05:51,489 - found constant with value 1of type 1
+DEBUG 02:05:51,489 - constant factor is type 1
+DEBUG 02:05:51,489 - term SingleFactorterm is type 1
+DEBUG 02:05:51,489 - exprWithNoMinus is type 1
+DEBUG 02:05:51,489 - print statement has arg of type 1
+DEBUG 02:05:51,489 - found constant with value 0of type 1
+DEBUG 02:05:51,489 - constant factor is type 1
+DEBUG 02:05:51,489 - term SingleFactorterm is type 1
+DEBUG 02:05:51,489 - exprWithNoMinus is type 1
+DEBUG 02:05:51,489 - print statement has arg of type 1
+DEBUG 02:05:51,489 - found constant with value 0of type 1
+DEBUG 02:05:51,490 - constant factor is type 1
+DEBUG 02:05:51,490 - term SingleFactorterm is type 1
+DEBUG 02:05:51,490 - exprWithNoMinus is type 1
+INFO  02:05:51,490 - Print calls = 0
+ERROR 02:05:51,491 - Parsiranje NIJE uspesno zavrseno!

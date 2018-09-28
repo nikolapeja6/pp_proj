@@ -1,0 +1,285 @@
+INFO  00:17:59,009 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class2.mj
+INFO  00:17:59,067 - #40 program
+INFO  00:17:59,067 - #45 BBB
+INFO  00:17:59,067 - #38 class
+INFO  00:17:59,067 - #45 A
+INFO  00:17:59,067 - #34 {
+INFO  00:17:59,068 - #34 {
+INFO  00:17:59,068 - #45 int
+INFO  00:17:59,068 - #45 op
+INFO  00:17:59,068 - #32 (
+INFO  00:17:59,068 - #45 int
+INFO  00:17:59,068 - #45 a
+INFO  00:17:59,069 - #33 )
+INFO  00:17:59,069 - #34 {
+INFO  00:17:59,069 - #8 return
+INFO  00:17:59,070 - #45 a
+INFO  00:17:59,070 - #17 *
+INFO  00:17:59,070 - #45 a
+INFO  00:17:59,071 - #13 ;
+INFO  00:17:59,072 - #35 }
+INFO  00:17:59,072 - #35 }
+INFO  00:17:59,073 - #35 }
+INFO  00:17:59,073 - #38 class
+INFO  00:17:59,075 - #45 B
+INFO  00:17:59,075 - #39 extends
+INFO  00:17:59,075 - #45 A
+INFO  00:17:59,075 - #34 {
+INFO  00:17:59,075 - #34 {
+INFO  00:17:59,075 - #45 int
+INFO  00:17:59,075 - #45 op
+INFO  00:17:59,075 - #32 (
+INFO  00:17:59,075 - #45 int
+INFO  00:17:59,075 - #45 a
+INFO  00:17:59,075 - #33 )
+INFO  00:17:59,075 - #34 {
+INFO  00:17:59,075 - #41 print
+INFO  00:17:59,075 - #32 (
+INFO  00:17:59,076 - #10 -
+INFO  00:17:59,076 - #33 )
+INFO  00:17:59,076 - #13 ;
+INFO  00:17:59,076 - #8 return
+INFO  00:17:59,076 - #9 111
+INFO  00:17:59,076 - #13 ;
+INFO  00:17:59,076 - #35 }
+INFO  00:17:59,076 - #35 }
+INFO  00:17:59,076 - #35 }
+INFO  00:17:59,077 - #38 class
+INFO  00:17:59,077 - #45 C
+INFO  00:17:59,077 - #39 extends
+INFO  00:17:59,077 - #45 B
+INFO  00:17:59,077 - #34 {
+INFO  00:17:59,077 - #34 {
+INFO  00:17:59,077 - #45 int
+INFO  00:17:59,077 - #45 op
+INFO  00:17:59,077 - #32 (
+INFO  00:17:59,077 - #45 int
+INFO  00:17:59,077 - #45 a
+INFO  00:17:59,077 - #33 )
+INFO  00:17:59,077 - #34 {
+INFO  00:17:59,077 - #8 return
+INFO  00:17:59,077 - #45 a
+INFO  00:17:59,077 - #15 +
+INFO  00:17:59,077 - #45 a
+INFO  00:17:59,078 - #13 ;
+INFO  00:17:59,078 - #35 }
+INFO  00:17:59,078 - #35 }
+INFO  00:17:59,078 - #35 }
+INFO  00:17:59,079 - #34 {
+INFO  00:17:59,079 - #43 void
+INFO  00:17:59,079 - #45 main
+INFO  00:17:59,080 - #32 (
+INFO  00:17:59,080 - #33 )
+INFO  00:17:59,080 - #45 A
+INFO  00:17:59,080 - #45 a
+INFO  00:17:59,080 - #13 ;
+INFO  00:17:59,080 - #34 {
+INFO  00:17:59,080 - #45 a
+INFO  00:17:59,081 - #28 =
+INFO  00:17:59,081 - #31 new
+INFO  00:17:59,081 - #45 A
+INFO  00:17:59,081 - #13 ;
+INFO  00:17:59,081 - #41 print
+INFO  00:17:59,081 - #32 (
+INFO  00:17:59,081 - #45 a
+INFO  00:17:59,081 - #14 .
+INFO  00:17:59,081 - #45 op
+INFO  00:17:59,081 - #32 (
+INFO  00:17:59,082 - #9 5
+INFO  00:17:59,082 - #33 )
+INFO  00:17:59,082 - #33 )
+INFO  00:17:59,082 - #13 ;
+INFO  00:17:59,082 - #41 print
+INFO  00:17:59,082 - #32 (
+INFO  00:17:59,082 - #45 eol
+INFO  00:17:59,082 - #33 )
+INFO  00:17:59,082 - #13 ;
+INFO  00:17:59,082 - #45 a
+INFO  00:17:59,082 - #28 =
+INFO  00:17:59,082 - #31 new
+INFO  00:17:59,083 - #45 B
+INFO  00:17:59,083 - #13 ;
+INFO  00:17:59,083 - #41 print
+INFO  00:17:59,083 - #32 (
+INFO  00:17:59,083 - #45 a
+INFO  00:17:59,083 - #14 .
+INFO  00:17:59,083 - #45 op
+INFO  00:17:59,083 - #32 (
+INFO  00:17:59,083 - #9 5
+INFO  00:17:59,083 - #33 )
+INFO  00:17:59,083 - #33 )
+INFO  00:17:59,083 - #13 ;
+INFO  00:17:59,083 - #41 print
+INFO  00:17:59,083 - #32 (
+INFO  00:17:59,083 - #45 eol
+INFO  00:17:59,083 - #33 )
+INFO  00:17:59,083 - #13 ;
+INFO  00:17:59,083 - #45 a
+INFO  00:17:59,083 - #28 =
+INFO  00:17:59,083 - #31 new
+INFO  00:17:59,083 - #45 C
+INFO  00:17:59,083 - #13 ;
+INFO  00:17:59,083 - #41 print
+INFO  00:17:59,084 - #32 (
+INFO  00:17:59,084 - #45 a
+INFO  00:17:59,084 - #14 .
+INFO  00:17:59,084 - #45 op
+INFO  00:17:59,084 - #32 (
+INFO  00:17:59,084 - #9 5
+INFO  00:17:59,084 - #33 )
+INFO  00:17:59,084 - #33 )
+INFO  00:17:59,084 - #13 ;
+INFO  00:17:59,084 - #41 print
+INFO  00:17:59,084 - #32 (
+INFO  00:17:59,084 - #45 eol
+INFO  00:17:59,084 - #33 )
+INFO  00:17:59,084 - #13 ;
+INFO  00:17:59,084 - #45 a
+INFO  00:17:59,084 - #28 =
+INFO  00:17:59,084 - #31 new
+INFO  00:17:59,084 - #45 A
+INFO  00:17:59,084 - #13 ;
+INFO  00:17:59,084 - #41 print
+INFO  00:17:59,084 - #32 (
+INFO  00:17:59,084 - #45 a
+INFO  00:17:59,084 - #14 .
+INFO  00:17:59,085 - #45 op
+INFO  00:17:59,085 - #32 (
+INFO  00:17:59,085 - #9 5
+INFO  00:17:59,085 - #33 )
+INFO  00:17:59,085 - #33 )
+INFO  00:17:59,085 - #13 ;
+INFO  00:17:59,085 - #41 print
+INFO  00:17:59,085 - #32 (
+INFO  00:17:59,085 - #45 eol
+INFO  00:17:59,085 - #33 )
+INFO  00:17:59,085 - #13 ;
+INFO  00:17:59,085 - #35 }
+INFO  00:17:59,085 - #35 }
+INFO  00:17:59,086 - ***Abstract tree****
+INFO  00:17:59,086 - #0
+DEBUG 00:17:59,094 - program name
+DEBUG 00:17:59,094 - ClassBegin
+DEBUG 00:17:59,095 - designator simple at line 6: a
+DEBUG 00:17:59,095 - designator simple at line 6: a
+DEBUG 00:17:59,095 - term element is type 1
+DEBUG 00:17:59,095 - term list single is type 1
+DEBUG 00:17:59,095 - term MultiFactorTerm is type 1
+DEBUG 00:17:59,095 - exprWithNoMinus is type 1
+DEBUG 00:17:59,095 - class decl end
+DEBUG 00:17:59,096 - class decl 2
+DEBUG 00:17:59,096 - derived ClassBegin
+DEBUG 00:17:59,096 - found constant with value *****of type 2
+DEBUG 00:17:59,096 - found constant with value 45of type 2
+DEBUG 00:17:59,096 - constant factor is type 2
+DEBUG 00:17:59,096 - term SingleFactorterm is type 2
+DEBUG 00:17:59,096 - exprWithNoMinus is type 2
+DEBUG 00:17:59,096 - print statement has arg of type 2
+DEBUG 00:17:59,096 - found constant with value 111of type 1
+DEBUG 00:17:59,096 - constant factor is type 1
+DEBUG 00:17:59,096 - term SingleFactorterm is type 1
+DEBUG 00:17:59,096 - exprWithNoMinus is type 1
+DEBUG 00:17:59,096 - class decl end
+DEBUG 00:17:59,096 - class decl 2
+DEBUG 00:17:59,096 - derived ClassBegin
+DEBUG 00:17:59,096 - designator simple at line 25: a
+DEBUG 00:17:59,096 - term SingleFactorterm is type 1
+DEBUG 00:17:59,096 - designator simple at line 25: a
+DEBUG 00:17:59,096 - term SingleFactorterm is type 1
+DEBUG 00:17:59,096 - exprWithNoMinus is type 1
+DEBUG 00:17:59,097 - class decl end
+DEBUG 00:17:59,097 - class decl 2
+DEBUG 00:17:59,097 - program begin
+DEBUG 00:17:59,097 - Variable with name a has the address of 0
+DEBUG 00:17:59,097 - designator simple at line 32: a
+DEBUG 00:17:59,097 - term SingleFactorterm is type 4
+DEBUG 00:17:59,097 - exprWithNoMinus is type 4
+DEBUG 00:17:59,097 - designator simple at line 34: a
+DEBUG 00:17:59,097 - designator simple at line 34: op
+DEBUG 00:17:59,097 - found constant with value 5of type 1
+DEBUG 00:17:59,097 - constant factor is type 1
+DEBUG 00:17:59,097 - term SingleFactorterm is type 1
+DEBUG 00:17:59,097 - exprWithNoMinus is type 1
+DEBUG 00:17:59,097 - term SingleFactorterm is type 1
+DEBUG 00:17:59,097 - exprWithNoMinus is type 1
+DEBUG 00:17:59,097 - print statement has arg of type 1
+DEBUG 00:17:59,097 - designator simple at line 35: eol
+DEBUG 00:17:59,097 - term SingleFactorterm is type 2
+DEBUG 00:17:59,097 - exprWithNoMinus is type 2
+DEBUG 00:17:59,097 - print statement has arg of type 2
+DEBUG 00:17:59,097 - designator simple at line 37: a
+DEBUG 00:17:59,097 - term SingleFactorterm is type 4
+DEBUG 00:17:59,097 - exprWithNoMinus is type 4
+DEBUG 00:17:59,097 - designator simple at line 38: a
+DEBUG 00:17:59,097 - designator simple at line 38: op
+DEBUG 00:17:59,098 - found constant with value 5of type 1
+DEBUG 00:17:59,098 - constant factor is type 1
+DEBUG 00:17:59,098 - term SingleFactorterm is type 1
+DEBUG 00:17:59,098 - exprWithNoMinus is type 1
+DEBUG 00:17:59,098 - term SingleFactorterm is type 1
+DEBUG 00:17:59,098 - exprWithNoMinus is type 1
+DEBUG 00:17:59,098 - print statement has arg of type 1
+DEBUG 00:17:59,098 - designator simple at line 39: eol
+DEBUG 00:17:59,098 - term SingleFactorterm is type 2
+DEBUG 00:17:59,098 - exprWithNoMinus is type 2
+DEBUG 00:17:59,098 - print statement has arg of type 2
+DEBUG 00:17:59,098 - designator simple at line 41: a
+DEBUG 00:17:59,098 - term SingleFactorterm is type 4
+DEBUG 00:17:59,098 - exprWithNoMinus is type 4
+DEBUG 00:17:59,098 - designator simple at line 42: a
+DEBUG 00:17:59,098 - designator simple at line 42: op
+DEBUG 00:17:59,098 - found constant with value 5of type 1
+DEBUG 00:17:59,098 - constant factor is type 1
+DEBUG 00:17:59,098 - term SingleFactorterm is type 1
+DEBUG 00:17:59,098 - exprWithNoMinus is type 1
+DEBUG 00:17:59,098 - term SingleFactorterm is type 1
+DEBUG 00:17:59,098 - exprWithNoMinus is type 1
+DEBUG 00:17:59,098 - print statement has arg of type 1
+DEBUG 00:17:59,098 - designator simple at line 43: eol
+DEBUG 00:17:59,098 - term SingleFactorterm is type 2
+DEBUG 00:17:59,098 - exprWithNoMinus is type 2
+DEBUG 00:17:59,098 - print statement has arg of type 2
+DEBUG 00:17:59,098 - designator simple at line 45: a
+DEBUG 00:17:59,098 - term SingleFactorterm is type 4
+DEBUG 00:17:59,098 - exprWithNoMinus is type 4
+DEBUG 00:17:59,098 - designator simple at line 46: a
+DEBUG 00:17:59,098 - designator simple at line 46: op
+DEBUG 00:17:59,098 - found constant with value 5of type 1
+DEBUG 00:17:59,098 - constant factor is type 1
+DEBUG 00:17:59,098 - term SingleFactorterm is type 1
+DEBUG 00:17:59,098 - exprWithNoMinus is type 1
+DEBUG 00:17:59,099 - term SingleFactorterm is type 1
+DEBUG 00:17:59,099 - exprWithNoMinus is type 1
+DEBUG 00:17:59,099 - print statement has arg of type 1
+DEBUG 00:17:59,099 - designator simple at line 47: eol
+DEBUG 00:17:59,099 - term SingleFactorterm is type 2
+DEBUG 00:17:59,099 - exprWithNoMinus is type 2
+DEBUG 00:17:59,099 - print statement has arg of type 2
+INFO  00:17:59,099 - Print calls = 0
+DEBUG 00:17:59,099 - A
+	op(0); 
+B
+	op(0); op(0); 
+C
+	op(0); op(0); 
+
+INFO  00:17:59,101 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+DEBUG 00:17:59,104 - updating vTableAddress by A class. OldValue =  1
+DEBUG 00:17:59,104 - ^new value = 6
+DEBUG 00:17:59,104 - updating vTableAddress by B class. OldValue =  6
+DEBUG 00:17:59,104 - ^new value = 15
+DEBUG 00:17:59,104 - updating vTableAddress by C class. OldValue =  15
+DEBUG 00:17:59,104 - ^new value = 24
+DEBUG 00:17:59,105 - new called with level = 0
+DEBUG 00:17:59,105 - class is 4
+DEBUG 00:17:59,105 - class methoad call op
+DEBUG 00:17:59,105 - new called with level = 0
+DEBUG 00:17:59,105 - class is 4
+DEBUG 00:17:59,105 - class methoad call op
+DEBUG 00:17:59,105 - new called with level = 0
+DEBUG 00:17:59,105 - class is 4
+DEBUG 00:17:59,105 - class methoad call op
+DEBUG 00:17:59,105 - new called with level = 0
+DEBUG 00:17:59,105 - class is 4
+DEBUG 00:17:59,105 - class methoad call op
+INFO  00:17:59,109 - Parsiranje uspesno zavrseno!

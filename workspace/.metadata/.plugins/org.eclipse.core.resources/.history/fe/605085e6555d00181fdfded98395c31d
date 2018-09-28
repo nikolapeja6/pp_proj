@@ -1,0 +1,1155 @@
+package rs.ac.bg.etf.pp1;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+import org.apache.log4j.Logger;
+import org.omg.PortableServer.RequestProcessingPolicyOperations;
+
+import com.sun.java_cup.internal.runtime.Symbol;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import javafx.geometry.Pos;
+import jdk.nashorn.internal.ir.WhileNode;
+import jdk.nashorn.internal.objects.Global;
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.mj.runtime.Code;
+import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
+import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
+import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
+import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+
+public class SemanticAnalyzer extends VisitorAdaptor {
+
+	boolean errorDetected = false;
+	int printCallCount = 0;
+	Obj currentMethod = null;
+	boolean returnFound = false;
+	int nFields = 0;
+	int fldCnt = 0;
+	int globalVarCnt = 1;
+	int localVarCnt = 0;
+	int fpCnt = 0;
+	Stack<Integer> apCnt = new Stack<>();
+
+	Obj currentMethodCall = null;
+
+	boolean globalVars = false;
+
+	int inWhile = 0;
+
+	Stack<Obj> scopeStack = new Stack<>();
+
+	Struct currentDeclType = null;
+	List<String> currentVarDeclIdents = new LinkedList<>();
+	
+	HashMap<String, List<Integer>> vTableFix = new HashMap<>();
+	boolean inClassDecl = false;
+	Obj currentClass = null;
+	int classFieldCnt = 0;
+	
+	Obj currentClassObj = null;
+
+	Logger log = Logger.getLogger(getClass());
+
+	public void report_error(String message, SyntaxNode info) {
+		errorDetected = true;
+		StringBuilder msg = new StringBuilder(message);
+		int line = (info == null) ? 0 : info.getLine();
+		if (line != 0)
+			msg.append(" na liniji ").append(line);
+		log.error(msg.toString());
+	}
+
+	public void report_info(String message, SyntaxNode info) {
+		StringBuilder msg = new StringBuilder(message);
+		int line = (info == null) ? 0 : info.getLine();
+		if (line != 0)
+			msg.append(" na liniji ").append(line);
+		log.info(msg.toString());
+	}
+	
+
+	public void visit(ProgName programName) {
+		log.debug("program name");
+		String name = programName.getName();
+
+		programName.obj = Tab.insert(Obj.Prog, name, Tab.noType);
+		Tab.openScope();
+		globalVars = true;
+		scopeStack.push(programName.obj);
+	}
+
+	public void visit(ProgramBegin1 programBegin) {
+		log.debug("program begin");
+		globalVars = false;
+	}
+
+	public void visit(ProgramEnd1 pEnd) {
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.closeScope();
+	}
+	
+	public void visit(ClassDecl1 classDecl)
+	{
+		log.debug("class decl 1");
+	}
+	
+	public void visit(ClassDecl2 classDecl)
+	{
+		log.debug("class decl 2");
+	}
+	
+	public void visit(ClassDecl3 classDecl)
+	{
+		log.debug("class decl 3");
+	}
+	
+	public void visit(ClassDecl4 classDecl)
+	{
+		log.debug("class decl 4");
+	}
+	
+	public void visit(NewClassBegin newClassBegin)
+	{
+		log.debug("ClassBegin");
+		
+		globalVars = false;
+		String name = newClassBegin.getI1();
+
+		Obj obj = Tab.find(name);
+
+		if (obj != null && obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", newClassBegin);
+		} else {
+			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
+		}
+
+		newClassBegin.obj = obj;
+		Tab.openScope();
+
+		inClassDecl = true;
+		fldCnt = 1;
+		currentClass = newClassBegin.obj;
+		scopeStack.push(newClassBegin.obj);
+		
+		GlobalStuff.AddClass(name);
+		GlobalStuff.classTypeObjects.put(name, obj);
+		
+		GlobalStuff.baseClassesFor.put(obj.getType(), new LinkedList<>());
+	}
+	
+	public void visit(DerivedClassBegin derivedClassBegin) {
+		
+		log.debug("derived ClassBegin");
+		globalVars = false;
+		
+		String name = derivedClassBegin.getI1();
+		Struct baseType = derivedClassBegin.getType().struct;
+		String baseClassName = ((Type1)derivedClassBegin.getType()).getI1();
+		Obj baseClass = Tab.find(baseClassName);
+		
+		if(baseType.getKind() != Struct.Class){
+			report_error("Base type must be a type.", derivedClassBegin);
+		}
+		
+		Obj obj = Tab.find(name);
+		
+		if (obj != null && obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", derivedClassBegin);
+		} else {
+			obj = Tab.insert(Obj.Type, name, new Struct(Struct.Class));
+			LinkedList<Struct> list = (LinkedList<Struct>) GlobalStuff.baseClassesFor.get(baseType).clone();
+			list.add(baseType);
+			GlobalStuff.baseClassesFor.put(obj.getType(), list);
+		}
+		
+		derivedClassBegin.obj = obj;
+		Tab.openScope();
+
+		inClassDecl = true;
+		currentClass = derivedClassBegin.obj;
+		scopeStack.push(obj);
+		
+		// TODO 
+		
+		GlobalStuff.AddClass(name);
+		GlobalStuff.classTypeObjects.put(name, obj);
+		
+		
+		LinkedList<String> list;
+		list = GlobalStuff.areDerivedFromClasses.get(baseClassName);
+		if(list == null){
+			list = new LinkedList<>();
+			GlobalStuff.areDerivedFromClasses.put(baseClassName, list);
+		}
+		list.add(name);		
+		
+		int maxFldCnt = 0;
+		
+		SymbolDataStructure x = baseClass.getType().getMembers();
+		SymbolDataStructure y = new  HashTableDataStructure();
+		for(Obj o : x.symbols()){
+			if(o.getKind() == obj.Fld){
+				y.insertKey(o);
+				continue;
+			}
+						
+			if(o.getKind() == Obj. Meth || o.getKind() == 42){
+				LinkedList<Obj> toRemove = new LinkedList<>();
+				SymbolDataStructure xx = o.getType().getMembers();
+				SymbolDataStructure yy =  new HashTableDataStructure();
+				for(Obj oo : xx.symbols()){
+					if(oo.getFpPos() != 0)
+						yy.insertKey(oo);
+				}
+				
+				Struct ooo_s = new Struct(o.getType().getKind(), o.getType().getElemType());
+				ooo_s.setMembers(yy);
+				Obj ooo = new Obj(o.getKind(), o.getName(),ooo_s );
+				y.insertKey(ooo);				
+			}
+		}
+
+	
+		obj.getType().setMembers(y);
+		
+		for (Obj local : baseClass.getLocalSymbols()){
+
+			Obj derivedLocal = Tab.insert(local.getKind(), local.getName(), local.getType());
+			derivedLocal.setAdr(local.getAdr());
+			derivedLocal.setLevel(local.getLevel());
+			derivedLocal.setFpPos(local.getFpPos());
+			
+			if(local.getAdr() > maxFldCnt){
+				maxFldCnt = local.getAdr();
+			}
+			
+			if (derivedLocal.getKind() == Obj.Meth) {
+				GlobalStuff.AddFunction(name, derivedLocal.getName());
+				Obj par = Tab.insert(Obj.Var, "this", obj.getType());
+				par.setFpPos(0);
+				
+				SymbolDataStructure symbols = SymbolTableFactory.instance().createSymbolTableDataStructure();
+				
+				for(Obj o : local.getLocalSymbols())
+					if(!o.getName().equals("this"))
+					symbols.insertKey(o);
+				
+				derivedLocal.setLocals(symbols);
+			}
+		}
+		
+		// TODO
+		fldCnt = maxFldCnt + 1;
+	}
+	
+	public void visit(ClassDeclEnd1 end)
+	{
+		log.debug("class decl end");
+		inClassDecl = false;
+		globalVars = true;
+		currentClass.setLevel(fldCnt);
+		fldCnt = 0;
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.chainLocalSymbols(currentClass.getType());
+		Tab.closeScope();
+		currentClass = null;
+	}	
+	
+	public void visit(VarDecl1 varDecl) {
+		currentDeclType = null;
+	}
+
+	public void visit(VarDeclElementArray varDeclElementArray) {
+		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
+
+		String name = varDeclElementArray.getI1();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
+			return;
+		}
+
+		if (!inClassDecl) {
+			obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, currentDeclType));
+			if (globalVars) {
+				obj.setLevel(0);
+				obj.setAdr(globalVarCnt++);
+			} else {
+				obj.setAdr(localVarCnt++);
+			}
+		} else {
+			obj = Tab.insert(Obj.Fld, name, new Struct(Struct.Array, currentDeclType));
+			currentClass.getType().getMembers().insertKey(obj);
+			obj.setAdr(fldCnt++);
+		}
+		varDeclElementArray.obj = obj;
+	}
+
+	public void visit(VarDeclElementSingle varDeclElementSingle) {
+		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
+
+		String name = varDeclElementSingle.getI1();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
+			return;
+		}
+
+		if (!inClassDecl || currentMethod != null) {
+			obj = Tab.insert(Obj.Var, name, currentDeclType);
+			if (globalVars) {
+				obj.setLevel(0);
+				obj.setAdr(globalVarCnt++);
+			} else {
+				obj.setAdr(localVarCnt++);
+			}
+		} else {
+			obj = Tab.insert(Obj.Fld, name, currentDeclType);
+			currentClass.getType().getMembers().insertKey(obj);
+			obj.setAdr(fldCnt++);
+		}
+
+		varDeclElementSingle.obj = obj;
+		log.debug("Variable with name " + name + " has the address of " + varDeclElementSingle.obj.getAdr());
+	}
+
+	public void visit(ConstDecl1 constDecl1) {
+		currentDeclType = null;
+	}
+
+	public void visit(ConstDeclElement1 constDeclElement1) {
+		assert (currentDeclType != null && currentDeclType.getKind() == Obj.Type);
+
+		String name = constDeclElement1.getI1();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			report_error("Identifier " + name + " already used.", null);
+		}
+
+		if (!constDeclElement1.getConstant().obj.getType().assignableTo(currentDeclType)) {
+			report_error("Value " + constDeclElement1.getConstant().obj.getAdr() + " not assignable to constant.",
+					null);
+		}
+
+		obj = Tab.insert(Obj.Con, name, currentDeclType);
+		if (globalVars)
+			obj.setLevel(0);
+		obj.setAdr(constDeclElement1.getConstant().obj.getAdr());
+
+		constDeclElement1.obj = obj;
+	}
+
+	public void visit(MethodNameAndRetType1 methodNameAndRetType) {
+		String name = (methodNameAndRetType).getName();
+		Struct type = (methodNameAndRetType).getReturnType().struct;
+
+		methodNameAndRetType.obj = Tab.insert(inClassDecl ? 42 : Obj.Meth, name, type);
+		Tab.openScope();
+
+		fpCnt = 0;
+		localVarCnt = 0;
+		currentMethod = methodNameAndRetType.obj;
+		scopeStack.push(methodNameAndRetType.obj);
+		
+		if (currentClass != null) {
+			GlobalStuff.AddFunction(currentClass.getName(), name);
+			Obj obj = Tab.insert(Obj.Var, "this", currentClass.getType());
+			obj.setFpPos(fpCnt++);
+		}
+	}
+
+	public void visit(MethodBegin1 methodBegin1) {
+		methodBegin1.obj = currentMethod;
+	}
+
+	public void visit(MethodEnd1 methodEnd) {
+		scopeStack.peek().setLevel(fpCnt);
+
+		currentMethod = null;
+
+		Tab.chainLocalSymbols(scopeStack.pop());
+		Tab.closeScope();
+	}
+
+	public void visit(VoidReturnType returnType) {
+		returnType.struct = Tab.noType;
+	}
+
+	public void visit(TypeReturnType returnType) {
+		returnType.struct = Tab.find(((Type1) returnType.getType()).getI1()).getType();
+	}
+
+	// store formal pars
+	public void visit(FormParsElementArray formalPar) {
+		Struct elemType = formalPar.getType().struct;
+
+		String name = formalPar.getI2();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			
+			if(!inClassDecl ||  obj.getFpPos() !=0){
+			report_error("Identifier " + name + " already used.", null);
+			return;
+			}
+		}
+
+		obj = Tab.insert(Obj.Var, name, new Struct(Struct.Array, elemType));
+		obj.setFpPos(fpCnt++);
+		formalPar.obj = obj;
+	}
+
+	public void visit(FormParsElementSingle formalPar) {
+		Struct elemType = formalPar.getType().struct;
+
+		String name = formalPar.getI2();
+
+		Obj obj = Tab.find(name);
+		if (obj != Tab.noObj) {
+			if(!inClassDecl ||  obj.getFpPos() !=0){
+			report_error("Identifier " + name + " already used.", null);
+			return;
+			}
+		}
+
+		obj = Tab.insert(Obj.Var, name, elemType);
+		obj.setFpPos(fpCnt++);
+		formalPar.obj = obj;
+	}
+	
+	public void visit(FactorNewObject factorNewObject){
+		Struct type = factorNewObject.getType().struct;
+		if(type.getKind() != Struct.Class)
+		{
+			report_error("Type must be class.",factorNewObject );
+		}
+		
+		factorNewObject.obj = new Obj(Obj.Var, "", type);
+	}
+
+	public void visit(MethodDesignator1 methodDesignator1) {
+		methodDesignator1.obj = methodDesignator1.getDesignator().obj;
+		if(currentClassObj != null || currentClass != null)
+			apCnt.push(1);
+		else
+			apCnt.push(0);
+		currentMethodCall = methodDesignator1.obj;
+		currentClassObj = null;
+	}
+
+	public void visit(DesignatorStatementFunctionCallComplex complexFunctionCall) {
+
+		Obj fun = complexFunctionCall.getMethodDesignator().obj;
+
+		int cnt = apCnt.pop();
+		if (fun.getLevel() != cnt) {
+			report_error("Wrong number of parameters - expected " + fun.getLevel() + " but found " + cnt, null);
+		}
+
+		complexFunctionCall.obj = fun;
+	}
+
+	public void visit(ActParElement1 actPar) {
+		Obj fp = null;
+		
+		// fix no argument this.func calls
+		if(currentMethod.getLevel() > 0 && currentMethodCall.getLocalSymbols().size() == 0)
+			return;
+		
+		for (Obj obj : currentMethodCall.getLocalSymbols()) {
+			if (obj.getFpPos() == apCnt.peek()) {
+				fp = obj;
+				break;
+			}
+		}
+
+		
+		if (fp == null) {
+			report_error("No appropreate act par found.", null);
+			return;
+		}
+		
+			if (!AssignableTo(fp.getType(), actPar.getExpr().struct)) {
+				report_error("ActPar is not assignable to formalPar", actPar);
+			}
+
+
+		apCnt.push(apCnt.pop() + 1);
+	}
+
+	public void visit(Type1 type) {
+		Obj tip = Tab.find(type.getI1());
+		if (tip.getKind() == Obj.Type)
+			type.struct = tip.getType();
+		else {
+			report_error(type.getI1() + " is not a type.", type);
+			type.struct = Tab.noType;
+		}
+		currentDeclType = type.struct;
+	}
+
+	public void visit(StatementReturnVoid returnVoid) {
+		if (currentMethod.getType() != Tab.noType) {
+			report_error("Method must return type", null);
+		}
+	}
+	
+	private static boolean AssignableTo(Struct lValue, Struct rValue ){
+		if(lValue.getKind() != Struct.Class)
+			return rValue.assignableTo(lValue);
+		
+		if(lValue == rValue)
+			return true;
+		
+		LinkedList<Struct> list = GlobalStuff.baseClassesFor.get(rValue);
+		
+		for(Struct s: list){
+			if(s == lValue){
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+
+	public void visit(StatementReturnValue returnValue) {
+			if (!AssignableTo(currentMethod.getType(), returnValue.getExpr().struct)){
+				report_error("The value of the return expression is not assignable to return type.", null);
+			}
+	}
+
+	public void visit(PrintStatementComplex printStatementComplex) {
+		Struct argType = printStatementComplex.getExpr().struct;
+
+		log.debug("print statement has arg of type " + argType.getKind());
+
+		if (argType != Tab.charType && argType != Tab.intType) {
+			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
+					null);
+			return;
+		}
+
+		if (!(printStatementComplex.getConstant() instanceof NumberConstant)) {
+			report_error("The second argument in the print statement must be a number literal", null);
+		}
+	}
+
+	public void visit(PrintStatement printStatement) {
+		Struct argType = printStatement.getExpr().struct;
+
+		log.debug("print statement has arg of type " + argType.getKind());
+
+		if (argType != Tab.charType && argType != Tab.intType) {
+			report_error("Print function can only be called with 'int' or 'char' expression, is called with " + argType,
+					null);
+			return;
+		}
+
+	}
+
+	public void visit(ReadStatement readStatement) {
+
+		int kind = readStatement.getLValueDesignator().obj.getKind();
+		if (kind != Obj.Var && kind != Obj.Fld && kind != Obj.Elem) {
+			report_error("The argument of the read statement must be a variable, an element of an array or a field.",
+					null);
+			return;
+		}
+
+		Struct type = readStatement.getLValueDesignator().obj.getType();
+		if (type != Tab.intType && type != Tab.charType) {
+			report_error("The argument of the read statement must be of int or char type.", null);
+			return;
+		}
+
+		readStatement.obj = readStatement.getLValueDesignator().obj;
+	}
+
+	public void visit(DesignatorStatementAssignment designatorStatementAssignment) {
+		Obj designator = designatorStatementAssignment.getLValueDesignator().obj;
+		
+		if(designator == null || designator == Tab.noObj)
+		{
+			report_error("designator is null in designator statement assignment", designatorStatementAssignment);
+			return;
+		}
+		
+		if (designator.getKind() != Obj.Var && designator.getKind() != Obj.Fld && designator.getKind() != Obj.Elem) {
+			report_error("Assignment can only be done for variables of class fields", null);
+			return;
+		}
+
+		Struct src = designatorStatementAssignment.getExpr().struct;
+		Struct dst = designatorStatementAssignment.getLValueDesignator().obj.getType();
+
+		// if(((LValueDesignator1)designatorStatementAssignment.getLValueDesignator()).getDesignator()
+		// instanceof DesignatorArray )
+		// dst = dst.getElemType();
+
+		if (!AssignableTo(dst, src)) {
+			report_error("Exprression is not assignable to desigantor", null);
+			return;
+		}
+	}
+
+	public void visit(DesignatorStatementFunctionCall designatorStatementFunctionCall) {
+		Obj obj = designatorStatementFunctionCall.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			return;
+		}
+
+		apCnt.pop();
+
+		designatorStatementFunctionCall.obj = obj;
+	}
+
+	public void visit(DesignatorStatementInc designatorStatementInc) {
+		Obj designator = designatorStatementInc.getLValueDesignator().obj;
+		if (designator.getType() != Tab.intType) {
+			report_error("Increments are allowed only for int types, but found other type.", null);
+			return;
+		}
+	}
+
+	public void visit(DesignatorStatementDec designatorStatementDec) {
+		Obj designator = designatorStatementDec.getLValueDesignator().obj;
+		if (designator.getType() != Tab.intType) {
+			report_error("Decrements are allowed only for int types, but found other type.", null);
+		}
+	}
+
+	public void visit(ConditionMultiple conditionMultiple) {
+		Struct type1 = conditionMultiple.getConditionList().obj.getType();
+		Struct type2 = conditionMultiple.getCondTerm().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in conditionListMultiple.", null);
+		}
+		conditionMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(ConditionSingle conditionSingle) {
+		conditionSingle.obj = new Obj(Obj.NO_VALUE, "", conditionSingle.getCondTerm().obj.getType());
+	}
+
+	public void visit(ConditionListMultiple conditionListMultiple) {
+		Struct type1 = conditionListMultiple.getConditionElement().obj.getType();
+		Struct type2 = conditionListMultiple.getConditionList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in conditionListMultiple.", null);
+		}
+		conditionListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(ConditionListSingle conditionListSingle) {
+		conditionListSingle.obj = new Obj(Obj.NO_VALUE, "", conditionListSingle.getConditionElement().obj.getType());
+	}
+
+	public void visit(ConditionElement1 conditionElement1) {
+		conditionElement1.obj = new Obj(Obj.NO_VALUE, "", conditionElement1.getCondTerm().obj.getType());
+	}
+
+	public void visit(CondTermMultiple condTermMultiple) {
+		Struct type1 = condTermMultiple.getCondFact().obj.getType();
+		Struct type2 = condTermMultiple.getCondTermList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("type missmatch in condTermMultiple.", null);
+		}
+		condTermMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondTermSingle condTermSingle) {
+		condTermSingle.obj = new Obj(Obj.NO_VALUE, "", condTermSingle.getCondFact().obj.getType());
+	}
+
+	public void visit(CondTermListMultiple condTermListMultiple) {
+		Struct type1 = condTermListMultiple.getCondTermElement().obj.getType();
+		Struct type2 = condTermListMultiple.getCondTermList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("Type missmatch in CondTermListMultiple.", null);
+		}
+
+		condTermListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+
+	}
+
+	public void visit(CondTermListSingle condTermListSingle) {
+		condTermListSingle.obj = new Obj(Obj.NO_VALUE, "", condTermListSingle.getCondTermElement().obj.getType());
+	}
+
+	public void visit(CondTermElement1 condTermElement1) {
+		condTermElement1.obj = new Obj(Obj.NO_VALUE, "", condTermElement1.getCondFact().obj.getType());
+	}
+
+	public void visit(CondFactMultiple condFactMultiple) {
+		Struct type1 = condFactMultiple.getExpr().struct;
+
+		if (type1 != Tab.intType) {
+			report_error("Expression in cond fact must be of int or bool type.", null);
+		}
+
+		condFactMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactSingle condFactSingle) {
+		Struct type1 = condFactSingle.getExpr().struct;
+
+		if (type1 != Tab.intType) {
+			report_error("Expression in cond fact must be of int or bool type.", null);
+		}
+
+		condFactSingle.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactListMultiple condFactListMultiple) {
+		Struct type1 = condFactListMultiple.getCondFactElement().obj.getType();
+		Struct type2 = condFactListMultiple.getCondFactList().obj.getType();
+
+		if (type1 != type2) {
+			report_error("Type missmatch in CondFactListMultiple", null);
+		}
+
+		condFactListMultiple.obj = new Obj(Obj.NO_VALUE, "", type1);
+	}
+
+	public void visit(CondFactListSingle condFactListSingle) {
+		condFactListSingle.obj = new Obj(Obj.NO_VALUE, "", condFactListSingle.getCondFactElement().obj.getType());
+	}
+
+	public void visit(CondFactElement1 condFactElement1) {
+		Struct type = condFactElement1.getExpr().struct;
+
+		if (type != Tab.intType) {
+			report_error("Type of expression in condition must be int or bool.", null);
+		}
+
+		condFactElement1.obj = new Obj(Obj.NO_VALUE, "", type);
+	}
+
+	public void visit(ExprWithMinus expr) {
+		expr.struct = expr.getTerm().struct;
+
+		if (expr.struct != Tab.intType) {
+			report_error("Expression with minus must be of int type", null);
+			return;
+		}
+
+		log.debug("ExprWithMinus is type " + expr.struct.getKind());
+	}
+
+	public void visit(ExprWithNoMinus expr) {
+		expr.struct = expr.getTerm().struct;
+		log.debug("exprWithNoMinus");
+	}
+	
+	private  boolean checkObj(Obj obj){
+		if (obj == null || obj == Tab.noObj){
+			report_error("obj is null", null);
+			return false;
+		}
+		
+		return true;
+	}
+
+	public void visit(SingleFactorTerm term) {
+		
+		if(!checkObj(term.getFactor().obj))
+			return;
+		
+		term.struct = (term.getFactor()).obj.getType();
+		log.debug("term SingleFactorterm is type " + term.struct.getKind());
+	}
+
+	public void visit(MultiFactorTerm term) {
+		term.struct = term.getFactor().obj.getType();
+		log.debug("term MultiFactorTerm is type " + term.struct.getKind());
+	}
+
+	public void visit(TermListSingle termListSingle) {
+		Obj obj = termListSingle.getTermElement().obj;
+		termListSingle.obj = new Obj(obj.getKind(), "", obj.getType());
+		log.debug("term list single is type " + termListSingle.obj.getType().getKind());
+	}
+
+	public void visit(TermListMultiple termListMultiple) {
+		Obj obj1 = termListMultiple.getTermList().obj;
+		Obj obj2 = termListMultiple.getTermElement().obj;
+
+		Struct s1 = obj1.getType();
+		Struct s2 = obj2.getType();
+
+		if (s1 != s2) {
+			report_error("Term consists of multiple factors which are not all of the same type", null);
+			return;
+		}
+
+		if (s1 != Tab.intType) {
+			report_error("Term consists of multiple factors where all factors are not int type", null);
+			return;
+		}
+
+		termListMultiple.obj = new Obj(Obj.NO_VALUE, "", s1);
+
+		log.debug("term list multiple is type " + termListMultiple.obj.getType().getKind());
+
+	}
+
+	public void visit(TermElement1 termElement) {
+		termElement.obj = new Obj(termElement.getFactor().obj.getKind(), "", termElement.getFactor().obj.getType());
+		log.debug("term element is type " + termElement.obj.getType().getKind());
+	}
+
+	public void visit(VariableFactor variableFactor) {
+		variableFactor.obj = variableFactor.getRValueDesignator().obj;
+	}
+
+	public void visit(FuncttionCallFactor functtionCallFactor) {
+		Obj obj = functtionCallFactor.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth && o.getKind() != 42) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			return;
+		}
+
+		apCnt.pop();
+		functtionCallFactor.obj = obj;
+		currentClassObj = null;
+	}
+
+	public void visit(FuncttionCallFactorComplex functtionCallFactor) {
+		Obj obj = functtionCallFactor.getMethodDesignator().obj;
+
+		if (obj.getKind() != Obj.Meth && obj.getKind() != 42) {
+			report_error("Identifier " + obj.getName() + " is not a method.", null);
+			return;
+		}
+
+		int cnt = apCnt.pop();
+		if (obj.getLevel() != cnt) {
+			report_error("Wrong number of parameters - expected " + obj.getLevel() + " but found " + cnt, null);
+		}
+		
+		currentClassObj = null;
+
+		functtionCallFactor.obj = obj;
+	}
+
+	public void visit(ConstantFactor constantFactor) {
+		constantFactor.obj = new Obj(Obj.Con, "", constantFactor.getConstant().obj.getType());
+		constantFactor.obj.setAdr(constantFactor.getConstant().obj.getAdr());
+		log.debug("constant factor is type " + constantFactor.obj.getType().getKind());
+	}
+
+	public void visit(FactorParenExpr parenFactor) {
+		parenFactor.obj = new Obj(Obj.NO_VALUE, "", parenFactor.getExpr().struct);
+	}
+
+	public void visit(FactorNewArray factorNewArray) {
+		Struct struct = new Struct(Struct.Array, factorNewArray.getType().struct);
+		factorNewArray.obj = new Obj(Obj.Var, "", struct);
+	}
+
+	public void visit(NumberConstant numberConstant) {
+		numberConstant.obj = new Obj(Obj.Con, "", Tab.intType);
+		numberConstant.obj.setAdr(numberConstant.getNumber());
+		log.debug("found constant with value " + numberConstant.obj.getAdr() + "of type "
+				+ numberConstant.obj.getType().getKind());
+	}
+
+	public void visit(CharConstant charConstant) {
+		charConstant.obj = new Obj(Obj.Con, "", Tab.charType);
+		log.debug("found constant with value " + "*****" + "of type " + charConstant.obj.getType().getKind());
+		charConstant.obj.setAdr(charConstant.getCh().charAt(0));
+		log.debug("found constant with value " + charConstant.obj.getAdr() + "of type "
+				+ charConstant.obj.getType().getKind());
+	}
+
+	public void visit(BoolConstant boolConstant) {
+		boolConstant.obj = new Obj(Obj.Con, "", Tab.intType);
+		boolConstant.obj.setAdr(boolConstant.getBl().equals("true") ? 1 : 0);
+		log.debug("found constant with value " + boolConstant.obj.getAdr() + "of type "
+				+ boolConstant.obj.getType().getKind());
+
+	}
+
+	public void visit(LValueDesignator1 ldesignator) {
+		Obj obj = ldesignator.getDesignator().obj;
+
+		if (obj.getKind() == Obj.Con) {
+			report_error("Lvalue cannot be a constant", null);
+		}
+
+		currentClassObj = null;
+		ldesignator.obj = obj;// new Obj(obj.getKind(), "", new
+								// Struct(Struct.Array, Tab.noType));
+	}
+
+	public void visit(RValueDesignator1 rdesignator) {
+		
+		if(rdesignator.getDesignator().obj == null || rdesignator.getDesignator().obj == Tab.noObj){
+			report_error("designator obj is null in rvaluedesignator1 ", rdesignator);
+			return;
+		}
+		
+		if (rdesignator.getDesignator().obj.getType().getKind() == Struct.Array) {
+			
+			if(rdesignator.getDesignator() instanceof DesignatorArray){
+			String varName = ((DesignatorArray) rdesignator.getDesignator()).getArrayName().obj.getName();
+			rdesignator.obj = new Obj(Obj.Elem, varName, rdesignator.getDesignator().obj.getType().getElemType());
+			rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			}
+			else
+			{
+				String varName = ((DesignatorSimple) rdesignator.getDesignator()).getI1();
+				rdesignator.obj = new Obj(Obj.Var, varName, rdesignator.getDesignator().obj.getType());
+				rdesignator.obj.setAdr(Tab.find(varName).getAdr());
+			}
+		} else {
+			rdesignator.obj = rdesignator.getDesignator().obj;
+		}
+		
+		currentClassObj = null;
+	}
+	
+	public void visit(DesignatorClassElement1 designatorClassElement){
+		designatorClassElement.obj = designatorClassElement.getDesignator().obj;
+	}
+
+	// TODO
+	/*
+	public void visit(DesignatorClassElementSimple designator){
+		
+		if(currentClassObj.getType().getKind() != Struct.Class)
+		{
+			report_error("tried accesing field of non class object", designator);
+			designator.obj = Tab.noObj;
+			return;
+		}
+		
+		designator.obj = currentClassObj.getType().getMembers().searchKey(designator.getI1());
+		currentClassObj = designator.obj;		
+		if(currentClassObj == null || currentClassObj == Tab.noObj)
+		{
+			report_error("Class does not have field "+designator.getI1(), designator);
+		}
+	}
+	
+
+	public void visit(DesignatorClassElementArray designator)
+	{
+		if(currentClassObj.getType().getKind()!= Struct.Array)
+		{
+			report_error("tried accesing non array variable as array", designator);
+			designator.obj = Tab.noObj;
+			return;
+		}
+		
+		if(currentClassObj.getType().getElemType().getKind()!= Struct.Class)
+		{
+			report_error("tried accesing field of non class object", designator);
+			designator.obj = Tab.noObj;
+			return;
+		}
+		
+		designator.obj = currentClassObj.getType().getElemType().getMembers().searchKey(designator.obj.getName());
+		currentClassObj = designator.obj;		
+		if(currentClassObj == null || currentClassObj == Tab.noObj)
+		{
+			report_error("Class does not have field "+designator.obj.getName(), designator);
+		}
+	}
+	*/
+	// TODO
+	/*
+	public void visit(ArrayFieldName1 arrayName){
+		Obj obj = currentClassObj.getType().getMembers().searchKey(arrayName.getI1());
+		if (obj == Tab.noObj || obj == null) {
+			report_error("Undefined identifier " + arrayName1.getI1(), null);
+			return;
+		}
+
+		if (obj.getType().getKind() != Struct.Array) {
+			report_error("Variable " + arrayName1.getI1() + " is not an array.", null);
+		}
+
+		arrayName1.obj = obj;
+	}
+	*/
+	
+	
+	public void visit(DesignatorSimple designatorSimple) {
+		String name = designatorSimple.getI1();
+		
+		Obj obj = null;
+		if(currentClassObj != null){
+				obj = currentClassObj.getType().getMembers().searchKey(name);
+				if(obj == null){
+					obj = Tab.find(name);
+				}
+		}
+		else
+		{
+		obj = Tab.find(name);
+		}
+		if (obj == null || obj == Tab.noObj) {
+			report_error("Identifier " + name + " was not defined.", null);
+			return;
+		}
+
+		log.debug("designator simple at line "+designatorSimple.getLine() + ": "+designatorSimple.getI1());
+		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
+			report_error("Identifier " + name + " is not a data identifier.", null);
+			return;
+		}
+		
+		if(obj.getType().getKind() == Struct.Class)
+		{
+			designatorSimple.obj = obj;
+			checkThatClassContainsField(currentClassObj, designatorSimple.getI1());
+			currentClassObj = obj;
+		}
+		else{
+		designatorSimple.obj = obj;
+		}
+	}
+	
+	private void checkThatClassContainsField(Obj clss, String name)
+	{
+		// first
+		if(clss == null)
+			return;
+		
+		Struct type = clss.getType();
+		Obj obj = type.getMembers().searchKey(name);
+		if(obj == null || obj == Tab.noObj)
+		{
+			report_error("Class "+clss.getName() + " does not contain a field named "+name, null);
+		}
+	}
+	
+	public void visit(LValueClassDesignator designator)
+	{
+		designator.obj = designator.getDesignator().obj;
+		currentClassObj = null;
+	}
+	
+	public void visit(RValueClassDesignator designator)
+	{
+		designator.obj = designator.getDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
+	}
+		
+	
+	public void visit(RValueMethodCall2 designator)
+	{
+		designator.obj = designator.getMethodDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
+	}
+	
+	public void visit(RValueMethodCall1 designator)
+	{
+		designator.obj = designator.getMethodDesignator().obj;
+		//designator.obj = new MyObj(designator.obj.getKind(), "load", designator.obj.getType());
+		currentClassObj = null;
+	}
+	
+	
+
+
+	public void visit(DesignatorArray designatorArray) {
+
+		Obj obj = designatorArray.getArrayName().obj;
+		String name = obj.getName();
+
+		if (obj == Tab.noObj) {
+			report_error("Identifier " + name + " was not defined.", null);
+			return;
+		}
+
+		if (obj.getKind() == Obj.Prog || obj.getKind() == Obj.Type || obj.getKind() == Obj.NO_VALUE) {
+			report_error("Identifier " + name + " is not a data identifier.", null);
+			return;
+		}
+
+		if (obj.getType().getKind() != Struct.Array) {
+			report_error("Invalid operation. Tried indexing variable that is not an array.", null);
+			return;
+		}
+
+		if(obj.getType().getElemType().getKind() == Struct.Class){
+			designatorArray.obj = new MyObj(Obj.Elem, "", obj.getType().getElemType());
+			checkThatClassContainsField(currentClassObj, name);
+			currentClassObj = designatorArray.obj;
+		}
+		else{
+			designatorArray.obj = new Obj(Obj.Elem, "", obj.getType().getElemType());
+		}
+	}
+
+	public void visit(ArrayName1 arrayName1) {
+		
+		Obj obj = null;
+		if(currentClassObj != null){
+			obj = currentClassObj.getType().getMembers().searchKey(arrayName1.getI1());
+		}
+		else{
+		 obj = Tab.find(arrayName1.getI1());
+		}
+		if (obj == Tab.noObj) {
+			report_error("Undefined identifier " + arrayName1.getI1(), null);
+			return;
+		}
+
+		if (obj.getType().getKind() != Struct.Array) {
+			report_error("Variable " + arrayName1.getI1() + " is not an array.", null);
+		}
+
+		arrayName1.obj = obj;
+	}
+
+	public void visit(DoWhileBegin1 doWhileBegin1) {
+		inWhile++;
+	}
+
+	public void visit(MatchdWhile matchdWhile) {
+		inWhile--;
+	}
+
+	public void visit(MatchedBreak matchedBreak) {
+		if (inWhile == 0) {
+			report_error("Break can only be used inside a loop.", null);
+		}
+	}
+
+	public void visit(MatchedContinue matchedContinue) {
+		if (inWhile == 0) {
+			report_error("Continue can only be used inside a loop.", null);
+		}
+	}
+
+	public boolean passed() {
+		return !errorDetected;
+	}
+
+}

@@ -1,0 +1,54 @@
+program Green1B
+
+const three = 3;
+
+int x;
+bool f,f2,f4;
+
+{
+
+	int two(){
+		f2 = true;
+		return 2;
+	}
+	
+	
+	int four() int res;
+	{
+		f4 = true;
+		res = two() * two();
+		return res;
+	}
+	
+	void out(){
+		if(f)
+			print('1');
+		else
+			print('0');
+		
+		if(f2)
+			print('2');
+		else
+			print('0');
+		
+		if(f4)
+			print('4');
+		else
+			print('0');
+		
+		
+		print(eol);
+		
+	}
+
+	void main(){
+		f = false;
+		f2 = false;
+		f4 = false;
+		
+		
+	
+	
+	}
+
+}

@@ -1,0 +1,203 @@
+INFO  16:00:01,427 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+ERROR 16:00:01,477 - Lexical error on line 3 (6): (!).
+ERROR 16:00:01,477 - Syntax error on line 4
+ERROR 16:00:01,478 - Error in var declaration.
+ERROR 16:00:01,478 - Syntax error on line 12
+ERROR 16:00:01,478 - Error in class declaration.
+ERROR 16:00:01,481 - Syntax error on line 15
+ERROR 16:00:01,481 - Error
+ERROR 16:00:01,485 - Syntax error on line 22
+ERROR 16:00:01,486 - Error
+ERROR 16:00:01,486 - Syntax error on line 24
+ERROR 16:00:01,486 - Error
+INFO  16:00:01,488 - ***Abstract tree***
+INFO  16:00:01,489 - 
+Program2(
+  ProgName(
+   AAA
+  ) [ProgName]
+  MultipleDeclDerived3(
+    MultipleDeclDerived2(
+      MultipleDeclDerived6(
+        VarDecl1(
+          Type1(
+           int
+          ) [Type1]
+          VarDeclListDerived2(
+            VarDeclElementSingle(
+             a
+            ) [VarDeclElementSingle]
+          ) [VarDeclListDerived2]
+        ) [VarDecl1]
+      ) [MultipleDeclDerived6]
+      VarDeclDerived1(
+      ) [VarDeclDerived1]
+    ) [MultipleDeclDerived2]
+    ClassDecl4(
+      ErrorClass(
+      ) [ErrorClass]
+      ClassDeclEnd1(
+      ) [ClassDeclEnd1]
+    ) [ClassDecl4]
+  ) [MultipleDeclDerived3]
+  ProgramBegin1(
+  ) [ProgramBegin1]
+  MultipleMethodDeclDerived1(
+    MultipleMethodDeclDerived2(
+      MethodDeclDerived3(
+        MethodNameAndRetType1(
+          TypeReturnType(
+            Type1(
+             int
+            ) [Type1]
+          ) [TypeReturnType]
+         f
+        ) [MethodNameAndRetType1]
+        FormParsDerived2(
+          FormParsElementDerived1(
+          ) [FormParsElementDerived1]
+        ) [FormParsDerived2]
+        MethodBegin1(
+        ) [MethodBegin1]
+        MultipleStatementsDerived2(
+          StatementDerived1(
+            StatementReturnValue(
+              ExprWithNoMinus(
+                SingleFactorTerm(
+                  ConstantFactor(
+                    NumberConstant(
+                     1
+                    ) [NumberConstant]
+                  ) [ConstantFactor]
+                ) [SingleFactorTerm]
+                OptionalExprListDerived2(
+                ) [OptionalExprListDerived2]
+              ) [ExprWithNoMinus]
+            ) [StatementReturnValue]
+          ) [StatementDerived1]
+        ) [MultipleStatementsDerived2]
+        MethodEnd1(
+        ) [MethodEnd1]
+      ) [MethodDeclDerived3]
+    ) [MultipleMethodDeclDerived2]
+    MethodDeclDerived1(
+      MethodNameAndRetType1(
+        VoidReturnType(
+          VoidTypeDerived1(
+          ) [VoidTypeDerived1]
+        ) [VoidReturnType]
+       main
+      ) [MethodNameAndRetType1]
+      MethodBegin1(
+      ) [MethodBegin1]
+      MultipleStatementsDerived1(
+        MultipleStatementsDerived1(
+          MultipleStatementsDerived1(
+            MultipleStatementsDerived1(
+              MultipleStatementsDerived2(
+                StatementDerived1(
+                  MatchedDerived1(
+                    DesignatorStatementAssignment(
+                      LValueDesignator1(
+                        DesignatorSimple(
+                         x
+                        ) [DesignatorSimple]
+                      ) [LValueDesignator1]
+                      ExprWithNoMinus(
+                        SingleFactorTerm(
+                          ConstantFactor(
+                            NumberConstant(
+                             5
+                            ) [NumberConstant]
+                          ) [ConstantFactor]
+                        ) [SingleFactorTerm]
+                        OptionalExprListDerived2(
+                        ) [OptionalExprListDerived2]
+                      ) [ExprWithNoMinus]
+                    ) [DesignatorStatementAssignment]
+                  ) [MatchedDerived1]
+                ) [StatementDerived1]
+              ) [MultipleStatementsDerived2]
+              StatementDerived1(
+                MatchedDerived1(
+                  DesignatorStatementDerived1(
+                  ) [DesignatorStatementDerived1]
+                ) [MatchedDerived1]
+              ) [StatementDerived1]
+            ) [MultipleStatementsDerived1]
+            StatementDerived2(
+              UnmatchedIf(
+                ConditionDerived1(
+                ) [ConditionDerived1]
+                StatementDerived1(
+                  MatchedDerived2(
+                  ) [MatchedDerived2]
+                ) [StatementDerived1]
+              ) [UnmatchedIf]
+            ) [StatementDerived2]
+          ) [MultipleStatementsDerived1]
+          StatementDerived1(
+            MatchedDerived1(
+              DesignatorStatementAssignment(
+                LValueDesignator1(
+                  DesignatorSimple(
+                   b
+                  ) [DesignatorSimple]
+                ) [LValueDesignator1]
+                ExprWithNoMinus(
+                  SingleFactorTerm(
+                    ConstantFactor(
+                      NumberConstant(
+                       5
+                      ) [NumberConstant]
+                    ) [ConstantFactor]
+                  ) [SingleFactorTerm]
+                  OptionalExprListDerived2(
+                  ) [OptionalExprListDerived2]
+                ) [ExprWithNoMinus]
+              ) [DesignatorStatementAssignment]
+            ) [MatchedDerived1]
+          ) [StatementDerived1]
+        ) [MultipleStatementsDerived1]
+        StatementDerived1(
+          PrintStatement(
+            ExprWithNoMinus(
+              SingleFactorTerm(
+                VariableFactor(
+                  RValueDesignator1(
+                    DesignatorSimple(
+                     x
+                    ) [DesignatorSimple]
+                  ) [RValueDesignator1]
+                ) [VariableFactor]
+              ) [SingleFactorTerm]
+              OptionalExprListDerived2(
+              ) [OptionalExprListDerived2]
+            ) [ExprWithNoMinus]
+          ) [PrintStatement]
+        ) [StatementDerived1]
+      ) [MultipleStatementsDerived1]
+      MethodEnd1(
+      ) [MethodEnd1]
+    ) [MethodDeclDerived1]
+  ) [MultipleMethodDeclDerived1]
+  ProgramEnd1(
+  ) [ProgramEnd1]
+) [Program2]
+INFO  16:00:01,498 - Searchinf for obj int (line 4) - found Type int: int, -1, -1  na liniji 3
+INFO  16:00:01,498 - Searchinf for obj noObj (line 4) - found Var noObj: notype, -1, -1  na liniji 3
+INFO  16:00:01,498 - Searchinf for obj int (line 16) - found Type int: int, -1, -1  na liniji 15
+INFO  16:00:01,498 - Searchinf for obj int (line 16) - found Type int: int, -1, -1  na liniji 15
+INFO  16:00:01,498 - Searchinf for obj noObj (line 22) - found Var noObj: notype, -1, -1  na liniji 21
+ERROR 16:00:01,498 - Identifier x was not defined.
+ERROR 16:00:01,499 - designator is null in designator statement assignment na liniji 21
+INFO  16:00:01,499 - Searchinf for obj noObj (line 27) - found Var noObj: notype, -1, -1  na liniji 26
+ERROR 16:00:01,499 - Identifier b was not defined.
+ERROR 16:00:01,499 - designator is null in designator statement assignment na liniji 26
+INFO  16:00:01,499 - Searchinf for obj noObj (line 28) - found Var noObj: notype, -1, -1  na liniji 27
+ERROR 16:00:01,499 - Identifier x was not defined.
+ERROR 16:00:01,499 - designator obj is null in rvaluedesignator1  na liniji 27
+ERROR 16:00:01,499 - obj is null
+ERROR 16:00:01,499 - Print function can only be called with 'int' or 'char' expression, is called with null
+INFO  16:00:01,499 - Print calls = 0
+ERROR 16:00:01,500 - Compilation was UNSUCCESSFUL!

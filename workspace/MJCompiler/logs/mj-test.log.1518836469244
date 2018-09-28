@@ -1,0 +1,52 @@
+INFO  04:00:11,620 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  04:00:11,641 - #40 program
+INFO  04:00:11,642 - #45 MJProgram
+INFO  04:00:11,642 - #45 int
+INFO  04:00:11,642 - #45 x
+INFO  04:00:11,642 - #13 ;
+INFO  04:00:11,642 - #45 int
+INFO  04:00:11,642 - #45 y
+INFO  04:00:11,642 - #13 ;
+INFO  04:00:11,642 - #34 {
+INFO  04:00:11,643 - #45 int
+INFO  04:00:11,643 - #45 k
+INFO  04:00:11,643 - #32 (
+INFO  04:00:11,643 - #33 )
+INFO  04:00:11,643 - #45 int
+INFO  04:00:11,643 - #45 c
+INFO  04:00:11,643 - #13 ;
+INFO  04:00:11,643 - #34 {
+INFO  04:00:11,643 - #45 c
+INFO  04:00:11,643 - #28 =
+INFO  04:00:11,643 - #9 1
+INFO  04:00:11,643 - #13 ;
+INFO  04:00:11,644 - #8 return
+INFO  04:00:11,645 - #45 c
+INFO  04:00:11,645 - #15 +
+INFO  04:00:11,645 - #9 2
+INFO  04:00:11,646 - #13 ;
+INFO  04:00:11,646 - #35 }
+INFO  04:00:11,646 - #45 int
+INFO  04:00:11,647 - #45 main
+INFO  04:00:11,647 - #32 (
+INFO  04:00:11,647 - #33 )
+INFO  04:00:11,649 - #34 {
+INFO  04:00:11,649 - #45 y
+INFO  04:00:11,649 - #28 =
+INFO  04:00:11,649 - #9 2
+INFO  04:00:11,649 - #13 ;
+INFO  04:00:11,649 - #45 x
+INFO  04:00:11,649 - #28 =
+INFO  04:00:11,649 - #45 y
+INFO  04:00:11,650 - #15 +
+INFO  04:00:11,650 - #9 2
+INFO  04:00:11,650 - #13 ;
+INFO  04:00:11,650 - #45 y
+INFO  04:00:11,650 - #28 =
+INFO  04:00:11,650 - #45 k
+INFO  04:00:11,650 - #32 (
+ERROR 04:00:11,650 - Sintaksna greska na liniji 13
+ERROR 04:00:11,650 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 13
+DEBUG 04:00:11,653 - aaa
+INFO  04:00:11,655 - Print calls = 0
+INFO  04:00:11,656 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj

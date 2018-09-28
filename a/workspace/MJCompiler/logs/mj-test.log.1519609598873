@@ -1,0 +1,147 @@
+INFO  02:46:17,324 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\correction.mj
+INFO  02:46:17,369 - #40 program
+INFO  02:46:17,369 - #45 MJProgram
+INFO  02:46:17,369 - #45 int
+INFO  02:46:17,369 - #45 jedan
+INFO  02:46:17,369 - #13 ;
+INFO  02:46:17,369 - #45 int
+INFO  02:46:17,370 - #45 pet
+INFO  02:46:17,370 - #13 ;
+INFO  02:46:17,370 - #45 char
+INFO  02:46:17,370 - #45 nizch
+INFO  02:46:17,370 - #36 [
+INFO  02:46:17,370 - #37 ]
+INFO  02:46:17,370 - #13 ;
+INFO  02:46:17,370 - #34 {
+INFO  02:46:17,370 - #43 void
+INFO  02:46:17,371 - #45 main
+INFO  02:46:17,372 - #32 (
+INFO  02:46:17,372 - #33 )
+INFO  02:46:17,372 - #34 {
+INFO  02:46:17,372 - #45 jedan
+INFO  02:46:17,372 - #28 =
+INFO  02:46:17,373 - #9 1
+INFO  02:46:17,373 - #13 ;
+INFO  02:46:17,374 - #45 pet
+INFO  02:46:17,374 - #28 =
+INFO  02:46:17,374 - #9 5
+INFO  02:46:17,374 - #13 ;
+INFO  02:46:17,374 - #45 nizch
+INFO  02:46:17,375 - #28 =
+INFO  02:46:17,375 - #31 new
+INFO  02:46:17,375 - #45 char
+INFO  02:46:17,375 - #36 [
+INFO  02:46:17,375 - #9 3
+INFO  02:46:17,375 - #37 ]
+INFO  02:46:17,375 - #13 ;
+INFO  02:46:17,375 - #45 nizch
+INFO  02:46:17,375 - #36 [
+INFO  02:46:17,375 - #9 0
+INFO  02:46:17,375 - #37 ]
+INFO  02:46:17,375 - #28 =
+INFO  02:46:17,375 - #10 a
+INFO  02:46:17,375 - #13 ;
+INFO  02:46:17,376 - #45 nizch
+INFO  02:46:17,376 - #36 [
+INFO  02:46:17,376 - #45 jedan
+INFO  02:46:17,376 - #37 ]
+INFO  02:46:17,376 - #28 =
+INFO  02:46:17,376 - #10 b
+INFO  02:46:17,376 - #13 ;
+INFO  02:46:17,376 - #45 nizch
+INFO  02:46:17,376 - #36 [
+INFO  02:46:17,376 - #45 pet
+INFO  02:46:17,376 - #16 -
+INFO  02:46:17,376 - #9 3
+INFO  02:46:17,377 - #37 ]
+INFO  02:46:17,378 - #28 =
+INFO  02:46:17,378 - #10 c
+INFO  02:46:17,378 - #13 ;
+INFO  02:46:17,378 - #41 print
+INFO  02:46:17,378 - #32 (
+INFO  02:46:17,378 - #45 nizch
+INFO  02:46:17,378 - #36 [
+INFO  02:46:17,378 - #9 2
+INFO  02:46:17,378 - #16 -
+INFO  02:46:17,378 - #9 1
+INFO  02:46:17,378 - #37 ]
+INFO  02:46:17,378 - #33 )
+INFO  02:46:17,378 - #13 ;
+INFO  02:46:17,378 - #41 print
+INFO  02:46:17,379 - #32 (
+INFO  02:46:17,379 - #45 nizch
+INFO  02:46:17,379 - #36 [
+INFO  02:46:17,379 - #45 jedan
+INFO  02:46:17,379 - #17 *
+INFO  02:46:17,379 - #9 2
+INFO  02:46:17,380 - #37 ]
+INFO  02:46:17,380 - #33 )
+INFO  02:46:17,380 - #13 ;
+INFO  02:46:17,380 - #35 }
+INFO  02:46:17,380 - #35 }
+INFO  02:46:17,382 - ***Abstract tree****
+INFO  02:46:17,382 - #0
+DEBUG 02:46:17,389 - Variable with name jedan has the address of 0
+DEBUG 02:46:17,389 - Variable with name pet has the address of 1
+DEBUG 02:46:17,389 - found constant with value 1of type 1
+DEBUG 02:46:17,389 - constant factor is type 1
+DEBUG 02:46:17,389 - term SingleFactorterm is type 1
+DEBUG 02:46:17,389 - exprWithNoMinus is type 1
+DEBUG 02:46:17,389 - found constant with value 5of type 1
+DEBUG 02:46:17,389 - constant factor is type 1
+DEBUG 02:46:17,389 - term SingleFactorterm is type 1
+DEBUG 02:46:17,389 - exprWithNoMinus is type 1
+DEBUG 02:46:17,389 - found constant with value 3of type 1
+DEBUG 02:46:17,389 - constant factor is type 1
+DEBUG 02:46:17,389 - term SingleFactorterm is type 1
+DEBUG 02:46:17,389 - exprWithNoMinus is type 1
+DEBUG 02:46:17,390 - term SingleFactorterm is type 3
+DEBUG 02:46:17,390 - exprWithNoMinus is type 3
+DEBUG 02:46:17,390 - found constant with value 0of type 1
+DEBUG 02:46:17,390 - constant factor is type 1
+DEBUG 02:46:17,390 - term SingleFactorterm is type 1
+DEBUG 02:46:17,390 - exprWithNoMinus is type 1
+DEBUG 02:46:17,390 - found constant with value *****of type 2
+DEBUG 02:46:17,390 - found constant with value 97of type 2
+DEBUG 02:46:17,390 - constant factor is type 2
+DEBUG 02:46:17,390 - term SingleFactorterm is type 2
+DEBUG 02:46:17,390 - exprWithNoMinus is type 2
+DEBUG 02:46:17,390 - term SingleFactorterm is type 1
+DEBUG 02:46:17,390 - exprWithNoMinus is type 1
+DEBUG 02:46:17,390 - found constant with value *****of type 2
+DEBUG 02:46:17,390 - found constant with value 98of type 2
+DEBUG 02:46:17,390 - constant factor is type 2
+DEBUG 02:46:17,390 - term SingleFactorterm is type 2
+DEBUG 02:46:17,390 - exprWithNoMinus is type 2
+DEBUG 02:46:17,390 - term SingleFactorterm is type 1
+DEBUG 02:46:17,390 - found constant with value 3of type 1
+DEBUG 02:46:17,390 - constant factor is type 1
+DEBUG 02:46:17,390 - term SingleFactorterm is type 1
+DEBUG 02:46:17,390 - exprWithNoMinus is type 1
+DEBUG 02:46:17,390 - found constant with value *****of type 2
+DEBUG 02:46:17,390 - found constant with value 99of type 2
+DEBUG 02:46:17,390 - constant factor is type 2
+DEBUG 02:46:17,390 - term SingleFactorterm is type 2
+DEBUG 02:46:17,390 - exprWithNoMinus is type 2
+DEBUG 02:46:17,390 - found constant with value 2of type 1
+DEBUG 02:46:17,390 - constant factor is type 1
+DEBUG 02:46:17,391 - term SingleFactorterm is type 1
+DEBUG 02:46:17,391 - found constant with value 1of type 1
+DEBUG 02:46:17,391 - constant factor is type 1
+DEBUG 02:46:17,391 - term SingleFactorterm is type 1
+DEBUG 02:46:17,391 - exprWithNoMinus is type 1
+DEBUG 02:46:17,391 - term SingleFactorterm is type 2
+DEBUG 02:46:17,391 - exprWithNoMinus is type 2
+DEBUG 02:46:17,391 - print statement has arg of type 2
+DEBUG 02:46:17,391 - found constant with value 2of type 1
+DEBUG 02:46:17,391 - constant factor is type 1
+DEBUG 02:46:17,391 - term element is type 1
+DEBUG 02:46:17,391 - term list single is type 1
+DEBUG 02:46:17,391 - term MultiFactorTerm is type 1
+DEBUG 02:46:17,391 - exprWithNoMinus is type 1
+DEBUG 02:46:17,391 - term SingleFactorterm is type 2
+DEBUG 02:46:17,391 - exprWithNoMinus is type 2
+DEBUG 02:46:17,391 - print statement has arg of type 2
+INFO  02:46:17,391 - Print calls = 0
+INFO  02:46:17,393 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  02:46:17,399 - Parsiranje uspesno zavrseno!

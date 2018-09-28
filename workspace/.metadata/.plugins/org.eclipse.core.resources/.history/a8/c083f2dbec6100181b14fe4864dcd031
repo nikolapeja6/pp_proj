@@ -1,0 +1,106 @@
+program Green1B
+
+const int three = 3;
+
+int x;
+bool f,f2,f4;
+
+{
+
+	int two(){
+		f2 = true;
+		return 2;
+	}
+	
+	
+	int four() int res;
+	{
+		f4 = true;
+		res = two() * two();
+		return res;
+	}
+	
+	void out(){
+		if(f)
+			print('1');
+		else
+			print('0');
+		
+		if(f2)
+			print('1');
+		else
+			print('0');
+		
+		if(f4)
+			print('1');
+		else
+			print('0');
+		
+		
+		print(eol);
+		
+	}
+	
+	void readNum(bool ret[] )int i;{
+		i = 0;
+		do{
+			read(ret[i]);
+			i++;
+		}while(i < four());
+	}
+
+	int transfofm(bool num []) int i; int res;{
+		i = 3;
+		res = 0;
+		do{
+			res = res*2+num[i];
+			num[i] = 1;
+			i--;
+		}while(i >= 0);
+		
+		return ret;
+	}
+
+	void main() bool val[];{
+		f = false;
+		f2 = false;
+		f4 = false;
+		
+		// 000
+		out();
+		
+		// 2
+		print(two());
+		print(eol);
+		
+		//020
+		out();
+		
+		f2 = false;
+		
+		// 4
+		print(four());
+		print(eol);
+		
+		//024
+		out();
+	
+		// read value
+		val = new bool[four()];
+		readNum(val);
+		x = transform(val);
+		// print actual value
+		print(x);
+		print(eol);
+		
+		// 1111
+		print(val[0],1);
+		print(val[1], 1);
+		print(val[2],1);
+		print(val[3], 1);
+		print(eol);
+		
+	
+	}
+
+}

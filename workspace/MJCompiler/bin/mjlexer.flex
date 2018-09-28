@@ -79,7 +79,7 @@ import org.apache.log4j.*;
  "]"		{return new_symbol(sym.CLOSE_CHEVRONS, yytext());}
 
 
- "true"|"false" 					{return new_symbol(sym.BOOL, Boolean.valueOf(yytext()));}
+ "true"|"false" 					{return new_symbol(sym.BOOL, yytext());}
  ([a-z]|[A-Z])([a-z|A-Z|0-9|_])* 	{return new_symbol(sym.IDENT, yytext());}
  [0-9]+ 							{return new_symbol(sym.NUMBER, new Integer(yytext()));}
  \'[^\']\' 						{return new_symbol(sym.CHAR, Character.toString(yytext().charAt(1)));}

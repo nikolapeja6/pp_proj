@@ -1,0 +1,25 @@
+INFO  02:25:29,525 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\test302.mj
+INFO  02:25:29,570 - #40 program
+INFO  02:25:29,570 - #45 test302
+INFO  02:25:29,570 - #45 int
+INFO  02:25:29,570 - #45 i
+INFO  02:25:29,570 - #13 ;
+INFO  02:25:29,571 - #45 bool
+INFO  02:25:29,572 - #45 ibool
+INFO  02:25:29,572 - #13 ;
+INFO  02:25:29,572 - #45 int
+INFO  02:25:29,572 - #45 niz
+INFO  02:25:29,572 - #36 [
+INFO  02:25:29,572 - #37 ]
+INFO  02:25:29,572 - #13 ;
+INFO  02:25:29,572 - #34 {
+INFO  02:25:29,572 - #45 int
+INFO  02:25:29,573 - #45 sum
+INFO  02:25:29,573 - #32 (
+INFO  02:25:29,573 - #45 int
+ERROR 02:25:29,573 - Sintaksna greska na liniji 12
+ERROR 02:25:29,573 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 12
+INFO  02:25:29,577 - ***Abstract tree****
+INFO  02:25:29,577 - #22
+INFO  02:25:29,580 - Print calls = 0
+INFO  02:25:29,582 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj

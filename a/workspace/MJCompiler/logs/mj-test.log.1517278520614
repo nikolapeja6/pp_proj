@@ -1,0 +1,68 @@
+INFO  03:14:57,717 - Compiling source file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  03:14:57,758 - #41 program
+INFO  03:14:57,758 - #46 MJProgram
+INFO  03:14:57,758 - #46 int
+INFO  03:14:57,758 - #46 x
+INFO  03:14:57,758 - #46 a
+ERROR 03:14:57,758 - Sintaksna greska na liniji 2
+INFO  03:14:57,759 - #14 ;
+INFO  03:14:57,759 - #46 int
+INFO  03:14:57,759 - #46 y
+INFO  03:14:57,759 - #14 ;
+INFO  03:14:57,759 - Uspesan oporavak od greske deklaracije promenljive.
+INFO  03:14:57,760 - #35 {
+INFO  03:14:57,760 - #46 int
+INFO  03:14:57,760 - #46 k
+INFO  03:14:57,760 - #33 (
+INFO  03:14:57,760 - #34 )
+INFO  03:14:57,760 - #46 int
+INFO  03:14:57,760 - #46 c
+INFO  03:14:57,760 - #14 ;
+INFO  03:14:57,760 - #35 {
+INFO  03:14:57,761 - #46 c
+INFO  03:14:57,761 - #29 =
+INFO  03:14:57,761 - #9 1
+INFO  03:14:57,761 - #14 ;
+INFO  03:14:57,761 - #8 return
+INFO  03:14:57,762 - #46 c
+INFO  03:14:57,762 - #16 +
+INFO  03:14:57,762 - #9 2
+INFO  03:14:57,762 - #14 ;
+INFO  03:14:57,763 - #36 }
+INFO  03:14:57,763 - #46 int
+INFO  03:14:57,763 - #46 main
+INFO  03:14:57,763 - #33 (
+INFO  03:14:57,763 - #34 )
+INFO  03:14:57,763 - #35 {
+INFO  03:14:57,763 - #46 y
+INFO  03:14:57,763 - #29 =
+INFO  03:14:57,764 - #9 2
+INFO  03:14:57,764 - #14 ;
+INFO  03:14:57,764 - #46 x
+INFO  03:14:57,764 - #29 =
+INFO  03:14:57,764 - #46 y
+INFO  03:14:57,764 - #16 +
+INFO  03:14:57,764 - #9 2
+INFO  03:14:57,764 - #14 ;
+INFO  03:14:57,764 - #46 y
+INFO  03:14:57,764 - #29 =
+INFO  03:14:57,764 - #46 k
+INFO  03:14:57,764 - #33 (
+INFO  03:14:57,764 - #34 )
+INFO  03:14:57,764 - #16 +
+INFO  03:14:57,764 - #9 3
+INFO  03:14:57,764 - #14 ;
+INFO  03:14:57,764 - #42 print
+INFO  03:14:57,764 - #33 (
+INFO  03:14:57,764 - #46 y
+INFO  03:14:57,764 - #34 )
+INFO  03:14:57,764 - #14 ;
+INFO  03:14:57,764 - #8 return
+INFO  03:14:57,764 - #9 0
+INFO  03:14:57,765 - #14 ;
+INFO  03:14:57,765 - #36 }
+INFO  03:14:57,765 - #36 }
+INFO  03:14:57,765 - ***Abstract tree****
+INFO  03:14:57,765 - #0
+INFO  03:14:57,770 - Print calls = 0
+INFO  03:14:57,771 - Generating bytecode file: C:\Users\Peja\Documents\GitHub\pp_proj\workspace\MJCompiler\out\program.obj

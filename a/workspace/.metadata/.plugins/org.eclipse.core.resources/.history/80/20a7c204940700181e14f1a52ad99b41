@@ -1,0 +1,567 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import java.io.*;
+import org.apache.log4j.*;
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+		
+	Logger log = Logger.getLogger(getClass());
+	
+	boolean syntaxErrorFound = false;
+	
+	public void report_fatal_error(String message, Object info) throws java.lang.Exception
+	{
+		done_parsing();
+		report_error(message, info);
+		Tab.dump();
+	}
+	
+	public void syntax_error(Symbol cur_token)
+	{
+		report_error("Sintaksna greska", cur_token);
+		syntaxErrorFound = true;
+	}
+	
+	public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception
+	{
+		report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+	}
+	
+	public void report_error(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" na liniji ").append(((Symbol)info).left);
+		}
+		log.error(msg.toString());
+	}
+	
+	public void report_info(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" na liniji ").append(((Symbol)info).left);
+		}
+		log.info(msg.toString());
+	}
+	
+	public void report_debug(String message, Object info)
+	{
+		StringBuilder msg = new StringBuilder(message);
+		if(info instanceof Symbol)
+		{
+			msg.append(" na liniji ").append(((Symbol)info).left);
+		}
+		log.debug(msg.toString());
+	}
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if(s != null && s.value != null)
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+
+
+/**
+ *  TERMINALS: 
+ *  
+ *  CONTROL FLOW
+ *  LITERALS
+ *  PUNCTUATION
+ *  OPERATORS
+ *  	ARITHMETIC
+ *  	COMPARISON
+ *  	LOGIC
+ *  	ASSIGNMENT
+ *  	SIDE-EFFECT
+ *  	ALLOCATION
+ *  PARENTHESES
+ *  CLASS REALATED
+ *  OTHER
+ *  
+ */
+
+/** CONTROL FLOW TERMINALS */
+terminal IF, ELSE, BREAK, DO, WHILE, CONTINUE, RETURN;
+
+
+/** LITERALS */
+terminal Integer NUMBER;
+terminal String CHAR;
+terminal String BOOL;
+
+
+/** PUNCTUATION */
+terminal COMMA, SEMICOLON, DOT;
+
+
+/** OPERATORS */
+
+/** ARITHMETIC OPERATORS */
+terminal PLUS, MINUS, MULTUPLY, DIV, MOD;
+
+/** COMPARISON OPERATORS */
+terminal EQUAL, NOT_EQUAL, GREATER, LESS, GREATER_OR_EQUEL, LESS_OR_EQUEL;
+
+/** LOGIC OPERATORS */
+terminal AND, OR;
+
+/** ASSIGNMENT */
+terminal ASSIGN;
+
+/** SIDE-EFFECT */
+terminal INC, DEC;
+
+/** ALLOCATION */
+terminal NEW;
+
+/** END OF OPERATORS */
+
+
+/** PARENTHESES */
+terminal	OPEN_PARENTHESES, 	CLOSE_PARENTHESES,
+			OPEN_BRACES, 		CLOSE_BRACES,
+			OPEN_CHEVRONS, 		CLOSE_CHEVRONS;
+
+
+/** CLASS RELATED */
+terminal CLASS, EXTENDS;
+
+
+/** OTHER */
+terminal PROG, PRINT, READ, VOID, CONST;
+terminal String IDENT;
+
+/**
+ * END OF TERMINALS
+ */
+
+
+
+
+
+/** NON TERMINALS */
+
+non terminal Decl;
+non terminal ConstDecl, VarDecl, ClassDecl, MethodDecl;
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormalPars;
+non terminal Statement;
+non terminal DesignatorStatement;
+non terminal ActPars;
+non terminal Condition, CondTerm, CondFact;
+non terminal Relop, Addop, Mulop;
+
+
+non terminal Matched, Unmatched;
+
+
+non terminal DeclAssignmenList;
+non terminal VarDeclList;
+non terminal ClassBodyDecl;
+non terminal MultipleVarDecl, OptionalMultipleVarDecl;
+non terminal MultipleMethodDecl;
+non terminal MultipleStatement, MultipleStatementHelper;
+non terminal rs.etf.pp1.symboltable.concepts.Obj FormalPar;
+non terminal MultipleAddopTerm;
+non terminal MultipleMulopFactor;
+non terminal DesignatorElem, MultipleDesignatorElem;
+
+
+non terminal ReturnType;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Literal;
+
+/* END OF NON TERMINALS */
+
+
+
+/** NON TERMINALS FOR SEMANTIC ANALYSIS */
+
+non terminal rs.etf.pp1.symboltable.concepts.Obj ProgName;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Program;
+non terminal rs.etf.pp1.symboltable.concepts.Obj OptionalMultipleMethodDecl;
+non terminal rs.etf.pp1.symboltable.concepts.Obj NewClass;
+non terminal rs.etf.pp1.symboltable.concepts.Obj DerivedClass;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ParentType;
+non terminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
+non terminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+
+
+non terminal rs.etf.pp1.symboltable.concepts.Struct Type;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Term;
+non terminal rs.etf.pp1.symboltable.concepts.Struct Factor;
+non terminal rs.etf.pp1.symboltable.concepts.Struct MulopFactor;
+non terminal rs.etf.pp1.symboltable.concepts.Struct VarDeclElem;
+non terminal rs.etf.pp1.symboltable.concepts.Struct DeclAssignElement;
+
+
+
+
+/* END OF  NON TERMINALS FOR SEMANTIC ANALYSIS */
+
+
+
+Program ::= (ProgramNoDecl) PROG ProgName:p OPEN_BRACES MultipleMethodDecl CLOSE_BRACES
+			|
+			(ProgramDecl) PROG ProgName:p Decl OPEN_BRACES MultipleMethodDecl CLOSE_BRACES
+			;
+ProgName ::= (ProgramName)IDENT:pName
+;
+
+MultipleMethodDecl ::=  MethodDecl
+						|
+						MultipleMethodDecl MethodDecl
+						;
+						
+OptionalMultipleMethodDecl ::=  MultipleMethodDecl
+								|
+								 /* empty */
+								;
+
+
+Decl ::= ConstDecl
+		 |
+		 VarDecl
+		 |
+		 ClassDecl
+		 |
+		 Decl ConstDecl
+		 | 
+		 Decl VarDecl
+		 |
+		 Decl ClassDecl
+		 ;
+
+
+Literal ::= (NumberLiteral) NUMBER
+			|
+			(CharLiteral) CHAR
+			|
+			(BoolLiteral) BOOL
+			;
+
+DeclAssignElement ::= (DeclAssignElem) IDENT:name ASSIGN Literal:value;
+
+DeclAssignmenList ::= DeclAssignElement
+					  |
+					  DeclAssignmenList COMMA DeclAssignElement
+					  ;
+
+ConstDecl ::= (CnstDecl) CONST Type:type DeclAssignmenList SEMICOLON
+				|
+				(ErrorConstDecl)CONST error SEMICOLON
+				/*{:
+					parser.log.info("Uspesan oporavak od greske dodele vrednosti.");
+				:}*/
+			  ;
+
+VarDeclElem ::= (SingleVarDeclElem) IDENT:name
+				|
+				(ArrayVarDeclElem) IDENT:name OPEN_CHEVRONS CLOSE_CHEVRONS
+				;
+
+VarDeclList ::= VarDeclElem
+				|
+				VarDeclElem COMMA VarDeclList 
+				;
+
+
+VarDecl ::= (VariableDecl) Type:varType VarDeclList SEMICOLON
+			|
+			(VariableDeclError) error SEMICOLON 
+			/*{:
+				parser.log.info("Uspesan oporavak od greske deklaracije promenljive.");
+			:}*/
+			;
+
+MultipleVarDecl ::= VarDecl
+				   |
+				   MultipleVarDecl VarDecl
+				   ;
+				   
+OptionalMultipleVarDecl ::= MultipleVarDecl
+							|
+							/* empty */
+							;
+
+ClassBodyDecl ::= OptionalMultipleVarDecl OPEN_BRACES OptionalMultipleMethodDecl CLOSE_BRACES
+				   /*
+				   |
+				   MultipleVarDecl
+				  |
+				  OPEN_BRACES OptionalMultipleMethodDecl CLOSE_BRACES
+				  */
+				  ;
+
+ClassDecl ::= (CldDcl1) NewClass OPEN_BRACES ClassBodyDecl CLOSE_BRACES
+			  |
+			  (CldDcl2) DerivedClass OPEN_BRACES ClassBodyDecl CLOSE_BRACES
+			  |
+			 (CldDcl3) NewClass OPEN_BRACES CLOSE_BRACES
+			  |
+			  (CldDcl4) DerivedClass OPEN_BRACES CLOSE_BRACES
+			  ;
+			  
+
+NewClass ::= (NClass) CLASS ClassName: name;
+
+DerivedClass ::= (DClass) CLASS ClassName:name EXTENDS Type:type;
+		
+ClassName ::= (ClassN) IDENT:name;
+
+ReturnType ::= (RetType)Type:t
+			   |
+			   (VoidRetType) VOID 
+			   ;
+
+MethodDecl ::= 	(MethodDeclNoPars)ReturnType:retType IDENT:ident   OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
+				|
+				(MethodDeclFull)ReturnType:retType   IDENT:ident  OPEN_PARENTHESES FormalPars:pars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES MultipleStatement CLOSE_BRACES 
+				|
+				(MethodDeclNoParsNoBody) ReturnType:retType   IDENT:ident  OPEN_PARENTHESES CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
+				|
+				(MethodDeclNoBody)ReturnType:retType   IDENT:ident  OPEN_PARENTHESES FormalPars:pars CLOSE_PARENTHESES OptionalMultipleVarDecl OPEN_BRACES CLOSE_BRACES 
+				;
+
+FormalPar ::= (NormalFormalPar) Type:type IDENT:ident 
+				|
+			   (ArrayFormalPar) Type:type IDENT:ident OPEN_CHEVRONS CLOSE_CHEVRONS
+			  ;
+
+FormalPars ::= (SingleFormalPar) FormalPar:formalPar
+				|
+				error
+				/*{:
+					parser.log.info("Uspesan oporavak od pogesne deklaracije parametra funkcije");
+					
+				:}*/
+			  	|
+			   (MultipleFormalPars)FormalPar:formalPar COMMA FormalPars
+			   |
+			   error COMMA FormalPars
+				/*{:
+					parser.log.info("Uspesan oporavak od pogesne deklaracije parametra funkcije");
+					
+				:}*/
+			   ;
+
+Type ::= (Tp) IDENT:typeName 
+;
+
+
+Statement ::= 	Matched 
+				|
+				Unmatched
+				|
+				/*diff*/
+				(NewBlockStatement) OPEN_BRACES MultipleStatementHelper CLOSE_BRACES
+				;
+
+Matched ::=  (MatchedDesignatorStatement) DesignatorStatement SEMICOLON
+			|
+			IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Matched
+			|
+			IF OPEN_PARENTHESES error CLOSE_PARENTHESES Matched ELSE Matched
+			/*{:
+				parser.log.info("Uspesan oporavak od greske u uslovu if-a");
+			:}*/
+			|
+			DO Statement WHILE OPEN_PARENTHESES Condition CLOSE_PARENTHESES SEMICOLON
+			|
+			(BreakStatement)BREAK SEMICOLON
+			| 
+			(ContinueStatement) CONTINUE SEMICOLON
+			|
+			(ReturnStatement) RETURN SEMICOLON
+			|
+			(ReturnExprStatement) RETURN Expr SEMICOLON
+			|
+			(ReadStatement) READ OPEN_PARENTHESES Designator CLOSE_PARENTHESES SEMICOLON
+			|
+			(MatchedSimplePrintStatement) PRINT OPEN_PARENTHESES Expr:expr CLOSE_PARENTHESES SEMICOLON
+			{:parser.log.debug("found print");:}
+			|
+			(MatchedComplexPrintStatement) PRINT OPEN_PARENTHESES Expr:expr  COMMA NUMBER:num CLOSE_PARENTHESES SEMICOLON
+			|
+			/* empty */
+			(EmptyStatement) OPEN_BRACES CLOSE_BRACES 
+			;
+
+Unmatched ::=	IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				|
+				IF OPEN_PARENTHESES error CLOSE_PARENTHESES Statement
+				/*{:
+					parser.log.info("Uspesan oporavak od greske u uslovu if-a");
+				:}*/
+				|
+				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Matched ELSE Unmatched
+				|
+				IF OPEN_PARENTHESES error CLOSE_PARENTHESES Matched ELSE Unmatched
+				/*{:
+					parser.log.info("Uspesan oporavak od greske u uslovu if-a");
+				:}*/
+				;
+					
+/*
+Statement ::= 	DesignatorStatement SEMICOLON
+				|
+				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement
+				|
+				IF OPEN_PARENTHESES Condition CLOSE_PARENTHESES Statement ELSE Statement
+				|
+				DO Statement WHILE OPEN_PARENTHESES Condition CLOSE_PARENTHESES SEMICOLON
+				|
+				BREAK SEMICOLON
+				|
+				CONTINUE SEMICOLON
+				|
+				RETURN SEMICOLON
+				|
+				RETURN Expr SEMICOLON
+				|
+				READ OPEN_PARENTHESES Designator CLOSE_PARENTHESES SEMICOLON
+				|
+				PRINT OPEN_PARENTHESES Expr CLOSE_PARENTHESES SEMICOLON
+				|
+				PRINT OPEN_PARENTHESES Expr  COMMA NUMBER CLOSE_PARENTHESES SEMICOLON
+				|
+				/* empty 
+				OPEN_BRACES CLOSE_BRACES 
+				|
+				OPEN_BRACES MultipleStatementHelper CLOSE_BRACES
+				;
+
+*/
+				
+MultipleStatement ::= MultipleStatement Statement
+					  |
+					  Statement
+					  ;
+
+MultipleStatementHelper ::= MultipleStatementHelper Statement
+					  		|
+					  		Statement
+					  		;
+					  
+DesignatorStatement ::= (DesignatorAssignment) Designator ASSIGN Expr
+						|
+						(EmptyFunctionCall) Designator OPEN_PARENTHESES CLOSE_PARENTHESES
+						|
+						 Designator OPEN_PARENTHESES ActPars CLOSE_PARENTHESES
+						|
+						(DecisgnatorInc) Designator INC
+						|
+						(DesignatorDec) Designator DEC
+						|
+						error SEMICOLON
+						/*{:
+							parser.log.info("Uspesan oporavak od greske dodele vrednosti.");
+						:}*/
+						;
+
+ActPars ::=  (SingleExpression) Expr:expr
+			|
+			(MultiExpression) ActPars:morePars COMMA Expr:expr
+			;
+			
+Condition ::= (SingleCondition) CondTerm
+			  |
+			  (MultiCondition) Condition OR CondTerm
+			  ;
+CondTerm ::= (SingleCondTerm) CondFact 
+			 |
+			 (MultiCondTerm) CondTerm AND CondFact
+			 ;
+CondFact ::= (SingleCondFact)Expr
+			 |
+			 (MultiCondFact)Expr Relop Expr
+			 ;
+			 
+Expr ::= (PositiveExpr) Term:t MultipleAddopTerm 
+		 |
+		 (NegativeExpr) MINUS Term:t MultipleAddopTerm 
+		 ;
+		 
+MultipleAddopTerm ::= MultipleAddopTerm Addop Term
+					  |
+					  /* empty */
+					  ;
+Term ::= (TF) Factor
+		{:parser.log.debug("found print");:}
+		|
+		 (MFT) Factor MultipleMulopFactor
+		;
+
+MultipleMulopFactor ::= (RMF) MultipleMulopFactor:m Mulop Factor:f
+						|
+						(SMF) Mulop Factor:f
+						;
+
+Factor ::=  (SingleDesignatorFactor) Designator
+			|
+			(FactorEmptyFunctionCall)Designator:fun OPEN_PARENTHESES CLOSE_PARENTHESES
+			|
+			(FactorFunctionCall) Designator:fun OPEN_PARENTHESES ActPars:pars CLOSE_PARENTHESES
+			|
+			(NumFactor) NUMBER
+			|
+			(CharFactor) CHAR
+			|
+			(BoolFactor) BOOL
+			|
+			(NewFactor) NEW Type:type
+			|
+			(NewArrayFactor) NEW Type OPEN_CHEVRONS Expr CLOSE_CHEVRONS
+			|
+			(ParFactor) OPEN_PARENTHESES Expr CLOSE_PARENTHESES
+			;
+
+			
+DesignatorElem ::= 	(AccessingFieldDesignatorElem) DOT IDENT:ident
+					|
+					(IndexingDesignatorElem) OPEN_CHEVRONS Expr:expr CLOSE_CHEVRONS
+					;
+					
+MultipleDesignatorElem ::= (MultiDesignatorELem) MultipleDesignatorElem:more DesignatorElem:elem
+							|
+							(SingleDesignatorElem) DesignatorElem:elem
+							;
+Designator ::= (SingleDesignator) IDENT:ident
+				|
+				(ArrayElementDesignator) IDENT:array MultipleDesignatorElem
+				;
+				
+Relop ::= 	EQUAL
+			|
+			NOT_EQUAL
+			|
+			GREATER
+			|
+			LESS
+			|
+			GREATER_OR_EQUEL
+			|
+			LESS_OR_EQUEL
+			;
+			
+Addop ::= 	PLUS
+			|
+			MINUS
+			;
+			
+Mulop ::= 	MULTUPLY
+			|
+			DIV
+			|
+			MOD
+			;

@@ -1,0 +1,13 @@
+INFO  02:29:08,381 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\test301.mj
+INFO  02:29:08,424 - #40 program
+INFO  02:29:08,424 - #45 test301
+INFO  02:29:08,424 - #45 int
+INFO  02:29:08,424 - #45 jedan
+INFO  02:29:08,424 - #28 =
+ERROR 02:29:08,424 - Sintaksna greska na liniji 7
+ERROR 02:29:08,424 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 7
+INFO  02:29:08,427 - ***Abstract tree****
+INFO  02:29:08,428 - #14
+INFO  02:29:08,431 - Print calls = 0
+INFO  02:29:08,433 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  02:29:08,435 - Parsiranje uspesno zavrseno!

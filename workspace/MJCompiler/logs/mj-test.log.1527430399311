@@ -1,0 +1,35 @@
+INFO  16:13:06,735 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\err.mj
+ERROR 16:13:06,791 - Lexical error on line 3 (6): (!).
+ERROR 16:13:06,791 - Syntax error on line 4
+ERROR 16:13:06,792 - Error in var declaration.
+ERROR 16:13:06,792 - Syntax error on line 12
+ERROR 16:13:06,792 - Error in class declaration.
+ERROR 16:13:06,794 - Syntax error on line 15
+ERROR 16:13:06,794 - Error
+ERROR 16:13:06,797 - Syntax error on line 19
+ERROR 16:13:06,797 - Fatal error, parsing cannot continue. Aborting. on line 32
+INFO  16:13:06,803 - ***Abstract tree***
+INFO  16:13:06,804 - 
+FormParsDerived1(
+  FormParsDerived2(
+    FormParsElementSingle(
+      Type1(
+       int
+      ) [Type1]
+     x
+    ) [FormParsElementSingle]
+  ) [FormParsDerived2]
+  FormParsElementSingle(
+    Type1(
+     int
+    ) [Type1]
+   y
+  ) [FormParsElementSingle]
+) [FormParsDerived1]
+INFO  16:13:06,818 - Searchinf for obj int (line 20) - found Type int: int, -1, -1  na liniji 19
+INFO  16:13:06,818 - Searchinf for obj noObj (line 20) - found Var noObj: notype, -1, -1  na liniji 19
+INFO  16:13:06,818 - Searchinf for obj int (line 20) - found Type int: int, -1, -1  na liniji 19
+INFO  16:13:06,818 - Searchinf for obj noObj (line 20) - found Var noObj: notype, -1, -1  na liniji 19
+INFO  16:13:06,819 - Print calls = 0
+ERROR 16:13:06,819 - No main method detected.
+ERROR 16:13:06,819 - Compilation was UNSUCCESSFUL!

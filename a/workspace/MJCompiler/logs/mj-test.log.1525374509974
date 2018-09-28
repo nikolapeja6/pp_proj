@@ -1,0 +1,60 @@
+INFO  21:07:01,727 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\class.mj
+INFO  21:07:01,781 - #40 program
+INFO  21:07:01,781 - #45 BBB
+INFO  21:07:01,781 - #38 class
+INFO  21:07:01,781 - #45 A
+INFO  21:07:01,781 - #34 {
+INFO  21:07:01,781 - #45 int
+INFO  21:07:01,781 - #45 b
+INFO  21:07:01,781 - #13 ;
+INFO  21:07:01,782 - #34 {
+INFO  21:07:01,782 - #43 void
+INFO  21:07:01,782 - #45 p1
+INFO  21:07:01,783 - #32 (
+INFO  21:07:01,783 - #33 )
+INFO  21:07:01,783 - #34 {
+INFO  21:07:01,783 - #41 print
+INFO  21:07:01,784 - #32 (
+INFO  21:07:01,784 - #10 1
+INFO  21:07:01,784 - #12 ,
+INFO  21:07:01,785 - #9 1
+INFO  21:07:01,785 - #33 )
+INFO  21:07:01,785 - #13 ;
+INFO  21:07:01,785 - #35 }
+INFO  21:07:01,786 - #43 void
+INFO  21:07:01,787 - #45 pa
+INFO  21:07:01,787 - #32 (
+INFO  21:07:01,787 - #33 )
+INFO  21:07:01,787 - #34 {
+INFO  21:07:01,787 - #41 print
+INFO  21:07:01,787 - #32 (
+INFO  21:07:01,787 - #10 a
+INFO  21:07:01,787 - #12 ,
+INFO  21:07:01,787 - #9 1
+INFO  21:07:01,787 - #33 )
+INFO  21:07:01,787 - #13 ;
+INFO  21:07:01,787 - #35 }
+INFO  21:07:01,787 - #35 }
+INFO  21:07:01,788 - #43 void
+ERROR 21:07:01,788 - Sintaksna greska na liniji 10
+ERROR 21:07:01,788 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 10
+INFO  21:07:01,791 - ***Abstract tree****
+INFO  21:07:01,791 - #31
+DEBUG 21:07:01,796 - found constant with value *****of type 2
+DEBUG 21:07:01,796 - found constant with value 49of type 2
+DEBUG 21:07:01,796 - constant factor is type 2
+DEBUG 21:07:01,796 - term SingleFactorterm is type 2
+DEBUG 21:07:01,796 - exprWithNoMinus is type 2
+DEBUG 21:07:01,796 - found constant with value 1of type 1
+DEBUG 21:07:01,796 - print statement has arg of type 2
+DEBUG 21:07:01,796 - found constant with value *****of type 2
+DEBUG 21:07:01,796 - found constant with value 97of type 2
+DEBUG 21:07:01,796 - constant factor is type 2
+DEBUG 21:07:01,796 - term SingleFactorterm is type 2
+DEBUG 21:07:01,796 - exprWithNoMinus is type 2
+DEBUG 21:07:01,796 - found constant with value 1of type 1
+DEBUG 21:07:01,796 - print statement has arg of type 2
+INFO  21:07:01,797 - Print calls = 0
+DEBUG 21:07:01,798 - 
+INFO  21:07:01,799 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
+INFO  21:07:01,806 - Parsiranje uspesno zavrseno!

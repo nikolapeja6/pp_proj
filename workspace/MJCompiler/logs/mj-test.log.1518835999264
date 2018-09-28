@@ -1,0 +1,12 @@
+INFO  03:52:55,939 - Compiling source file: F:\GitHub\pp_proj\workspace\MJCompiler\test\program.mj
+INFO  03:52:55,959 - #40 program
+INFO  03:52:55,959 - #45 MJProgram
+INFO  03:52:55,959 - #45 int
+INFO  03:52:55,959 - #45 x
+INFO  03:52:55,960 - #13 ;
+INFO  03:52:55,960 - #45 int
+ERROR 03:52:55,960 - Sintaksna greska na liniji 2
+ERROR 03:52:55,960 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 2
+DEBUG 03:52:55,967 - aaa
+INFO  03:52:55,969 - Print calls = 0
+INFO  03:52:55,970 - Generating bytecode file: F:\GitHub\pp_proj\workspace\MJCompiler\out\program.obj
