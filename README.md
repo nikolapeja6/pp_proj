@@ -17,7 +17,7 @@ The project was built based on the starter code written in the course exercises.
 The sepcification of the MicroJava language is given in [mikrojava_1718_jan.pdf][mj] located in the `docs` folder, along with the project statement which is in [pp1-1718-jan.pdf][statement] 
 (both docs are in Serbian).
 
-The `tests` folder contains some examples of a program written in MicroJava that can be successfully compiled and executed.
+The `tests` folder contains some examples of a programs written in MicroJava that can be successfully compiled and executed.
 
 [pp]: http://ir4pp1.etf.rs/
 [school]: https://www.etf.bg.ac.rs/
